@@ -1,0 +1,46 @@
+<ion-view view-title="My Wish">
+    <ion-content class="has-header scroll-bg font500">
+        <div class="padding"></div>
+        <p class="light padding">Planning for ?</p>
+        <div class="row text-center no-pad">
+            <div class="col">
+                <i class="icon-sprite home"></i>
+                <div class="simple-text">Home</div>
+            </div>
+            <div class="col">
+                <i class="icon-sprite improvement"></i> 
+                <div class="simple-text">Home Improvement</div>
+            </div>
+            <div class="col">
+                <i class="icon-sprite automobile"></i> 
+                <div class="simple-text">Automobiles</div>
+            </div>
+            <div class="col">
+                <i class="icon-sprite travel"></i> 
+                <div class="simple-text">Travel</div>
+            </div>
+        </div>
+        
+        <form ng-submit="" class="width90">
+            <div class="list signin">
+                <label class="item item-input">
+                    <span class="input-label"><i class="icon ion-android-add-circle"></i></span>
+                    <input type="tel" placeholder="Plan">
+                </label>
+                <label class="item item-input">
+                    <input type="text" placeholder="Amount">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label"><i class="icon ion-android-calendar"></i></span>
+                    <input type="text" onfocus="(this.type='date')" placeholder="Target Date">
+                </label>
+            </div>
+
+
+            <div class="button-image" ng-click="">
+                <img src="img/button2.png" alt="" class="full-image">
+                <div class="button-text assertive">Set your plan</div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

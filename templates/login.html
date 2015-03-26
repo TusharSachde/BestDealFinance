@@ -1,0 +1,46 @@
+<ion-view>
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Login</h1>
+    </ion-header-bar>
+    <ion-content class="has-header scroll-bg">
+        <div class="brand">
+            <img src="img/logo.png" alt="bdf">
+        </div>
+
+        <div class="padding"></div>
+
+        <form ng-submit="">
+            <div class="list signin">
+                <label class="item item-input">
+                    <span class="input-label"><i class="icon ion-android-mail"></i></span>
+                    <input type="email" placeholder="Email Address">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label"><i class="icon ion-android-lock"></i></span>
+                    <input type="password" placeholder="Password">
+                </label>
+            </div>
+
+
+            <a href="#/app/home">
+                <div class="button-image" ng-click="">
+                    <img src="img/button.png" alt="" class="full-image">
+                    <div class="button-text assertive">Sign In</div>
+                </div>
+            </a>
+        </form>
+
+        <div class="socials">
+            <img src="img/facebook.png" alt="facebook">
+            <img src="img/twitter.png" alt="twitter">
+        </div>
+
+        <div class="padding"></div>
+
+        <div class="links">
+            <a href="#/forgot">Forgot Password ?</a>
+            <a href="#/register" class="pull-right">New here ? Sign Up</a>
+        </div>
+
+    </ion-content>
+</ion-view>

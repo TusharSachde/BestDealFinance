@@ -1,0 +1,346 @@
+/* Empty. Add your own CSS if you like */
+
+@font-face {
+    font-family: "KabelITC";
+    src: url('../fonts/KabelITCbyBT-Medium.ttf');
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Light.ttf');
+    font-weight: 300;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-SemiBold.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-Bold.ttf');
+    font-weight: 600;
+}
+@font-face {
+    font-family: "Open Sans";
+    src: url('../fonts/OpenSans-ExtraBold.ttf');
+    font-weight: 700;
+}
+.scroll-bg {
+    background: url('../img/background.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.thankyou {
+    background-image: url('../img/thankyou.png')
+}
+.font500 {
+    font-weight: 500;
+}
+.bar {
+    -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
+}
+.brand img {
+    width: 60%;
+}
+.brand {
+    text-align: center;
+    margin-top: -7%;
+}
+.signin .input-label {
+    width: auto;
+}
+.signin .item {
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    border-color: transparent;
+}
+.signin .item+.item {
+    margin-top: 2px;
+}
+.button-image {
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+}
+.button-text {
+    font-size: 18px;
+    font-weight: 500;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    left: 0px;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center;
+    margin-top: -4px;
+}
+.socials img {
+    width: 45px;
+}
+.socials img+img {
+    margin-left: 10px;
+}
+.socials {
+    width: 150px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 20px 0 0;
+}
+a {
+    color: #b3b3b3;
+}
+.pull-right {
+    float: right;
+}
+.links {
+    padding: 0 20px;
+    font-size: 12px;
+}
+.simple-text {
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    line-height: 150%;
+}
+.full_brand img {
+    width: 80%;
+    max-width: 100%
+}
+.full_brand {
+    text-align: center;
+    padding-top: 40px;
+    width: 100%;
+}
+.bold {
+    font-weight: 600;
+}
+.icon-sprite {
+    height: 40px;
+    display: inline-block;
+    background: url(../img/category-sprite.png) no-repeat;
+    -webkit-background-size: auto 40px;
+    -moz-background-size: auto 40px;
+    -o-background-size: auto 40px;
+    background-size: auto 40px;
+}
+.icon-sprite.home {
+    width: 42px;
+}
+.icon-sprite.improvement {
+    width: 42px;
+    background-position-x: -44px;
+}
+.icon-sprite.automobile {
+    width: 43px;
+    background-position-x: -88px;
+}
+.icon-sprite.travel {
+    width: 23px;
+    background-position-x: -132px;
+}
+.row.no-pad {
+    padding: 0;
+}
+.icon-sprite+.simple-text {
+    margin-top: 5px;
+    font-size: 10px;
+}
+.width90 {
+    padding: 10px;
+}
+.width90 .item {
+    padding: 6px 30px 5px 10px;
+}
+.width90,
+.width90 .button-image,
+.width90 .item {
+    width: 100%;
+}
+.width90 .input-label {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+}
+.item-input .icon {
+    font-size: 18px;
+}
+.x2 {
+    font-size: 120%;
+}
+.x3 {
+    font-size: 150%;
+}
+.genie-img img {
+    width: 70%;
+}
+.genie-img {
+    text-align: center;
+    margin-top: 30%;
+}
+.gradient-list .item {
+    background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#9B9B9B));
+    background: -webkit-linear-gradient(#DFDFDF, #9B9B9B);
+    background: -moz-linear-gradient(#DFDFDF, #9B9B9B);
+    background: -o-linear-gradient(#DFDFDF, #9B9B9B);
+    background: linear-gradient(#DFDFDF, #9B9B9B);
+}
+.odd-even .item:nth-child(odd) {
+    background-color: #cccccc;
+}
+.odd-even .item:nth-child(even) {
+    background-color: #b3b3b3;
+}
+.icon-on-left .item {
+    border: 0px;
+    height: 100px;
+}
+.icon-on-left .texter {
+    left: 130px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.icon-holder {
+    position: relative;
+    height: 70px;
+    width: 100px;
+}
+.item-sprite {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    background: url('../img/category-sprite1.png') no-repeat;
+}
+.item-sprite.car {
+    width: 80px;
+    height: 24px;
+    background-position-y: -351px;
+}
+.item-sprite.home {
+    height: 42px;
+    width: 45px;
+    background-position-y: -387px;
+}
+.item-sprite.inhome {
+    height: 31px;
+    width: 70px;
+    background-position-y: -514px;
+}
+.item-sprite.bike {
+    height: 47px;
+    width: 70px;
+    background-position-y: -443px;
+}
+.item-sprite.travel {
+    height: 66px;
+    width: 70px;
+    background-position-y: -554px;
+}
+.item-sprite.person {
+    height: 50px;
+    width: 68px;
+    background-position-y: -636px;
+}
+.item-sprite.cards {
+    height: 50px;
+    width: 50px;
+    background-position-y: -701px;
+}
+.item-sprite.security {
+    height: 25px;
+    width: 80px;
+    background-position-y: -764px;
+}
+.item-sprite.eduction {
+    height: 30px;
+    width: 68px;
+    background-position-y: -801px;
+}
+.item-sprite.property {
+    height: 46px;
+    width: 68px;
+    background-position-y: 0;
+}
+.item-sprite.contruction {
+    height: 58px;
+    width: 68px;
+    background-position-y: -55px;
+}
+i.item-sprite.health {
+    height: 39px;
+    width: 52px;
+    background-position-y: -124px;
+}
+i.item-sprite.commercial {
+    height: 43px;
+    width: 72px;
+    background-position-y: -172px;
+}
+i.item-sprite.business {
+    height: 49px;
+    width: 65px;
+    background-position-y: -227px;
+}
+i.item-sprite.project {
+    height: 50px;
+    width: 52px;
+    background-position-y: -286px;
+}
+.home-icon img {
+    width: 80%;
+}
+.home-icon h6 {
+    margin: 0px;
+}
+.pad-up {
+    padding-top: 50px;
+}
+.atbottom {
+    bottom: 20px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    padding-top: 0px;
+}
+.bar .buttons span {
+    font-size: 18px;
+    vertical-align: top;
+}
+.home-icon a,
+.genie-img a {
+    text-decoration: none;
+    display: block;
+}
