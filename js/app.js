@@ -8,7 +8,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        app.initialize();
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -18,6 +17,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             StatusBar.overlaysWebView(true);
             StatusBar.styleLightContent();
         }
+        app.initialize();
     });
 })
 
