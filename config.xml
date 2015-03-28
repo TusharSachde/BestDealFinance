@@ -44,9 +44,10 @@
     <gap:plugin name="com.ionic.keyboard" />
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="com.phonegap.plugin.statusbar" />
-    <!--<gap:plugin name="org.apache.cordova.statusbar" />-->
     <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" />
+    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" /> 
+    
 
 
     <feature name="StatusBar">

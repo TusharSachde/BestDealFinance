@@ -8,9 +8,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
+        app.initialize();
         if (window.cordova && window.cordova.plugins.Keyboard) {
+            // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
         }
         if (window.StatusBar) {
@@ -29,13 +29,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
     })
-    
+
     .state('register', {
         url: "/register",
         templateUrl: "templates/register.html",
         controller: 'RegisterCtrl'
     })
-    
+
     .state('forgot', {
         url: "/forgot",
         templateUrl: "templates/forgot.html",
@@ -58,7 +58,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.myplan', {
         url: "/myplan",
         views: {
@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.finance', {
         url: "/finance",
         views: {
@@ -78,7 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.sme', {
         url: "/sme",
         views: {
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.genie', {
         url: "/genie",
         views: {
@@ -98,7 +98,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.listgenie', {
         url: "/listgenie",
         views: {
@@ -108,7 +108,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.thankyou', {
         url: "/thankyou",
         views: {
