@@ -109,6 +109,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
 
+    .state('app.listloan', {
+        url: "/listloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/listloan.html",
+                controller: 'LoanCtrl'
+            }
+        }
+    })
+
     .state('app.thankyou', {
         url: "/thankyou",
         views: {

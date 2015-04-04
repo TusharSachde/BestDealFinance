@@ -344,3 +344,106 @@ i.item-sprite.project {
     text-decoration: none;
     display: block;
 }
+.opaque-bg .item {
+    background: rgba(255, 255, 255, 0.9);
+    border: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.thumb-left {
+    width: 70px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+img.ribbon {
+    height: 40px;
+    right: -5px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.list-loan .item {
+    overflow: visible;
+    height: 200px;
+    padding: 0px;
+    padding-left: 90px;
+}
+.list-loan .row {
+    height: 100px;
+}
+.list-loan .row p {
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    white-space: normal;
+    height: 34px;
+}
+.list-loan p.simple-text {
+    font-size: 11px;
+}
+.list-loan h3 {
+    margin: 10px 0;
+    font-family: inherit;
+    font-size: 14px;
+}
+.list-loan .row p.simple-text {
+    margin-top: 10px;
+}
+.bordered .col {
+    border-left: 1px solid rgba(0, 0, 0, 0.35);
+}
+.bordered+.bordered {
+    border-top: 1px solid rgba(0, 0, 0, 0.35);
+}
+.list-loan .row + .row {
+    margin: 0;
+}
+.button-apply {
+    padding: 0px 8px;
+    min-height: 0px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-top-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-bottom-right-radius: 0px;
+    position: absolute;
+    right: 0px;
+    bottom: 25px;
+    font-weight: 500;
+}
+.best-deal {
+    color: white;
+    background: rgb(227, 29, 26);
+    position: absolute;
+    left: 0px;
+    top: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-border-top-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-bottom-left-radius: 0px;
+}
+p.padded {
+    padding-bottom: 10px;
+}

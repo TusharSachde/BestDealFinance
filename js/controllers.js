@@ -24,5 +24,8 @@ angular.module('starter.controllers', [])
 .controller('GenieCtrl', function($scope, $stateParams) {
 })
 
+.controller('LoanCtrl', function($scope, $stateParams) {
+})
+
 .controller('SMECtrl', function($scope, $stateParams) {
 });
