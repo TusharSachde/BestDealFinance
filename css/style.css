@@ -75,6 +75,9 @@
 .signin .item+.item {
     margin-top: 2px;
 }
+.signin select {
+    background: transparent;
+}
 .button-image {
     width: 70%;
     margin: 0 auto;
@@ -168,12 +171,16 @@ a {
     margin-top: 5px;
     font-size: 10px;
 }
-.width90 {
+.width90,
+.deal-form {
     padding: 10px;
 }
 .width90 .item {
     padding: 6px 30px 5px 10px;
 }
+.deal-form,
+.deal-form .button-image,
+.deal-form .item,
 .width90,
 .width90 .button-image,
 .width90 .item {
@@ -200,18 +207,34 @@ a {
     text-align: center;
     margin-top: 30%;
 }
-.gradient-list .item {
+.gradient-list .item>a.activated {
+    background: -webkit-gradient(linear, left top, left bottom, from(#9B9B9B), to(#9B9B9B));
+    background: -webkit-linear-gradient(#9B9B9B, #9B9B9B);
+    background: -moz-linear-gradient(#9B9B9B, #9B9B9B);
+    background: -o-linear-gradient(#9B9B9B, #9B9B9B);
+    background: linear-gradient(#9B9B9B, #9B9B9B);
+}
+.gradient-list .item,
+.gradient-list .item>a {
     background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#9B9B9B));
     background: -webkit-linear-gradient(#DFDFDF, #9B9B9B);
     background: -moz-linear-gradient(#DFDFDF, #9B9B9B);
     background: -o-linear-gradient(#DFDFDF, #9B9B9B);
     background: linear-gradient(#DFDFDF, #9B9B9B);
 }
-.odd-even .item:nth-child(odd) {
+.odd-even .item:nth-child(odd),
+.odd-even .item:nth-child(odd)>a {
     background-color: #cccccc;
 }
-.odd-even .item:nth-child(even) {
+.odd-even .item:nth-child(even),
+.odd-even .item:nth-child(even)>a {
     background-color: #b3b3b3;
+}
+.odd-even .item:nth-child(odd)>a.activated {
+    background: #B3B3B3;
+}
+.odd-even .item:nth-child(even)>a.activated {
+    background: #ccc;
 }
 .icon-on-left .item {
     border: 0px;
@@ -446,4 +469,43 @@ img.ribbon {
 }
 p.padded {
     padding-bottom: 10px;
+}
+.deal-form .item.range {
+    padding: 6px 10px 5px 10px;
+    display: block;
+}
+.deal-form .range {
+    display: block;
+    width: 100%;
+}
+.deal-form .item.range p {
+    display: block;
+    color: #4d4d4d;
+    font-size: 16px;
+}
+.deal-form .range input {
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+.range-item .range {
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+.range-item {
+    padding-bottom: 40px;
+}
+.item-checkbox {
+    font-size: 16px;
+    font-weight: normal;
+    color: #4d4d4d;
+}
+.range input {
+    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #999), color-stop(100%, #999));
+    background-image: -webkit-gradient(linear, left top, right top, from(#999), to(#999));
+    background-image: -webkit-linear-gradient(left, #999 0%, #999 100%);
+    background-image: -moz-linear-gradient(left, #999 0%, #999 100%);
+    background-image: -o-linear-gradient(left, #999 0%, #999 100%);
+    background-image: linear-gradient(to right, #999 0%, #999 100%);
 }

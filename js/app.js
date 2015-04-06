@@ -118,6 +118,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+    //Loan FORMS
+    .state('app.personal', {
+        url: "/personal",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/form-personal.html",
+                controller: 'PersonalLoanCtrl'
+            }
+        }
+    })
 
     .state('app.thankyou', {
         url: "/thankyou",
