@@ -69,6 +69,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
 
+    .state('app.listplan', {
+        url: "/listplan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/listplan.html",
+                controller: 'MyplanCtrl'
+            }
+        }
+    })
+
     .state('app.finance', {
         url: "/finance",
         views: {

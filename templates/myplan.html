@@ -1,21 +1,21 @@
-<ion-view view-title="My Wish" class="scroll-bg">
+<ion-view view-title="My Plan" class="scroll-bg">
     <ion-content class="has-header font500">
         <div class="padding"></div>
         <p class="light padding">Planning for ?</p>
         <div class="row text-center no-pad">
-            <div class="col">
+            <div class="col" ng-class="{'selected':click}" ng-click="click = !click;click1 = false;click2 = false;click3 = false;">
                 <i class="icon-sprite home"></i>
                 <div class="simple-text">Home</div>
             </div>
-            <div class="col">
+            <div class="col" ng-class="{'selected':click1}" ng-click="click1 = !click1;click = false;click2 = false;click3 = false;">
                 <i class="icon-sprite improvement"></i> 
                 <div class="simple-text">Home Improvement</div>
             </div>
-            <div class="col">
+            <div class="col" ng-class="{'selected':click2}" ng-click="click2 = !click2;click1 = false;click = false;click3 = false;">
                 <i class="icon-sprite automobile"></i> 
                 <div class="simple-text">Automobiles</div>
             </div>
-            <div class="col">
+            <div class="col" ng-class="{'selected':click3}" ng-click="click3 = !click3;click1 = false;click2 = false;click = false;">
                 <i class="icon-sprite travel"></i> 
                 <div class="simple-text">Travel</div>
             </div>
@@ -24,7 +24,6 @@
         <form ng-submit="" class="width90">
             <div class="list signin">
                 <label class="item item-input">
-                    <span class="input-label"><i class="icon ion-android-add-circle"></i></span>
                     <input type="tel" placeholder="Plan">
                 </label>
                 <label class="item item-input">
