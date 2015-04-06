@@ -18,6 +18,7 @@ $dark:                            #000 !default;
 
 $font-family-sans-serif:          "Open Sans", "Helvetica Neue", "Roboto", sans-serif !default;
 $font-family-light-sans-serif:    "Open Sans", "HelveticaNeue-Light", "Roboto-Light", sans-serif-light !default;
+$headings-font-family:            "KabelITC", sans-serif-light !default;
 $font-family-serif:               serif !default;
 $font-family-monospace:           monospace !default;
 
@@ -31,8 +32,8 @@ $line-height-computed:            floor($font-size-base * $line-height-base) !de
 $line-height-large:               1.33 !default;
 $line-height-small:               1.5 !default;
 
-$headings-font-family:            "KabelITC", sans-serif-light !default;
-$headings-font-weight:            500 !default;
+$headings-font-family:            $font-family-base !default;
+$headings-font-weight:            normal !default;
 $headings-line-height:            1.2 !default;
 
 $base-background-color:           #fff !default;
@@ -548,7 +549,7 @@ $range-default-track-bg:          #ccc !default;
 // Menus
 // -------------------------------
 
-$menu-bg:                         #000 !default;
+$menu-bg:                         #000000 !default;
 $menu-width:                      275px !default;
 $menu-animation-speed:            200ms !default;
 

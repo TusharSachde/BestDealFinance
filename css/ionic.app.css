@@ -2776,7 +2776,7 @@ cite {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   color: #4d4d4d;
-  font-weight: 500;
+  font-weight: normal;
   font-family: "KabelITC", sans-serif-light;
   line-height: 1.2; }
   h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small {
@@ -3151,7 +3151,7 @@ a.subdued {
     white-space: nowrap;
     font-family: "KabelITC", sans-serif-light;
     font-size: 25px;
-    font-weight: 500;
+    font-weight: normal;
     line-height: 44px; }
     .bar .title.title-left {
       text-align: left; }
@@ -4225,7 +4225,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
   min-height: 100%;
   max-height: 100%;
   width: 275px;
-  background-color: #000; }
+  background-color: #000000; }
   .menu .scroll-content {
     z-index: 10; }
   .menu .bar-header {
@@ -4531,7 +4531,7 @@ ion-tabs.tabs-color-active-dark .tab-item {
 
 .popup-body {
   padding: 10px;
-  overflow: scroll; }
+  overflow: auto; }
 
 .popup-buttons {
   display: -webkit-box;
