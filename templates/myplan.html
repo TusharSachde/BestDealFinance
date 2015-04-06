@@ -1,7 +1,7 @@
-<ion-view view-title="My Plan" class="scroll-bg">
+<ion-view view-title="New Plan" class="scroll-bg">
     <ion-content class="has-header font500">
         <div class="padding"></div>
-        <p class="light padding">Planning for ?</p>
+        <p class="light padding">Planning for ? <a href="#app/listplan" class="pull-right light">Existing Plans</a></p>
         <div class="row text-center no-pad">
             <div class="col" ng-class="{'selected':click}" ng-click="click = !click;click1 = false;click2 = false;click3 = false;">
                 <i class="icon-sprite home"></i>
@@ -20,7 +20,7 @@
                 <div class="simple-text">Travel</div>
             </div>
         </div>
-        
+
         <form ng-submit="" class="width90">
             <div class="list signin">
                 <label class="item item-input">
@@ -36,10 +36,14 @@
             </div>
 
 
-            <div class="button-image" ng-click="">
-                <img src="img/button2.png" alt="" class="full-image">
-                <div class="button-text assertive">Set your plan</div>
-            </div>
+            <a href="#/app/listplan">
+                <div class="button-image" ng-click="">
+                    <img src="img/button2.png" alt="" class="full-image">
+                    <div class="button-text assertive">Set your plan</div>
+                </div>
+            </a>  
+            
+            
         </form>
     </ion-content>
 </ion-view>
