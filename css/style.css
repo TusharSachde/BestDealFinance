@@ -4,37 +4,44 @@
     font-family: "KabelITC";
     src: url('../fonts/KabelITCbyBT-Medium.ttf');
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-Regular.ttf');
     font-weight: normal;
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-Italic.ttf');
     font-weight: normal;
     font-style: italic;
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-Light.ttf');
     font-weight: 300;
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-SemiBold.ttf');
     font-weight: 500;
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-Bold.ttf');
     font-weight: 600;
 }
+
 @font-face {
     font-family: "Open Sans";
     src: url('../fonts/OpenSans-ExtraBold.ttf');
     font-weight: 700;
 }
+
 .scroll-bg {
     background: url('../img/background.png') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -42,27 +49,34 @@
     -o-background-size: cover;
     background-size: cover;
 }
+
 .thankyou {
     background-image: url('../img/thankyou.png')
 }
+
 .font500 {
     font-weight: 500;
 }
+
 .bar {
     -webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     -moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
 }
+
 .brand img {
     width: 60%;
 }
+
 .brand {
     text-align: center;
     margin-top: -7%;
 }
+
 .signin .input-label {
     width: auto;
 }
+
 .signin .item {
     background: rgba(255, 255, 255, 0.65);
     -webkit-border-radius: 5px;
@@ -72,17 +86,21 @@
     margin: 0 auto;
     border-color: transparent;
 }
+
 .signin .item+.item {
     margin-top: 2px;
 }
+
 .signin select {
     background: transparent;
 }
+
 .button-image {
     width: 70%;
     margin: 0 auto;
     position: relative;
 }
+
 .button-text {
     font-size: 18px;
     font-weight: 500;
@@ -98,12 +116,15 @@
     text-align: center;
     margin-top: -4px;
 }
+
 .socials img {
     width: 45px;
 }
+
 .socials img+img {
     margin-left: 10px;
 }
+
 .socials {
     width: 150px;
     text-align: center;
@@ -112,34 +133,42 @@
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     padding: 20px 0 0;
 }
+
 a {
     color: #b3b3b3;
 }
+
 .pull-right {
     float: right;
 }
+
 .links {
     padding: 0 20px;
     font-size: 12px;
 }
+
 .simple-text {
     color: white;
     font-size: 12px;
     text-align: center;
     line-height: 150%;
 }
+
 .full_brand img {
     width: 80%;
     max-width: 100%
 }
+
 .full_brand {
     text-align: center;
     padding-top: 40px;
     width: 100%;
 }
+
 .bold {
     font-weight: 600;
 }
+
 .icon-sprite {
     height: 40px;
     display: inline-block;
@@ -149,35 +178,44 @@ a {
     -o-background-size: auto 40px;
     background-size: auto 40px;
 }
+
 .icon-sprite.home {
     width: 42px;
 }
+
 .icon-sprite.improvement {
     width: 42px;
     background-position-x: -44px;
 }
+
 .icon-sprite.automobile {
     width: 43px;
     background-position-x: -88px;
 }
+
 .icon-sprite.travel {
     width: 23px;
     background-position-x: -132px;
 }
+
 .row.no-pad {
     padding: 0;
 }
+
 .icon-sprite+.simple-text {
     margin-top: 5px;
     font-size: 10px;
 }
+
 .width90,
 .deal-form {
     padding: 10px;
 }
+
 .width90 .item {
     padding: 6px 30px 5px 10px;
 }
+
 .deal-form,
 .deal-form .button-image,
 .deal-form .item,
@@ -186,27 +224,34 @@ a {
 .width90 .item {
     width: 100%;
 }
+
 .width90 .input-label {
     position: absolute;
     right: 0px;
     top: 5px;
 }
+
 .item-input .icon {
     font-size: 18px;
 }
+
 .x2 {
     font-size: 120%;
 }
+
 .x3 {
     font-size: 150%;
 }
+
 .genie-img img {
     width: 70%;
 }
+
 .genie-img {
     text-align: center;
     margin-top: 30%;
 }
+
 .gradient-list .item>a.activated {
     background: -webkit-gradient(linear, left top, left bottom, from(#9B9B9B), to(#9B9B9B));
     background: -webkit-linear-gradient(#9B9B9B, #9B9B9B);
@@ -214,6 +259,7 @@ a {
     background: -o-linear-gradient(#9B9B9B, #9B9B9B);
     background: linear-gradient(#9B9B9B, #9B9B9B);
 }
+
 .gradient-list .item,
 .gradient-list .item>a {
     background: -webkit-gradient(linear, left top, left bottom, from(#DFDFDF), to(#9B9B9B));
@@ -222,24 +268,30 @@ a {
     background: -o-linear-gradient(#DFDFDF, #9B9B9B);
     background: linear-gradient(#DFDFDF, #9B9B9B);
 }
+
 .odd-even .item:nth-child(odd),
 .odd-even .item:nth-child(odd)>a {
     background-color: #cccccc;
 }
+
 .odd-even .item:nth-child(even),
 .odd-even .item:nth-child(even)>a {
     background-color: #b3b3b3;
 }
+
 .odd-even .item:nth-child(odd)>a.activated {
     background: #B3B3B3;
 }
+
 .odd-even .item:nth-child(even)>a.activated {
     background: #ccc;
 }
+
 .icon-on-left .item {
     border: 0px;
     height: 100px;
 }
+
 .icon-on-left .texter {
     left: 130px;
     position: absolute;
@@ -250,11 +302,13 @@ a {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 .icon-holder {
     position: relative;
     height: 70px;
     width: 100px;
 }
+
 .item-sprite {
     position: absolute;
     left: 50%;
@@ -267,90 +321,109 @@ a {
     display: inline-block;
     background: url('../img/category-sprite1.png') no-repeat;
 }
+
 .item-sprite.car {
     width: 80px;
     height: 24px;
     background-position-y: -351px;
 }
+
 .item-sprite.home {
     height: 42px;
     width: 45px;
     background-position-y: -387px;
 }
+
 .item-sprite.inhome {
     height: 31px;
     width: 70px;
     background-position-y: -514px;
 }
+
 .item-sprite.bike {
     height: 47px;
     width: 70px;
     background-position-y: -443px;
 }
+
 .item-sprite.travel {
     height: 66px;
     width: 70px;
     background-position-y: -554px;
 }
+
 .item-sprite.person {
     height: 50px;
     width: 68px;
     background-position-y: -636px;
 }
+
 .item-sprite.cards {
     height: 50px;
     width: 50px;
     background-position-y: -701px;
 }
+
 .item-sprite.security {
     height: 25px;
     width: 80px;
     background-position-y: -764px;
 }
+
 .item-sprite.eduction {
     height: 30px;
     width: 68px;
     background-position-y: -801px;
 }
+
 .item-sprite.property {
     height: 46px;
     width: 68px;
     background-position-y: 0;
 }
+
 .item-sprite.contruction {
     height: 58px;
     width: 68px;
     background-position-y: -55px;
 }
+
 i.item-sprite.health {
     height: 39px;
     width: 52px;
     background-position-y: -124px;
 }
+
 i.item-sprite.commercial {
     height: 43px;
     width: 72px;
     background-position-y: -172px;
 }
+
 i.item-sprite.business {
     height: 49px;
     width: 65px;
     background-position-y: -227px;
 }
+
 i.item-sprite.project {
     height: 50px;
     width: 52px;
     background-position-y: -286px;
 }
+
 .home-icon img {
     width: 80%;
 }
+
 .home-icon h6 {
     margin: 0px;
 }
+
 .pad-up {
     padding-top: 50px;
 }
+
 .atbottom {
     bottom: 20px;
     position: absolute;
@@ -358,15 +431,18 @@ i.item-sprite.project {
     z-index: 1;
     padding-top: 0px;
 }
+
 .bar .buttons span {
     font-size: 18px;
     vertical-align: top;
 }
+
 .home-icon a,
 .genie-img a {
     text-decoration: none;
     display: block;
 }
+
 .opaque-bg .item {
     background: rgba(255, 255, 255, 0.9);
     border: 0px;
@@ -374,6 +450,7 @@ i.item-sprite.project {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+
 .thumb-left {
     width: 70px;
     position: absolute;
@@ -385,6 +462,7 @@ i.item-sprite.project {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 img.ribbon {
     height: 40px;
     right: -5px;
@@ -396,41 +474,51 @@ img.ribbon {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
 }
+
 .list-loan .item {
     overflow: visible;
     height: 200px;
     padding: 0px;
     padding-left: 90px;
 }
+
 .list-loan .row {
     height: 100px;
 }
+
 .list-loan .row p {
     -o-text-overflow: clip;
     text-overflow: clip;
     white-space: normal;
     height: 34px;
 }
+
 .list-loan p.simple-text {
     font-size: 11px;
 }
+
 .list-loan h3 {
     margin: 10px 0;
     font-family: inherit;
     font-size: 14px;
 }
+
 .list-loan .row p.simple-text {
     margin-top: 10px;
 }
+
 .bordered .col {
     border-left: 1px solid rgba(0, 0, 0, 0.35);
 }
+
 .bordered+.bordered {
     border-top: 1px solid rgba(0, 0, 0, 0.35);
 }
+
 .list-loan .row + .row {
     margin: 0;
 }
+
 .button-apply {
     padding: 0px 8px;
     min-height: 0px;
@@ -448,6 +536,7 @@ img.ribbon {
     bottom: 25px;
     font-weight: 500;
 }
+
 .best-deal {
     color: white;
     background: rgb(227, 29, 26);
@@ -467,40 +556,49 @@ img.ribbon {
     -moz-border-radius-bottomleft: 0px;
     border-bottom-left-radius: 0px;
 }
+
 p.padded {
     padding-bottom: 10px;
 }
+
 .deal-form .item.range {
     padding: 6px 10px 5px 10px;
     display: block;
 }
+
 .deal-form .range {
     display: block;
     width: 100%;
 }
+
 .deal-form .item.range p {
     display: block;
     color: #4d4d4d;
     font-size: 16px;
 }
+
 .deal-form .range input {
     padding: 0px;
     margin: 0px;
     width: 100%;
 }
+
 .range-item .range {
     bottom: 0px;
     left: 0px;
     position: absolute;
 }
+
 .range-item {
     padding-bottom: 40px;
 }
+
 .item-checkbox {
     font-size: 16px;
     font-weight: normal;
     color: #4d4d4d;
 }
+
 .range input {
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #999), color-stop(100%, #999));
     background-image: -webkit-gradient(linear, left top, right top, from(#999), to(#999));
@@ -509,6 +607,7 @@ p.padded {
     background-image: -o-linear-gradient(left, #999 0%, #999 100%);
     background-image: linear-gradient(to right, #999 0%, #999 100%);
 }
+
 .col.selected {
     background: rgba(0, 0, 0, 0.55);
     padding-top: 10px;
@@ -517,10 +616,22 @@ p.padded {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
 .col {
     -webkit-transition: all 300ms ease;
     -moz-transition: all 300ms ease;
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
-.item-gap .item+.item {margin-top: 5px;}
+
+.item-gap .item+.item {
+    margin-top: 5px;
+}
+
+input.text-prices {
+    background: transparent;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid rgb(187, 186, 186);
+    margin-top: 3px;
+}
