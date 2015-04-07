@@ -20,6 +20,7 @@ angular.module('starter.controllers', [])
     .controller('CheckCtrl', function ($scope, $stateParams) {})
 .controller('TwowheelerListCtrl', function ($scope, $stateParams) {}) 
 .controller('TwowheelerchkCtrl', function ($scope, $stateParams) {}) 
+.controller('TwowheelerapplyCtrl', function ($scope, $stateParams) {}) 
 .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
     $scope.personal = {
         'loan': 20000,

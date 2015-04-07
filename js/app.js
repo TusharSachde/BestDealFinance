@@ -199,6 +199,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     }) 
+    
+     .state('app.twowheeler-apply', {
+        url: "/twowheelerapply",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/twowheeler-apply.html",
+                controller: 'TwowheelerapplyCtrl'
+            }
+        }
+    }) 
+
 
 
     .state('app.personals', {
