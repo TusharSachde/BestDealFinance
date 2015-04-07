@@ -24,6 +24,10 @@ angular.module('starter.controllers', [])
     .controller('SecuritychkCtrl', function ($scope, $stateParams) {})
     .controller('SecuritychkformCtrl', function ($scope, $stateParams) {})
     .controller('SecurityapplyCtrl', function ($scope, $stateParams) {})
+    .controller('PropertychkCtrl', function ($scope, $stateParams) {})
+    .controller('PropertychkformCtrl', function ($scope, $stateParams) {})
+    .controller('PropertyapplyCtrl', function ($scope, $stateParams) {})
+
     .controller('CarApplyCtrl', function ($scope, $stateParams) {})
     .controller('CarChkListCtrl', function ($scope, $stateParams) {})
     .controller('HomeChkListCtrl', function ($scope, $stateParams) {})
@@ -60,6 +64,17 @@ angular.module('starter.controllers', [])
     })
 
 .controller('SecurityLoanCtrl', function ($scope, $stateParams) {
+
+        $scope.carloan = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
+
+        };
+
+    })
+
+.controller('PropertyLoanCtrl', function ($scope, $stateParams) {
 
         $scope.carloan = {
             'loan': 20000,

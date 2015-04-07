@@ -234,6 +234,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+      .state('app.propertyloan', {
+        url: "/propertyloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/form-properties.html",
+                controller: 'PropertyLoanCtrl'
+            }
+        }
+    })
+    
+    .state('app.propertychk', {
+        url: "/propertychk",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/property-chk.html",
+                controller: 'PropertychkCtrl'
+            }
+        }
+    })
+    
+    .state('app.propertychk-form', {
+        url: "/propertychk-form",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/propertychk-form.html",
+                controller: 'PropertychkformCtrl'
+            }
+        }
+    }) 
+    .state('app.propertyformapply', {
+        url: "/propertyformapply",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/propertyformapply.html",
+                controller: 'PropertyapplyCtrl'
+            }
+        }
+    })
 
     .state('app.securityloan', {
         url: "/securityloan",
