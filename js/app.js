@@ -159,6 +159,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+     .state('app.twowheelerloan', {
+        url: "/twowheelerloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/form-twowheeler.html",
+                controller: 'TwowheelerLoanCtrl'
+            }
+        }
+    })
 
     .state('app.personals', {
         url: "/personal-chk",

@@ -37,6 +37,15 @@ angular.module('starter.controllers', [])
 
     };
 
+}).controller('TwowheelerLoanCtrl', function ($scope, $stateParams) {
+
+  $scope.carloan = {
+        'loan': 20000,
+        'tenure': 6,
+        'income': 15000
+
+    };
+
 })
 
 .controller('PersonalChkCtrl', function ($scope, $stateParams) {})
