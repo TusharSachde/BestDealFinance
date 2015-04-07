@@ -30,23 +30,34 @@ angular.module('starter.controllers', [])
 
 .controller('CarLoanCtrl', function ($scope, $stateParams) {
 
-  $scope.carloan = {
-        'loan': 20000,
-        'tenure': 6,
-        'income': 15000
+        $scope.carloan = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
 
-    };
+        };
 
-}).controller('TwowheelerLoanCtrl', function ($scope, $stateParams) {
+    })
+    .controller('TwowheelerLoanCtrl', function ($scope, $stateParams) {
 
-  $scope.carloan = {
-        'loan': 20000,
-        'tenure': 6,
-        'income': 15000
+        $scope.carloan = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
 
-    };
+        };
 
-})
+    })
+    .controller('CheckCarLoanCtrl', function ($scope, $stateParams) {
+
+        $scope.carloan = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
+
+        };
+
+    })
 
 .controller('PersonalChkCtrl', function ($scope, $stateParams) {})
 
