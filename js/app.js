@@ -169,6 +169,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+    
 
     .state('app.twowheelerloan', {
         url: "/twowheelerloan",
@@ -176,6 +178,46 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             'menuContent': {
                 templateUrl: "templates/form-twowheeler.html",
                 controller: 'TwowheelerLoanCtrl'
+            }
+        }
+    })
+    
+    .state('app.securityloan', {
+        url: "/securityloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/form-security.html",
+                controller: 'SecurityLoanCtrl'
+            }
+        }
+    })
+    
+    .state('app.securitychk', {
+        url: "/securitychk",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/security-chk.html",
+                controller: 'SecuritychkCtrl'
+            }
+        }
+    })
+    
+    .state('app.securitychk-form', {
+        url: "/securitychkform",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/securitychk-form.html",
+                controller: 'SecuritychkformCtrl'
+            }
+        }
+    })
+    
+    .state('app.securityformapply', {
+        url: "/securityformapply",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/securityformapply.html",
+                controller: 'SecurityapplyCtrl'
             }
         }
     })
