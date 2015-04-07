@@ -179,6 +179,27 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+    
+    .state('app.twowheelerlistchk', {
+        url: "/twowheelerlistchk",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/twowheelerchklist.html",
+                controller: 'TwowheelerListCtrl'
+            }
+        }
+    }) 
+    
+     .state('app.twowheeler-chk', {
+        url: "/twowheeler-chk",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/twowheeler-chk.html",
+                controller: 'TwowheelerchkCtrl'
+            }
+        }
+    }) 
+
 
     .state('app.personals', {
         url: "/personal-chk",
