@@ -6,8 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+.run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -21,10 +21,10 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
 
-    .state('login', {
+        .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
@@ -128,8 +128,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
-       .state('app.listcheckloan', {
+
+    .state('app.listcheckloan', {
         url: "/listcheckloan",
         views: {
             'menuContent': {
@@ -138,7 +138,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     //Loan FORMS
     .state('app.personal', {
         url: "/personal",
@@ -146,6 +146,26 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             'menuContent': {
                 templateUrl: "templates/form-personal.html",
                 controller: 'PersonalLoanCtrl'
+            }
+        }
+    })
+
+    .state('app.carloan', {
+        url: "/carloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/formcarloan.html",
+                controller: 'CarLoanCtrl'
+            }
+        }
+    })
+
+    .state('app.personals', {
+        url: "/personal-chk",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/form-check-personal.html",
+                controller: 'PersonalChkCtrl'
             }
         }
     })
