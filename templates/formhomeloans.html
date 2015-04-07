@@ -1,0 +1,115 @@
+<ion-view view-title="Car Loan" class="scroll-bg">
+    <ion-content class="has-header font500">
+
+        <form ng-submit="" class="deal-form">
+            <div class="list signin">
+
+                <label class="item item-input range-item">
+                    <span class="input-label">Loan Amount</span>
+                    <input type="number" ng-model="carloan.loan">
+                    <div class="range range-assertive">
+                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                    </div>
+                </label>
+
+                <label class="item item-input range-item">
+                    <span class="input-label">Tenure</span>
+                    <input type="number" ng-model="carloan.tenure">
+                    <div class="range range-assertive">
+                        <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
+                    </div>
+                </label>
+
+                <label class="item item-input range-item">
+                    <span class="input-label">Gross Monthly Income</span>
+                    <input type="number" ng-model="carloan.income">
+                    <div class="range range-assertive">
+                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
+                    </div>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Date of Birth</span>
+                    <input type="date">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        City
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Mumbai</option>
+                        <option>Banglore</option>
+                        <option>Pune</option>
+                    </select>
+                </label>
+                <!--
+                
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        State
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Maharashtra</option>
+                        <option>Gujrat</option>
+                        <option>Punjab</option>
+                    </select>
+                </label>
+-->
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Are You Salaried ?
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Company
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>A</option>
+                        <option>B</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Type Of Property
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Commercial</option>
+                        <option>Residential</option>
+                    </select>
+                </label>
+
+
+                <label class="item excar-item">
+                    <div class="">Market Value</div>
+                    <div class="price">
+                        <input type="number" class="text-prices">
+                    </div>
+                </label>
+                <ion-item class="item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-click="iagree()">
+                    </label>
+                    I Agree
+                </ion-item>
+                <div class="text-center light" ng-click="openTerms();">Know more</div>
+            </div>
+            <a href="#/app/listcheckloan">
+                <div class="button-image" ng-click="">
+                    <img src="img/button2.png" alt="" class="full-image">
+                    <div class="button-text assertive">Get Me Deals</div>
+                </div>
+            </a>
+        </form>
+    </ion-content>
+</ion-view>
