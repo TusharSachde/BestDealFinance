@@ -161,16 +161,69 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.checkcarloan', {
-        url: "/checkcarloan",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/checkcarloan.html",
-                controller: 'CheckCarLoanCtrl'
+            url: "/checkcarloan",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/checkcarloan.html",
+                    controller: 'CheckCarLoanCtrl'
+                }
             }
-        }
-    })
-    
-    
+        })
+        .state('app.carapply', {
+            url: "/carapply",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/carapply.html",
+                    controller: 'CarApplyCtrl'
+                }
+            }
+        })
+        .state('app.carchklist', {
+            url: "/carchklist",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/carchklist.html",
+                    controller: 'CarChkListCtrl'
+                }
+            }
+        })
+        .state('app.homeloan', {
+            url: "/homeloan",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/formhomeloans.html",
+                    controller: 'HomeLoansCtrl'
+                }
+            }
+        })
+        .state('app.homechk', {
+            url: "/homechk",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/homechk.html",
+                    controller: 'HomeChkCtrl'
+                }
+            }
+        })
+        .state('app.homeapply', {
+            url: "/homeapply",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/homeapply.html",
+                    controller: 'HomeApplyCtrl'
+                }
+            }
+        })
+        .state('app.homechklist', {
+            url: "/homechklist",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/homechklist.html",
+                    controller: 'HomeChkListCtrl'
+                }
+            }
+        })
+
 
     .state('app.twowheelerloan', {
         url: "/twowheelerloan",
@@ -181,7 +234,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.securityloan', {
         url: "/securityloan",
         views: {
@@ -191,7 +244,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.securitychk', {
         url: "/securitychk",
         views: {
@@ -201,7 +254,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.securitychk-form', {
         url: "/securitychkform",
         views: {
@@ -211,7 +264,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.securityformapply', {
         url: "/securityformapply",
         views: {
@@ -221,7 +274,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.twowheelerlistchk', {
         url: "/twowheelerlistchk",
         views: {
@@ -230,9 +283,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 controller: 'TwowheelerListCtrl'
             }
         }
-    }) 
-    
-     .state('app.twowheeler-chk', {
+    })
+
+    .state('app.twowheeler-chk', {
         url: "/twowheeler-chk",
         views: {
             'menuContent': {
@@ -240,9 +293,9 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 controller: 'TwowheelerchkCtrl'
             }
         }
-    }) 
-    
-     .state('app.twowheeler-apply', {
+    })
+
+    .state('app.twowheeler-apply', {
         url: "/twowheelerapply",
         views: {
             'menuContent': {
@@ -250,7 +303,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 controller: 'TwowheelerapplyCtrl'
             }
         }
-    }) 
+    })
 
 
 

@@ -18,21 +18,25 @@ angular.module('starter.controllers', [])
 
 .controller('LoanCtrl', function ($scope, $stateParams) {})
     .controller('CheckCtrl', function ($scope, $stateParams) {})
-.controller('TwowheelerListCtrl', function ($scope, $stateParams) {}) 
-.controller('TwowheelerchkCtrl', function ($scope, $stateParams) {}) 
-.controller('TwowheelerapplyCtrl', function ($scope, $stateParams) {}) 
-.controller('SecuritychkCtrl', function ($scope, $stateParams) {}) 
-.controller('SecuritychkformCtrl', function ($scope, $stateParams) {}) 
-.controller('SecurityapplyCtrl', function ($scope, $stateParams) {}) 
+    .controller('TwowheelerListCtrl', function ($scope, $stateParams) {})
+    .controller('TwowheelerchkCtrl', function ($scope, $stateParams) {})
+    .controller('TwowheelerapplyCtrl', function ($scope, $stateParams) {})
+    .controller('SecuritychkCtrl', function ($scope, $stateParams) {})
+    .controller('SecuritychkformCtrl', function ($scope, $stateParams) {})
+    .controller('SecurityapplyCtrl', function ($scope, $stateParams) {})
+    .controller('CarApplyCtrl', function ($scope, $stateParams) {})
+    .controller('CarChkListCtrl', function ($scope, $stateParams) {})
+    .controller('HomeChkListCtrl', function ($scope, $stateParams) {})
+    .controller('HomeApplyCtrl', function ($scope, $stateParams) {})
+    .controller('HomeChkCtrl', function ($scope, $stateParams) {})
+    .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
+        $scope.personal = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
 
-.controller('PersonalLoanCtrl', function ($scope, $stateParams) {
-    $scope.personal = {
-        'loan': 20000,
-        'tenure': 6,
-        'income': 15000
-
-    };
-})
+        };
+    })
 
 .controller('CarLoanCtrl', function ($scope, $stateParams) {
 
@@ -55,7 +59,7 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('SecurityLoanCtrl', function ($scope, $stateParams) {
+.controller('SecurityLoanCtrl', function ($scope, $stateParams) {
 
         $scope.carloan = {
             'loan': 20000,
@@ -73,6 +77,16 @@ angular.module('starter.controllers', [])
             'income': 15000
 
         };
+
+    })
+    .controller('HomeLoansCtrl', function ($scope, $stateParams) {
+
+        //        $scope.carloan = {
+        //            'loan': 20000,
+        //            'tenure': 6,
+        //            'income': 15000
+        //
+        //        };
 
     })
 
