@@ -129,6 +129,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
     
+       .state('app.listcheckloan', {
+        url: "/listcheckloan",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/listcheckloan.html",
+                controller: 'CheckCtrl'
+            }
+        }
+    })
+    
     //Loan FORMS
     .state('app.personal', {
         url: "/personal",

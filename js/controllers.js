@@ -26,6 +26,8 @@ angular.module('starter.controllers', [])
 
 .controller('LoanCtrl', function($scope, $stateParams) {
 })
+.controller('CheckCtrl', function($scope, $stateParams) {
+})
 
 .controller('PersonalLoanCtrl', function($scope, $stateParams) {
     $scope.personal = {
