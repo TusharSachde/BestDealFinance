@@ -89,6 +89,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         }
     })
 
+
     .state('app.sme', {
         url: "/sme",
         views: {
@@ -146,6 +147,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             'menuContent': {
                 templateUrl: "templates/form-personal.html",
                 controller: 'PersonalLoanCtrl'
+            }
+        }
+    })
+
+    .state('app.credit', {
+        url: "/credit",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/formcredit.html",
+                controller: 'CreditCtrl'
             }
         }
     })
@@ -234,8 +245,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
-      .state('app.propertyloan', {
+
+    .state('app.propertyloan', {
         url: "/propertyloan",
         views: {
             'menuContent': {
@@ -244,7 +255,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.propertychk', {
         url: "/propertychk",
         views: {
@@ -254,25 +265,25 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-    
+
     .state('app.propertychk-form', {
-        url: "/propertychk-form",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/propertychk-form.html",
-                controller: 'PropertychkformCtrl'
+            url: "/propertychk-form",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/propertychk-form.html",
+                    controller: 'PropertychkformCtrl'
+                }
             }
-        }
-    }) 
-    .state('app.propertyformapply', {
-        url: "/propertyformapply",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/propertyformapply.html",
-                controller: 'PropertyapplyCtrl'
+        })
+        .state('app.propertyformapply', {
+            url: "/propertyformapply",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/propertyformapply.html",
+                    controller: 'PropertyapplyCtrl'
+                }
             }
-        }
-    })
+        })
 
     .state('app.securityloan', {
         url: "/securityloan",
