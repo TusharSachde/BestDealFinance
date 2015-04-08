@@ -633,3 +633,108 @@ button.eligibility {
     font-size: 11px;
     line-height: 2;
 }
+
+ion-item.item-dark.menu-dark a {
+    font-size: small;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.menu-spritely {
+    position: absolute;
+    left: 50%;
+    top: 35%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    background: url('../img/menusprite.png') no-repeat;
+}
+
+.menu-lists {
+    width: 140px;
+    height: 40px;
+}
+
+.menu-spritely.plan {
+    height: 54px;
+    width: 45px;
+    background-position-y: 0px;
+}
+
+.menu-spritely.retail {
+    height: 45px;
+    width: 48px;
+    background-position-y: -57px;
+}
+
+.menu-spritely.finance {
+    height: 54px;
+    width: 50px;
+    background-position-y: -104px;
+}
+
+.menu-spritely.genie {
+    height: 35px;
+    width: 50px;
+    background-position-y: -156px;
+}
+
+.menu-spritely.account {
+    height: 53px;
+    width: 44px;
+    background-position-y: -188px;
+}
+
+.menu-spritely.news {
+    height: 46px;
+    width: 48px;
+    background-position-y: -243px;
+}
+
+.menu-spritely.contact {
+    height: 45px;
+    width: 44px;
+    background-position-y: -294px;
+}
+
+.menu-spritely.share {
+    height: 45px;
+    width: 62px;
+    background-position-y: -346px;
+}
+
+.menu-spritely.logout {
+    height: 48px;
+    width: 44px;
+    background-position-y: -389px;
+}
+
+ion-item.item-dark.menu-dark a p {
+    color: #fff;
+    font-weight: 300;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: "KabelITC", sans-serif-light;
+}
+
+.item-complex.item-dark > .item-content {
+    background: -webkit-gradient(linear, left top, left bottom, from(#3B3B3B), to(#161616));
+    background: -webkit-linear-gradient(#3B3B3B, #161616);
+    background: -moz-linear-gradient(#3B3B3B, #161616);
+    background: -o-linear-gradient(#3B3B3B, #161616);
+    background: linear-gradient(#3B3B3B, #161616);
+    color: #fff;
+}
+
+.menu-dark {
+    border: 0px;
+}
+
+ion-item.item-dark.menu-dark {
+    background: #a9a9a9;
+    border-color: #a9a9a9;
+}
