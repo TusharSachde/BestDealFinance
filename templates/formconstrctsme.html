@@ -2,183 +2,84 @@
     <ion-content class="has-header font500">
         <form ng-submit="" class="deal-form">
             <div class="list signin">
-                <label class="item item-input range-item">
-                    <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="carloan.loan">
-                    <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
-                    </div>
+
+
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text">
                 </label>
 
-                <label class="item item-input range-item">
-                    <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="carloan.tenure">
-                    <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
-                    </div>
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email">
                 </label>
-
-                <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
-                    <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
-                    </div>
-                </label>
-
                 <label class="item item-input">
                     <span class="input-label">Date of Registration</span>
                     <input type="date">
                 </label>
-
+                <label class="item item-input">
+                    <span class="input-label">Company Name</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Designation</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Address</span>
+                    <!--                    <textarea type="text" class="form-control" id="enq_address" name="enq_address" maxlength="100" placeholder="Enter your address" autocomplete="off"></textarea>-->
+                    <input type="text">
+                </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Constitution
+                        State
                     </div>
                     <select>
                         <option>Please select</option>
-                        <option>Private Limited</option>
-                        <option>LPP</option>
+                        <option>Maharastra</option>
+                        <option>Karnataka</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        City
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Mumbai</option>
+                        <option>Banglore</option>
                     </select>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Current Office Pincode
+                        Product
                     </div>
                     <select>
-                        <option>Please select</option>
-                        <option>400001</option>
-                        <option>400002</option>
-                        <option>400003</option>
-                        <option>400004</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Registered Office Pincode, if different
-                    </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>400001</option>
-                        <option>400002</option>
-                        <option>400003</option>
-                        <option>400004</option>
+                        <option>Select Product</option>
+                        <option>Loan Aganist</option>
+                        <option>SME Fianace</option>
                     </select>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">No. of years at current office</span>
+                    <span class="input-label">Loan Amount</span>
                     <input type="text">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Mobile Number
+                    </div>
+                    <select>
+                        <option>India 91+</option>
+                        <option>India 91+</option>
+                    </select>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">No. of vehicle / equipment to be purchased</span>
-                    <input type="text">
-                </label>
-                <label class="item item-input">
-                    <span class="input-label">Birth Date</span>
-                    <input type="date">
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Vehicle / equipment purchased for
-                    </div>
-                    <select>
-                        <option>Bussiness</option>
-                        <option>Capacitive Use</option>
-                    </select>
-                </label>
-
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Existing fleet size
-                    </div>
                     <input type="text">
                 </label>
 
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Funded fleet size
-                    </div>
-                    <input type="text">
-                </label>
-
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Type of Industry
-                    </div>
-                    <select>
-                        <option>Select </option>
-                        <option>Meduim & Small Equiment </option>
-                        <option>Direct Agriculture</option>
-                        <option>Education</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        When do you want the loan?
-                    </div>
-                    <select>
-                        <option>With in 15 days </option>
-                        <option>With in 50 days</option>
-                        <option>With in 100 days</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Total Work Experience
-                    </div>
-                    <input type="text">
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Do you have an existing Loan ?
-                    </div>
-                    <select>
-                        <option>Select </option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Manufacturer
-                    </div>
-                    <select>
-                        <option>Select </option>
-                        <option>Tata</option>
-                        <option>Volvo</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Model
-                    </div>
-                    <select>
-                        <option>A </option>
-                        <option>B</option>
-                        <option>C</option>
-                    </select>
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Chassis Amount
-                    </div>
-                    <input type="text">
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Other Charges
-                    </div>
-                    <input type="text">
-                </label>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Body Amount
-                    </div>
-                    <input type="text">
-                </label>
                 <ion-item class="item-checkbox">
                     <label class="checkbox">
                         <input type="checkbox" ng-click="iagree()">
@@ -187,10 +88,10 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/propertychk">
+            <a href="#/app/thankyou">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
-                    <div class="button-text assertive">Get me deals</div>
+                    <div class="button-text assertive">Proceed</div>
                 </div>
             </a>
         </form>
