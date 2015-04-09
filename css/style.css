@@ -730,6 +730,50 @@ ion-item.item-dark.menu-dark a p {
     color: #fff;
 }
 
+img.edit {
+    width: 40px;
+}
+
+.col-33.cls-bgcolor.bordered {
+    background: #404040;
+    padding: 5px;
+    border-right: #000;
+    -webkit-border-radius: 5px 0px 0px 5px;
+    -moz-border-radius: 5px 0px 0px 5px;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.assest {
+    position: absolute;
+    left: 30px;
+    width: 18%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+ion-list.list-myprofile .item {
+    padding: 2px 6px;
+    background: transparent;
+    border: 0px;
+}
+
+.col-67.cls-bgcolors {
+    background: #d8d8d8;
+    border-right: 1px solid #d8d8d8;
+    -webkit-border-radius: 0px 5px 5px 0px;
+    -moz-border-radius: 0px 5px 5px 0px;
+    border-radius: 0px 5px 5px 0px;
+}
+
+.bordereds .col {
+    border-right: 1px solid rgba(0, 0, 0, 0.20);
+    padding: 10px 5px;
+}
+
 .menu-dark {
     border: 0px;
 }
@@ -737,4 +781,101 @@ ion-item.item-dark.menu-dark a p {
 ion-item.item-dark.menu-dark {
     background: #a9a9a9;
     border-color: #a9a9a9;
+}
+
+.amt-text {
+    border-bottom: 1px solid #000;
+}
+
+.bordereds .col:last-child {
+    border: 0;
+}
+
+.bordereds .col:last-child {
+    border: 0;
+}
+
+.amt-text {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 25px 0 10px 0;
+}
+
+.assest p {
+    color: #fff;
+    font-weight: 300;
+}
+
+.row.bordereds.main-accnt {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    /* border: 1px solid #404040; */
+}
+
+p.top-corner {
+    position: absolute;
+    font-weight: 400;
+    top: 3px;
+    right: 15px;
+    color: #000;
+    font-size: 12px;
+}
+
+.amt-text h2 {
+    font-size: 18px;
+}
+
+.tabss {
+    text-align: center;
+    -webkit-border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    border-radius: 0px 0px 10px 10px;
+    padding: 4px 0;
+    color: #fff;
+    font-weight: 300;
+    position: absolute;
+    top: 0;
+    width: 46%;
+}
+
+.tabss-color1 {
+    background: #DF1916;
+    border: 1px solid #DF1916;
+}
+
+.tabss-color2 {
+    background: #898989;
+    border: 1px solid #898989;
+}
+
+img.rights {
+    width: 25px;
+    margin-right: 3px;
+}
+
+.tabssdwn {
+    text-align: center;
+}
+
+.tabssdwn span {
+    color: #fff;
+    font-size: 10px;
+    position: relative;
+    top: -10px;
+}
+
+.bordered .col-75 {
+    border-left: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.row.no-pad.bordereds h3 {
+    font-family: inherit;
+}
+
+p.simple-text {
+    font-size: 11px;
+}
+
+h3.margin-none {
+    margin-top: 2px;
 }

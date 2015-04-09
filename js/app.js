@@ -80,14 +80,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.finance', {
-        url: "/finance",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/finance.html",
-                controller: 'FinanceCtrl'
+            url: "/finance",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/finance.html",
+                    controller: 'FinanceCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.myaccount', {
+            url: "/myaccount",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/myaccount.html",
+                    controller: 'MyAccountCtrl'
+                }
+            }
+        })
 
 
     .state('app.sme', {
@@ -142,14 +151,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     //Loan FORMS
     .state('app.personal', {
-        url: "/personal",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/form-personal.html",
-                controller: 'PersonalLoanCtrl'
+            url: "/personal",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/form-personal.html",
+                    controller: 'PersonalLoanCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.creditapply', {
+            url: "/creditapply",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/creditapply.html",
+                    controller: 'CreditApplyCtrl'
+                }
+            }
+        })
 
     .state('app.credit', {
         url: "/credit",
