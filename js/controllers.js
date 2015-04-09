@@ -35,6 +35,11 @@ angular.module('starter.controllers', [])
     .controller('CreditCtrl', function ($scope, $stateParams) {})
     .controller('MyAccountCtrl', function ($scope, $stateParams) {})
     .controller('ConstructFormCtrl', function ($scope, $stateParams) {})
+    .controller('CommericialCtrl', function ($scope, $stateParams) {})
+    .controller('HealthCtrl', function ($scope, $stateParams) {})
+    .controller('SmeBussniessCtrl', function ($scope, $stateParams) {})
+    .controller('SmeProjectCtrl', function ($scope, $stateParams) {})
+    .controller('SmeFilesCtrl', function ($scope, $stateParams) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
         $scope.personal = {
             'loan': 20000,

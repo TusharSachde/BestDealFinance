@@ -323,14 +323,59 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.securityloan', {
-        url: "/securityloan",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/form-security.html",
-                controller: 'SecurityLoanCtrl'
+            url: "/securityloan",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/form-security.html",
+                    controller: 'SecurityLoanCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.smeproject', {
+            url: "/smeproject",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/smeproject.html",
+                    controller: 'SmeProjectCtrl'
+                }
+            }
+        })
+        .state('app.smebussniess', {
+            url: "/smebussniess",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/smebussniess.html",
+                    controller: 'SmeBussniessCtrl'
+                }
+            }
+        })
+        .state('app.health', {
+            url: "/health",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/health.html",
+                    controller: 'HealthCtrl'
+                }
+            }
+        })
+        .state('app.commericial', {
+            url: "/commericial",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/commericial.html",
+                    controller: 'CommericialCtrl'
+                }
+            }
+        })
+        .state('app.smefiles', {
+            url: "/smefiles",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/smefiles.html",
+                    controller: 'SmeFilesCtrl'
+                }
+            }
+        })
 
     .state('app.securitychk', {
         url: "/securitychk",

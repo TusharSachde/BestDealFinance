@@ -868,6 +868,10 @@ img.rights {
     border-left: 1px solid rgba(0, 0, 0, 0.35);
 }
 
+textarea#enq_address {
+    background: transparent;
+}
+
 .row.no-pad.bordereds h3 {
     font-family: inherit;
 }
@@ -878,4 +882,13 @@ p.simple-text {
 
 h3.margin-none {
     margin-top: 2px;
+}
+
+.item-content.disable-pointer-events {
+    background: rgb(210, 210, 210);
+    border-color: #D2D2D2;
+}
+
+label.item.item-radio.ng-valid {
+    border: 0px;
 }

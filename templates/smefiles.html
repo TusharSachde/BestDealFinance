@@ -1,0 +1,38 @@
+<ion-view view-title="Commercial Equiment" class="scroll-bg">
+    <ion-content class="has-header font500">
+        <form ng-submit="" class="deal-form">
+            <div class="list signin">
+                <label class="item item-input">
+                    <ion-radio ng-model="choice" ng-value="'A'">Loan Against Property (Commercial / Residential)</ion-radio>
+                </label>
+
+                <label class="item item-input">
+                    <ion-radio ng-model="choice" ng-value="'A'">Loan Against Rental Receivables/ Lease Rental Discounting (LRD)</ion-radio>
+                </label>
+                <label class="item item-input">
+                    <ion-radio ng-model="choice" ng-value="'A'"> Dropline Overdraft</ion-radio>
+                </label>
+
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Loan For
+                    </div>
+                    <select>
+                        <option> =Loanfor=</option>
+                        <option>Self</option>
+                        <option>Company</option>
+                    </select>
+                </label>
+                <div class="text-center light" ng-click="openTerms();">Know more</div>
+            </div>
+            <a href="#/app/propertyloan ">
+                <div class="button-image" ng-click="">
+                    <img src="img/button2.png" alt="" class="full-image">
+                    <div class="button-text assertive">Proceed</div>
+                </div>
+            </a>
+        </form>
+
+    </ion-content>
+</ion-view>

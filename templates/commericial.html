@@ -1,0 +1,100 @@
+<ion-view view-title="Commercial Equiment" class="scroll-bg">
+    <ion-content class="has-header font500">
+        <form ng-submit="" class="deal-form">
+            <div class="list signin">
+
+
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Date of Registration</span>
+                    <input type="date">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Company Name</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Designation</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Address</span>
+                    <!--                    <textarea type="text" class="form-control" id="enq_address" name="enq_address" maxlength="100" placeholder="Enter your address" autocomplete="off"></textarea>-->
+                    <input type="text">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        State
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Maharastra</option>
+                        <option>Karnataka</option>
+                    </select>
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        City
+                    </div>
+                    <select>
+                        <option>Please select</option>
+                        <option>Mumbai</option>
+                        <option>Banglore</option>
+                    </select>
+                </label>
+
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Product
+                    </div>
+                    <select>
+                        <option>Select Product</option>
+                        <option>Loan Aganist</option>
+                        <option>SME Fianace</option>
+                    </select>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Loan Amount</span>
+                    <input type="text">
+                </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        Mobile Number
+                    </div>
+                    <select>
+                        <option>India 91+</option>
+                        <option>India 91+</option>
+                    </select>
+                </label>
+
+                <label class="item item-input">
+                    <input type="text">
+                </label>
+
+                <ion-item class="item-checkbox">
+                    <label class="checkbox">
+                        <input type="checkbox" ng-click="iagree()">
+                    </label>
+                    I Agree
+                </ion-item>
+                <div class="text-center light" ng-click="openTerms();">Know more</div>
+            </div>
+            <a href="#/app/thankyou">
+                <div class="button-image" ng-click="">
+                    <img src="img/button2.png" alt="" class="full-image">
+                    <div class="button-text assertive">Proceed</div>
+                </div>
+            </a>
+        </form>
+
+    </ion-content>
+</ion-view>
