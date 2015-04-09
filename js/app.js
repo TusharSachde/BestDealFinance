@@ -168,6 +168,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
+        .state('app.frmproperty', {
+            url: "/frmproperty",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/frmproperty.html",
+                    controller: 'FrmPropertyCtrl'
+                }
+            }
+        })
 
     .state('app.credit', {
         url: "/credit",
@@ -302,6 +311,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                 }
             }
         })
+
+    .state('app.constructform', {
+        url: "/constructform",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/formconstrctsme.html",
+                controller: 'ConstructFormCtrl'
+            }
+        }
+    })
 
     .state('app.securityloan', {
         url: "/securityloan",
