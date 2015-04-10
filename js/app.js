@@ -375,6 +375,15 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                     controller: 'SmeFilesCtrl'
                 }
             }
+        })      
+    .state('app.geinedeal', {
+            url: "/geinedeal",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/geinedeal.html",
+                    controller: 'GeineDealCtrl'
+                }
+            }
         })
 
     .state('app.securitychk', {
@@ -448,6 +457,43 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
+
+    .state('app.refer-property', {
+            url: "/refer-property",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/refer-property.html",
+                    controller: 'ReferPropertyCtrl'
+                }
+            }
+        })
+        .state('app.refer-earn', {
+            url: "/refer-earn",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/refer-earn.html",
+                    controller: 'ReferEarnCtrl'
+                }
+            }
+        })
+        .state('app.referaldetails', {
+            url: "/referaldetails",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/referaldetails.html",
+                    controller: 'ReferalDetailsCtrl'
+                }
+            }
+        })
+        .state('app.refer', {
+            url: "/refer",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/refer.html",
+                    controller: 'ReferCtrl'
+                }
+            }
+        })
 
     .state('app.thankyou', {
         url: "/thankyou",

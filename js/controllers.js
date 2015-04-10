@@ -40,6 +40,11 @@ angular.module('starter.controllers', [])
     .controller('SmeBussniessCtrl', function ($scope, $stateParams) {})
     .controller('SmeProjectCtrl', function ($scope, $stateParams) {})
     .controller('SmeFilesCtrl', function ($scope, $stateParams) {})
+    .controller('ReferPropertyCtrl', function ($scope, $stateParams) {})
+    .controller('ReferEarnCtrl', function ($scope, $stateParams) {})
+    .controller('ReferalDetailsCtrl', function ($scope, $stateParams) {})
+    .controller('ReferCtrl', function ($scope, $stateParams) {})
+    .controller('GeineDealCtrl', function ($scope, $stateParams) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
         $scope.personal = {
             'loan': 20000,
