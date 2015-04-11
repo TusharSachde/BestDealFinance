@@ -49,7 +49,22 @@ angular.module('starter.controllers', [])
             $scope.modal.hide();
         };
     })
-    .controller('MyAccountCtrl', function ($scope, $stateParams) {})
+    .controller('MyAccountCtrl', function ($scope, $stateParams) {
+
+        $scope.profile = "bold";
+
+        $scope.changemyapp = function () {
+            $scope.myapp = "bold";
+            $scope.profile = "";
+        }
+
+        $scope.chnageprofile = function () {
+            $scope.myapp = "";
+            $scope.profile = "bold";
+
+
+        }
+    })
     .controller('ConstructFormCtrl', function ($scope, $stateParams, $ionicModal) {
 
         $scope.carloan = {

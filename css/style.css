@@ -1217,7 +1217,8 @@ ion-list.icon-on-left.contactus .list .item {
 
 .menu-down {
     width: 100%;
-    margin-top: 50px;
+    /*    margin-top: 50px;*/
+    
     margin-left: 3px;
 }
 
@@ -1249,4 +1250,20 @@ img.img-ginie {
 .menu-mega p {
     font-size: 10px;
     margin: 0;
+}
+
+.head-conct p {
+    color: #fff;
+    text-align: center;
+    font-weight: 100;
+}
+
+.head-conct {
+    padding-top: 15px;
+    padding-bottom: 8px;
+}
+
+.cont-foot {
+    height: 73px;
+    background: transparent;
 }
