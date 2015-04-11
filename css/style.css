@@ -854,9 +854,9 @@ p.top-corner {
     width: 46%;
 }
 
-.tabss-color1 {
-    background: #DF1916;
-    border: 1px solid #DF1916;
+.bold {
+    background: #DF1916!important;
+    border: 1px solid #DF1916!important;
 }
 
 .tabss-color2 {

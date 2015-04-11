@@ -50,7 +50,7 @@ angular.module('starter.controllers', [])
         };
     })
     .controller('MyAccountCtrl', function ($scope, $stateParams) {
-
+        $scope.returnsactive = "active";
         $scope.profile = "bold";
 
         $scope.changemyapp = function () {
@@ -61,8 +61,6 @@ angular.module('starter.controllers', [])
         $scope.chnageprofile = function () {
             $scope.myapp = "";
             $scope.profile = "bold";
-
-
         }
     })
     .controller('ConstructFormCtrl', function ($scope, $stateParams, $ionicModal) {
