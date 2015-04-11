@@ -1267,3 +1267,7 @@ img.img-ginie {
     height: 73px;
     background: transparent;
 }
+
+button.button.button-icon.popup-btn:before {
+    font-size: 18px;
+}
