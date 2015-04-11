@@ -274,14 +274,23 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.propertyloan', {
-        url: "/propertyloan",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/form-properties.html",
-                controller: 'PropertyLoanCtrl'
+            url: "/propertyloan",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/form-properties.html",
+                    controller: 'PropertyLoanCtrl'
+                }
             }
-        }
-    })
+        })
+        .state('app.contactus', {
+            url: "/contactus",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/contactus.html",
+                    controller: 'ContactusCtrl'
+                }
+            }
+        })
 
     .state('app.propertychk', {
         url: "/propertychk",
@@ -375,13 +384,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                     controller: 'SmeFilesCtrl'
                 }
             }
-        })      
-    .state('app.geinedeal', {
-            url: "/geinedeal",
+        })
+        .state('app.geniedeal', {
+            url: "/geniedeal",
             views: {
                 'menuContent': {
                     templateUrl: "templates/geinedeal.html",
-                    controller: 'GeineDealCtrl'
+                    controller: 'GenieDealCtrl'
                 }
             }
         })

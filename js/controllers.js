@@ -32,9 +32,47 @@ angular.module('starter.controllers', [])
     .controller('HomeChkListCtrl', function ($scope, $stateParams) {})
     .controller('HomeApplyCtrl', function ($scope, $stateParams) {})
     .controller('HomeChkCtrl', function ($scope, $stateParams) {})
-    .controller('CreditCtrl', function ($scope, $stateParams) {})
+    .controller('CreditCtrl', function ($scope, $stateParams, $ionicModal) {
+
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
+    })
     .controller('MyAccountCtrl', function ($scope, $stateParams) {})
-    .controller('ConstructFormCtrl', function ($scope, $stateParams) {})
+    .controller('ConstructFormCtrl', function ($scope, $stateParams, $ionicModal) {
+
+        $scope.carloan = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
+
+        };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
+    })
     .controller('CommericialCtrl', function ($scope, $stateParams) {})
     .controller('HealthCtrl', function ($scope, $stateParams) {})
     .controller('SmeBussniessCtrl', function ($scope, $stateParams) {})
@@ -43,8 +81,10 @@ angular.module('starter.controllers', [])
     .controller('ReferPropertyCtrl', function ($scope, $stateParams) {})
     .controller('ReferEarnCtrl', function ($scope, $stateParams) {})
     .controller('ReferalDetailsCtrl', function ($scope, $stateParams) {})
+    .controller('CreditApplyCtrl', function ($scope, $stateParams) {})
     .controller('ReferCtrl', function ($scope, $stateParams) {})
-    .controller('GeineDealCtrl', function ($scope, $stateParams) {})
+    .controller('GenieDealCtrl', function ($scope, $stateParams) {})
+    .controller('ContactusCtrl', function ($scope, $stateParams) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
         $scope.personal = {
             'loan': 20000,
@@ -53,17 +93,31 @@ angular.module('starter.controllers', [])
 
         };
     })
-    .controller('CarLoanCtrl', function ($scope, $stateParams) {
+    .controller('CarLoanCtrl', function ($scope, $stateParams, $ionicModal) {
 
         $scope.carloan = {
             'loan': 20000,
             'tenure': 6,
             'income': 15000
 
+        };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
         };
 
     })
-    .controller('TwowheelerLoanCtrl', function ($scope, $stateParams) {
+    .controller('TwowheelerLoanCtrl', function ($scope, $stateParams, $ionicModal) {
 
         $scope.carloan = {
             'loan': 20000,
@@ -71,9 +125,22 @@ angular.module('starter.controllers', [])
             'income': 15000
 
         };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
 
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
     })
-    .controller('SecurityLoanCtrl', function ($scope, $stateParams) {
+    .controller('SecurityLoanCtrl', function ($scope, $stateParams, $ionicModal) {
 
         $scope.carloan = {
             'loan': 20000,
@@ -81,6 +148,20 @@ angular.module('starter.controllers', [])
             'income': 15000
 
         };
+        //        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+        //            scope: $scope,
+        //            animation: 'slide-in-up'
+        //        }).then(function (modal) {
+        //            $scope.modal = modal;
+        //        });
+        //
+        //        $scope.openedit = function () {
+        //            $scope.modal.show();
+        //        }
+        //
+        //        $scope.closeModal = function () {
+        //            $scope.modal.hide();
+        //        };
 
     })
     .controller('PropertyLoanCtrl', function ($scope, $stateParams) {
@@ -103,7 +184,7 @@ angular.module('starter.controllers', [])
         };
 
     })
-    .controller('HomeLoansCtrl', function ($scope, $stateParams) {
+    .controller('HomeLoansCtrl', function ($scope, $stateParams, $ionicModal) {
 
         //        $scope.carloan = {
         //            'loan': 20000,
@@ -111,6 +192,20 @@ angular.module('starter.controllers', [])
         //            'income': 15000
         //
         //        };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
 
     })
 

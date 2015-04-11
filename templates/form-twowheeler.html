@@ -1,9 +1,7 @@
 <ion-view view-title="Two Wheeler Loan" class="scroll-bg">
     <ion-content class="has-header font500">
-
         <form ng-submit="" class="deal-form">
             <div class="list signin">
-
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
                     <input type="number" ng-model="carloan.loan">
@@ -44,21 +42,23 @@
                         <option>No</option>
                     </select>
                 </label>
-               
-                <label class="item item-input item-select">
-                    <div class="input-label">
+
+                <label class="item item-input" ng-click="openedit();">
+                    <div class=" input-label ">
                         Company
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>Puratek company</option>
-                        <option>TCS</option>
-                    </select>
-                </label> 
-                   
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                       City (Residing at)
+                    <!--
+<select>
+    <option>Please select</option>
+    <option>Puratek company</option>
+    <option>TCS</option>
+</select>
+-->
+                </label>
+
+                <label class="item item-input item-select ">
+                    <div class="input-label ">
+                        City (Residing at)
                     </div>
                     <select>
                         <option>Mumbai</option>
@@ -67,8 +67,8 @@
                     </select>
                 </label>
 
-                <label class="item item-input item-select">
-                    <div class="input-label">
+                <label class="item item-input item-select ">
+                    <div class="input-label ">
                         Manufacturer
                     </div>
                     <select>
@@ -78,8 +78,8 @@
                     </select>
                 </label>
 
-                <label class="item item-input item-select">
-                    <div class="input-label">
+                <label class="item item-input item-select ">
+                    <div class="input-label ">
                         Model
                     </div>
                     <select>
@@ -89,24 +89,24 @@
                     </select>
                 </label>
 
-                
-                    <label class="item item-input">
-                    <span class="input-label">Ex-Show Room Price of Car</span>
-                    <input type="text">
-                    
+
+                <label class="item item-input ">
+                    <span class="input-label ">Ex-Show Room Price of Car</span>
+                    <input type="text ">
+
                 </label>
-                <ion-item class="item-checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" ng-click="iagree()">
+                <ion-item class="item-checkbox ">
+                    <label class="checkbox ">
+                        <input type="checkbox " ng-click="iagree() ">
                     </label>
                     I Agree
                 </ion-item>
-                <div class="text-center light" ng-click="openTerms();">Know more</div>
+                <div class="text-center light " ng-click="openTerms(); ">Know more</div>
             </div>
-            <a href="#/app/twowheelerlistchk">
-                <div class="button-image" ng-click="">
-                    <img src="img/button2.png" alt="" class="full-image">
-                    <div class="button-text assertive">Get me deals</div>
+            <a href="#/app/twowheelerlistchk ">
+                <div class="button-image " ng-click=" ">
+                    <img src="img/button2.png " alt=" " class="full-image ">
+                    <div class="button-text assertive ">Get me deals</div>
                 </div>
             </a>
         </form>
