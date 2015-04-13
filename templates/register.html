@@ -21,15 +21,15 @@
             <div class="list signin signup">
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-iphone"></i></span>
-                    <input type="tel" placeholder="Mobile Number">
+                    <input type="tel" placeholder="Mobile Number" ng-model="register.enq_mobile" ng-class="allvalidation[0].validation">
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-person"></i></span>
-                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="Name" ng-model="register.enq_name" ng-class="allvalidation[1].validation">
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-mail"></i></span>
-                    <input type="email" placeholder="Email ID">
+                    <input type="email" placeholder="Email ID" ng-model="register.enq_email" ng-class="allvalidation[2].validation">
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-calendar"></i></span>
@@ -37,18 +37,18 @@
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-create"></i></span>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" ng-model="register.enq_password1" ng-class="allvalidation[3].validation">
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-create"></i></span>
-                    <input type="password" placeholder="Conform Password">
+                    <input type="password" placeholder="Conform Password" ng-model="register.password_again" ng-class="allvalidation[4].validation">
                 </label>
             </div>
 
-            <a href="#/app/home">
+            <a>
                 <div class="button-image" ng-click="">
                     <img src="img/button.png" alt="" class="full-image">
-                    <div class="button-text assertive" ng-click="userregister(reg)">Sign Up</div>
+                    <div class="button-text assertive" ng-click="userregister(register)">Sign Up</div>
                 </div>
             </a>
         </form>

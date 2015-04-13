@@ -1,10 +1,91 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['myservices'])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
 
-.controller('LoginCtrl', function($scope, $stateParams) {})
+.controller('LoginCtrl', function($scope, $stateParams, MyServices) {
+    
+    //  DECLARATION
+    $scope.login = [];
+    $scope.allvalidation = [];
+    
+    //  TESTING
+    var catsuccess = function(data, status){
+        console.log(data);
+    }
+    MyServices.getcategories().success(catsuccess);
+    
+    //  USER LOGIN
+    var loginsuccess = function(data, status){
+        console.log(data);
+    }
+    $scope.userlogin = function(login) {
 
-.controller('RegisterCtrl', function($scope, $stateParams) {})
+        $scope.allvalidation = [{
+            field: $scope.login.enq_username,
+            validation: ""
+        }, {
+            field: $scope.login.enq_password,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+            MyServices.userlogin(login).success(loginsuccess);
+        };
+    }
+
+})
+
+.controller('RegisterCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout) {
+
+    //  DECARATION
+    $scope.register = [];
+    $scope.allvalidation = [];
+    
+    //  USER REGISTRATION
+    var registersuccess = function(data, status){
+        console.log(data);
+        if(data.msg == "Duplicate Values")
+        {
+            var myPopup = $ionicPopup.show({
+                    title: "User with this email id already exists",
+                    scope: $scope,
+                });
+                $timeout(function() {
+                    myPopup.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+        }else if(data.msg == "Success"){
+            $location.url("/login");
+        }else{
+            
+        }
+    }
+    $scope.userregister = function(register){
+        $scope.register.pushwooshid = "123456789596666";
+         $scope.allvalidation = [{
+            field: $scope.register.enq_name,
+            validation: ""
+        }, {
+            field: $scope.register.enq_mobile,
+            validation: ""
+        }, {
+            field: $scope.register.enq_email,
+            validation: ""
+        }, {
+            field: $scope.register.enq_password1,
+            validation: ""
+        }, {
+            field: $scope.register.password_again,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+            MyServices.userregister(register).success(registersuccess);
+        };
+    }
+    
+})
 
 .controller('ForgotCtrl', function($scope, $stateParams) {})
 
