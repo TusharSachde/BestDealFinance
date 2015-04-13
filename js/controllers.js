@@ -98,12 +98,26 @@ angular.module('starter.controllers', [])
     .controller('ReferCtrl', function ($scope, $stateParams) {})
     .controller('GenieDealCtrl', function ($scope, $stateParams) {})
     .controller('ContactusCtrl', function ($scope, $stateParams) {})
-    .controller('PersonalLoanCtrl', function ($scope, $stateParams) {
+    .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal) {
         $scope.personal = {
             'loan': 20000,
             'tenure': 6,
             'income': 15000
 
+        };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
         };
     })
     .controller('CarLoanCtrl', function ($scope, $stateParams, $ionicModal) {
