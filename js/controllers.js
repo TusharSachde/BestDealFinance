@@ -86,7 +86,6 @@ angular.module('starter.controllers', [])
             $scope.modal.hide();
         };
     })
-<<<<<<< HEAD
     .controller('CommericialCtrl', function ($scope, $stateParams) {})
     .controller('HealthCtrl', function ($scope, $stateParams) {})
     .controller('SmeBussniessCtrl', function ($scope, $stateParams) {})
@@ -100,21 +99,6 @@ angular.module('starter.controllers', [])
     .controller('GenieDealCtrl', function ($scope, $stateParams) {})
     .controller('ContactusCtrl', function ($scope, $stateParams) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal) {
-=======
-    .controller('CommericialCtrl', function($scope, $stateParams) {})
-    .controller('HealthCtrl', function($scope, $stateParams) {})
-    .controller('SmeBussniessCtrl', function($scope, $stateParams) {})
-    .controller('SmeProjectCtrl', function($scope, $stateParams) {})
-    .controller('SmeFilesCtrl', function($scope, $stateParams) {})
-    .controller('ReferPropertyCtrl', function($scope, $stateParams) {})
-    .controller('ReferEarnCtrl', function($scope, $stateParams) {})
-    .controller('ReferalDetailsCtrl', function($scope, $stateParams) {})
-    .controller('CreditApplyCtrl', function($scope, $stateParams) {})
-    .controller('ReferCtrl', function($scope, $stateParams) {})
-    .controller('GenieDealCtrl', function($scope, $stateParams) {})
-    .controller('ContactusCtrl', function($scope, $stateParams) {})
-    .controller('PersonalLoanCtrl', function($scope, $stateParams) {
->>>>>>> origin/master
         $scope.personal = {
             'loan': 20000,
             'tenure': 6,

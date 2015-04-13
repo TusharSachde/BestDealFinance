@@ -13,7 +13,7 @@
             <div class="list signin">
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-mail"></i></span>
-                    <input type="email" placeholder="Email Address">
+                    <input type="email" placeholder="Email Address" ng-model="login.enq_username">
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-lock"></i></span>
@@ -25,7 +25,7 @@
             <a href="#/app/home">
                 <div class="button-image" ng-click="">
                     <img src="img/button.png" alt="" class="full-image">
-                    <div class="button-text assertive">Sign In</div>
+                    <div class="button-text assertive" ng-click="userlogin(login)">Sign In</div>
                 </div>
             </a>
         </form>
