@@ -3,19 +3,19 @@ angular.module('starter.controllers', ['myservices'])
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {})
 
 .controller('LoginCtrl', function($scope, $stateParams, MyServices) {
-    
+
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
-    
+
     //  TESTING
-    var catsuccess = function(data, status){
+    var catsuccess = function(data, status) {
         console.log(data);
     }
     MyServices.getcategories().success(catsuccess);
-    
+
     //  USER LOGIN
-    var loginsuccess = function(data, status){
+    var loginsuccess = function(data, status) {
         console.log(data);
     }
     $scope.userlogin = function(login) {
@@ -41,28 +41,27 @@ angular.module('starter.controllers', ['myservices'])
     //  DECARATION
     $scope.register = [];
     $scope.allvalidation = [];
-    
+
     //  USER REGISTRATION
-    var registersuccess = function(data, status){
+    var registersuccess = function(data, status) {
         console.log(data);
-        if(data.msg == "Duplicate Values")
-        {
+        if (data.msg == "Duplicate Values") {
             var myPopup = $ionicPopup.show({
-                    title: "Already registered with this details",
-                    scope: $scope,
-                });
-                $timeout(function() {
-                    myPopup.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-        }else if(data.msg == "Success"){
+                title: "Already registered with this details",
+                scope: $scope,
+            });
+            $timeout(function() {
+                myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        } else if (data.msg == "Success") {
             $location.url("/login");
-        }else{
-            
+        } else {
+
         }
     }
-    $scope.userregister = function(register){
+    $scope.userregister = function(register) {
         $scope.register.pushwooshid = "123456789596666";
-         $scope.allvalidation = [{
+        $scope.allvalidation = [{
             field: $scope.register.enq_name,
             validation: ""
         }, {
@@ -84,10 +83,47 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.userregister(register).success(registersuccess);
         };
     }
-    
+
 })
 
-.controller('ForgotCtrl', function($scope, $stateParams) {})
+.controller('ForgotCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout) {
+
+    //  DECLARATION
+    $scope.allvalidation = [];
+    $scope.forgot = [];
+
+    //  ON FORGOT PASSWORD
+    var forgotsuccess = function(data, status) {
+        console.log(data);
+        if (data.msg == "success") {
+            var myPopup = $ionicPopup.show({
+                title: "Your new password has been sent on your registered email id",
+                scope: $scope,
+            });
+        } else {
+            var myPopup = $ionicPopup.show({
+                title: data.msg,
+                scope: $scope,
+            });
+        }
+        $timeout(function() {
+            myPopup.close(); //close the popup after 3 seconds for some reason
+        }, 1500);
+    }
+    $scope.userforgotpassword = function(forgot) {
+        $scope.allvalidation = [{
+            field: $scope.forgot.email,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+            MyServices.forgotpassword(forgot).success(forgotsuccess);
+        };
+
+    }
+
+})
 
 .controller('HomeCtrl', function($scope, $stateParams) {})
 
@@ -167,19 +203,19 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
-    .controller('CommericialCtrl', function ($scope, $stateParams) {})
-    .controller('HealthCtrl', function ($scope, $stateParams) {})
-    .controller('SmeBussniessCtrl', function ($scope, $stateParams) {})
-    .controller('SmeProjectCtrl', function ($scope, $stateParams) {})
-    .controller('SmeFilesCtrl', function ($scope, $stateParams) {})
-    .controller('ReferPropertyCtrl', function ($scope, $stateParams) {})
-    .controller('ReferEarnCtrl', function ($scope, $stateParams) {})
-    .controller('ReferalDetailsCtrl', function ($scope, $stateParams) {})
-    .controller('CreditApplyCtrl', function ($scope, $stateParams) {})
-    .controller('ReferCtrl', function ($scope, $stateParams) {})
-    .controller('GenieDealCtrl', function ($scope, $stateParams) {})
-    .controller('ContactusCtrl', function ($scope, $stateParams) {})
-    .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal) {
+    .controller('CommericialCtrl', function($scope, $stateParams) {})
+    .controller('HealthCtrl', function($scope, $stateParams) {})
+    .controller('SmeBussniessCtrl', function($scope, $stateParams) {})
+    .controller('SmeProjectCtrl', function($scope, $stateParams) {})
+    .controller('SmeFilesCtrl', function($scope, $stateParams) {})
+    .controller('ReferPropertyCtrl', function($scope, $stateParams) {})
+    .controller('ReferEarnCtrl', function($scope, $stateParams) {})
+    .controller('ReferalDetailsCtrl', function($scope, $stateParams) {})
+    .controller('CreditApplyCtrl', function($scope, $stateParams) {})
+    .controller('ReferCtrl', function($scope, $stateParams) {})
+    .controller('GenieDealCtrl', function($scope, $stateParams) {})
+    .controller('ContactusCtrl', function($scope, $stateParams) {})
+    .controller('PersonalLoanCtrl', function($scope, $stateParams, $ionicModal) {
         $scope.personal = {
             'loan': 20000,
             'tenure': 6,
@@ -189,15 +225,15 @@ angular.module('starter.controllers', ['myservices'])
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
-        }).then(function (modal) {
+        }).then(function(modal) {
             $scope.modal = modal;
         });
 
-        $scope.openedit = function () {
+        $scope.openedit = function() {
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModal = function() {
             $scope.modal.hide();
         };
     })

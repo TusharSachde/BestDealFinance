@@ -27,10 +27,9 @@ var myservices = angular.module('myservices', [])
         },
         userlogin: function(login) {
             return $http({
-                url: adminurl + "login",
+                url: adminurl + "mobilelogin",
                 method: "POST",
                 data: {
-                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
                         "login": login
@@ -46,6 +45,16 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {}
+                }
+            })
+        },
+        forgotpassword: function(email) {
+            return $http({
+                url: adminurl + "forgotpassword",
+                method: "POST",
+                data: {
+                    "Token": "1234",
+                    "Data": email
                 }
             })
         }
