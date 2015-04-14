@@ -1,19 +1,41 @@
-<ion-popup-view>
+<ion-modal-view>
     <ion-content>
-        <ion-list>
-            <form class="item item-input-inset only-horizontal " ng-submit="doSearch(datasearch); ">
-                <label class="item-input-wrapper ">
-                    <input type="text " placeholder="Company Name " ng-model="datasearch " ng-change="doSearch(datasearch);" style="border: 0px;">
-                </label>
-                <button class="button button-icon ion-search " type="submit "></button>
-            </form>
+        <ion-header-bar class="bg-grnd">
+            <h5 class="otp-title title">Meassage has been sent to your mobile</h5>
+        </ion-header-bar>
+        <div class="padding"></div>
+        <div class="otp-header">
+            Please verify your mobile no. <span>4:05</span>
+        </div>
+        <div class="code-made">
+            <p>
+                Enter the Verification code sent to your mobile number and click submit
+            </p>
+        </div>
+        <div class="otp-cont">
+            <label class="item item-input">
+                <span class="input-label">Enter Code here</span>
+                <input type="text">
+            </label>
+        </div>
+        <div class="buttons closebtn-otp">
+            <button class=" button button-icon popup-btn"> Resend</button>
+        </div>
+        <div class="btn-otp">
+            <a>
+                <div class="button-image" ng-click="">
+                    <img src="img/button.png" alt="" class="full-image">
+                    <div class="button-text assertive" ng-click="openedit();">Submit</div>
+                </div>
+            </a>
+        </div>
+        <div class="buttons closebtn-otp">
+            Can't verify by verification code?
+            <a href="#"> Click Here</a>
 
-            <!--Repeat pincode, cities-->
-            <ion-item ng-repeat="allpincode in allpincodes " ng-click="goPin(allpincode); ">{{allpincode.name}}, {{allpincode.po}}, {{allpincode.city}}</ion-item>
-
-            <ion-item ng-if="allpincodes.length==0 ">No data found.</ion-item>
-
-        </ion-list>
-
+        </div>
+        <div class="buttons closebtn-otp pad-top">
+            <button class=" button button-icon popup-btn" ng-click="closeModal(); "> Close</button>
+        </div>
     </ion-content>
-</ion-popup-view>
+</ion-modal-view>

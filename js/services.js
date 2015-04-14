@@ -2,9 +2,9 @@ var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
 
 var myservices = angular.module('myservices', [])
 
-.factory('MyServices', function($http, $location) {
+.factory('MyServices', function ($http, $location) {
     return {
-        userregister: function(signup) {
+        userregister: function (signup) {
             return $http({
                 url: adminurl + "signup",
                 method: "POST",
@@ -25,7 +25,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        userlogin: function(login) {
+        userlogin: function (login) {
             return $http({
                 url: adminurl + "mobilelogin",
                 method: "POST",
@@ -37,7 +37,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        getcategories: function() {
+        getcategories: function () {
             return $http({
                 url: adminurl + "getcategories",
                 method: "POST",
@@ -48,7 +48,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        forgotpassword: function(email) {
+        forgotpassword: function (email) {
             return $http({
                 url: adminurl + "forgotpassword",
                 method: "POST",
