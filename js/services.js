@@ -25,14 +25,23 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+<<<<<<< Updated upstream
         userlogin: function (login) {
+=======
+        userlogin: function(login) {
+            console.log(login);
+>>>>>>> Stashed changes
             return $http({
                 url: adminurl + "mobilelogin",
                 method: "POST",
                 data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "login": login
+                        "login": {
+                            "enq_username": login.enq_username,
+                            "enq_password": login.enq_password
+                        }
                     }
                 }
             })
