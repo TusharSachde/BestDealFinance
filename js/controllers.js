@@ -86,7 +86,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('ForgotCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout) {
+.controller('ForgotCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
 
     //  DECLARATION
     $scope.allvalidation = [];
@@ -100,15 +100,20 @@ angular.module('starter.controllers', ['myservices'])
                 title: "Your new password has been sent on your registered email id",
                 scope: $scope,
             });
+            $timeout(function() {
+                myPopup.close(); //close the popup after 3 seconds for some reason
+                $location.url("/login");
+            }, 1500);
         } else {
-            var myPopup = $ionicPopup.show({
+            var myPopup1 = $ionicPopup.show({
                 title: data.msg,
                 scope: $scope,
             });
+            $timeout(function() {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
         }
-        $timeout(function() {
-            myPopup.close(); //close the popup after 3 seconds for some reason
-        }, 1500);
+
     }
     $scope.userforgotpassword = function(forgot) {
         $scope.allvalidation = [{
