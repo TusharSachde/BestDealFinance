@@ -48,7 +48,7 @@ angular.module('starter.controllers', ['myservices'])
         if(data.msg == "Duplicate Values")
         {
             var myPopup = $ionicPopup.show({
-                    title: "User with this email id already exists",
+                    title: "Already registered with this details",
                     scope: $scope,
                 });
                 $timeout(function() {

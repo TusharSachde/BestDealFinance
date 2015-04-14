@@ -1078,11 +1078,15 @@ button.button.button-icon.popup-btn:before {
 .myaccfoot {
     background: transparent;
 }
-.ng-invalid.ng-dirty,
-.ng-dirty {
-    border-left: 2px solid red !important;
-    border-right: 2px solid red !important;
+/*
+.ng-invalid.ng-dirty {
+    border: 1px solid red !important;
 }
-.ng-dirty>* {
-    color: red;
+*/
+.ng-invalid.ng-dirty {
+    border-right: 2px solid red !important;
+    border-left: 2px solid red !important;
+}
+form.ng-invalid.ng-dirty.frm-bdr {
+    border: none!important;
 }

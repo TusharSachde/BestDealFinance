@@ -17,19 +17,19 @@
 
         <div class="padding"></div>
 
-        <form ng-submit="">
+        <form class="frm-bdr" ng-submit="">
             <div class="list signin signup">
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-iphone"></i></span>
-                    <input type="tel" placeholder="Mobile Number" ng-model="register.enq_mobile" ng-class="allvalidation[0].validation">
+                    <input type="tel" placeholder="Mobile Number *" ng-model="register.enq_mobile" ng-class="allvalidation[0].validation" required>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-person"></i></span>
-                    <input type="text" placeholder="Name" ng-model="register.enq_name" ng-class="allvalidation[1].validation">
+                    <input type="text" placeholder="Name *" ng-model="register.enq_name" ng-class="allvalidation[1].validation" required>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-mail"></i></span>
-                    <input type="email" placeholder="Email ID" ng-model="register.enq_email" ng-class="allvalidation[2].validation">
+                    <input type="email" placeholder="Email ID *" ng-model="register.enq_email" ng-class="allvalidation[2].validation" required>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-calendar"></i></span>
@@ -37,11 +37,11 @@
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-create"></i></span>
-                    <input type="password" placeholder="Password" ng-model="register.enq_password1" ng-class="allvalidation[3].validation">
+                    <input type="password" placeholder="Password *" ng-model="register.enq_password1" ng-class="allvalidation[3].validation" required>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-create"></i></span>
-                    <input type="password" placeholder="Conform Password" ng-model="register.password_again" ng-class="allvalidation[4].validation">
+                    <input type="password" placeholder="Conform Password *" ng-model="register.password_again" ng-class="allvalidation[4].validation" required>
                 </label>
             </div>
 
