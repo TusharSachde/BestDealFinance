@@ -25,12 +25,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-<<<<<<< Updated upstream
         userlogin: function (login) {
-=======
-        userlogin: function(login) {
-            console.log(login);
->>>>>>> Stashed changes
             return $http({
                 url: adminurl + "mobilelogin",
                 method: "POST",
