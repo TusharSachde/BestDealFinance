@@ -1343,6 +1343,11 @@ form.ng-invalid.ng-dirty.frm-bdr {
     font-size: 12px;
 }
 
+.btn-otp button {
+    background: transparent;
+    border: 0;
+}
+
 .otp-header span {
     border: 0px solid #000;
     float: right;
