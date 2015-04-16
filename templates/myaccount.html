@@ -120,7 +120,7 @@
 
                     <label class="item item-input">
                         <span class="input-label">Name</span>
-                        <input type="text">
+                        <input type="text" ng-model="user.customername" ng-class="allvalidation[0].validation" required>
                     </label>
                     <label class="item item-input item-select">
                         <span class="input-label">Date of Birth</span>
@@ -132,7 +132,6 @@
                             Gender
                         </div>
                         <select>
-                            <option>&nbsp;</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>other</option>
@@ -143,24 +142,24 @@
                             Marital Status
                         </div>
                         <select>
-                            <option>Married</option>
                             <option>Un-married</option>
+                            <option>Married</option>
 
                         </select>
                     </label>
 
 
                     <label class="item item-input">
-                        <span>  Mobile no.</span>
-                        <input type="number">
+                        <span>  Mobile no. : </span>
+                        <input type="text" ng-model="user.customermobile" ng-class="allvalidation[1].validation" required>
                     </label>
                     <label class="item item-input">
                         <span>  Alternate no.</span>
                         <input type="number">
                     </label>
                     <label class="item item-input">
-                        <span>  Email Id</span>
-                        <input type="email">
+                        <span>  Email Id :</span>
+                        <input type="email" ng-model="user.customeremail" ng-class="allvalidation[2].validation" required>
                     </label>
                     <label class="item item-input">
                         <span>  Altenate Email Id</span>
@@ -168,7 +167,7 @@
                     </label>
                 </div>
 
-                <a href="#/app/listloan">
+                <a>
                     <div class="button-image" ng-click="">
                         <img src="img/button2.png" alt="" class="full-image">
                         <div class="button-text assertive">Save</div>

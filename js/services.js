@@ -2,9 +2,9 @@ var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
 
 var myservices = angular.module('myservices', [])
 
-.factory('MyServices', function ($http, $location) {
+.factory('MyServices', function($http, $location) {
     return {
-        userregister: function (signup) {
+        userregister: function(signup) {
             return $http({
                 url: adminurl + "signup",
                 method: "POST",
@@ -16,16 +16,14 @@ var myservices = angular.module('myservices', [])
                             "enq_name": signup.enq_name,
                             "enq_mobile": signup.enq_mobile,
                             "enq_email": signup.enq_email,
-                            "pushwooshid": "123456789596666",
                             "enq_password1": signup.enq_password1,
                             "password_again": signup.password_again
-
                         }
                     }
                 }
-            })
+            });
         },
-        userlogin: function (login) {
+        userlogin: function(login) {
             return $http({
                 url: adminurl + "mobilelogin",
                 method: "POST",
@@ -41,7 +39,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        getcategories: function () {
+        getcategories: function() {
             return $http({
                 url: adminurl + "getcategories",
                 method: "POST",
@@ -52,7 +50,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        forgotpassword: function (email) {
+        forgotpassword: function(email) {
             return $http({
                 url: adminurl + "forgotpassword",
                 method: "POST",
@@ -61,6 +59,33 @@ var myservices = angular.module('myservices', [])
                     "Data": email
                 }
             })
+        },
+        validateotp: function(otp) {
+            return $http({
+                url: adminurl + "otpdata",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "otpdata": {
+                            "OTPno": otp.OTPno,
+                            "U_mobile": otp.U_mobile,
+                            "U_SessionForOTPvalidate": otp.U_SessionForOTPvalidate
+                        }
+                    }
+
+                }
+            })
+        },
+        setuser: function(userdata) {
+            $.jStorage.set("user", userdata);
+        },
+        getuser: function() {
+            return $.jStorage.get("user");
+        },
+        flushuser: function() {
+            return $.jStorage.flush();
         }
 
     };
