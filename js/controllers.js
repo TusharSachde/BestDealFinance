@@ -12,17 +12,24 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('LoginCtrl', function($scope, $stateParams, MyServices, $location) {
+.controller('LoginCtrl', function($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
 
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
 
-    //  TESTING
-    var catsuccess = function(data, status) {
-        console.log(data);
+    //  AUTHENTICATE JSTORAGE
+    MyServices.flushuser();
+    if (MyServices.getuser()) {
+        $location.url("/app/home");
     }
-    MyServices.getcategories().success(catsuccess);
+
+
+    //  TESTING
+    //    var catsuccess = function(data, status) {
+    //        console.log(data);
+    //    }
+    //    MyServices.getcategories().success(catsuccess);
 
     //  USER LOGIN
     var loginsuccess = function(data, status) {
@@ -58,7 +65,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('RegisterCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval) {
+.controller('RegisterCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading) {
 
     //  DECARATION
     $scope.register = [];
@@ -78,7 +85,8 @@ angular.module('starter.controllers', ['myservices'])
             $timeout(function() {
                 myPopup.close(); //close the popup after 3 seconds for some reason
             }, 1500);
-        } else if (data.msg == "Success") {
+        } else if (data.msg == "success") {
+            $scope.modal.hide
             $location.url("/login");
         } else {
             $scope.otpdata = data;
@@ -103,8 +111,7 @@ angular.module('starter.controllers', ['myservices'])
     }
     $scope.userregister = function(register) {
 
-        $scope.modal.show();
-        $scope.register.pushwooshid = "123456789596666";
+//        $scope.register.pushwooshid = "123456789596666";
         $scope.allvalidation = [{
             field: $scope.register.enq_name,
             validation: ""
@@ -142,6 +149,22 @@ angular.module('starter.controllers', ['myservices'])
     };
 
     //  SUBMIT OTP
+    var validateotpsuccess = function(data, status) {
+        console.log(data);
+        $ionicLoading.hide();
+        if (data.msg == "success") {
+            $scope.modal.hide();
+            $location.url("/login");
+        } else {
+            var myPopup = $ionicPopup.show({
+                title: data.msg,
+                scope: $scope,
+            });
+            $timeout(function() {
+                myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+    }
     $scope.otpsubmit = function(otpdata) {
         console.log("otp otp");
         $scope.allvalidation = [{
@@ -153,8 +176,12 @@ angular.module('starter.controllers', ['myservices'])
         if (check) {
             $scope.userotp = otpdata.userotp;
             $scope.otpdata.mobile = $scope.register.enq_mobile;
+            console.log("otp data");
             console.log($scope.otpdata);
-            //        MyServices.validateotp()
+            $ionicLoading.show({
+                template: 'Please wait...'
+            });
+            MyServices.validateotp($scope.otpdata).success(validateotpsuccess);
         };
 
     }

@@ -56,22 +56,26 @@ var myservices = angular.module('myservices', [])
                 method: "POST",
                 data: {
                     "Token": "1234",
-                    "Data": email
+                    "Data": {
+                        "email": email.email
+                    }
                 }
             })
         },
         validateotp: function(otp) {
+            console.log("in service otp");
+            console.log(otp);
             return $http({
-                url: adminurl + "otpdata",
+                url: adminurl + "mobilevalidateOTP",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
                         "otpdata": {
-                            "OTPno": otp.OTPno,
-                            "U_mobile": otp.U_mobile,
-                            "U_SessionForOTPvalidate": otp.U_SessionForOTPvalidate
+                            "OTPno": otp.userotp,
+                            "U_mobile": otp.mobile,
+                            "U_SessionForOTPvalidate": otp.regsID
                         }
                     }
 
