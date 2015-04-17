@@ -9,7 +9,7 @@ var myservices = angular.module('myservices', [])
                 url: adminurl + "signup",
                 method: "POST",
                 data: {
-                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b", 
                     "Token": "1234",
                     "Data": {
                         "signup": {
@@ -75,7 +75,8 @@ var myservices = angular.module('myservices', [])
                         "otpdata": {
                             "OTPno": otp.userotp,
                             "U_mobile": otp.mobile,
-                            "U_SessionForOTPvalidate": otp.regsID
+                            "U_SessionForOTPvalidate": otp.regsID,
+                            "U_password": otp.password
                         }
                     }
 

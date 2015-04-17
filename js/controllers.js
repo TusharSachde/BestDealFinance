@@ -110,7 +110,7 @@ angular.module('starter.controllers', ['myservices'])
         }
     }
     $scope.userregister = function(register) {
-
+       
 //        $scope.register.pushwooshid = "123456789596666";
         $scope.allvalidation = [{
             field: $scope.register.enq_name,
@@ -167,6 +167,7 @@ angular.module('starter.controllers', ['myservices'])
     }
     $scope.otpsubmit = function(otpdata) {
         console.log("otp otp");
+        console.log($scope.register.enq_password1);
         $scope.allvalidation = [{
             field: $scope.otpdata.userotp,
             validation: ""
@@ -176,6 +177,7 @@ angular.module('starter.controllers', ['myservices'])
         if (check) {
             $scope.userotp = otpdata.userotp;
             $scope.otpdata.mobile = $scope.register.enq_mobile;
+            $scope.otpdata.password = $scope.register.enq_password1;
             console.log("otp data");
             console.log($scope.otpdata);
             $ionicLoading.show({
