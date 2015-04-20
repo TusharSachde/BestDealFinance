@@ -16,7 +16,8 @@
             </form>
 
             <!--Repeat pincode, cities-->
-            <ion-item ng-repeat="allpincode in allpincodes " ng-click="goPin(allpincode); ">{{allpincode.name}}, {{allpincode.po}}, {{allpincode.city}}</ion-item>
+            <ion-item ng-click="selectcomp('Puratek company'); ">Puratek company</ion-item>
+            <ion-item ng-click="selectcomp('TCS'); ">TCS</ion-item>
 
             <ion-item ng-if="allpincodes.length==0 ">No data found.</ion-item>
 

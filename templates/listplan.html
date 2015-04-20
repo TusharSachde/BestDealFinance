@@ -6,11 +6,14 @@
     <ion-content class="has-header padding">
 
         <ion-list class="opaque-bg item-gap">
-            <ion-item href="#/app/myplan">
-                <ion-option-button class="button-assertive">Delete</ion-option-button>
-                <h2>Plan Name</h2>
-                <p>Rs.30,000</p>
+            <ion-item href="#/app/editmyplan/{{aplan.planid}}" ng-repeat = "aplan in planlist">
+                <ion-option-button class="button-assertive" ng-click="deleteplan(aplan.planid)">Delete</ion-option-button>
+                <h2>{{aplan.planname}}</h2>
+                <p>Rs.{{aplan.planamount}}</p>
             </ion-item>
         </ion-list>
+        
+        <h4 ng-if="planlist==''">No Plans Yet !.</h4>
+        
     </ion-content>
 </ion-view>

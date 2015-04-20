@@ -3,13 +3,33 @@ var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
 var myservices = angular.module('myservices', [])
 
 .factory('MyServices', function($http, $location) {
+
+
+    var planfor = [{
+        text: "Home",
+        select: "selected",
+        class: "home"
+    }, {
+        text: "Home Improvement",
+        select: "",
+        class: "improvement"
+    }, {
+        text: "Automobiles",
+        select: "",
+        class: "automobile"
+    }, {
+        text: "Travel",
+        select: "",
+        class: "travel"
+    }, ];
+
     return {
         userregister: function(signup) {
             return $http({
                 url: adminurl + "signup",
                 method: "POST",
                 data: {
-                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b", 
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
                         "signup": {
@@ -41,12 +61,72 @@ var myservices = angular.module('myservices', [])
         },
         getcategories: function() {
             return $http({
-                url: adminurl + "getcategories",
+                url: adminurl + "getbusinesscategories",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {}
+                }
+            })
+        },
+        getdropdowncity: function() {
+            return $http({
+                url: adminurl + "getcity",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        getdropdownstate: function() {
+            return $http({
+                url: adminurl + "getstate",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        getdropdownmanufacturer: function() {
+            return $http({
+                url: adminurl + "getmanufacturer",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        getmodel: function() {
+            return $http({
+                url: adminurl + "getmodel",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        getcategoriesuser: function(userid) {
+            return $http({
+                url: adminurl + "getbusinesscategories",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "busscat": {
+                            "userid": userid
+                        }
+
+                    }
                 }
             })
         },
@@ -82,6 +162,154 @@ var myservices = angular.module('myservices', [])
 
                 }
             })
+        },
+        listallmyplans: function(otp) {
+            return $http({
+                url: adminurl + "listallmyplans",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "sessionid": $.jStorage.get("user").customersessionid
+                    }
+
+                }
+            })
+        },
+        stepawaypl: function() {
+            var personal = $.jStorage.get("stepaway");
+            var pldata = {
+                "enq_loanType": "Personal",
+                "enq_loanTypePreFix": "25",
+                "enq_have_loan": "No",
+                "enq_dob": personal.enq_dob,
+                "enq_city": personal.enq_city,
+                "enq_is_salaried_ddl": personal.enq_is_salaried_ddl,
+                "enq_occupation": personal.enq_occupation,
+                "enq_company_id": personal.enq_company_id,
+                "enq_have_loan_ddl": "No",
+                "enq_loanAmtTo": personal.enq_loanAmtTo,
+                "enq_tenureTo": personal.enq_tenureTo,
+                "enq_currIncomeTo": personal.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawaypl",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": pldata
+                }
+            })
+        },
+        refinestepawaypl: function(personal) {
+            return $http({
+                url: adminurl + "refinestepawaypl",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "enq_gender": "Male",
+                        "enq_maritial_status": "Single",
+                        "enq_nationality": "Indian",
+                        "enq_present_use_property": "Rented",
+                        "enq_staying_since": "2015-03-03",
+                        "enq_company_consitution": "Private Limited",
+                        "salary_credited_since": "2014-03-03",
+                        "pl_total_exp_job_years": "12",
+                        "enq_emi_existing_loan": "No",
+                        "enq_have_loan_ddl": "No",
+                        "enq_staying_since": "2015-03-03",
+                        "enq_company_consitution": "Private Limited",
+                        "enq_loanAmtTo": "250000",
+                        "enq_tenureTo": "24",
+                        "enq_currIncomeTo": "35000",
+                        "appid": "PE007843"
+
+                    }
+
+                }
+            })
+        },
+        Insertmyplans: function(plan) {
+            return $http({
+                url: adminurl + "Insertmyplans",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "userid": $.jStorage.get("user").customerid,
+                        "sessionid": $.jStorage.get("user").customersessionid,
+                        "planame": plan.planame,
+                        "planamount": plan.planamount,
+                        "plandate": plan.plandate,
+                        "planingfor": plan.planingfor
+                    }
+
+                }
+            })
+        },
+        updatetmyplans: function(plan) {
+            return $http({
+                url: adminurl + "updatetmyplans",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "planid": plan.planid,
+                        "userid": $.jStorage.get("user").customerid,
+                        "sessionid": $.jStorage.get("user").customersessionid,
+                        "planame": plan.planame,
+                        "planamount": plan.planamount,
+                        "plandate": plan.plandate,
+                        "planingfor": plan.planingfor
+                    }
+
+                }
+            })
+        },
+        daletetmyplans: function(planid) {
+            return $http({
+                url: adminurl + "daletetmyplans",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "planid": planid,
+                        "sessionid": $.jStorage.get("user").customersessionid
+                    }
+                }
+            })
+        },
+        mysingleplan: function(planid) {
+            return $http({
+                url: adminurl + "mysingleplan",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "planid": planid
+                    }
+                }
+            })
+        },
+        getplaningfor: function() {
+            return planfor;
+        },
+        getpldata: function() {
+            $.jStorage.get("pldata");
+        },
+        stepawayset: function(stepaway) {
+            $.jStorage.set("stepaway", stepaway);
+        },
+        stepswayget: function() {
+            $.jStorage.get("stepaway");
         },
         setuser: function(userdata) {
             $.jStorage.set("user", userdata);

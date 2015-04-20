@@ -5,10 +5,10 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
-                    <select>
-                        <option>Please select</option>
-                        <option>Male</option>
-                        <option>Female</option>
+                    <select ng-model="personel.enq_gender" ng-init="personel.enq_gender=''">
+                        <option value="">Please select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                     </select>
 
                 </label>
@@ -17,9 +17,9 @@
                     <div class="input-label">
                         Marital Status
                     </div>
-                    <select>
-                        <option>Married</option>
-                        <option>Un-married</option>
+                    <select ng-model="personel.enq_maritial_status" ng-init="personel.enq_maritial_status='Married'">
+                        <option value="Married">Married</option>
+                        <option value="Un-married">Un-married</option>
 
                     </select>
                 </label>
@@ -47,16 +47,15 @@
                     <div class="input-label">
                         Type of Accommodation
                     </div>
-                    <select>
-                        <option>Owned</option>
-                        <option>Owned</option>
-                        <option>Owned</option>
+                    <select ng-model="personel.enq_present_use_property" ng-init="personel.enq_present_use_property = 'Owned'">
+                        <option value="Owned">Owned</option>
+                        <option value="Rented">Rented</option>
                     </select>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Staying Since</span>
-                    <input type="date">
+                    <input type="date" ng-model="personel.enq_staying_since">
                 </label>
 
                 <label class="item item-input">
@@ -71,51 +70,37 @@
                     <div class="input-label">
                         Type of Company
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>Public Limited</option>
-                        <option>Limited</option>
+                    <select ng-model="personel.enq_company_consitution" ng-init="personel.enq_company_consitution=''">
+                        <option value="">Please select</option>
+                        <option value="Public Limited">Public Limited</option>
+                        <option value="Limited">Limited</option>
                     </select>
                 </label>
 
 
                 <label class="item item-input">
                     <span class="input-label">Current Employment Since</span>
-                    <input type="date">
+                    <input type="date" ng-model="personel.salary_credited_since">
                 </label>
 
 
                 <label class="item item-input">
                     <span class="input-label">Total Experience(Years)/Total Years in Business</span>
                     <div>
-                        <input type="text">
+                        <input type="text" ng-model="personel.pl_total_exp_job_years">
                     </div>
                 </label>
-
-
-
-
-
-
-
                 <label class="item item-input">
                     <span>Existing Bank Relationship</span>
 
                     <input type="text">
 
                 </label>
-
-
-
-
-
-
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Do you have an existing loan?
                     </div>
-                    <select>
-                        <option>&nbsp;</option>
+                    <select ng-model="personel.enq_have_loan_ddl">
                         <option>No</option>
                         <option>Yes</option>
                     </select>

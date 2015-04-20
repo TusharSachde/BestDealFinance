@@ -6,42 +6,39 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="personal.loan">
+                    <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="personal.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="personal.tenure">
+                    <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
                     <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="personal.tenure" step="1">
+                        <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="personal.income">
+                    <input type="text" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="personal.income" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="personal.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date">
+                    <input type="date" ng-model="personal.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange()" required>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
                         City
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>Mumbai</option>
-                        <option>Delhi</option>
-                        <option>Chandigarh</option>
+                    <select ng-model="personal.enq_city" ng-class="allvalidation[4].validation" required>
+                        <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
                     </select>
                 </label>
 
@@ -49,35 +46,48 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                    <select ng-model="personal.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Salaried Doctor">Yes/Salaried Doctor</option>
+                        <option value="Salaried Teacher">Yes/Salaried Teacher</option>
                     </select>
                 </label>
 
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-if="personal.enq_is_salaried_ddl == 'No'">
                     <div class="input-label">
                         Occupation
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>A</option>
-                        <option>B</option>
+                    <select ng-model="personal.enq_occupation" ng-init="personal.enq_occupation=''" ng-class="allvalidation[6].validation" required>
+                        <option value="">Please select</option>
+                        <option value="Housewife">Housewife</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Self Employed">Self Employed</option>
+                        <option value="Self Employed Professional">Self Employed Professional</option>
+                        <option value="Self Employed Professional Doctor">Self Employed Professional Doctor</option>
+                        <option value="Student">Student</option>
                     </select>
                 </label>
 
-                <label class="item item-input" ng-click="openedit();">
-                    <div class=" input-label ">
+
+                <label class="item item-input" ng-click="openedit();" ng-if="personal.enq_is_salaried_ddl != 'No'">
+                    <div class="input-label">
                         Company
+
+                    </div>
+                    <div class="">
+                        {{personal.enq_company_id}}
+
                     </div>
                     <!--
-<select>
-    <option>Please select</option>
-    <option>Puratek company</option>
-    <option>TCS</option>
-</select>
+
+                    <select>
+                        <option>Please select</option>
+                        <option>Puratek company</option>
+                        <option>TCS</option>
+                    </select>
 -->
+
                 </label>
 
                 <ion-item class="item-checkbox">
@@ -91,10 +101,10 @@
 
             </div>
 
-            <a href="#/app/listcheckloan">
+            <a>
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
-                    <div class="button-text assertive">Get me deals</div>
+                    <div class="button-text assertive" ng-click="getmedeals(personal)">Get me deals</div>
                 </div>
             </a>
         </form>
