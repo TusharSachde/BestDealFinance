@@ -1,0 +1,34 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-assertive">
+        <h1 class="title">Filter</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-ios7-close-empty" ng-click="hideSort();"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="">
+
+          
+                
+                        <ul class="list">
+                            <li class="item item-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-model="cat.type" ng-click="filter(cat);">
+                                </label>
+                                first
+                            </li>
+                            <li class="item item-checkbox">
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-model="cat" ng-click="filter(cat);">
+                                </label>
+                                second
+                            </li>
+                           
+                        </ul>
+  <div class="padding">                  
+
+                <button class="button button-assertive button-block" type="submit" ng-click="hideSort();">Submit</button>
+            </div>
+        </form>
+    </ion-content>
+</ion-modal-view>

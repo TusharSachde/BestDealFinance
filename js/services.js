@@ -203,7 +203,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        refinestepawaypl: function(personal) {
+        refinestepawaypl: function(refine) {
             return $http({
                 url: adminurl + "refinestepawaypl",
                 method: "POST",
@@ -211,23 +211,20 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "enq_gender": "Male",
-                        "enq_maritial_status": "Single",
-                        "enq_nationality": "Indian",
-                        "enq_present_use_property": "Rented",
-                        "enq_staying_since": "2015-03-03",
-                        "enq_company_consitution": "Private Limited",
-                        "salary_credited_since": "2014-03-03",
-                        "pl_total_exp_job_years": "12",
-                        "enq_emi_existing_loan": "No",
-                        "enq_have_loan_ddl": "No",
-                        "enq_staying_since": "2015-03-03",
-                        "enq_company_consitution": "Private Limited",
-                        "enq_loanAmtTo": "250000",
-                        "enq_tenureTo": "24",
-                        "enq_currIncomeTo": "35000",
-                        "appid": "PE007843"
-
+                        "enq_gender": refine.enq_gender,
+                        "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_nationality": refine.enq_nationality,
+                        "enq_present_use_property": refine.enq_present_use_property,
+                        "enq_staying_since": refine.enq_staying_since,
+                        "enq_company_consitution": refine.enq_company_consitution,
+                        "salary_credited_since": refine.salary_credited_since,
+                        "pl_total_exp_job_years": refine.pl_total_exp_job_years,
+                        "enq_emi_existing_loan": refine.enq_emi_existing_loan,
+                        "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        "enq_loanAmtTo": $.jStorage.get("stepaway").enq_loanAmtTo,
+                        "enq_tenureTo": $.jStorage.get("stepaway").enq_tenureTo,
+                        "enq_currIncomeTo": $.jStorage.get("stepaway").enq_currIncomeTo,
+                        "appid": refine.appid
                     }
 
                 }
@@ -310,6 +307,12 @@ var myservices = angular.module('myservices', [])
         },
         stepswayget: function() {
             $.jStorage.get("stepaway");
+        },
+        setcheck: function(check) {
+            $.jStorage.set("check", check);
+        },
+        getcheck: function() {
+            $.jStorage.get("check");
         },
         setuser: function(userdata) {
             $.jStorage.set("user", userdata);

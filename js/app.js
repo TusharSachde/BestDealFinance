@@ -469,7 +469,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
 
     .state('app.personals', {
-        url: "/personal-chk",
+        url: "/personal-chk/:appid",
         views: {
             'menuContent': {
                 templateUrl: "templates/form-check-personal.html",
@@ -526,9 +526,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
+})
+
+.filter('bankimagepath', function() {
+    return function(input) {
+        return "http://demo.bestdealfinance.com/images/" + input;
+    };
 });
-
-
 var formvalidation = function(allvalidation) {
     var isvalid2 = true;
     for (var i = 0; i < allvalidation.length; i++) {
@@ -540,6 +544,13 @@ var formvalidation = function(allvalidation) {
         }
     }
     return isvalid2;
+};
+
+var getjsononly = function(myjson) {
+    var msjon = [];
+    console.log(angular.fromJson(myjson));
+    
+    return msjon;
 };
 
 var age = function(birthdate) {

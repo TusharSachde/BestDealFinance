@@ -245,6 +245,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.plan = [];
     $scope.planlist = [];
     $scope.plan.plandate = new Date();
+    $scope.plan.plandate = $filter('date')($scope.plan.plandate, "dd-MM-yyyy");;
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
     $ionicLoading.show({
@@ -325,6 +326,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.plan = [];
     $scope.planlist = [];
     $scope.plan.plandate = new Date();
+    $scope.plan.plandate = $filter('date')($scope.plan.plandate, "dd-MM-yyyy");
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
     //    $ionicLoading.show({
@@ -385,7 +387,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.plan.plandate = $filter('date')($scope.plan.plandate, "yyyy-MM-dd");
             MyServices.updatetmyplans($scope.plan).success(updatesuccess);
         };
-        
+
     }
 
 })
@@ -412,14 +414,14 @@ angular.module('starter.controllers', ['myservices'])
     .controller('CheckCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
         //  DEPLARATION
-        $scope.checklist = [];
+        $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
 
 
         var plsuccess = function(data, status) {
-            console.log(data);
+            console.log(data.Data.num);
             $ionicLoading.hide();
             if (data.Response != "Success") {
                 var myPopup1 = $ionicPopup.show({
@@ -431,10 +433,21 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/personal");
                 }, 1500);
             } else {
+                $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
             }
         }
         MyServices.stepawaypl().success(plsuccess);
+
+        //  CHECK checkeligibility
+        $scope.checkeligibility = function(check) {
+            console.log(check);
+            MyServices.setcheck(check);
+            $location.url("/app/personal-chk/" + $scope.appid);
+        }
+
 
     })
     .controller('TwowheelerListCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
@@ -592,6 +605,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.getmedeals = function(personal) {
             console.log(personal);
+            if (personal.enq_is_salaried_ddl != "no") {
+                personal.enq_occupation = "Salaried";
+            }
             if ($scope.personal.salaried == "1") {
                 $scope.allvalidation = [{
                     field: $scope.personal.enq_loanAmtTo,
@@ -646,6 +662,7 @@ angular.module('starter.controllers', ['myservices'])
                 //                $scope.today = new Date();
                 personal.enq_dob = $filter('date')(personal.enq_dob, "dd-MM-yyyy");
                 console.log(personal.enq_dob);
+
                 MyServices.stepawayset(personal);
                 $location.url("/app/listcheckloan");
                 //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
@@ -769,6 +786,68 @@ angular.module('starter.controllers', ['myservices'])
 
     })
 
-.controller('PersonalChkCtrl', function($scope, $stateParams) {})
+.controller('PersonalChkCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+
+    //  DECLARATION
+    $scope.refine = [];
+    $scope.refine.appid = $stateParams.appid;
+    $scope.refine.enq_staying_since = new Date;
+    $scope.refine.salary_credited_since = new Date;
+    $scope.allvalidation = [];
+
+    //  MODAL FOR BANK RELATIONSHIP
+    $ionicModal.fromTemplateUrl('templates/bank.html', {
+        id: '3',
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function(modal) {
+        $scope.oModal3 = modal;
+    });
+    $scope.showbank = function() {
+        $scope.oModal3.show();
+    };
+
+    //  REFINE PERSONAL 
+    var refinesuccess = function(data, status) {
+        console.log(data);
+    }
+    $scope.refinepl = function() {
+        $scope.allvalidation = [{
+            field: $scope.refine.enq_gender,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_maritial_status,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_nationality,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_present_use_property,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_staying_since,
+            validation: ""
+        }, {
+            field: $scope.refine.salary_credited_since,
+            validation: ""
+        }, {
+            field: $scope.refine.pl_total_exp_job_years,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_have_loan_ddl,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
+        };
+
+    }
+
+
+})
 
 .controller('SMECtrl', function($scope, $stateParams) {});
