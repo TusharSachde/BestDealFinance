@@ -6,15 +6,15 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="carloan.loan">
+                    <input type="text" ng-model="carloan.loan">
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="carloan.loan" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="carloan.tenure">
+                    <input type="text" ng-model="carloan.tenure">
                     <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
                     </div>
@@ -22,7 +22,7 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
+                    <input type="text" ng-model="carloan.income">
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
                     </div>

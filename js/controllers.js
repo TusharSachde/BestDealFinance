@@ -46,9 +46,10 @@ angular.module('starter.controllers', ['myservices'])
 //    MyServices.getcompany().success(companysuccess);
 
 })
-
+//   dhaval start
 .controller('LoginCtrl', function($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
 
+    
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
@@ -725,9 +726,11 @@ angular.module('starter.controllers', ['myservices'])
         };
 
     })
+//  DHAVAL START
+// form-twowheeler.html
     .controller('TwowheelerLoanCtrl', function($scope, $stateParams, $ionicModal) {
 
-        $scope.carloan = {
+        $scope.tw = {
             'loan': 20000,
             'tenure': 6,
             'income': 15000
@@ -748,6 +751,8 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
+
+//  DHAVAL END
     .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal) {
 
         $scope.carloan = {
