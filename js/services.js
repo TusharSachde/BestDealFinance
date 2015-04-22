@@ -114,6 +114,28 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        getocupation: function() {
+            return $http({
+                url: adminurl + "getocupation",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
+        getcompany: function() {
+            return $http({
+                url: adminurl + "getcompany",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {}
+                }
+            })
+        },
         getcategoriesuser: function(userid) {
             return $http({
                 url: adminurl + "getbusinesscategories",

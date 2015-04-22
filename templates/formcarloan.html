@@ -5,42 +5,40 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="carloan.loan">
+                    <input type="text" ng-model="carloan.enq_loanAmtTo">
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="carloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="carloan.tenure">
+                    <input type="text" ng-model="carloan.enq_tenureTo">
                     <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
+                        <input type="range" min="6" max="84" ng-model="carloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
+                    <input type="text" ng-model="carloan.enq_currIncomeTo">
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="carloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date">
+                    <input type="date" ng-model="carloan.enq_dob">
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
                         State
                     </div>
-                    <select>
+                    <select ng-model="carloan.enq_state">
                         <option>Please select</option>
-                        <option>Maharashtra</option>
-                        <option>Gujrat</option>
-                        <option>Punjab</option>
+                        <option ng-repeat="state in states" value="{{state.state_id}}">{{state.state_name}}</option>
                     </select>
                 </label>
 
@@ -59,10 +57,9 @@
                     <div class="input-label">
                         Occupation
                     </div>
-                    <select>
+                    <select ng-model="careloan.enq_occupation">
                         <option>Please select</option>
-                        <option>A</option>
-                        <option>B</option>
+                        <option ng-repeat="occupation in occupations" value="occupation.occupation">{{occupation.occupation}}</option>
                     </select>
                 </label>
 

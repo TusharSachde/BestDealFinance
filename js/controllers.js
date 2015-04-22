@@ -13,6 +13,37 @@ angular.module('starter.controllers', ['myservices'])
     if (!MyServices.getuser()) {
         $location.url("/login");
     }
+    
+    //  GET STATE
+    var statesuccess = function (data, status) {
+        $scope.states = data.Data;
+    }
+    MyServices.getdropdownstate().success(statesuccess);
+
+    //  GET MANUFACTURER
+    var manufacturersuccess = function (data, status) {
+        $scope.manufacturers = data.Data;
+    }
+    MyServices.getdropdownmanufacturer().success(manufacturersuccess);
+
+    //  GET MODEL
+    var modelsuccess = function (data, status) {
+        console.log(data);
+        $scope.models = data.Data;
+    }
+    MyServices.getmodel().success(modelsuccess);
+    
+    //  GET MODEL
+    var ocupationsuccess = function (data, status) {
+        $scope.occupations = data.Data;
+    }
+    MyServices.getocupation().success(ocupationsuccess);
+    
+    //  GET COMPANY
+//    var companysuccess = function (data, status) {
+//        $scope.companies = data.Data;
+//    }
+//    MyServices.getcompany().success(companysuccess);
 
 })
 
