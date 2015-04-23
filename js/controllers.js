@@ -46,9 +46,15 @@ angular.module('starter.controllers', ['myservices'])
     //    MyServices.getcompany().success(companysuccess);
 
 })
+<<<<<<< HEAD
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
+=======
+//   dhaval start
+.controller('LoginCtrl', function($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
+>>>>>>> origin/master
 
+    
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
@@ -1002,6 +1008,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
 
+<<<<<<< HEAD
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
                 console.log(comp);
@@ -1029,6 +1036,17 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
 
+=======
+    })
+//  DHAVAL START
+// form-twowheeler.html
+    .controller('TwowheelerLoanCtrl', function($scope, $stateParams, $ionicModal) {
+
+        $scope.tw = {
+            'loan': 20000,
+            'tenure': 6,
+            'income': 15000
+>>>>>>> origin/master
 
         }
         $scope.getmedeals = function (carloan) {
@@ -1249,8 +1267,14 @@ angular.module('starter.controllers', ['myservices'])
         }
     
     })
+<<<<<<< HEAD
 // dhaval end
     .controller('SecurityLoanCtrl', function ($scope, $stateParams, $ionicModal) {
+=======
+
+//  DHAVAL END
+    .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal) {
+>>>>>>> origin/master
 
         $scope.carloan = {
             'loan': 20000,

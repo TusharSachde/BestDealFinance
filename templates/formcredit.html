@@ -5,26 +5,29 @@
             <div class="list signin">
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
+                    <input type="text" ng-model="creditloan.enq_currIncomeTo">
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="creditloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date">
+                    <input type="date" ng-model="creditloan.enq_dob" ng-change="datechange()">
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
                         City
                     </div>
-                    <select>
+                    <select ng-model="creditloan.enq_city">
+                     <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
+<!--
                         <option>Please select</option>
                         <option>Mumbai</option>
                         <option>Delhi</option>
                         <option>Chennai</option>
+-->
                     </select>
                 </label>
 
@@ -32,16 +35,31 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select>
-                        <option>Please select</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                    <select ng-model="creditloan.enq_is_salaried_ddl">
+                        <option value="Please select">Please select</option>
+                       <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </label>
-                <label class="item item-input" ng-click="openedit();">
+                 <label class="item item-input item-select" ng-if="creditloan.enq_is_salaried_ddl == 'No'">
+                    <div class="input-label">
+                        Occupation
+                    </div>
+                    <select ng-model="creditloan.enq_occupation" ng-init="creditloan.enq_occupation=''" ng-class="allvalidation[6].validation" required>
+                        <option value="">Please select</option>
+                        <option value="Housewife">Housewife</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Self Employed">Self Employed</option>
+                        <option value="Self Employed Professional">Self Employed Professional</option>
+                        <option value="Self Employed Professional Doctor">Self Employed Professional Doctor</option>
+                        <option value="Student">Student</option>
+                    </select>
+                </label>
+                <label class="item item-input" ng-click="openedit();" ng-if="creditloan.enq_is_salaried_ddl != 'No'">
                     <div class=" input-label ">
                         Company
                     </div>
+                     {{creditloan.enq_company_id}}
                     <!--
 <select>
     <option>Please select</option>
@@ -52,11 +70,11 @@
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Current Employee Since</span>
-                    <input type="date">
+                    <input type="date" ng-model="creditloan.salary_credited_since" ng-change="datechange()">
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Years at current residence</span>
-                    <input type="date">
+                    <input type="date"  ng-model="creditloan.enq_staying_since" ng-change="datechange()">
                 </label>
 
 
@@ -64,34 +82,37 @@
                     <div class="input-label">
                         Salary Credited
                     </div>
-                    <select>
-                        <option>Select</option>
-                        <option>Cash</option>
-                        <option>Check</option>
-                        <option>Bank Account</option>
+                    <select ng-model="creditloan.fd_maturity_type">
+<!--                     <option ng-repeat="matur in maturs" value="{{matur.matur_type}}">{{matur.matur_type}}</option>-->
+                        <option value="">Select</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Check">Check</option>
+                        <option value="Bank Account">Bank Account</option>
                     </select>
                 </label>
 
 
                 <label class="item item-input item-select">
-                    <div class="input-label">
+                    <div class="input-label" >
                         Existing Card Holder
                     </div>
-                    <select>
+                    <select ng-model="creditloan.enq_existing_card_holder">
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </label>
+<!--
                 <label class="item item-input">
                     <div class="input-label">Bank</div>
                     <div class="price">
                         <input type="text">
                     </div>
                 </label>
+-->
                 <label class="item item-input">
                     <div class="input-label">Credit Limit</div>
                     <div class="price">
-                        <input type="text">
+                        <input type="text" ng-model="creditloan.cc_card_limit">
                     </div>
                 </label>
                 <ion-item class="item-checkbox">
@@ -102,10 +123,10 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/creditapply">
+            <a>
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
-                    <div class="button-text assertive">Get Me Deals</div>
+                    <div class="button-text assertive" ng-click="getmedeals(creditloan)">Get Me Deals</div>
                 </div>
             </a>
         </form>
