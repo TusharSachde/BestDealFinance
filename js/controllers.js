@@ -1027,6 +1027,80 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
+        }
+        $scope.getmedeals = function (carloan) {
+            console.log(carloan);
+            //            if (carloan.enq_is_salaried_ddl != "no") {
+            //                carloan.enq_occupation = "Salaried";
+            //            }
+            //            if ($scope.carloan.salaried == "1") {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.carloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_company_id,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            } else {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.carloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_occupation,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            }
+
+            //            if (check) {
+            //                $scope.today = new Date();
+            carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
+            console.log(carloan.enq_dob);
+
+            MyServices.stepawayset(carloan);
+            $location.url("/app/carchklist");
+            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+            //            };
+        }
+
+
+
+
+
+
+   
+    //sapana end
 
     })
 //dhaval start

@@ -53,7 +53,7 @@
                     </select>
                 </label>
 
-                <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl != 'No'">
+                <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl == 'No'">
                     <div class="input-label">
                         Occupation
                     </div>
@@ -63,7 +63,7 @@
                     </select>
                 </label>
 
-                <label class="item item-input" ng-click="openedit();" ng-if="carloan.enq_is_salaried_ddl == 'No'">
+                <label class="item item-input" ng-click="openedit();" ng-if="carloan.enq_is_salaried_ddl != 'No'">
                     <div class=" input-label ">
                         Company
                     </div>
