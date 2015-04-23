@@ -4,31 +4,31 @@
             <div class="list signin">
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="carloan.enq_loanAmtTo">
+                    <input type="text" ng-model="twloan.enq_loanAmtTo">
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="carloan.enq_loanAmtTo" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="twloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="text" ng-model="carloan.enq_tenureTo">
+                    <input type="text" ng-model="twloan.enq_tenureTo">
                     <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="carloan.enq_tenureTo" step="1">
+                        <input type="range" min="6" max="84" ng-model="twloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="text" ng-model="carloan.enq_currIncomeTo">
+                    <input type="text" ng-model="twloan.enq_currIncomeTo">
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.enq_currIncomeTo" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="twloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date" ng-model="carloan.enq_dob">
+                    <input type="date" ng-model="twloan.enq_dob" ng-change="datechange();">
                 </label>
 
 
@@ -36,16 +36,34 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select ng-model="carloan.enq_is_salaried_ddl">
+                    <select ng-model="twloan.enq_is_salaried_ddl">
                         <option>Please select</option>
-                        <option>Yes</option>
-                        <option>No</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
                     </select>
                 </label>
 
-                <label class="item item-input" ng-click="openedit();">
+                <label class="item item-input item-select" ng-if="twloan.enq_is_salaried_ddl == 'No'">
+                    <div class="input-label">
+                        Occupation
+                    </div>
+                    <select ng-model="twloan.enq_occupation" ng-init="twloan.enq_occupation=''">
+                        <option value="">Please select</option>
+                        <option value="Housewife">Housewife</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Self Employed">Self Employed</option>
+                        <option value="Self Employed Professional">Self Employed Professional</option>
+                        <option value="Self Employed Professional Doctor">Self Employed Professional Doctor</option>
+                        <option value="Student">Student</option>
+                    </select>
+                </label>
+                <label class="item item-input" ng-click="openedit();" ng-if="twloan.enq_is_salaried_ddl != 'No'">
                     <div class=" input-label ">
                         Company
+                    </div>
+                    <div class="">
+                        {{twloan.enq_company_id}}
+
                     </div>
                     <!--
 <select>
@@ -58,10 +76,10 @@
 
                 <label class="item item-input item-select ">
                     <div class="input-label ">
-                        State (Residing at)
+                        City (Residing at)
                     </div>
-                    <select ng-model="carloan.enq_state">
-                        <option ng-repeat="state in states" value="{{state.state_id}}">{{state.state_name}}</option>
+                    <select ng-model="twloan.enq_city">
+                        <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
                     </select>
                 </label>
 
@@ -69,10 +87,13 @@
                     <div class="input-label ">
                         Manufacturer
                     </div>
-                    <select>
+                    <select ng-model="twloan.enq_manufacturer" ng-change="getmodel(twloan.enq_manufacturer)">
                         <option>Please select</option>
+                        <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
+<!--
                         <option>HONDA</option>
                         <option>MARUTI</option>
+-->
                     </select>
                 </label>
 
@@ -80,7 +101,7 @@
                     <div class="input-label ">
                         Model
                     </div>
-                    <select>
+                    <select ng-model="twloan.enq_model">
                         <option>Please select</option>
                         <option>MAZE</option>
                         <option>Maruti Suzuki</option>
@@ -90,7 +111,7 @@
 
                 <label class="item item-input ">
                     <span class="input-label ">Ex-Show Room Price of Car</span>
-                    <input type="text">
+                    <input type="text" ng-model="twloan.ex_showroom_cost">
 
                 </label>
                 <ion-item class="item-checkbox">
@@ -101,8 +122,9 @@
                 </ion-item>
                 <div class="text-center light " ng-click="openTerms(); ">Know more</div>
             </div>
-            <a href="#/app/twowheelerlistchk ">
-                <div class="button-image " ng-click=" ">
+<!--            <a href="#/app/twowheelerlistchk ">-->
+            <a href="">
+                <div class="button-image " ng-click="twloanclick(twloan);">
                     <img src="img/button2.png " alt=" " class="full-image ">
                     <div class="button-text assertive ">Get me deals</div>
                 </div>
