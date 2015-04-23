@@ -46,15 +46,8 @@ angular.module('starter.controllers', ['myservices'])
     //    MyServices.getcompany().success(companysuccess);
 
 })
-<<<<<<< HEAD
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
-=======
-//   dhaval start
-.controller('LoginCtrl', function($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
->>>>>>> origin/master
-
-    
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
@@ -1008,7 +1001,6 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
 
-<<<<<<< HEAD
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
                 console.log(comp);
@@ -1036,92 +1028,7 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
 
-=======
     })
-//  DHAVAL START
-// form-twowheeler.html
-    .controller('TwowheelerLoanCtrl', function($scope, $stateParams, $ionicModal) {
-
-        $scope.tw = {
-            'loan': 20000,
-            'tenure': 6,
-            'income': 15000
->>>>>>> origin/master
-
-        }
-        $scope.getmedeals = function (carloan) {
-            console.log(carloan);
-            //            if (carloan.enq_is_salaried_ddl != "no") {
-            //                carloan.enq_occupation = "Salaried";
-            //            }
-            //            if ($scope.carloan.salaried == "1") {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_company_id,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            } else {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_occupation,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            }
-
-            //            if (check) {
-            //                $scope.today = new Date();
-            carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
-            console.log(carloan.enq_dob);
-
-            MyServices.stepawayset(carloan);
-            $location.url("/app/carchklist");
-            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            //            };
-        }
-
-
-
-
-
-
-    })
-    //sapana end
 //dhaval start
    .controller('TwowheelerLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
@@ -1267,14 +1174,9 @@ angular.module('starter.controllers', ['myservices'])
         }
     
     })
-<<<<<<< HEAD
-// dhaval end
-    .controller('SecurityLoanCtrl', function ($scope, $stateParams, $ionicModal) {
-=======
 
 //  DHAVAL END
     .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal) {
->>>>>>> origin/master
 
         $scope.carloan = {
             'loan': 20000,
