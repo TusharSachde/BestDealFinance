@@ -6,41 +6,47 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="carloan.loan">
+                    <input type="text" ng-model="homeloan.enq_loanAmtTo">
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="homeloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="carloan.tenure">
+                    <input type="text" ng-model="homeloan.enq_tenureTo">
                     <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
+                        <input type="range" min="6" max="84" ng-model="homeloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
+                    <input type="text" ng-model="homeloan.enq_currIncomeTo">
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="homeloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date">
+                    <input type="date" ng-model="homeloan.enq_dob" ng-change="datechange()">
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         City
                     </div>
-                    <select>
+                    <select ng-model="homeloan.enq_city">
                         <option>Please select</option>
+<!--
                         <option>Mumbai</option>
+                        <option>Pune</option>
+-->
+                        <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
+<!--
                         <option>Banglore</option>
                         <option>Pune</option>
+-->
                     </select>
                 </label>
                 <!--
@@ -62,15 +68,19 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select>
+                    <select ng-model="homeloan.enq_is_salaried_ddl">
                         <option>Please select</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </label>
-                <label class="item item-input" ng-click="openedit();">
+                <label class="item item-input" ng-click="openedit();" ng-if="homeloan.enq_is_salaried_ddl != 'No'">
                     <div class=" input-label ">
                         Company
+                    </div>
+                     <div class="">
+                        {{homeloan.enq_company_id}}
+
                     </div>
                     <!--
 <select>
@@ -80,14 +90,27 @@
 </select>
 -->
                 </label>
+                <label class="item item-input item-select" ng-init="homeloan.enq_occupation = 'Salaried'" ng-click="openedit();" ng-if="homeloan.enq_is_salaried_ddl == 'No'">
+                    <div class=" input-label">
+                        Occupation
+                    </div>
+                    <select ng-model="homeloan.enq_occupation">
+                        <option>Please select</option>
+<!--
+                        <option>Employed</option>
+                        <option>Not employed</option>
+-->
+                        <option ng-repeat="occupation in occupations" value="{{occupation.occupation}}">{{occupation.occupation}}</option>
+                    </select>
+                </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Type Of Property
                     </div>
-                    <select>
+                    <select ng-model="homeloan.property_type">
                         <option>Please select</option>
-                        <option>Commercial</option>
                         <option>Residential</option>
+                        <option>Plot</option>
                     </select>
                 </label>
 
@@ -95,7 +118,7 @@
                 <label class="item item-input">
                     <div class="input-label">Market Value</div>
                     <div class="price">
-                        <input type="number">
+                        <input type="number" ng-model="homeloan.enq_current_value_property">
                     </div>
                 </label>
                 <ion-item class="item-checkbox">
@@ -106,7 +129,8 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/homechklist">
+<!--            <a href="#/app/homechklist">-->
+            <a ng-click="getmedeals(homeloan)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
                     <div class="button-text assertive">Get Me Deals</div>

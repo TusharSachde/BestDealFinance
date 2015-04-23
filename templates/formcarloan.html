@@ -29,7 +29,7 @@
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date" ng-model="carloan.enq_dob">
+                    <input type="date" ng-model="carloan.enq_dob" ng-change="datechange()">
                 </label>
 
                 <label class="item item-input item-select">
@@ -46,26 +46,30 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select>
+                    <select ng-model="carloan.enq_is_salaried_ddl">
                         <option>Please select</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </label>
 
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl != 'No'">
                     <div class="input-label">
                         Occupation
                     </div>
-                    <select ng-model="careloan.enq_occupation">
+                    <select ng-model="carloan.enq_occupation">
                         <option>Please select</option>
                         <option ng-repeat="occupation in occupations" value="occupation.occupation">{{occupation.occupation}}</option>
                     </select>
                 </label>
 
-                <label class="item item-input" ng-click="openedit();">
+                <label class="item item-input" ng-click="openedit();" ng-if="carloan.enq_is_salaried_ddl == 'No'">
                     <div class=" input-label ">
                         Company
+                    </div>
+                    <div class="">
+                        {{carloan.enq_company_id}}
+
                     </div>
                     <!--
 <select>
@@ -80,27 +84,27 @@
                     <div class="input-label">
                         Manufacturer
                     </div>
-                    <select>
+                    <select ng-model="carloan.enq_manufacturer" ng-change="manufacture_model(carloan.enq_manufacturer)">
                         <option>Please select</option>
-                        <option>HONDA</option>
-                        <option>MARUTI</option>
+                        <option ng-repeat="manufacture in manufacturers" value="{{manufacture.manufacture_id}}">{{manufacture.manufacturer_name}}</option>
+<!--                        <option>MARUTI</option>-->
                     </select>
                 </label>
 
                 <label class="item item-input item-select">
-                    <div class="input-label">
+                    <div class="input-label" ng-model="carloan.enq_model" >
                         Model
                     </div>
                     <select>
                         <option>Please select</option>
                         <option>MAZE</option>
-                        <option>Maruti Suzuki</option>
+<!--                        <option>Maruti Suzuki</option>-->
                     </select>
                 </label>
                 <label class="item item-input">
                     <div class="input-label">Ex-Show Room Price of Car</div>
                     <div class="price">
-                        <input type="text">
+                        <input type="text" ng-model="carloan.ex_showroom_cost">
                     </div>
                 </label>
                 <ion-item class="item-checkbox">
@@ -111,7 +115,8 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/carchklist">
+<!--            <a href="#/app/carchklist">-->
+            <a ng-click="getmedeals(carloan)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
                     <div class="button-text assertive">Get Me Deals</div>

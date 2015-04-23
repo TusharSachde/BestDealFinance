@@ -114,6 +114,19 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        manufature_models: function(model) {
+            return $http({
+                url: adminurl + "getmanumodel",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "manuid":model
+                    }
+                }
+            })
+        },
         getocupation: function() {
             return $http({
                 url: adminurl + "getocupation",
@@ -252,6 +265,141 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+         ////mahesh //////
+               stepawaycc: function() {
+            var creditloan = $.jStorage.get("stepaway");
+            var ccdata = {
+                "enq_loanType": "Credit Card",
+                "enq_loanTypePreFix": "11",
+//                "enq_have_loan": "No",
+                "enq_dob": creditloan.enq_dob,
+                "enq_city": creditloan.enq_city,
+                "enq_is_salaried_ddl": creditloan.enq_is_salaried_ddl,
+                "enq_occupation": creditloan.enq_occupation,
+                "enq_company_id": creditloan.enq_company_id,
+                "salary_credited_since": creditloan.salary_credited_since,
+                "enq_staying_since": creditloan.enq_staying_since,
+                "fd_maturity_type": creditloan.fd_maturity_type,
+                "enq_existing_card_holder": creditloan.enq_existing_card_holder,
+                "cc_card_limit": creditloan.cc_card_limit,
+//                "enq_have_loan_ddl": "No",
+                "enq_currIncomeTo": creditloan.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawaycc",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": ccdata
+                }
+            })
+        },
+        ///end/////
+        //carloan sapana start
+        stepawaycar: function() {
+            var carloan = $.jStorage.get("stepaway");
+            var cardata = {
+                "enq_loanType": "Car",
+                "enq_loanTypePreFix": "22",
+                "enq_loanType_SubType": "5",
+                "enq_have_loan": "No",
+                "enq_dob": carloan.enq_dob,
+                "enq_state": carloan.enq_state,
+//                "enq_city": carloan.enq_city,
+                "enq_is_salaried_ddl": carloan.enq_is_salaried_ddl,
+                "enq_occupation": carloan.enq_occupation,
+                "enq_company_id": carloan.enq_company_id,
+                "enq_manufacturer": "12",
+                "enq_model": "512",
+                "ex_showroom_cost": carloan.ex_showroom_cost,
+//                "enq_have_loan_ddl": "No",
+                "enq_loanAmtTo": carloan.enq_loanAmtTo,
+                "enq_tenureTo": carloan.enq_tenureTo,
+                "enq_currIncomeTo": carloan.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawaycar",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": cardata
+                }
+            })
+        },
+        //sapana ends
+        // homeloan sapana start
+            stepawayhome: function() {
+            var homeloan = $.jStorage.get("stepaway");
+            var homedata = {
+                "enq_loanType": "Home",
+                "enq_loanTypePreFix": "26",
+                "enq_dob": homeloan.enq_dob,
+                "enq_city": homeloan.enq_city,
+                "enq_is_salaried_ddl": homeloan.enq_is_salaried_ddl,
+                "enq_occupation": homeloan.enq_occupation,
+                "enq_company_id": homeloan.enq_company_id,
+                "property_type":homeloan.property_type,
+                "enq_current_value_property":homeloan.enq_current_value_property,
+                "enq_loanAmtTo": homeloan.enq_loanAmtTo,
+                "enq_tenureTo": homeloan.enq_tenureTo,
+                "enq_currIncomeTo": homeloan.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawayhome",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": homedata
+                }
+            })
+        },
+        //sapana end
+        //dhaval start
+        stepawaytw: function() {
+            var tw = $.jStorage.get("stepaway");
+            var twdata = {
+                "enq_loanType": "Two Wheeler",
+                "enq_loanTypePreFix": "23",
+                "enq_dob": tw.enq_dob,
+                "enq_is_salaried_ddl": tw.enq_is_salaried_ddl,
+                "enq_occupation": tw.enq_occupation,
+                "enq_company_id": tw.enq_company_id,
+                "enq_city": tw.enq_city,
+                "enq_manufacturer": "344",
+                "enq_model": "2643",
+                "ex_showroom_cost": tw.ex_showroom_cost,
+                "enq_loanAmtTo": tw.enq_loanAmtTo,
+                "enq_tenureTo": tw.enq_tenureTo,
+                "enq_currIncomeTo": tw.enq_currIncomeTo
+//                "enq_loanType": "Two Wheeler",
+//                "enq_loanTypePreFix": "23",
+//                "enq_dob": "01-03-1983",
+//                "enq_is_salaried_ddl": "Yes",
+//                "enq_occupation": "Salaried",
+//                "enq_company_id": "PURATECH SOLUTIONS INDIA PRIVATE LIMITED",
+//                "enq_city": "Mumbai",
+//                "enq_manufacturer": "344",
+//                "enq_model": "2643",
+//                "ex_showroom_cost": "100000",
+//                "enq_loanAmtTo": "75000",
+//                "enq_tenureTo": "12",
+//                "enq_currIncomeTo": "60000"
+
+            };
+            return $http({
+                url: adminurl + "stepawaytw",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": twdata
+                }
+            })
+        },
+        //dhaval end
         Insertmyplans: function(plan) {
             return $http({
                 url: adminurl + "Insertmyplans",
@@ -318,6 +466,21 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        //DHAVAL START
+        getmanumodel: function(manuf) {
+            return $http({
+                url: adminurl + "getmanumodel",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "manuid":manuf
+                    }
+                }
+            })
+        },
+        //DHAVAL END
         getplaningfor: function() {
             return planfor;
         },
@@ -330,6 +493,7 @@ var myservices = angular.module('myservices', [])
         stepswayget: function() {
             $.jStorage.get("stepaway");
         },
+        
         setcheck: function(check) {
             $.jStorage.set("check", check);
         },
