@@ -1,5 +1,5 @@
 var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
-
+var abcdf="";
 var myservices = angular.module('myservices', [])
 
 .factory('MyServices', function($http, $location) {
@@ -265,6 +265,44 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        //SAPANA START
+         refinestepawaycar: function() {
+             var refine = $.jStorage.get("refine");
+             var stepaway = $.jStorage.get("stepaway");
+            return $http({
+                url: adminurl + "refinestepawaycar",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "enq_loanType": "Car",
+                        "enq_gender": refine.enq_gender,
+                        "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_nationality": refine.enq_nationality,
+                        "enq_status":refine.enq_status,
+                        "enq_manufacturer":"Rented",
+                        "enq_usage":refine.enq_usage,
+                        "enq_pincode":refine.enq_pincode,
+                        "selectAllexisting_bank_relationship":refine.selectAllexisting_bank_relationship,
+//                        "enq_present_use_property": refine.enq_present_use_property,
+//                        "enq_staying_since": refine.enq_staying_since,
+//                        "enq_company_consitution": refine.enq_company_consitution,
+                        "salary_credited_since": refine.salary_credited_since,
+//                        "pl_total_exp_job_years": refine.pl_total_exp_job_years,
+                        "owner_expiry_date":refine.owner_expiry_date,
+                        "enq_emi_existing_loan": "0",
+                        "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        "enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        "enq_tenureTo": stepaway.enq_tenureTo,
+                        "enq_currIncomeTo": stepaway.enq_currIncomeTo,
+                        "appid": refine.appid
+                    }
+
+                }
+            })
+        },
+        //SAPANA END
          ////mahesh //////
                stepawaycc: function() {
             var creditloan = $.jStorage.get("stepaway");
@@ -488,10 +526,18 @@ var myservices = angular.module('myservices', [])
             $.jStorage.get("pldata");
         },
         stepawayset: function(stepaway) {
+            $.jStorage.deleteKey("stepaway");
             $.jStorage.set("stepaway", stepaway);
         },
         stepswayget: function() {
             $.jStorage.get("stepaway");
+        },
+        refinestepawayset: function(refine) {
+            $.jStorage.deleteKey("refine");
+            $.jStorage.set("refine", refine);
+        },
+        refinestepswayget: function() {
+            $.jStorage.get("refinestepaway");
         },
         
         setcheck: function(check) {

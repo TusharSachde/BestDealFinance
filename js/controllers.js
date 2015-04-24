@@ -530,7 +530,47 @@ angular.module('starter.controllers', ['myservices'])
     .controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('PropertychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('PropertyapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('CarApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    .controller('CarApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    
+     //  DEPLARATION
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    
+        $ionicLoading.hide();
+
+
+        var carsuccess = function (data, status) {
+            console.log(data);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/checkcarloan");
+                }, 1500);
+            } else {
+                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.refinestepawaycar().success(carsuccess);
+     
+
+//        //  CHECK checkeligibility
+        $scope.checkrefinecar = function (check) {
+            console.log(check);
+            MyServices.setcheck(check);
+           $location.url("/app/thankyou");
+        }
+    
+})
 
 //  SAPANA STARTS
 .controller('CarChkListCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
@@ -564,10 +604,10 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.stepawaycar().success(carsuccess);
 
         //  CHECK checkeligibility
-        $scope.checkeligibility = function (check) {
+        $scope.checkeligibilitycar = function (check) {
             console.log(check);
             MyServices.setcheck(check);
-            $location.url("/app/personal-chk/" + $scope.appid);
+            $location.url("/app/checkcarloan/" + $scope.appid);
         }
 
 
@@ -1284,16 +1324,83 @@ angular.module('starter.controllers', ['myservices'])
         };
 
     })
-    .controller('CheckCarLoanCtrl', function ($scope, $stateParams) {
+//SAPANA STARTS
+    .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+//
+//        $scope.carloan = {
+//            'loan': 20000,
+//            'tenure': 6,
+//            'income': 15000
+//
+//        };
+     //  DECLARATION
+    $scope.refine = {};
+    $scope.refine.appid = $stateParams.appid;
+    $scope.refine.salary_credited_since = new Date;
+    $scope.allvalidation = [];
 
-        $scope.carloan = {
-            'loan': 20000,
-            'tenure': 6,
-            'income': 15000
+    //  MODAL FOR BANK RELATIONSHIP
+    $ionicModal.fromTemplateUrl('templates/bank.html', {
+        id: '3',
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.oModal3 = modal;
+    });
+    $scope.showbank = function () {
+        $scope.oModal3.show();
+    };
 
-        };
+    //  REFINE PERSONAL 
+    var refinesuccess = function (data, status) {
+        console.log(data);
+    }
+    $scope.refinecar = function (refine) {
+        console.log($scope.refine);
+//        $scope.allvalidation = [{
+//            field: $scope.refine.enq_gender,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_maritial_status,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_nationality,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_present_use_property,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_staying_since,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.salary_credited_since,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.pl_total_exp_job_years,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_have_loan_ddl,
+//            validation: ""
+//        }];
+//        var check = formvalidation($scope.allvalidation);
+
+//        if (check) {
+//            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+//            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
+        MyServices.refinestepawayset($scope.refine);
+                    $location.url("/app/carapply");
+
+//        };
+//        MyServices.stepawayset(carloan);
+
+    }
+
+
+    
 
     })
+//SAPANA ENDS
     //sapana starts
     .controller('HomeLoansCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 

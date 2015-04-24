@@ -210,7 +210,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.checkcarloan', {
-        url: "/checkcarloan",
+        url: "/checkcarloan/:appid",
         views: {
             'menuContent': {
                 templateUrl: "templates/checkcarloan.html",
