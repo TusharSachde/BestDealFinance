@@ -238,7 +238,9 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        refinestepawaypl: function(refine) {
+        refinestepawaypl: function() {
+             var refine = $.jStorage.get("refine");
+             var stepaway = $.jStorage.get("stepaway");
             return $http({
                 url: adminurl + "refinestepawaypl",
                 method: "POST",
@@ -256,9 +258,9 @@ var myservices = angular.module('myservices', [])
                         "pl_total_exp_job_years": refine.pl_total_exp_job_years,
                         "enq_emi_existing_loan": refine.enq_emi_existing_loan,
                         "enq_have_loan_ddl": refine.enq_have_loan_ddl,
-                        "enq_loanAmtTo": $.jStorage.get("stepaway").enq_loanAmtTo,
-                        "enq_tenureTo": $.jStorage.get("stepaway").enq_tenureTo,
-                        "enq_currIncomeTo": $.jStorage.get("stepaway").enq_currIncomeTo,
+                        "enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        "enq_tenureTo": stepaway.enq_tenureTo,
+                        "enq_currIncomeTo": stepaway.enq_currIncomeTo,
                         "appid": refine.appid
                     }
 

@@ -440,7 +440,47 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
 
-.controller('LoanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+.controller('LoanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+//    jagruti
+    
+     //  DEPLARATION
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+
+
+        var plsuccess = function (data, status) {
+            console.log(data.Data.num);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/personal");
+                }, 1500);
+            } else {
+                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.refinestepawaypl().success(plsuccess);
+
+        //  CHECK checkeligibility
+        $scope.checkeligibility = function (check) {
+            console.log(check);
+            MyServices.setcheck(check);
+            $location.url("/app/thankyou");
+        }
+        
+        
+    
+})
     .controller('CheckCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
         //  DEPLARATION
@@ -1478,7 +1518,7 @@ angular.module('starter.controllers', ['myservices'])
 .controller('PersonalChkCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
     //  DECLARATION
-    $scope.refine = [];
+    $scope.refine = {};
     $scope.refine.appid = $stateParams.appid;
     $scope.refine.enq_staying_since = new Date;
     $scope.refine.salary_credited_since = new Date;
@@ -1531,8 +1571,11 @@ angular.module('starter.controllers', ['myservices'])
         if (check) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
-        };
+//            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
+            MyServices.refinestepawayset($scope.refine);
+            $location.url("/app/listloan");
+//            sapana akshay
+            };
 
     }
 
