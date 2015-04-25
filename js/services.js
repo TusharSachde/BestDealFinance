@@ -378,13 +378,14 @@ var myservices = angular.module('myservices', [])
                 "enq_dob": homeloan.enq_dob,
                 "enq_city": homeloan.enq_city,
                 "enq_is_salaried_ddl": homeloan.enq_is_salaried_ddl,
-                "enq_occupation": homeloan.enq_occupation,
+                "enq_occupation": "Salaried",
+//                "enq_occupation": homeloan.enq_occupation,
                 "enq_company_id": homeloan.enq_company_id,
                 "property_type":homeloan.property_type,
                 "enq_current_value_property":homeloan.enq_current_value_property,
-                "enq_loanAmtTo": homeloan.enq_loanAmtTo,
-                "enq_tenureTo": homeloan.enq_tenureTo,
-                "enq_currIncomeTo": homeloan.enq_currIncomeTo
+                "step_enq_loanAmtTo": homeloan.enq_loanAmtTo,
+                "step_enq_tenureTo": homeloan.enq_tenureTo,
+                "step_enq_currIncomeTo": homeloan.enq_currIncomeTo
             };
             return $http({
                 url: adminurl + "stepawayhome",
