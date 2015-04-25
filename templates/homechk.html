@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
-                    <select>
+                    <select ng-model="refine.enq_gender">
                         <option>Please select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -17,7 +17,7 @@
                     <div class="input-label">
                         Marital Status
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_maritial_status">
                         <option>Married</option>
                         <option>Single</option>
                         <option>Divorced</option>
@@ -32,7 +32,7 @@
                     <div class="input-label">
                         Status
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_status">
                         <option>Please select</option>
                         <option>Resident</option>
                         <option>NRI</option>
@@ -44,7 +44,7 @@
                 <label class="item item-input">
                     <span class="input-label">Nationality</span>
                     <div class="">
-                        <input type="text">
+                        <input type="text" ng-model="refine.enq_nationality">
                     </div>
                 </label>
 
@@ -62,14 +62,14 @@
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Pin Code</span>
-                    <input type="text">
+                    <input type="text" ng-model="refine.enq_pincode">
 
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Clasification of Property
                     </div>
-                    <select>
+                    <select ng-model="refine.property_classification">
                         <option>Select</option>
                         <option>Flat</option>
                         <option>RowHouse</option>
@@ -81,20 +81,20 @@
                     <div class="input-label">
                         Property at Exclusive Rates
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_exclusive_rate_property">
                         <option>Vinayak Unique,Vinayak Unique Gardens</option>
                         <option>Balaji Darshan, Balaji Darshan Making</option>
                     </select>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Employed Since</span>
-                    <input type="date">
+                    <input type="date" ng-model="refine.salary_credited_since">
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Purpose of Loan
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_Purpose">
                         <option>Purchase</option>
                         <option>Construction</option>
                         <option>Extension</option>
@@ -116,7 +116,7 @@
                     <div class="input-label">
                         Status of Property
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_present_use_property">
                         <option>&nbsp;</option>
                         <option>Ready Position</option>
                         <option>Construction</option>
