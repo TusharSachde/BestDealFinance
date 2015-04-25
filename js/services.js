@@ -305,6 +305,40 @@ var myservices = angular.module('myservices', [])
             })
         },
         //SAPANA END
+        //SAPANA START
+         refinestepawayhome: function() {
+             var refine = $.jStorage.get("refine");
+             var stepaway = $.jStorage.get("stepaway");
+            return $http({
+                url: adminurl + "refinestepawayhome",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "enq_loanType": "Home",
+                        "enq_gender": refine.enq_gender,
+                        "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_nationality": refine.enq_nationality,
+                        "enq_status":refine.enq_status,
+                        "enq_pincode":refine.enq_pincode,
+                        "property_classification":refine.property_classification,
+                        "enq_exclusive_rate_property":"&nbsp",
+                        "salary_credited_since": refine.salary_credited_since,
+                        "enq_present_use_property": refine.enq_present_use_property,
+                        "enq_Purpose":refine.enq_Purpose,
+//                        "enq_emi_existing_loan": "0",
+                        "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        "step_enq_loanAmtTo": stepaway.step_enq_loanAmtTo,
+                        "step_enq_tenureTo": stepaway.step_enq_tenureTo,
+                        "step_enq_currIncomeTo": stepaway.step_enq_currIncomeTo,
+                        "appid": refine.appid
+                    }
+
+                }
+            })
+        },
+        //SAPANA END
          ////mahesh //////
                stepawaycc: function() {
             var creditloan = $.jStorage.get("stepaway");

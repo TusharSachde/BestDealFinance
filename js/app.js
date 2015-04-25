@@ -246,7 +246,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         })
         .state('app.homechk', {
-            url: "/homechk",
+            url: "/homechk/:appid",
             views: {
                 'menuContent': {
                     templateUrl: "templates/homechk.html",
