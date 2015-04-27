@@ -323,15 +323,15 @@ var myservices = angular.module('myservices', [])
                         "enq_status":refine.enq_status,
                         "enq_pincode":refine.enq_pincode,
                         "property_classification":refine.property_classification,
-                        "enq_exclusive_rate_property":"&nbsp",
+                        "enq_exclusive_rate_property":"",
                         "salary_credited_since": refine.salary_credited_since,
                         "enq_present_use_property": refine.enq_present_use_property,
                         "enq_Purpose":refine.enq_Purpose,
 //                        "enq_emi_existing_loan": "0",
                         "enq_have_loan_ddl": refine.enq_have_loan_ddl,
-                        "step_enq_loanAmtTo": stepaway.step_enq_loanAmtTo,
-                        "step_enq_tenureTo": stepaway.step_enq_tenureTo,
-                        "step_enq_currIncomeTo": stepaway.step_enq_currIncomeTo,
+                        "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        "step_enq_tenureTo": stepaway.enq_tenureTo,
+                        "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,
                         "appid": refine.appid
                     }
 
@@ -403,6 +403,72 @@ var myservices = angular.module('myservices', [])
             })
         },
         //sapana ends
+        //Security loan start
+           stepawaysecurity: function() {
+            var security = $.jStorage.get("stepaway");
+            var securitydata = {
+                "enq_loanType": "Loan Against Security",
+                "enq_loanTypePreFix": "27",
+//                "enq_have_loan": "No",
+                "enq_loanType_SubType": "Loan Against Property (Commercial / Residential)",
+                "enq_loan_for": "Self",
+                "enq_dob": security.enq_dob,
+                
+                "enq_city": security.enq_city,
+                "enq_is_salaried_ddl": security.enq_is_salaried_ddl,
+                "enq_occupation": security.enq_occupation,
+                "enq_company_id": security.enq_company_id,
+                "property_current_market_value": "2500000",
+//                "enq_have_loan_ddl": "No",
+                "property_type": security.property_type,
+                "enq_loanAmtTo": security.enq_loanAmtTo,
+                "enq_tenureTo": security.enq_tenureTo,
+                "enq_currIncomeTo": security.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawaysecurity",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": securitydata
+                }
+            })
+        },
+        //end 
+        //Property loan start
+           stepawayproperty: function() {
+            var security = $.jStorage.get("stepaway");
+            var propertydata = {
+                "enq_loanType": "Loan Against Property",
+                "enq_loanTypePreFix": "27",
+//                "enq_have_loan": "No",
+                "enq_loanType_SubType": "Loan Against Property (Commercial / Residential)",
+                "enq_loan_for": "Self",
+                "enq_dob": security.enq_dob,
+                
+                "enq_city": security.enq_city,
+                "enq_is_salaried_ddl": security.enq_is_salaried_ddl,
+                "enq_occupation": security.enq_occupation,
+                "enq_company_id": security.enq_company_id,
+                "property_current_market_value": "2500000",
+//                "enq_have_loan_ddl": "No",
+                "property_type": security.property_type,
+                "enq_loanAmtTo": security.enq_loanAmtTo,
+                "enq_tenureTo": security.enq_tenureTo,
+                "enq_currIncomeTo": security.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawayproperty",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": propertydata
+                }
+            })
+        },
+        //end 
         // homeloan sapana start
             stepawayhome: function() {
             var homeloan = $.jStorage.get("stepaway");

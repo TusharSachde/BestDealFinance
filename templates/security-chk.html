@@ -2,7 +2,7 @@
     <ion-content class="has-header padding">
         <div class="padding"></div>
         <ion-list class="opaque-bg list-loan">
-            <ion-item>
+            <ion-item ng-repeat="check in checklist" ng-if="check.display == true">
                 <div class="best-deal">
                     Best Deal
                 </div>
@@ -10,7 +10,7 @@
                 <img src="img/ribbon.png" class="ribbon">
 
                 <div class="thumb-left text-center">
-                    <p class="simple-text padded">Institution</p>
+                    <p class="simple-text padded">{{check.bank_name}}</p>
                     <img src="img/icici.png" alt="" class="full-image">
 
                 </div>
@@ -48,7 +48,8 @@
                         <h3>0.5</h3>
                     </div>
                     <div class="col">
-                        <a href="#/app/securitychkform">
+<!--                        <a href="#/app/securitychkform">-->
+                        <a ng-click="checkeligibilitysecurity(check)">
                             <button class="button button-positive button-small button-apply eligibility">Check<br> Eligibility</button>
                         </a>
                     </div>

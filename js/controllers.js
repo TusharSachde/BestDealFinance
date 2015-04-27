@@ -53,7 +53,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.allvalidation = [];
 
     //  AUTHENTICATE JSTORAGE
-    MyServices.flushuser();
+//    MyServices.flushuser();
     if (MyServices.getuser()) {
         $location.url("/app/home");
     }
@@ -564,11 +564,160 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL END
     .controller('TwowheelerchkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('SecuritychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+//SAPANA START security check
+    .controller('SecuritychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    
+     //  DEPLARATION
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+
+
+        var securitysuccess = function (data, status) {
+            console.log(data);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/securityloan");
+                }, 1500);
+            } else {
+                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.stepawaysecurity().success(securitysuccess);
+
+        //  CHECK checkeligibility
+        $scope.checkeligibilitysecurity = function (check) {
+            console.log(check);
+            MyServices.setcheck(check);
+            $location.url("/app/securitychkform/" + $scope.appid);
+        }
+
+
+    
+})
+//SAPANA ENDS
     .controller('SecuritychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('PropertychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+//propertychk starts
+.controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+     //  DEPLARATION
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+
+
+        var propertysuccess = function (data, status) {
+            console.log(data);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/propertyloan");
+                }, 1500);
+            } else {
+                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.stepawayproperty().success(propertysuccess);
+
+        //  CHECK checkeligibility
+        $scope.checkeligibilityproperty = function (check) {
+            console.log(check);
+            MyServices.setcheck(check);
+            $location.url("/app/propertychk-form/" + $scope.appid);
+        }
+
+
+    
+})
+//propertychk ends
+//propertychk-form starts
+    .controller('PropertychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
+    
+     //  DECLARATION
+    $scope.refine = {};
+    $scope.refine.appid = $stateParams.appid;
+    $scope.refine.salary_credited_since = new Date;
+    $scope.allvalidation = [];
+
+    //  MODAL FOR BANK RELATIONSHIP
+    $ionicModal.fromTemplateUrl('templates/bank.html', {
+        id: '3',
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.oModal3 = modal;
+    });
+    $scope.showbank = function () {
+        $scope.oModal3.show();
+    };
+
+    //  REFINE PERSONAL 
+    var refinesuccess = function (data, status) {
+        console.log(data);
+    }
+    $scope.refineproperty = function (refine) {
+        console.log($scope.refine);
+//        $scope.allvalidation = [{
+//            field: $scope.refine.enq_gender,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_maritial_status,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_nationality,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_present_use_property,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_staying_since,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.salary_credited_since,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.pl_total_exp_job_years,
+//            validation: ""
+//        }, {
+//            field: $scope.refine.enq_have_loan_ddl,
+//            validation: ""
+//        }];
+//        var check = formvalidation($scope.allvalidation);
+
+//        if (check) {
+//            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+//            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
+        MyServices.refinestepawayset($scope.refine);
+//                    $location.url("/app/propertyformapply");
+
+//        };
+//        MyServices.stepawayset(carloan);
+
+    }
+
+
+})
+//propertychk-form ends
     .controller('PropertyapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('CarApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
     
@@ -1442,42 +1591,265 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 //  DHAVAL END
-    .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal) {
+//SAPANA START loan security page
+   .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
-        $scope.carloan = {
-            'loan': 20000,
-            'tenure': 6,
-            'income': 15000
-
+        //  DESIGN CODE
+        $scope.security = {
+            'enq_loanAmtTo': 20000,
+            'enq_tenureTo': 6,
+            'enq_currIncomeTo': 15000,
+            'enq_is_salaried_ddl': 'No',
+            'enq_dob': new Date()
         };
-        //        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
-        //            scope: $scope,
-        //            animation: 'slide-in-up'
-        //        }).then(function (modal) {
-        //            $scope.modal = modal;
-        //        });
-        //
-        //        $scope.openedit = function () {
-        //            $scope.modal.show();
-        //        }
-        //
-        //        $scope.closeModal = function () {
-        //            $scope.modal.hide();
-        //        };
+    
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
 
-    })
-    .controller('PropertyLoanCtrl', function ($scope, $stateParams) {
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
 
-        $scope.carloan = {
-            'loan': 20000,
-            'tenure': 6,
-            'income': 15000
-
+        $scope.closeModal = function () {
+            $scope.modal.hide();
         };
 
+        //  DECLARATION
+        $scope.cities = [];
+        $scope.allvalidation = [];
+        $
+
+
+        // GET ALL DROPDOWN
+        var dropsuccess = function (data, status) {
+            $scope.cities = data.Data;
+        }
+        MyServices.getdropdowncity().success(dropsuccess);
+
+        //  SELECT COMPANY
+        $scope.selectcomp = function (comp) {
+            console.log(comp);
+            $scope.modal.hide();
+            $scope.security.enq_company_id = comp;
+        }
+
+        $scope.datechange = function () {
+            if (parseInt(age($scope.security.enq_dob)) < 21) {
+                console.log("chintoo");
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 21",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+
+
+        }
+
+
+        //  PERSONAL FIRST LOAN FORN SUBMIT
+        var stepawayscsuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.getmedeals = function (security) {
+            console.log(security);
+//            if (personal.enq_is_salaried_ddl != "no") {
+//                personal.enq_occupation = "Salaried";
+//            }
+//            if ($scope.personal.salaried == "1") {
+//                $scope.allvalidation = [{
+//                    field: $scope.personal.enq_loanAmtTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_tenureTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_currIncomeTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_dob,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_city,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_is_salaried_ddl,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_company_id,
+//                    validation: ""
+//                }];
+//                var check = formvalidation($scope.allvalidation);
+//            } else {
+//                $scope.allvalidation = [{
+//                    field: $scope.personal.enq_loanAmtTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_tenureTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_currIncomeTo,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_dob,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_city,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_is_salaried_ddl,
+//                    validation: ""
+//                }, {
+//                    field: $scope.personal.enq_occupation,
+//                    validation: ""
+//                }];
+//                var check = formvalidation($scope.allvalidation);
+//            }
+
+//            if (check) {
+                //                $scope.today = new Date();
+                security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
+                console.log(security.enq_dob);
+
+                MyServices.stepawayset(security);
+                $location.url("/app/securitychk");
+                //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+//            };
+        }
+
     })
+
+//SAPANA ENDS
+// propertyloan
+    .controller('PropertyLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+
+        $scope.propertyloan = {
+            'enq_loanAmtTo': 20000,
+            'enq_tenureTo': 6,
+            'enq_currIncomeTo': 15000,
+            'enq_is_salaried_ddl': 'No',
+            'enq_dob': new Date()
+
+        };
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
+
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModal = function () {
+            $scope.modal.hide();
+        };
+
+        //  SELECT COMPANY
+        $scope.selectcomp = function (comp) {
+                console.log(comp);
+                $scope.modal.hide();
+                $scope.propertyloan.enq_company_id = comp;
+            }
+            //Get model by manufacturer id
+        var manufacuturesuccess = function (data, status) {
+            $scope.models = data;
+            console.log($scope.models);
+        }
+        $scope.manufacture_model = function (manuf_model) {
+            console.log(manuf_model);
+            MyServices.manufature_models(manuf_model).success(manufacuturesuccess);
+        }
+        $scope.datechange = function () {
+            if (parseInt(age($scope.propertyloan.enq_dob)) < 21) {
+                console.log("chintoo");
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 21",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+        }
+        $scope.getmedeals = function (propertyloan) {
+            console.log(propertyloan);
+            //            if (carloan.enq_is_salaried_ddl != "no") {
+            //                carloan.enq_occupation = "Salaried";
+            //            }
+            //            if ($scope.carloan.salaried == "1") {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.carloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_company_id,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            } else {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.carloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.carloan.enq_occupation,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            }
+
+            //            if (check) {
+            //                $scope.today = new Date();
+//            propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
+//            console.log(propertyloan.enq_dob);
+
+            MyServices.stepawayset(propertyloan);
+            $location.url("/app/propertychk");
+            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+            //            };
+        }
+
+
+    })
+//property loan ends
 //SAPANA STARTS
-    .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+    .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filterg662) {
 //
 //        $scope.carloan = {
 //            'loan': 20000,
@@ -1541,7 +1913,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
 //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
         MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/carapply");
+                    $location.url("/app/propertyformapply");
 
 //        };
 //        MyServices.stepawayset(carloan);

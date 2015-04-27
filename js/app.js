@@ -314,7 +314,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.propertychk-form', {
-        url: "/propertychk-form",
+        url: "/propertychk-form/:appid",
         views: {
             'menuContent': {
                 templateUrl: "templates/propertychk-form.html",

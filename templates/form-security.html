@@ -6,41 +6,44 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="number" ng-model="carloan.loan">
+                    <input type="text" ng-model="security.enq_loanAmtTo">
                     <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
+                        <input type="range" min="100000" max="20000000" ng-model="security.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="number" ng-model="carloan.tenure">
+                    <input type="text" ng-model="security.enq_tenureTo">
                     <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
+                        <input type="range" min="6" max="84" ng-model="security.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="number" ng-model="carloan.income">
+                    <input type="text" ng-model="security.enq_currIncomeTo">
                     <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
+                        <input type="range" min="15000" max="7500000" ng-model="security.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth</span>
-                    <input type="date">
+                    <input type="date" ng-model="security.enq_dob" ng-change="datechange()">
                 </label>
                 
                  <label class="item item-input item-select">
                     <div class="input-label">
                        City (Residing at)
                     </div>
-                    <select>
+                    <select ng-model="security.enq_city">
+                    <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
+<!--
                         <option>Mumbai</option>
                         <option>Pune</option>
                         <option>Panvel</option>
+-->
                     </select>
                 </label>
 
@@ -49,18 +52,18 @@
                     <div class="input-label">
                         Are You Salaried ?
                     </div>
-                    <select>
+                    <select  ng-model="security.enq_is_salaried_ddl">
                         <option>Please select</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
                 </label>
                
-                <label class="item item-input item-select">
+                <label class="item item-input item-select" ng-if="security.enq_is_salaried_ddl == 'No'">
                     <div class="input-label">
                         Occupation
                     </div>
-                    <select>
+                    <select ng-model="security.enq_occupation" ng-init="security.enq_occupation=''">
                         <option>Please select</option>
                         <option>Housewife</option>
                         <option>Retired</option>
@@ -73,13 +76,32 @@
                 </label> 
                    
             
+                <label class="item item-input" ng-click="openedit();" ng-if="security.enq_is_salaried_ddl != 'No'">
+                    <div class="input-label">
+                        Company
+
+                    </div>
+                    <div class="">
+                        {{security.enq_company_id}}
+
+                    </div>
+                    <!--
+
+                    <select>
+                        <option>Please select</option>
+                        <option>Puratek company</option>
+                        <option>TCS</option>
+                    </select>
+-->
+
+                </label>
 
                
 
                 
                     <label class="item item-input">
                     <span class="input-label">Current Market value of securities to be pledged</span>
-                    <input type="text">
+                    <input type="text" ng-model="security.property_current_market_value">
                     
                 </label>
                 <ion-item class="item-checkbox">
@@ -90,7 +112,8 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/securitychk">
+<!--           <a href="#/app/securitychk">-->
+           <a ng-click="getmedeals(security)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
                     <div class="button-text assertive">Get me deals</div>
