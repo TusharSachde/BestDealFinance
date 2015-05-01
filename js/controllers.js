@@ -577,9 +577,9 @@ angular.module('starter.controllers', ['myservices'])
         var securitysuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
-            if (data.Response != "Success") {
+            if (data.Message != "Success Message") {
                 var myPopup1 = $ionicPopup.show({
-                    title: data.Response,
+                    title: data.Message,
                     scope: $scope,
                 });
                 $timeout(function () {
@@ -598,7 +598,7 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilitysecurity = function (check) {
             console.log(check);
-            MyServices.setcheck(check);
+//            MyServices.setcheck(check);
             $location.url("/app/securitychkform/" + $scope.appid);
         }
 
@@ -795,7 +795,7 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilitycar = function (check) {
             console.log(check);
-            MyServices.setcheck(check);
+//            MyServices.setcheck(check);
             $location.url("/app/checkcarloan/" + $scope.appid);
         }
 
@@ -1849,7 +1849,7 @@ angular.module('starter.controllers', ['myservices'])
     })
 //property loan ends
 //SAPANA STARTS
-    .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filterg662) {
+    .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 //
 //        $scope.carloan = {
 //            'loan': 20000,
@@ -1913,7 +1913,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
 //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
         MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/propertyformapply");
+                    $location.url("/app/carapply");
 
 //        };
 //        MyServices.stepawayset(carloan);

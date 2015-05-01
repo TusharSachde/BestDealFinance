@@ -417,7 +417,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.securitychk-form', {
-        url: "/securitychkform",
+        url: "/securitychkform/:appid",
         views: {
             'menuContent': {
                 templateUrl: "templates/securitychk-form.html",

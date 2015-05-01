@@ -407,26 +407,26 @@ var myservices = angular.module('myservices', [])
            stepawaysecurity: function() {
             var security = $.jStorage.get("stepaway");
             var securitydata = {
-                "enq_loanType": "Loan Against Security",
+                "enq_loanType": "Loan Against Shares",
                 "enq_loanTypePreFix": "27",
 //                "enq_have_loan": "No",
-                "enq_loanType_SubType": "Loan Against Property (Commercial / Residential)",
-                "enq_loan_for": "Self",
+                "enq_loanType_SubType": "11",
+//                "enq_loan_for": "Self",
                 "enq_dob": security.enq_dob,
                 
                 "enq_city": security.enq_city,
                 "enq_is_salaried_ddl": security.enq_is_salaried_ddl,
-                "enq_occupation": security.enq_occupation,
+//                "enq_occupation": security.enq_occupation,
                 "enq_company_id": security.enq_company_id,
-                "property_current_market_value": "2500000",
+                "enq_securities_market_value": security.property_current_market_value,
 //                "enq_have_loan_ddl": "No",
-                "property_type": security.property_type,
-                "enq_loanAmtTo": security.enq_loanAmtTo,
-                "enq_tenureTo": security.enq_tenureTo,
-                "enq_currIncomeTo": security.enq_currIncomeTo
+//                "property_type": security.property_type,
+                "step_enq_loanAmtTo": security.enq_loanAmtTo,
+                "step_enq_tenureTo": security.enq_tenureTo,
+                "step_enq_currIncomeTo": security.enq_currIncomeTo
             };
             return $http({
-                url: adminurl + "stepawaysecurity",
+                url: adminurl + "stepawaylas",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
