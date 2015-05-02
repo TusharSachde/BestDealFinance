@@ -103,8 +103,8 @@
                     </div>
                     <select ng-model="twloan.enq_model">
                         <option>Please select</option>
-                        <option>MAZE</option>
-                        <option>Maruti Suzuki</option>
+                        <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
+<!--                        <option>Maruti Suzuki</option>-->
                     </select>
                 </label>
 

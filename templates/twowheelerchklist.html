@@ -12,7 +12,7 @@
                 <div class="thumb-left text-center">
                     <p class="simple-text padded">Institution</p>
 <!--                    <img src="img/icici.png" alt="" class="full-image">-->
-                    <img ng-src="{{data.logo_image}}" alt="" class="full-image">
+                    <img ng-src="{{data.logo_image | bankimagepath}}" alt="" class="full-image">
 
                 </div>
 
@@ -41,7 +41,7 @@
                         <h3>{{data.processing}}</h3>
                     </div>
                     <div class="col">
-                        <a href="#/app/twowheeler-chk">
+                        <a href="" ng-click="checkeligibility(data);">
                             <button class="button button-positive button-small button-apply eligibility">Check<br> Eligibility</button>
                         </a>
                     </div>
