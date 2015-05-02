@@ -403,6 +403,69 @@ var myservices = angular.module('myservices', [])
             })
         },
         //sapana ends
+        //dhaval start
+        stepawaytw: function() {
+            var tw = $.jStorage.get("stepaway");
+            var twdata = {
+                "enq_loanType": "Two Wheeler",
+                "enq_loanTypePreFix": "23",
+                "enq_dob": tw.enq_dob,
+                "enq_is_salaried_ddl": tw.enq_is_salaried_ddl,
+                "enq_occupation": tw.enq_occupation,
+                "enq_company_id": tw.enq_company_id,
+                "enq_city": tw.enq_city,
+                "enq_manufacturer": tw.enq_manufacturer,
+                "enq_model": tw.enq_model,
+                "ex_showroom_cost": tw.ex_showroom_cost,
+                "enq_loanAmtTo": tw.enq_loanAmtTo,
+                "enq_tenureTo": tw.enq_tenureTo,
+                "enq_currIncomeTo": tw.enq_currIncomeTo
+            };
+            return $http({
+                url: adminurl + "stepawaytw",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": twdata
+                }
+            })
+        },
+        //dhaval end
+        //DHAVAL START
+        refinestepawaytw: function() {
+             var refine = $.jStorage.get("refine");
+             var stepaway = $.jStorage.get("stepaway");
+            return $http({
+                url: adminurl + "refinestepawaytw",
+                method: "POST",
+                data: {
+                        "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                        "Token": "1234",
+                        "Data": {
+                                "enq_loanType": "Two Wheeler",
+                                "enq_gender": refine.enq_gender,
+                                "enq_maritial_status": refine.enq_maritial_status,
+                                "enq_status": refine.enq_status,
+                                "enq_nationality": refine.enq_nationality,
+                                "enq_pincode": refine.enq_pincode,
+                                "salary_credited_since": refine.salary_credited_since,
+                                "enq_residence_tw": refine.enq_residence_tw,
+                                "enq_staying_since": refine.enq_staying_since,
+                                "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                                "enq_bank_ac_tw": refine.enq_bank_ac_tw,
+                                "enq_bank_ac_tw_since": refine.enq_bank_ac_tw_since,
+                                "enq_emi_existing_loan": refine.enq_emi_existing_loan,
+                                "enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                                "enq_tenureTo": stepaway.enq_tenureTo,
+                                "enq_currIncomeTo": stepaway.enq_currIncomeTo,
+                                "appid": refine.appid	
+                                }
+                        }
+
+            })
+        },
+        //DHAVAL END
         //Security loan start
            stepawaysecurity: function() {
             var security = $.jStorage.get("stepaway");
@@ -607,7 +670,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        //DHAVAL START
+       //DHAVAL START
         getmanumodel: function(manuf) {
             return $http({
                 url: adminurl + "getmanumodel",

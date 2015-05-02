@@ -447,7 +447,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.twowheeler-chk', {
-        url: "/twowheeler-chk",
+        url: "/twowheeler-chk/:appid",
         views: {
             'menuContent': {
                 templateUrl: "templates/twowheeler-chk.html",
