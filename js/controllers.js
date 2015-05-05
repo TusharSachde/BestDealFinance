@@ -766,7 +766,7 @@ angular.module('starter.controllers', ['myservices'])
      //  DECLARATION
     $scope.refine = {};
     $scope.refine.appid = $stateParams.appid;
-    $scope.refine.salary_credited_since = new Date;
+    $scope.refine.owner_expiry_date = new Date;
     $scope.allvalidation = [];
 
     //  MODAL FOR BANK RELATIONSHIP
@@ -816,10 +816,10 @@ angular.module('starter.controllers', ['myservices'])
 
 //        if (check) {
 //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
-            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+            $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");;
 //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
-        MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/propertyformapply");
+            MyServices.refinestepawayset($scope.refine);
+            $location.url("/app/propertyformapply");
 
 //        };
 //        MyServices.stepawayset(carloan);
@@ -851,12 +851,12 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/property-chk");
+                    $location.url("/app/propertychk-form");
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
-                console.log(data);
+                console.log($scope.checklist);
                 //                console.log(getjsononly($scope.checklist));
             }
         }

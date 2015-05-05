@@ -774,23 +774,20 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {
-                        "enq_loanType": "Home",
                         "enq_gender": refine.enq_gender,
                         "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_status": refine.enq_status,
                         "enq_nationality": refine.enq_nationality,
-                        "enq_status":refine.enq_status,
-                        "enq_pincode":refine.enq_pincode,
-                        "property_classification":refine.property_classification,
-                        "enq_exclusive_rate_property":"",
-                        "salary_credited_since": refine.salary_credited_since,
-                        "enq_present_use_property": refine.enq_present_use_property,
-                        "enq_Purpose":refine.enq_Purpose,
-//                        "enq_emi_existing_loan": "0",
+                        "property_classification": refine.property_classification,
+                        "enq_pincode": refine.enq_pincode,
+                        "property_area": refine.property_area,
                         "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        "owner_expiry_date": refine.owner_expiry_date,
+                        "enq_property_situated": refine.enq_property_situated,
                         "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
                         "step_enq_tenureTo": stepaway.enq_tenureTo,
                         "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,
-                        "appid": refine.appid
+                        "appid": refine.appid	
                     }
 
                 }
