@@ -868,6 +868,41 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        //DHAVAL START
+        smebusinesssolution: function(smebs) {
+            return $http({
+                url: adminurl + "SME",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": smebs
+                }
+            })
+        },
+        smecommercialvehicle: function(smecv) {
+            return $http({
+                url: adminurl + "SME",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": smecv
+                }
+            })
+        },
+        smeprojectfinance: function(smepf) {
+            return $http({
+                url: adminurl + "SME",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": smepf
+                }
+            })
+        },
+        //DHAVAL END        
         //dhaval end
         Insertmyplans: function(plan) {
             return $http({

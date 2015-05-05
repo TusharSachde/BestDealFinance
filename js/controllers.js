@@ -1710,10 +1710,127 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
-    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+//DHAVAL START
+    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+
+    $scope.sme={
+            enq_loanType: "29",
+        }
+            
+        var dropsuccess = function(data, status) {
+            $scope.cities = data.Data;
+            console.log("Cities")
+            console.log($scope.cities);
+        }
+        MyServices.getdropdowncity().success(dropsuccess);
+        
+        var dropsuccess1 = function(data, status) {
+            $scope.states = data.Data;
+            console.log("States")
+            console.log($scope.states);
+        }
+        MyServices.getdropdownstate().success(dropsuccess1);
+    
+    
+        var smecommercial = function(data, status) {
+            console.log(data);
+            if (data.Response != "Success") {
+                $location.url("/app/commericial");    
+            } 
+            else 
+            {
+                $scope.appid = data.Applicationid;
+                $location.url("/app/thankyou");
+            }
+        }
+        $scope.smesubmit = function(sme) {
+            console.log(sme);
+            MyServices.smecommercialvehicle(sme).success(smecommercial);;
+        }
+
+})
+//DHAVAL END
     .controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+//DHAVAl START
+    .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+
+        $scope.sme={
+            enq_loanType: "33",
+        }
+            
+        var dropsuccess = function(data, status) {
+            $scope.cities = data.Data;
+            console.log("Cities")
+            console.log($scope.cities);
+        }
+        MyServices.getdropdowncity().success(dropsuccess);
+        
+        var dropsuccess1 = function(data, status) {
+            $scope.states = data.Data;
+            console.log("States")
+            console.log($scope.states);
+        }
+        MyServices.getdropdownstate().success(dropsuccess1);
+    
+    
+        var smebusiness = function(data, status) {
+            console.log(data);
+            if (data.Response != "Success") {
+                $location.url("/app/smebussniess");    
+            } 
+            else 
+            {
+                $scope.appid = data.Applicationid;
+                $location.url("/app/thankyou");
+            }
+        }
+        $scope.smesubmit = function(sme) {
+            console.log(sme);
+            MyServices.smebusinesssolution(sme).success(smebusiness);;
+        }
+
+})
+//DHAVAL END
+//DHAVAL START
+    .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+
+        $scope.sme={
+            enq_loanType: "32",
+        }
+            
+        var dropsuccess = function(data, status) {
+            $scope.cities = data.Data;
+            console.log("Cities")
+            console.log($scope.cities);
+        }
+        MyServices.getdropdowncity().success(dropsuccess);
+        
+        var dropsuccess1 = function(data, status) {
+            $scope.states = data.Data;
+            console.log("States")
+            console.log($scope.states);
+        }
+        MyServices.getdropdownstate().success(dropsuccess1);
+    
+    
+        var smefinance = function(data, status) {
+            console.log(data);
+            if (data.Response != "Success") {
+                $location.url("/app/smeproject");    
+            } 
+            else 
+            {
+                $scope.appid = data.Applicationid;
+                $location.url("/app/thankyou");
+            }
+        }
+        $scope.smesubmit = function(sme) {
+            console.log(sme);
+            MyServices.smeprojectfinance(sme).success(smefinance);;
+        }
+})
+//DHAVAL END
+
     .controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferPropertyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferEarnCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
