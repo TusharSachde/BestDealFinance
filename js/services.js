@@ -23,6 +23,236 @@ var myservices = angular.module('myservices', [])
         class: "travel"
     }, ];
 
+    
+    
+    
+    
+    
+    
+    
+// testing
+    
+    			
+    var testing = {  
+   "Message":"Success Message",
+   "Response":"Success",
+   "Applicationid":"HO015121",
+   "Data":{  
+      "0":{  
+         "0":{  
+            "roi":"9.85",
+            "ltv":"80",
+            "is_processing_fees_fixed":false,
+            "processing":"0.80",
+            "eligible_loan_amount":2833755,
+            "disposable_income":"60000",
+            "emi":10586
+         },
+         "loan_amount":500000,
+         "roi":"9.85",
+         "ltv":"80",
+         "is_processing_fees_fixed":false,
+         "processing":"0.80",
+         "eligible_loan_amount":2833755,
+         "disposable_income":"60000",
+         "emi":10586,
+         "roiplusprocessing":9,
+         "status":true,
+         "product_id":"1323",
+         "bank_id":"46",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"Bajaj Finserve",
+         "logo_image":"bajaj.jpg",
+         "exclusive":false,
+         "display":true,
+         "best_deal":true
+      },
+      "1":{  
+         "0":{  
+            "roi":"9.80",
+            "ltv":"75",
+            "is_processing_fees_fixed":true,
+            "processing":"8876.00",
+            "eligible_loan_amount":2837044,
+            "disposable_income":"60000",
+            "emi":10574
+         },
+         "loan_amount":500000,
+         "roi":"9.80",
+         "ltv":"75",
+         "is_processing_fees_fixed":true,
+         "processing":"8876.00",
+         "eligible_loan_amount":2837044,
+         "disposable_income":"60000",
+         "emi":10574,
+         "roiplusprocessing":10,
+         "status":true,
+         "product_id":"1334",
+         "bank_id":"51",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"HFFC",
+         "logo_image":"hffc.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "2":{  
+         "0":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":true,
+            "processing":"5000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "loan_amount":500000,
+         "1":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":true,
+            "processing":"7500.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "2":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "3":{  
+            "roi":"11.00",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "4":{  
+            "roi":"11.00",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "roi":"10.10",
+         "ltv":"85.00",
+         "is_processing_fees_fixed":true,
+         "processing":"5000.00",
+         "eligible_loan_amount":500000,
+         "disposable_income":"60000",
+         "emi":10648,
+         "roiplusprocessing":11,
+         "status":true,
+         "product_id":"1291",
+         "bank_id":"13",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"Indiabulls",
+         "logo_image":"indiabulls.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "3":{  
+         "0":{  
+            "roi":"10.10",
+            "ltv":"80",
+            "is_processing_fees_fixed":true,
+            "processing":"10000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "loan_amount":500000,
+         "1":{  
+            "roi":"10.10",
+            "ltv":"75",
+            "is_processing_fees_fixed":true,
+            "processing":"10000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "roi":"10.10",
+         "ltv":"80",
+         "is_processing_fees_fixed":true,
+         "processing":"10000.00",
+         "eligible_loan_amount":500000,
+         "disposable_income":"60000",
+         "emi":10648,
+         "roiplusprocessing":12,
+         "status":true,
+         "product_id":"1329",
+         "bank_id":"49",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"10.20 %",
+         "bank_name":"citibank",
+         "logo_image":"citibank.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "4":{  
+         "0":{  
+            "roi":"11.00",
+            "ltv":"75",
+            "is_processing_fees_fixed":false,
+            "processing":"2.00",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "loan_amount":500000,
+         "roi":"11.00",
+         "ltv":"75",
+         "is_processing_fees_fixed":false,
+         "processing":"2.00",
+         "eligible_loan_amount":2759582,
+         "disposable_income":"60000",
+         "emi":10871,
+         "roiplusprocessing":13,
+         "status":true,
+         "product_id":"1297",
+         "bank_id":"5",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"AU",
+         "logo_image":"AU.png",
+         "exclusive":false,
+         "display":true
+      }
+   }
+};
+    
+//    console.log(JSON.parse(testing));
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return {
         userregister: function(signup) {
             return $http({
@@ -501,37 +731,72 @@ var myservices = angular.module('myservices', [])
         //end 
         //Property loan start
            stepawayproperty: function() {
-            var security = $.jStorage.get("stepaway");
-            var propertydata = {
+            var property = $.jStorage.get("stepaway");
+            var propertyloan = {
                 "enq_loanType": "Loan Against Property",
                 "enq_loanTypePreFix": "27",
 //                "enq_have_loan": "No",
                 "enq_loanType_SubType": "Loan Against Property (Commercial / Residential)",
                 "enq_loan_for": "Self",
-                "enq_dob": security.enq_dob,
+                "enq_dob": property.enq_dob,
                 
-                "enq_city": security.enq_city,
-                "enq_is_salaried_ddl": security.enq_is_salaried_ddl,
-                "enq_occupation": security.enq_occupation,
-                "enq_company_id": security.enq_company_id,
+                "enq_city": property.enq_city,
+                "enq_is_salaried_ddl": property.enq_is_salaried_ddl,
+                "enq_occupation": property.enq_occupation,
+                "enq_company_name": property.enq_company_id,
                 "property_current_market_value": "2500000",
 //                "enq_have_loan_ddl": "No",
-                "property_type": security.property_type,
-                "enq_loanAmtTo": security.enq_loanAmtTo,
-                "enq_tenureTo": security.enq_tenureTo,
-                "enq_currIncomeTo": security.enq_currIncomeTo
+                "property_type": property.property_type,
+                "enq_present_use_property": "Self occupied",
+                "step_enq_loanAmtTo": property.enq_loanAmtTo,
+                "step_enq_tenureTo": property.enq_tenureTo,
+                "step_enq_currIncomeTo": property.enq_currIncomeTo
             };
             return $http({
-                url: adminurl + "stepawayproperty",
+                url: adminurl + "stepawaylap",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
-                    "Data": propertydata
+                    "Data": propertyloan
                 }
             })
         },
         //end 
+        //SAPANA START
+         refinestepawayproperty: function() {
+             var refine = $.jStorage.get("refine");
+             var stepaway = $.jStorage.get("stepaway");
+            return $http({
+                url: adminurl + "refinestepawaylap",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "enq_loanType": "Home",
+                        "enq_gender": refine.enq_gender,
+                        "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_nationality": refine.enq_nationality,
+                        "enq_status":refine.enq_status,
+                        "enq_pincode":refine.enq_pincode,
+                        "property_classification":refine.property_classification,
+                        "enq_exclusive_rate_property":"",
+                        "salary_credited_since": refine.salary_credited_since,
+                        "enq_present_use_property": refine.enq_present_use_property,
+                        "enq_Purpose":refine.enq_Purpose,
+//                        "enq_emi_existing_loan": "0",
+                        "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        "step_enq_tenureTo": stepaway.enq_tenureTo,
+                        "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,
+                        "appid": refine.appid
+                    }
+
+                }
+            })
+        },
+        //SAPANA END
         // homeloan sapana start
             stepawayhome: function() {
             var homeloan = $.jStorage.get("stepaway");

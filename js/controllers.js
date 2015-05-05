@@ -731,7 +731,7 @@ angular.module('starter.controllers', ['myservices'])
         var propertysuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
-            if (data.Response != "Success") {
+            if (data.Message != "Success Message") {
                 var myPopup1 = $ionicPopup.show({
                     title: data.Response,
                     scope: $scope,
@@ -752,7 +752,7 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilityproperty = function (check) {
             console.log(check);
-            MyServices.setcheck(check);
+//            MyServices.setcheck(check);
             $location.url("/app/propertychk-form/" + $scope.appid);
         }
 
@@ -819,7 +819,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
 //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
         MyServices.refinestepawayset($scope.refine);
-//                    $location.url("/app/propertyformapply");
+                    $location.url("/app/propertyformapply");
 
 //        };
 //        MyServices.stepawayset(carloan);
@@ -829,7 +829,48 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 //propertychk-form ends
-    .controller('PropertyapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    .controller('PropertyapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    
+     
+     //  DEPLARATION
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+    
+        $ionicLoading.hide();
+
+
+        var propertysuccess = function (data, status) {
+            console.log(data);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/property-chk");
+                }, 1500);
+            } else {
+                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log(data);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.refinestepawayproperty().success(propertysuccess);
+     
+
+//        //  CHECK checkeligibility
+        $scope.checkrefineproperty = function (check) {
+            console.log(check);
+//            MyServices.setcheck(check);
+           $location.url("/app/thankyou");
+        }
+        
+})
     .controller('CarApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
     
      //  DEPLARATION
@@ -921,7 +962,435 @@ angular.module('starter.controllers', ['myservices'])
             template: 'Please wait...'
         });
 
-
+// testing
+    
+    			
+    $scope.testing = {  
+   "Message":"Success Message",
+   "Response":"Success",
+   "Applicationid":"HO015121",
+   "Data":{  
+      "0":{  
+         "0":{  
+            "roi":"9.85",
+            "ltv":"80",
+            "is_processing_fees_fixed":false,
+            "processing":"0.80",
+            "eligible_loan_amount":2833755,
+            "disposable_income":"60000",
+            "emi":10586
+         },
+         "loan_amount":500000,
+         "roi":"9.85",
+         "ltv":"80",
+         "is_processing_fees_fixed":false,
+         "processing":"0.80",
+         "eligible_loan_amount":2833755,
+         "disposable_income":"60000",
+         "emi":10586,
+         "roiplusprocessing":9,
+         "status":true,
+         "product_id":"1323",
+         "bank_id":"46",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"Bajaj Finserve",
+         "logo_image":"bajaj.jpg",
+         "exclusive":false,
+         "display":true,
+         "best_deal":true
+      },
+      "1":{  
+         "0":{  
+            "roi":"9.80",
+            "ltv":"75",
+            "is_processing_fees_fixed":true,
+            "processing":"8876.00",
+            "eligible_loan_amount":2837044,
+            "disposable_income":"60000",
+            "emi":10574
+         },
+         "loan_amount":500000,
+         "roi":"9.80",
+         "ltv":"75",
+         "is_processing_fees_fixed":true,
+         "processing":"8876.00",
+         "eligible_loan_amount":2837044,
+         "disposable_income":"60000",
+         "emi":10574,
+         "roiplusprocessing":10,
+         "status":true,
+         "product_id":"1334",
+         "bank_id":"51",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"HFFC",
+         "logo_image":"hffc.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "2":{  
+         "0":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":true,
+            "processing":"5000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "loan_amount":500000,
+         "1":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":true,
+            "processing":"7500.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "2":{  
+            "roi":"10.10",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "3":{  
+            "roi":"11.00",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "4":{  
+            "roi":"11.00",
+            "ltv":"85.00",
+            "is_processing_fees_fixed":false,
+            "processing":"0.50",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "roi":"10.10",
+         "ltv":"85.00",
+         "is_processing_fees_fixed":true,
+         "processing":"5000.00",
+         "eligible_loan_amount":500000,
+         "disposable_income":"60000",
+         "emi":10648,
+         "roiplusprocessing":11,
+         "status":true,
+         "product_id":"1291",
+         "bank_id":"13",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"Indiabulls",
+         "logo_image":"indiabulls.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "3":{  
+         "0":{  
+            "roi":"10.10",
+            "ltv":"80",
+            "is_processing_fees_fixed":true,
+            "processing":"10000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "loan_amount":500000,
+         "1":{  
+            "roi":"10.10",
+            "ltv":"75",
+            "is_processing_fees_fixed":true,
+            "processing":"10000.00",
+            "eligible_loan_amount":2817393,
+            "disposable_income":"60000",
+            "emi":10648
+         },
+         "roi":"10.10",
+         "ltv":"80",
+         "is_processing_fees_fixed":true,
+         "processing":"10000.00",
+         "eligible_loan_amount":500000,
+         "disposable_income":"60000",
+         "emi":10648,
+         "roiplusprocessing":12,
+         "status":true,
+         "product_id":"1329",
+         "bank_id":"49",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"10.20 %",
+         "bank_name":"citibank",
+         "logo_image":"citibank.jpg",
+         "exclusive":false,
+         "display":true
+      },
+      "4":{  
+         "0":{  
+            "roi":"11.00",
+            "ltv":"75",
+            "is_processing_fees_fixed":false,
+            "processing":"2.00",
+            "eligible_loan_amount":2759582,
+            "disposable_income":"60000",
+            "emi":10871
+         },
+         "loan_amount":500000,
+         "roi":"11.00",
+         "ltv":"75",
+         "is_processing_fees_fixed":false,
+         "processing":"2.00",
+         "eligible_loan_amount":2759582,
+         "disposable_income":"60000",
+         "emi":10871,
+         "roiplusprocessing":13,
+         "status":true,
+         "product_id":"1297",
+         "bank_id":"5",
+         "tenure":"60",
+         "requested_loan_amount":500000,
+         "income_type":"Yes",
+         "bank_credit":"N\/A",
+         "bank_name":"AU",
+         "logo_image":"AU.png",
+         "exclusive":false,
+         "display":true
+      }
+   }
+};
+    
+    $scope.testing2 = {
+  "Message": "Success Message",
+  "Response": "Success",
+  "Applicationid": "HO015139",
+  "Data": [
+    {
+      "0": {
+        "roi": "11.00",
+        "ltv": "75",
+        "is_processing_fees_fixed": false,
+        "processing": "2.00",
+        "eligible_loan_amount": 1131456,
+        "disposable_income": "100000",
+        "emi": 44190
+      },
+      "loan_amount": 0,
+      "roi": null,
+      "ltv": null,
+      "is_processing_fees_fixed": null,
+      "processing": null,
+      "eligible_loan_amount": 0,
+      "disposable_income": null,
+      "emi": 0,
+      "roiplusprocessing": 0,
+      "status": true,
+      "product_id": "1297",
+      "bank_id": "5",
+      "tenure": "12",
+      "requested_loan_amount": 500000,
+      "income_type": "Yes",
+      "bank_credit": "N/A",
+      "bank_name": "AU",
+      "logo_image": "AU.png",
+      "exclusive": false,
+      "display": false
+    },
+    {
+      "0": {
+        "roi": "9.85",
+        "ltv": "80",
+        "is_processing_fees_fixed": false,
+        "processing": "0.80",
+        "eligible_loan_amount": 1138353,
+        "disposable_income": "100000",
+        "emi": 43923
+      },
+      "loan_amount": 500000,
+      "roi": "9.85",
+      "ltv": "80",
+      "is_processing_fees_fixed": false,
+      "processing": "0.80",
+      "eligible_loan_amount": 1138353,
+      "disposable_income": "100000",
+      "emi": 43923,
+      "roiplusprocessing": 9,
+      "status": true,
+      "product_id": "1323",
+      "bank_id": "46",
+      "tenure": "12",
+      "requested_loan_amount": 500000,
+      "income_type": "Yes",
+      "bank_credit": "N/A",
+      "bank_name": "Bajaj Finserve",
+      "logo_image": "bajaj.jpg",
+      "exclusive": false,
+      "display": true,
+      "best_deal": true
+    },
+    {
+      "0": {
+        "roi": "9.80",
+        "ltv": "75",
+        "is_processing_fees_fixed": true,
+        "processing": "8876.00",
+        "eligible_loan_amount": 1138655,
+        "disposable_income": "100000",
+        "emi": 43911
+      },
+      "loan_amount": 500000,
+      "roi": "9.80",
+      "ltv": "75",
+      "is_processing_fees_fixed": true,
+      "processing": "8876.00",
+      "eligible_loan_amount": 1138655,
+      "disposable_income": "100000",
+      "emi": 43911,
+      "roiplusprocessing": 10,
+      "status": true,
+      "product_id": "1334",
+      "bank_id": "51",
+      "tenure": "12",
+      "requested_loan_amount": 500000,
+      "income_type": "Yes",
+      "bank_credit": "N/A",
+      "bank_name": "HFFC",
+      "logo_image": "hffc.jpg",
+      "exclusive": false,
+      "display": true
+    },
+    {
+      "0": {
+        "roi": "10.10",
+        "ltv": "85.00",
+        "is_processing_fees_fixed": true,
+        "processing": "5000.00",
+        "eligible_loan_amount": 1136849,
+        "disposable_income": "100000",
+        "emi": 43981
+      },
+      "1": {
+        "roi": "10.10",
+        "ltv": "85.00",
+        "is_processing_fees_fixed": true,
+        "processing": "7500.00",
+        "eligible_loan_amount": 1136849,
+        "disposable_income": "100000",
+        "emi": 43981
+      },
+      "2": {
+        "roi": "10.10",
+        "ltv": "85.00",
+        "is_processing_fees_fixed": false,
+        "processing": "0.50",
+        "eligible_loan_amount": 1136849,
+        "disposable_income": "100000",
+        "emi": 43981
+      },
+      "3": {
+        "roi": "11.00",
+        "ltv": "85.00",
+        "is_processing_fees_fixed": false,
+        "processing": "0.50",
+        "eligible_loan_amount": 1131456,
+        "disposable_income": "100000",
+        "emi": 44190
+      },
+      "4": {
+        "roi": "11.00",
+        "ltv": "85.00",
+        "is_processing_fees_fixed": false,
+        "processing": "0.50",
+        "eligible_loan_amount": 1131456,
+        "disposable_income": "100000",
+        "emi": 44190
+      },
+      "loan_amount": 500000,
+      "roi": "10.10",
+      "ltv": "85.00",
+      "is_processing_fees_fixed": true,
+      "processing": "5000.00",
+      "eligible_loan_amount": 500000,
+      "disposable_income": "100000",
+      "emi": 43981,
+      "roiplusprocessing": 11,
+      "status": true,
+      "product_id": "1291",
+      "bank_id": "13",
+      "tenure": "12",
+      "requested_loan_amount": 500000,
+      "income_type": "Yes",
+      "bank_credit": "N/A",
+      "bank_name": "Indiabulls",
+      "logo_image": "indiabulls.jpg",
+      "exclusive": false,
+      "display": true
+    },
+    {
+      "0": {
+        "roi": "10.10",
+        "ltv": "80",
+        "is_processing_fees_fixed": true,
+        "processing": "10000.00",
+        "eligible_loan_amount": 1136849,
+        "disposable_income": "100000",
+        "emi": 43981
+      },
+      "1": {
+        "roi": "10.10",
+        "ltv": "75",
+        "is_processing_fees_fixed": true,
+        "processing": "10000.00",
+        "eligible_loan_amount": 1136849,
+        "disposable_income": "100000",
+        "emi": 43981
+      },
+      "loan_amount": 500000,
+      "roi": "10.10",
+      "ltv": "80",
+      "is_processing_fees_fixed": true,
+      "processing": "10000.00",
+      "eligible_loan_amount": 500000,
+      "disposable_income": "100000",
+      "emi": 43981,
+      "roiplusprocessing": 12,
+      "status": true,
+      "product_id": "1329",
+      "bank_id": "49",
+      "tenure": "12",
+      "requested_loan_amount": 500000,
+      "income_type": "Yes",
+      "bank_credit": "10.20 %",
+      "bank_name": "citibank",
+      "logo_image": "citibank.jpg",
+      "exclusive": false,
+      "display": true
+    }
+  ]
+};
+    console.log($scope.testing2.Data);
+// testing
+    
+    
+    
+    
+    
+    
+    
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1947,8 +2416,8 @@ angular.module('starter.controllers', ['myservices'])
 
             //            if (check) {
             //                $scope.today = new Date();
-//            propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
-//            console.log(propertyloan.enq_dob);
+            propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
+            console.log(propertyloan.enq_dob);
 
             MyServices.stepawayset(propertyloan);
             $location.url("/app/propertychk");
