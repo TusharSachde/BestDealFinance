@@ -53,7 +53,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.allvalidation = [];
 
     //  AUTHENTICATE JSTORAGE
-//    MyServices.flushuser();
+    //    MyServices.flushuser();
     if (MyServices.getuser()) {
         $location.url("/app/home");
     }
@@ -441,9 +441,9 @@ angular.module('starter.controllers', ['myservices'])
 .controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
 
 .controller('LoanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-//    jagruti
-    
-     //  DEPLARATION
+        //    jagruti
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
@@ -477,10 +477,10 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.setcheck(check);
             $location.url("/app/thankyou");
         }
-        
-        
-    
-})
+
+
+
+    })
     .controller('CheckCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
         //  DEPLARATION
@@ -520,9 +520,9 @@ angular.module('starter.controllers', ['myservices'])
 
 
     })
-   .controller('TwowheelerListCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-        
+    .controller('TwowheelerListCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+
+
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
@@ -530,7 +530,7 @@ angular.module('starter.controllers', ['myservices'])
         });
 
 
-        var plsuccess = function(data, status) {
+        var plsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
             if (data.Response != "Success") {
@@ -538,7 +538,7 @@ angular.module('starter.controllers', ['myservices'])
                     title: data.Response,
                     scope: $scope,
                 });
-                $timeout(function() {
+                $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                     $location.url("/app/twowheelerloan");
                 }, 1500);
@@ -552,19 +552,19 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.stepawaytw().success(plsuccess);
 
         //  CHECK checkeligibility
-        $scope.checkeligibility = function(data) {
+        $scope.checkeligibility = function (data) {
             console.log(data);
             //MyServices.setcheck(check);
             $location.url("/app/twowheeler-chk/" + $scope.appid);
         }
 
 
-})
+    })
     //DHAVAL END
-//DHAVAL START
+    //DHAVAL START
     .controller('TwowheelerchkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
 
-    $scope.refine = {};
+        $scope.refine = {};
         $scope.refine.appid = $stateParams.appid;
         console.log($scope.refine.appid);
         $scope.refine.enq_staying_since = new Date;
@@ -580,68 +580,67 @@ angular.module('starter.controllers', ['myservices'])
         }).then(function (modal) {
             $scope.oModal3 = modal;
         });
-//        $scope.showbank = function () {
-//            $scope.oModal3.show();
-//        };
+        //        $scope.showbank = function () {
+        //            $scope.oModal3.show();
+        //        };
 
         //  REFINE PERSONAL 
-        $scope.show_hide=function()
-        {
-            if($scope.refine.enq_have_loan_ddl=="Yes")
-                $scope.show=1;
+        $scope.show_hide = function () {
+            if ($scope.refine.enq_have_loan_ddl == "Yes")
+                $scope.show = 1;
             else
-                $scope.show=0;
+                $scope.show = 0;
         }
-        
+
         var refinesuccess = function (data, status) {
             console.log(data);
         }
         $scope.refinetw = function () {
-//            $scope.allvalidation = [{
-//                field: $scope.refine.enq_gender,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.enq_maritial_status,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.enq_nationality,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.enq_present_use_property,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.enq_staying_since,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.salary_credited_since,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.pl_total_exp_job_years,
-//                validation: ""
-//            }, {
-//                field: $scope.refine.enq_have_loan_ddl,
-//                validation: ""
-//            }];
-//            var check = formvalidation($scope.allvalidation);
-//
-//            if (check) {
-                $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
-                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
-                $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
-                
-                console.log($scope.refine);
-                MyServices.refinestepawayset($scope.refine);
-                $location.url("/app/twowheelerapply");
-//                
-//                };
+            //            $scope.allvalidation = [{
+            //                field: $scope.refine.enq_gender,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.enq_maritial_status,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.enq_nationality,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.enq_present_use_property,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.enq_staying_since,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.salary_credited_since,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.pl_total_exp_job_years,
+            //                validation: ""
+            //            }, {
+            //                field: $scope.refine.enq_have_loan_ddl,
+            //                validation: ""
+            //            }];
+            //            var check = formvalidation($scope.allvalidation);
+            //
+            //            if (check) {
+            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
+            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
+            $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
+
+            console.log($scope.refine);
+            MyServices.refinestepawayset($scope.refine);
+            $location.url("/app/twowheelerapply");
+            //                
+            //                };
         }
 
-})
+    })
     //DHAVAL END
-   //DHAVAL START
-    .controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location,$ionicLoading) {
+    //DHAVAL START
+    .controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
-    $scope.checklist = {};
+        $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
@@ -660,7 +659,7 @@ angular.module('starter.controllers', ['myservices'])
                     //$location.url("/app/personal");
                 }, 1500);
             } else {
-//                $scope.appid = data.Applicationid;
+                //                $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log($scope.checklist);
                 //                console.log(getjsononly($scope.checklist));
@@ -674,11 +673,11 @@ angular.module('starter.controllers', ['myservices'])
             //MyServices.setcheck(check);
             $location.url("/app/thankyou");
         }
-})
-//SAPANA START security check
+    })
+    //SAPANA START security check
     .controller('SecuritychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-     //  DEPLARATION
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
@@ -709,19 +708,19 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilitysecurity = function (check) {
             console.log(check);
-//            MyServices.setcheck(check);
+            //            MyServices.setcheck(check);
             $location.url("/app/securitychkform/" + $scope.appid);
         }
 
 
-    
-})
-//SAPANA ENDS
+
+    })
+    //SAPANA ENDS
     .controller('SecuritychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-//propertychk starts
-.controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-     //  DEPLARATION
+    //propertychk starts
+    .controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
@@ -752,92 +751,92 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilityproperty = function (check) {
             console.log(check);
-//            MyServices.setcheck(check);
+            //            MyServices.setcheck(check);
             $location.url("/app/propertychk-form/" + $scope.appid);
         }
 
 
-    
-})
-//propertychk ends
-//propertychk-form starts
+
+    })
+    //propertychk ends
+    //propertychk-form starts
     .controller('PropertychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
-    
-     //  DECLARATION
-    $scope.refine = {};
-    $scope.refine.appid = $stateParams.appid;
-    $scope.refine.owner_expiry_date = new Date;
-    $scope.allvalidation = [];
 
-    //  MODAL FOR BANK RELATIONSHIP
-    $ionicModal.fromTemplateUrl('templates/bank.html', {
-        id: '3',
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.oModal3 = modal;
-    });
-    $scope.showbank = function () {
-        $scope.oModal3.show();
-    };
+        //  DECLARATION
+        $scope.refine = {};
+        $scope.refine.appid = $stateParams.appid;
+        $scope.refine.owner_expiry_date = new Date;
+        $scope.allvalidation = [];
 
-    //  REFINE PERSONAL 
-    var refinesuccess = function (data, status) {
-        console.log(data);
-    }
-    $scope.refineproperty = function (refine) {
-        console.log($scope.refine);
-//        $scope.allvalidation = [{
-//            field: $scope.refine.enq_gender,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_maritial_status,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_nationality,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_present_use_property,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_staying_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.salary_credited_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.pl_total_exp_job_years,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_have_loan_ddl,
-//            validation: ""
-//        }];
-//        var check = formvalidation($scope.allvalidation);
+        //  MODAL FOR BANK RELATIONSHIP
+        $ionicModal.fromTemplateUrl('templates/bank.html', {
+            id: '3',
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.oModal3 = modal;
+        });
+        $scope.showbank = function () {
+            $scope.oModal3.show();
+        };
 
-//        if (check) {
-//            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+        //  REFINE PERSONAL 
+        var refinesuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.refineproperty = function (refine) {
+            console.log($scope.refine);
+            //        $scope.allvalidation = [{
+            //            field: $scope.refine.enq_gender,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_maritial_status,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_nationality,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_present_use_property,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_staying_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.salary_credited_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.pl_total_exp_job_years,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_have_loan_ddl,
+            //            validation: ""
+            //        }];
+            //        var check = formvalidation($scope.allvalidation);
+
+            //        if (check) {
+            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
             $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");;
-//            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
+            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/propertyformapply");
 
-//        };
-//        MyServices.stepawayset(carloan);
+            //        };
+            //        MyServices.stepawayset(carloan);
 
-    }
+        }
 
 
-})
-//propertychk-form ends
+    })
+    //propertychk-form ends
     .controller('PropertyapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-     
-     //  DEPLARATION
+
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
-    
+
         $ionicLoading.hide();
 
 
@@ -861,24 +860,24 @@ angular.module('starter.controllers', ['myservices'])
             }
         }
         MyServices.refinestepawayproperty().success(propertysuccess);
-     
 
-//        //  CHECK checkeligibility
+
+        //        //  CHECK checkeligibility
         $scope.checkrefineproperty = function (check) {
             console.log(check);
-//            MyServices.setcheck(check);
-           $location.url("/app/thankyou");
+            //            MyServices.setcheck(check);
+            $location.url("/app/thankyou");
         }
-        
-})
+
+    })
     .controller('CarApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-     //  DEPLARATION
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
-    
+
         $ionicLoading.hide();
 
 
@@ -902,16 +901,16 @@ angular.module('starter.controllers', ['myservices'])
             }
         }
         MyServices.refinestepawaycar().success(carsuccess);
-     
 
-//        //  CHECK checkeligibility
+
+        //        //  CHECK checkeligibility
         $scope.checkrefinecar = function (check) {
             console.log(check);
             MyServices.setcheck(check);
-           $location.url("/app/thankyou");
+            $location.url("/app/thankyou");
         }
-    
-})
+
+    })
 
 //  SAPANA STARTS
 .controller('CarChkListCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
@@ -947,450 +946,450 @@ angular.module('starter.controllers', ['myservices'])
         //  CHECK checkeligibility
         $scope.checkeligibilitycar = function (check) {
             console.log(check);
-//            MyServices.setcheck(check);
+            //            MyServices.setcheck(check);
             $location.url("/app/checkcarloan/" + $scope.appid);
         }
 
 
     })
     //  SAPANA ENDS
-//SAPANA STARTS
+    //SAPANA STARTS
     .controller('HomeChkListCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-     //  DEPLARATION
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
 
-// testing
-    
-    			
-    $scope.testing = {  
-   "Message":"Success Message",
-   "Response":"Success",
-   "Applicationid":"HO015121",
-   "Data":{  
-      "0":{  
-         "0":{  
-            "roi":"9.85",
-            "ltv":"80",
-            "is_processing_fees_fixed":false,
-            "processing":"0.80",
-            "eligible_loan_amount":2833755,
-            "disposable_income":"60000",
-            "emi":10586
-         },
-         "loan_amount":500000,
-         "roi":"9.85",
-         "ltv":"80",
-         "is_processing_fees_fixed":false,
-         "processing":"0.80",
-         "eligible_loan_amount":2833755,
-         "disposable_income":"60000",
-         "emi":10586,
-         "roiplusprocessing":9,
-         "status":true,
-         "product_id":"1323",
-         "bank_id":"46",
-         "tenure":"60",
-         "requested_loan_amount":500000,
-         "income_type":"Yes",
-         "bank_credit":"N\/A",
-         "bank_name":"Bajaj Finserve",
-         "logo_image":"bajaj.jpg",
-         "exclusive":false,
-         "display":true,
-         "best_deal":true
-      },
-      "1":{  
-         "0":{  
-            "roi":"9.80",
-            "ltv":"75",
-            "is_processing_fees_fixed":true,
-            "processing":"8876.00",
-            "eligible_loan_amount":2837044,
-            "disposable_income":"60000",
-            "emi":10574
-         },
-         "loan_amount":500000,
-         "roi":"9.80",
-         "ltv":"75",
-         "is_processing_fees_fixed":true,
-         "processing":"8876.00",
-         "eligible_loan_amount":2837044,
-         "disposable_income":"60000",
-         "emi":10574,
-         "roiplusprocessing":10,
-         "status":true,
-         "product_id":"1334",
-         "bank_id":"51",
-         "tenure":"60",
-         "requested_loan_amount":500000,
-         "income_type":"Yes",
-         "bank_credit":"N\/A",
-         "bank_name":"HFFC",
-         "logo_image":"hffc.jpg",
-         "exclusive":false,
-         "display":true
-      },
-      "2":{  
-         "0":{  
-            "roi":"10.10",
-            "ltv":"85.00",
-            "is_processing_fees_fixed":true,
-            "processing":"5000.00",
-            "eligible_loan_amount":2817393,
-            "disposable_income":"60000",
-            "emi":10648
-         },
-         "loan_amount":500000,
-         "1":{  
-            "roi":"10.10",
-            "ltv":"85.00",
-            "is_processing_fees_fixed":true,
-            "processing":"7500.00",
-            "eligible_loan_amount":2817393,
-            "disposable_income":"60000",
-            "emi":10648
-         },
-         "2":{  
-            "roi":"10.10",
-            "ltv":"85.00",
-            "is_processing_fees_fixed":false,
-            "processing":"0.50",
-            "eligible_loan_amount":2817393,
-            "disposable_income":"60000",
-            "emi":10648
-         },
-         "3":{  
-            "roi":"11.00",
-            "ltv":"85.00",
-            "is_processing_fees_fixed":false,
-            "processing":"0.50",
-            "eligible_loan_amount":2759582,
-            "disposable_income":"60000",
-            "emi":10871
-         },
-         "4":{  
-            "roi":"11.00",
-            "ltv":"85.00",
-            "is_processing_fees_fixed":false,
-            "processing":"0.50",
-            "eligible_loan_amount":2759582,
-            "disposable_income":"60000",
-            "emi":10871
-         },
-         "roi":"10.10",
-         "ltv":"85.00",
-         "is_processing_fees_fixed":true,
-         "processing":"5000.00",
-         "eligible_loan_amount":500000,
-         "disposable_income":"60000",
-         "emi":10648,
-         "roiplusprocessing":11,
-         "status":true,
-         "product_id":"1291",
-         "bank_id":"13",
-         "tenure":"60",
-         "requested_loan_amount":500000,
-         "income_type":"Yes",
-         "bank_credit":"N\/A",
-         "bank_name":"Indiabulls",
-         "logo_image":"indiabulls.jpg",
-         "exclusive":false,
-         "display":true
-      },
-      "3":{  
-         "0":{  
-            "roi":"10.10",
-            "ltv":"80",
-            "is_processing_fees_fixed":true,
-            "processing":"10000.00",
-            "eligible_loan_amount":2817393,
-            "disposable_income":"60000",
-            "emi":10648
-         },
-         "loan_amount":500000,
-         "1":{  
-            "roi":"10.10",
-            "ltv":"75",
-            "is_processing_fees_fixed":true,
-            "processing":"10000.00",
-            "eligible_loan_amount":2817393,
-            "disposable_income":"60000",
-            "emi":10648
-         },
-         "roi":"10.10",
-         "ltv":"80",
-         "is_processing_fees_fixed":true,
-         "processing":"10000.00",
-         "eligible_loan_amount":500000,
-         "disposable_income":"60000",
-         "emi":10648,
-         "roiplusprocessing":12,
-         "status":true,
-         "product_id":"1329",
-         "bank_id":"49",
-         "tenure":"60",
-         "requested_loan_amount":500000,
-         "income_type":"Yes",
-         "bank_credit":"10.20 %",
-         "bank_name":"citibank",
-         "logo_image":"citibank.jpg",
-         "exclusive":false,
-         "display":true
-      },
-      "4":{  
-         "0":{  
-            "roi":"11.00",
-            "ltv":"75",
-            "is_processing_fees_fixed":false,
-            "processing":"2.00",
-            "eligible_loan_amount":2759582,
-            "disposable_income":"60000",
-            "emi":10871
-         },
-         "loan_amount":500000,
-         "roi":"11.00",
-         "ltv":"75",
-         "is_processing_fees_fixed":false,
-         "processing":"2.00",
-         "eligible_loan_amount":2759582,
-         "disposable_income":"60000",
-         "emi":10871,
-         "roiplusprocessing":13,
-         "status":true,
-         "product_id":"1297",
-         "bank_id":"5",
-         "tenure":"60",
-         "requested_loan_amount":500000,
-         "income_type":"Yes",
-         "bank_credit":"N\/A",
-         "bank_name":"AU",
-         "logo_image":"AU.png",
-         "exclusive":false,
-         "display":true
-      }
-   }
-};
-    
-    $scope.testing2 = {
-  "Message": "Success Message",
-  "Response": "Success",
-  "Applicationid": "HO015139",
-  "Data": [
-    {
-      "0": {
-        "roi": "11.00",
-        "ltv": "75",
-        "is_processing_fees_fixed": false,
-        "processing": "2.00",
-        "eligible_loan_amount": 1131456,
-        "disposable_income": "100000",
-        "emi": 44190
-      },
-      "loan_amount": 0,
-      "roi": null,
-      "ltv": null,
-      "is_processing_fees_fixed": null,
-      "processing": null,
-      "eligible_loan_amount": 0,
-      "disposable_income": null,
-      "emi": 0,
-      "roiplusprocessing": 0,
-      "status": true,
-      "product_id": "1297",
-      "bank_id": "5",
-      "tenure": "12",
-      "requested_loan_amount": 500000,
-      "income_type": "Yes",
-      "bank_credit": "N/A",
-      "bank_name": "AU",
-      "logo_image": "AU.png",
-      "exclusive": false,
-      "display": false
+        // testing
+
+
+        $scope.testing = {
+            "Message": "Success Message",
+            "Response": "Success",
+            "Applicationid": "HO015121",
+            "Data": {
+                "0": {
+                    "0": {
+                        "roi": "9.85",
+                        "ltv": "80",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.80",
+                        "eligible_loan_amount": 2833755,
+                        "disposable_income": "60000",
+                        "emi": 10586
+                    },
+                    "loan_amount": 500000,
+                    "roi": "9.85",
+                    "ltv": "80",
+                    "is_processing_fees_fixed": false,
+                    "processing": "0.80",
+                    "eligible_loan_amount": 2833755,
+                    "disposable_income": "60000",
+                    "emi": 10586,
+                    "roiplusprocessing": 9,
+                    "status": true,
+                    "product_id": "1323",
+                    "bank_id": "46",
+                    "tenure": "60",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N\/A",
+                    "bank_name": "Bajaj Finserve",
+                    "logo_image": "bajaj.jpg",
+                    "exclusive": false,
+                    "display": true,
+                    "best_deal": true
+                },
+                "1": {
+                    "0": {
+                        "roi": "9.80",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": true,
+                        "processing": "8876.00",
+                        "eligible_loan_amount": 2837044,
+                        "disposable_income": "60000",
+                        "emi": 10574
+                    },
+                    "loan_amount": 500000,
+                    "roi": "9.80",
+                    "ltv": "75",
+                    "is_processing_fees_fixed": true,
+                    "processing": "8876.00",
+                    "eligible_loan_amount": 2837044,
+                    "disposable_income": "60000",
+                    "emi": 10574,
+                    "roiplusprocessing": 10,
+                    "status": true,
+                    "product_id": "1334",
+                    "bank_id": "51",
+                    "tenure": "60",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N\/A",
+                    "bank_name": "HFFC",
+                    "logo_image": "hffc.jpg",
+                    "exclusive": false,
+                    "display": true
+                },
+                "2": {
+                    "0": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": true,
+                        "processing": "5000.00",
+                        "eligible_loan_amount": 2817393,
+                        "disposable_income": "60000",
+                        "emi": 10648
+                    },
+                    "loan_amount": 500000,
+                    "1": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": true,
+                        "processing": "7500.00",
+                        "eligible_loan_amount": 2817393,
+                        "disposable_income": "60000",
+                        "emi": 10648
+                    },
+                    "2": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 2817393,
+                        "disposable_income": "60000",
+                        "emi": 10648
+                    },
+                    "3": {
+                        "roi": "11.00",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 2759582,
+                        "disposable_income": "60000",
+                        "emi": 10871
+                    },
+                    "4": {
+                        "roi": "11.00",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 2759582,
+                        "disposable_income": "60000",
+                        "emi": 10871
+                    },
+                    "roi": "10.10",
+                    "ltv": "85.00",
+                    "is_processing_fees_fixed": true,
+                    "processing": "5000.00",
+                    "eligible_loan_amount": 500000,
+                    "disposable_income": "60000",
+                    "emi": 10648,
+                    "roiplusprocessing": 11,
+                    "status": true,
+                    "product_id": "1291",
+                    "bank_id": "13",
+                    "tenure": "60",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N\/A",
+                    "bank_name": "Indiabulls",
+                    "logo_image": "indiabulls.jpg",
+                    "exclusive": false,
+                    "display": true
+                },
+                "3": {
+                    "0": {
+                        "roi": "10.10",
+                        "ltv": "80",
+                        "is_processing_fees_fixed": true,
+                        "processing": "10000.00",
+                        "eligible_loan_amount": 2817393,
+                        "disposable_income": "60000",
+                        "emi": 10648
+                    },
+                    "loan_amount": 500000,
+                    "1": {
+                        "roi": "10.10",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": true,
+                        "processing": "10000.00",
+                        "eligible_loan_amount": 2817393,
+                        "disposable_income": "60000",
+                        "emi": 10648
+                    },
+                    "roi": "10.10",
+                    "ltv": "80",
+                    "is_processing_fees_fixed": true,
+                    "processing": "10000.00",
+                    "eligible_loan_amount": 500000,
+                    "disposable_income": "60000",
+                    "emi": 10648,
+                    "roiplusprocessing": 12,
+                    "status": true,
+                    "product_id": "1329",
+                    "bank_id": "49",
+                    "tenure": "60",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "10.20 %",
+                    "bank_name": "citibank",
+                    "logo_image": "citibank.jpg",
+                    "exclusive": false,
+                    "display": true
+                },
+                "4": {
+                    "0": {
+                        "roi": "11.00",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": false,
+                        "processing": "2.00",
+                        "eligible_loan_amount": 2759582,
+                        "disposable_income": "60000",
+                        "emi": 10871
+                    },
+                    "loan_amount": 500000,
+                    "roi": "11.00",
+                    "ltv": "75",
+                    "is_processing_fees_fixed": false,
+                    "processing": "2.00",
+                    "eligible_loan_amount": 2759582,
+                    "disposable_income": "60000",
+                    "emi": 10871,
+                    "roiplusprocessing": 13,
+                    "status": true,
+                    "product_id": "1297",
+                    "bank_id": "5",
+                    "tenure": "60",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N\/A",
+                    "bank_name": "AU",
+                    "logo_image": "AU.png",
+                    "exclusive": false,
+                    "display": true
+                }
+            }
+        };
+
+        $scope.testing2 = {
+            "Message": "Success Message",
+            "Response": "Success",
+            "Applicationid": "HO015139",
+            "Data": [
+                {
+                    "0": {
+                        "roi": "11.00",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": false,
+                        "processing": "2.00",
+                        "eligible_loan_amount": 1131456,
+                        "disposable_income": "100000",
+                        "emi": 44190
+                    },
+                    "loan_amount": 0,
+                    "roi": null,
+                    "ltv": null,
+                    "is_processing_fees_fixed": null,
+                    "processing": null,
+                    "eligible_loan_amount": 0,
+                    "disposable_income": null,
+                    "emi": 0,
+                    "roiplusprocessing": 0,
+                    "status": true,
+                    "product_id": "1297",
+                    "bank_id": "5",
+                    "tenure": "12",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N/A",
+                    "bank_name": "AU",
+                    "logo_image": "AU.png",
+                    "exclusive": false,
+                    "display": false
     },
-    {
-      "0": {
-        "roi": "9.85",
-        "ltv": "80",
-        "is_processing_fees_fixed": false,
-        "processing": "0.80",
-        "eligible_loan_amount": 1138353,
-        "disposable_income": "100000",
-        "emi": 43923
-      },
-      "loan_amount": 500000,
-      "roi": "9.85",
-      "ltv": "80",
-      "is_processing_fees_fixed": false,
-      "processing": "0.80",
-      "eligible_loan_amount": 1138353,
-      "disposable_income": "100000",
-      "emi": 43923,
-      "roiplusprocessing": 9,
-      "status": true,
-      "product_id": "1323",
-      "bank_id": "46",
-      "tenure": "12",
-      "requested_loan_amount": 500000,
-      "income_type": "Yes",
-      "bank_credit": "N/A",
-      "bank_name": "Bajaj Finserve",
-      "logo_image": "bajaj.jpg",
-      "exclusive": false,
-      "display": true,
-      "best_deal": true
+                {
+                    "0": {
+                        "roi": "9.85",
+                        "ltv": "80",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.80",
+                        "eligible_loan_amount": 1138353,
+                        "disposable_income": "100000",
+                        "emi": 43923
+                    },
+                    "loan_amount": 500000,
+                    "roi": "9.85",
+                    "ltv": "80",
+                    "is_processing_fees_fixed": false,
+                    "processing": "0.80",
+                    "eligible_loan_amount": 1138353,
+                    "disposable_income": "100000",
+                    "emi": 43923,
+                    "roiplusprocessing": 9,
+                    "status": true,
+                    "product_id": "1323",
+                    "bank_id": "46",
+                    "tenure": "12",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N/A",
+                    "bank_name": "Bajaj Finserve",
+                    "logo_image": "bajaj.jpg",
+                    "exclusive": false,
+                    "display": true,
+                    "best_deal": true
     },
-    {
-      "0": {
-        "roi": "9.80",
-        "ltv": "75",
-        "is_processing_fees_fixed": true,
-        "processing": "8876.00",
-        "eligible_loan_amount": 1138655,
-        "disposable_income": "100000",
-        "emi": 43911
-      },
-      "loan_amount": 500000,
-      "roi": "9.80",
-      "ltv": "75",
-      "is_processing_fees_fixed": true,
-      "processing": "8876.00",
-      "eligible_loan_amount": 1138655,
-      "disposable_income": "100000",
-      "emi": 43911,
-      "roiplusprocessing": 10,
-      "status": true,
-      "product_id": "1334",
-      "bank_id": "51",
-      "tenure": "12",
-      "requested_loan_amount": 500000,
-      "income_type": "Yes",
-      "bank_credit": "N/A",
-      "bank_name": "HFFC",
-      "logo_image": "hffc.jpg",
-      "exclusive": false,
-      "display": true
+                {
+                    "0": {
+                        "roi": "9.80",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": true,
+                        "processing": "8876.00",
+                        "eligible_loan_amount": 1138655,
+                        "disposable_income": "100000",
+                        "emi": 43911
+                    },
+                    "loan_amount": 500000,
+                    "roi": "9.80",
+                    "ltv": "75",
+                    "is_processing_fees_fixed": true,
+                    "processing": "8876.00",
+                    "eligible_loan_amount": 1138655,
+                    "disposable_income": "100000",
+                    "emi": 43911,
+                    "roiplusprocessing": 10,
+                    "status": true,
+                    "product_id": "1334",
+                    "bank_id": "51",
+                    "tenure": "12",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N/A",
+                    "bank_name": "HFFC",
+                    "logo_image": "hffc.jpg",
+                    "exclusive": false,
+                    "display": true
     },
-    {
-      "0": {
-        "roi": "10.10",
-        "ltv": "85.00",
-        "is_processing_fees_fixed": true,
-        "processing": "5000.00",
-        "eligible_loan_amount": 1136849,
-        "disposable_income": "100000",
-        "emi": 43981
-      },
-      "1": {
-        "roi": "10.10",
-        "ltv": "85.00",
-        "is_processing_fees_fixed": true,
-        "processing": "7500.00",
-        "eligible_loan_amount": 1136849,
-        "disposable_income": "100000",
-        "emi": 43981
-      },
-      "2": {
-        "roi": "10.10",
-        "ltv": "85.00",
-        "is_processing_fees_fixed": false,
-        "processing": "0.50",
-        "eligible_loan_amount": 1136849,
-        "disposable_income": "100000",
-        "emi": 43981
-      },
-      "3": {
-        "roi": "11.00",
-        "ltv": "85.00",
-        "is_processing_fees_fixed": false,
-        "processing": "0.50",
-        "eligible_loan_amount": 1131456,
-        "disposable_income": "100000",
-        "emi": 44190
-      },
-      "4": {
-        "roi": "11.00",
-        "ltv": "85.00",
-        "is_processing_fees_fixed": false,
-        "processing": "0.50",
-        "eligible_loan_amount": 1131456,
-        "disposable_income": "100000",
-        "emi": 44190
-      },
-      "loan_amount": 500000,
-      "roi": "10.10",
-      "ltv": "85.00",
-      "is_processing_fees_fixed": true,
-      "processing": "5000.00",
-      "eligible_loan_amount": 500000,
-      "disposable_income": "100000",
-      "emi": 43981,
-      "roiplusprocessing": 11,
-      "status": true,
-      "product_id": "1291",
-      "bank_id": "13",
-      "tenure": "12",
-      "requested_loan_amount": 500000,
-      "income_type": "Yes",
-      "bank_credit": "N/A",
-      "bank_name": "Indiabulls",
-      "logo_image": "indiabulls.jpg",
-      "exclusive": false,
-      "display": true
+                {
+                    "0": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": true,
+                        "processing": "5000.00",
+                        "eligible_loan_amount": 1136849,
+                        "disposable_income": "100000",
+                        "emi": 43981
+                    },
+                    "1": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": true,
+                        "processing": "7500.00",
+                        "eligible_loan_amount": 1136849,
+                        "disposable_income": "100000",
+                        "emi": 43981
+                    },
+                    "2": {
+                        "roi": "10.10",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 1136849,
+                        "disposable_income": "100000",
+                        "emi": 43981
+                    },
+                    "3": {
+                        "roi": "11.00",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 1131456,
+                        "disposable_income": "100000",
+                        "emi": 44190
+                    },
+                    "4": {
+                        "roi": "11.00",
+                        "ltv": "85.00",
+                        "is_processing_fees_fixed": false,
+                        "processing": "0.50",
+                        "eligible_loan_amount": 1131456,
+                        "disposable_income": "100000",
+                        "emi": 44190
+                    },
+                    "loan_amount": 500000,
+                    "roi": "10.10",
+                    "ltv": "85.00",
+                    "is_processing_fees_fixed": true,
+                    "processing": "5000.00",
+                    "eligible_loan_amount": 500000,
+                    "disposable_income": "100000",
+                    "emi": 43981,
+                    "roiplusprocessing": 11,
+                    "status": true,
+                    "product_id": "1291",
+                    "bank_id": "13",
+                    "tenure": "12",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "N/A",
+                    "bank_name": "Indiabulls",
+                    "logo_image": "indiabulls.jpg",
+                    "exclusive": false,
+                    "display": true
     },
-    {
-      "0": {
-        "roi": "10.10",
-        "ltv": "80",
-        "is_processing_fees_fixed": true,
-        "processing": "10000.00",
-        "eligible_loan_amount": 1136849,
-        "disposable_income": "100000",
-        "emi": 43981
-      },
-      "1": {
-        "roi": "10.10",
-        "ltv": "75",
-        "is_processing_fees_fixed": true,
-        "processing": "10000.00",
-        "eligible_loan_amount": 1136849,
-        "disposable_income": "100000",
-        "emi": 43981
-      },
-      "loan_amount": 500000,
-      "roi": "10.10",
-      "ltv": "80",
-      "is_processing_fees_fixed": true,
-      "processing": "10000.00",
-      "eligible_loan_amount": 500000,
-      "disposable_income": "100000",
-      "emi": 43981,
-      "roiplusprocessing": 12,
-      "status": true,
-      "product_id": "1329",
-      "bank_id": "49",
-      "tenure": "12",
-      "requested_loan_amount": 500000,
-      "income_type": "Yes",
-      "bank_credit": "10.20 %",
-      "bank_name": "citibank",
-      "logo_image": "citibank.jpg",
-      "exclusive": false,
-      "display": true
+                {
+                    "0": {
+                        "roi": "10.10",
+                        "ltv": "80",
+                        "is_processing_fees_fixed": true,
+                        "processing": "10000.00",
+                        "eligible_loan_amount": 1136849,
+                        "disposable_income": "100000",
+                        "emi": 43981
+                    },
+                    "1": {
+                        "roi": "10.10",
+                        "ltv": "75",
+                        "is_processing_fees_fixed": true,
+                        "processing": "10000.00",
+                        "eligible_loan_amount": 1136849,
+                        "disposable_income": "100000",
+                        "emi": 43981
+                    },
+                    "loan_amount": 500000,
+                    "roi": "10.10",
+                    "ltv": "80",
+                    "is_processing_fees_fixed": true,
+                    "processing": "10000.00",
+                    "eligible_loan_amount": 500000,
+                    "disposable_income": "100000",
+                    "emi": 43981,
+                    "roiplusprocessing": 12,
+                    "status": true,
+                    "product_id": "1329",
+                    "bank_id": "49",
+                    "tenure": "12",
+                    "requested_loan_amount": 500000,
+                    "income_type": "Yes",
+                    "bank_credit": "10.20 %",
+                    "bank_name": "citibank",
+                    "logo_image": "citibank.jpg",
+                    "exclusive": false,
+                    "display": true
     }
   ]
-};
-    console.log($scope.testing2.Data);
-// testing
-    
-    
-    
-    
-    
-    
-    
+        };
+        console.log($scope.testing2.Data);
+        // testing
+
+
+
+
+
+
+
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1419,17 +1418,17 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/app/homechk/" + $scope.appid);
         }
 
-})
-//SAPANA ENDS
-//SAPANA START
+    })
+    //SAPANA ENDS
+    //SAPANA START
     .controller('HomeApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-     //  DEPLARATION
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
-    
+
         $ionicLoading.hide();
 
 
@@ -1453,113 +1452,113 @@ angular.module('starter.controllers', ['myservices'])
             }
         }
         MyServices.refinestepawayhome().success(homesuccess);
-     
 
-//        //  CHECK checkeligibility
+
+        //        //  CHECK checkeligibility
         $scope.checkrefinehome = function (check) {
             console.log(check);
             MyServices.setcheck(check);
-           $location.url("/app/thankyou");
+            $location.url("/app/thankyou");
         }
-})
-//SAPANA ENDS
-//SAPANA START
+    })
+    //SAPANA ENDS
+    //SAPANA START
     .controller('HomeChkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
-    
-     //  DECLARATION
-    $scope.refine = {};
-    $scope.refine.appid = $stateParams.appid;
-    $scope.refine.salary_credited_since = new Date;
-    $scope.allvalidation = [];
 
-    //  MODAL FOR BANK RELATIONSHIP
-    $ionicModal.fromTemplateUrl('templates/bank.html', {
-        id: '3',
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.oModal3 = modal;
-    });
-    $scope.showbank = function () {
-        $scope.oModal3.show();
-    };
+        //  DECLARATION
+        $scope.refine = {};
+        $scope.refine.appid = $stateParams.appid;
+        $scope.refine.salary_credited_since = new Date;
+        $scope.allvalidation = [];
 
-    //  REFINE PERSONAL 
-    var refinesuccess = function (data, status) {
-        console.log(data);
-    }
-    $scope.applyhome = function (refine) {
-        console.log($scope.refine);
-//        $scope.allvalidation = [{
-//            field: $scope.refine.enq_gender,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_maritial_status,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_nationality,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_present_use_property,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_staying_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.salary_credited_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.pl_total_exp_job_years,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_have_loan_ddl,
-//            validation: ""
-//        }];
-//        var check = formvalidation($scope.allvalidation);
+        //  MODAL FOR BANK RELATIONSHIP
+        $ionicModal.fromTemplateUrl('templates/bank.html', {
+            id: '3',
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.oModal3 = modal;
+        });
+        $scope.showbank = function () {
+            $scope.oModal3.show();
+        };
 
-//        if (check) {
-//            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+        //  REFINE PERSONAL 
+        var refinesuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.applyhome = function (refine) {
+            console.log($scope.refine);
+            //        $scope.allvalidation = [{
+            //            field: $scope.refine.enq_gender,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_maritial_status,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_nationality,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_present_use_property,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_staying_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.salary_credited_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.pl_total_exp_job_years,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_have_loan_ddl,
+            //            validation: ""
+            //        }];
+            //        var check = formvalidation($scope.allvalidation);
+
+            //        if (check) {
+            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-//            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
-        MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/homeapply");
-        
-
-//        };
-//        MyServices.stepawayset(carloan);
-
-    }
+            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
+            MyServices.refinestepawayset($scope.refine);
+            $location.url("/app/homeapply");
 
 
-    
-    
-})
-//SAPANA ENDS
-   .controller('CreditCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location,$filter) {
-    
-     $scope.creditloan = {
-//            'enq_loanAmtTo': 20000,
-//            'enq_tenureTo': 6,
+            //        };
+            //        MyServices.stepawayset(carloan);
+
+        }
+
+
+
+
+    })
+    //SAPANA ENDS
+    .controller('CreditCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+
+        $scope.creditloan = {
+            //            'enq_loanAmtTo': 20000,
+            //            'enq_tenureTo': 6,
             'enq_currIncomeTo': 15000,
-//            'enq_is_salaried_ddl': 'No',
+            //            'enq_is_salaried_ddl': 'No',
             'enq_dob': new Date()
         };
-    
+
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
-        }).then(function(modal) {
+        }).then(function (modal) {
             $scope.modal = modal;
         });
 
-        $scope.openedit = function() {
+        $scope.openedit = function () {
             $scope.modal.show();
         }
 
-        $scope.closeModal = function() {
+        $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
+
         //  DECLARATION
         $scope.cities = [];
         $scope.allvalidation = [];
@@ -1567,105 +1566,105 @@ angular.module('starter.controllers', ['myservices'])
 
 
         // GET ALL DROPDOWN
-        var dropsuccess = function(data, status) {
+        var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
         }
         MyServices.getdropdowncity().success(dropsuccess);
 
-        
-       $scope.datechange = function() {
+
+        $scope.datechange = function () {
             if (parseInt(age($scope.creditloan.enq_dob)) < 21) {
-//                console.log("chintoo");
+                //                console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 21",
                     scope: $scope,
                 });
-                $timeout(function() {
+                $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
 
 
         }
-       
-               //  SELECT COMPANY
-        $scope.selectcomp = function(comp) {
+
+        //  SELECT COMPANY
+        $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
             $scope.creditloan.enq_company_id = comp;
         }
-       
-         //  PERSONAL FIRST LOAN FORN SUBMIT
-        var stepawayplsuccess = function(data, status) {
+
+        //  PERSONAL FIRST LOAN FORN SUBMIT
+        var stepawayplsuccess = function (data, status) {
             console.log(data);
         }
-        $scope.getmedeals = function(creditloan) {
+        $scope.getmedeals = function (creditloan) {
             console.log(creditloan);
-//            if (creditloan.enq_is_salaried_ddl != "no") {
-//                creditloan.enq_occupation = "Salaried";
-//            }
-//            if ($scope.creditloan.salaried == "1") {
-//                $scope.allvalidation = [ {
-//                    field: $scope.creditloan.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_is_salaried_ddl,
-//                    validation: ""
-//                },  {
-//                    field: $scope.creditloan.enq_occupation,
-//                    validation: ""
-//                }
-//                  ,                      {
-//                    field: $scope.creditloan.enq_company_id,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            } else {
-//                $scope.allvalidation = [ {
-//                    field: $scope.creditloan.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_is_salaried_ddl,
-//                    validation: ""
-//                }, {
-//                    field: $scope.creditloan.enq_occupation,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            }
-//
-//            if (check) {
-              
-                creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
-                console.log(creditloan.enq_dob);
-             creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
-                console.log(creditloan.salary_credited_since);
-             creditloan.enq_staying_since = $filter('date')(creditloan.enq_staying_since, "dd-MM-yyyy");
-                console.log(creditloan.enq_staying_since);
+            //            if (creditloan.enq_is_salaried_ddl != "no") {
+            //                creditloan.enq_occupation = "Salaried";
+            //            }
+            //            if ($scope.creditloan.salaried == "1") {
+            //                $scope.allvalidation = [ {
+            //                    field: $scope.creditloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                },  {
+            //                    field: $scope.creditloan.enq_occupation,
+            //                    validation: ""
+            //                }
+            //                  ,                      {
+            //                    field: $scope.creditloan.enq_company_id,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            } else {
+            //                $scope.allvalidation = [ {
+            //                    field: $scope.creditloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.creditloan.enq_occupation,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            }
+            //
+            //            if (check) {
 
-                MyServices.stepawayset(creditloan);
-                $location.url("/app/creditapply");
-               
-//            };
+            creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
+            console.log(creditloan.enq_dob);
+            creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
+            console.log(creditloan.salary_credited_since);
+            creditloan.enq_staying_since = $filter('date')(creditloan.enq_staying_since, "dd-MM-yyyy");
+            console.log(creditloan.enq_staying_since);
+
+            MyServices.stepawayset(creditloan);
+            $location.url("/app/creditapply");
+
+            //            };
         }
 
-    
+
     })
 
 /////code end ///////
-    .controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location) {
+.controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location) {
 
         //  DECLARATION
         $scope.returnsactive = "active";
@@ -1710,141 +1709,135 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
-//DHAVAL START
+    //DHAVAL START
     .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
 
-    $scope.sme={
+        $scope.sme = {
             enq_loanType: "29",
         }
-            
-        var dropsuccess = function(data, status) {
+
+        var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
             console.log("Cities")
             console.log($scope.cities);
         }
         MyServices.getdropdowncity().success(dropsuccess);
-        
-        var dropsuccess1 = function(data, status) {
+
+        var dropsuccess1 = function (data, status) {
             $scope.states = data.Data;
             console.log("States")
             console.log($scope.states);
         }
         MyServices.getdropdownstate().success(dropsuccess1);
-    
-    
-        var smecommercial = function(data, status) {
+
+
+        var smecommercial = function (data, status) {
             console.log(data);
             if (data.Response != "Success") {
-                $location.url("/app/commericial");    
-            } 
-            else 
-            {
+                $location.url("/app/commericial");
+            } else {
                 $scope.appid = data.Applicationid;
                 $location.url("/app/thankyou");
             }
         }
-        $scope.smesubmit = function(sme) {
+        $scope.smesubmit = function (sme) {
             console.log(sme);
             MyServices.smecommercialvehicle(sme).success(smecommercial);;
         }
 
-})
-//DHAVAL END
+    })
+    //DHAVAL END
     .controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-//DHAVAl START
+    //DHAVAl START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
-        $scope.sme={
+        $scope.sme = {
             enq_loanType: "33",
         }
-            
-        var dropsuccess = function(data, status) {
+
+        var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
             console.log("Cities")
             console.log($scope.cities);
         }
         MyServices.getdropdowncity().success(dropsuccess);
-        
-        var dropsuccess1 = function(data, status) {
+
+        var dropsuccess1 = function (data, status) {
             $scope.states = data.Data;
             console.log("States")
             console.log($scope.states);
         }
         MyServices.getdropdownstate().success(dropsuccess1);
-    
-    
-        var smebusiness = function(data, status) {
+
+
+        var smebusiness = function (data, status) {
             console.log(data);
             if (data.Response != "Success") {
-                $location.url("/app/smebussniess");    
-            } 
-            else 
-            {
+                $location.url("/app/smebussniess");
+            } else {
                 $scope.appid = data.Applicationid;
                 $location.url("/app/thankyou");
             }
         }
-        $scope.smesubmit = function(sme) {
+        $scope.smesubmit = function (sme) {
             console.log(sme);
             MyServices.smebusinesssolution(sme).success(smebusiness);;
         }
 
-})
-//DHAVAL END
-//DHAVAL START
+    })
+    //DHAVAL END
+    //DHAVAL START
     .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
 
-        $scope.sme={
+        $scope.sme = {
             enq_loanType: "32",
         }
-            
-        var dropsuccess = function(data, status) {
+
+        var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
             console.log("Cities")
             console.log($scope.cities);
         }
         MyServices.getdropdowncity().success(dropsuccess);
-        
-        var dropsuccess1 = function(data, status) {
+
+        var dropsuccess1 = function (data, status) {
             $scope.states = data.Data;
             console.log("States")
             console.log($scope.states);
         }
         MyServices.getdropdownstate().success(dropsuccess1);
-    
-    
-        var smefinance = function(data, status) {
+
+
+        var smefinance = function (data, status) {
             console.log(data);
             if (data.Response != "Success") {
-                $location.url("/app/smeproject");    
-            } 
-            else 
-            {
+                $location.url("/app/smeproject");
+            } else {
                 $scope.appid = data.Applicationid;
                 $location.url("/app/thankyou");
             }
         }
-        $scope.smesubmit = function(sme) {
+        $scope.smesubmit = function (sme) {
             console.log(sme);
             MyServices.smeprojectfinance(sme).success(smefinance);;
         }
-})
-//DHAVAL END
+    })
+    //DHAVAL END
 
-    .controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+.controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferPropertyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferEarnCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferalDetailsCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('CreditApplyCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
-    
-    //  DEPLARATION
+    .controller('CreditApplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+
+        //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
 
 
-        var ccsuccess = function(data, status) {
+        var ccsuccess = function (data, status) {
             console.log("string strin");
             console.log(data);
             console.log(JSON.parse(data.Data));
@@ -1854,7 +1847,7 @@ angular.module('starter.controllers', ['myservices'])
                     title: data.Response,
                     scope: $scope,
                 });
-                $timeout(function() {
+                $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                     $location.url("/app/creditapply");
                 }, 1500);
@@ -1868,16 +1861,16 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.stepawaycc().success(ccsuccess);
 
         //  CHECK checkeligibility
-        $scope.checkeligibility = function(check) {
+        $scope.checkeligibility = function (check) {
             console.log(check);
             MyServices.setcheck(check);
             $location.url("/app/personal-chk/" + $scope.appid);
         }
-    
-})
 
-    //  MAHESH END
-    .controller('ReferCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    })
+
+//  MAHESH END
+.controller('ReferCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
@@ -2066,6 +2059,14 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
         }
+        var manufsuccess = function (data, status) {
+            $scope.models = data.Data;
+            console.log($scope.models);
+        }
+        $scope.getmodel = function (manuf) {
+            console.log(manuf);
+            MyServices.getmanumodel(manuf).success(manufsuccess);
+        }
         $scope.getmedeals = function (carloan) {
             console.log(carloan);
             //            if (carloan.enq_is_salaried_ddl != "no") {
@@ -2137,169 +2138,23 @@ angular.module('starter.controllers', ['myservices'])
 
 
 
-   
-    //sapana end
+
+        //sapana end
 
     })
-//dhaval start
-   .controller('TwowheelerLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+    //dhaval start
+    .controller('TwowheelerLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
         $scope.twloan = {
-//            'loan': 20000,
-//            'tenure': 6,
-//            'income': 15000
-            'enq_loanAmtTo':5000,
-            'enq_tenureTo':15,
-            'enq_currIncomeTo':9874,
+            //            'loan': 20000,
+            //            'tenure': 6,
+            //            'income': 15000
+            'enq_loanAmtTo': 5000,
+            'enq_tenureTo': 15,
+            'enq_currIncomeTo': 9874,
             'enq_dob': new Date(),
-            
+
         };
-        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-
-        $scope.openedit = function() {
-            $scope.modal.show();
-        }
-
-        $scope.closeModal = function() {
-            $scope.modal.hide();
-        };
-    
-        
-        //  DECLARATION
-        $scope.cities = [];
-        $scope.allvalidation = [];
-        
-
-
-        // GET ALL DROPDOWN
-        var dropsuccess = function(data, status) {
-            $scope.cities = data.Data;
-        }
-        MyServices.getdropdowncity().success(dropsuccess);
-        //  SELECT COMPANY
-        $scope.selectcomp = function(comp) {
-            console.log(comp);
-            $scope.modal.hide();
-            $scope.twloan.enq_company_id = comp;
-        }
-
-        $scope.datechange = function() {
-            if (parseInt(age($scope.twloan.enq_dob)) < 21) {
-                console.log("chintoo");
-                var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
-                    scope: $scope,
-                });
-                $timeout(function() {
-                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            }
-
-
-        }
-        
-        var manufsuccess = function (data, status) {
-            $scope.models = data.Data;
-            console.log($scope.models);
-        }
-        $scope.getmodel=function(manuf){
-            console.log(manuf);
-            MyServices.getmanumodel(manuf).success(manufsuccess);
-        }
-       
-//        $scope.twloanshow=function(){
-//             $scope.twloan.enq_dob = $filter('date')($scope.twloan.enq_dob, "dd-MM-yyyy");
-//        console.log($scope.twloan.enq_dob);
-//        
-//            console.log($scope.twloan);
-//        };
-    
-    $scope.twloanclick = function(twloan) {
-            console.log(twloan);
-//            if (twloan.enq_is_salaried_ddl != "no") {
-//                twloan.enq_occupation = "Salaried";
-//            }
-//            if ($scope.twloan.salaried == "1") {
-//                $scope.allvalidation = [{
-//                    field: $scope.twloan.enq_loanAmtTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_tenureTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_is_salaried_ddl,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_company_id,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            } else {
-//                $scope.allvalidation = [{
-//                    field: $scope.twloan.enq_loanAmtTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_tenureTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.twloan.enq_is_salaried_ddl,
-//                    validation: ""
-//                },,{
-//                    field: $scope.twloan.enq_occupation,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            }
-//
-//            if (check) {
-//                //                $scope.today = new Date();
-                twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
-                console.log(twloan.enq_dob);
-
-                MyServices.stepawayset(twloan);
-                $location.url("/app/twowheelerlistchk");
-                //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-//            };
-        }
-    
-    })
-
-//  DHAVAL END
-//SAPANA START loan security page
-   .controller('SecurityLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
-
-        //  DESIGN CODE
-        $scope.security = {
-            'enq_loanAmtTo': 20000,
-            'enq_tenureTo': 6,
-            'enq_currIncomeTo': 15000,
-            'enq_is_salaried_ddl': 'No',
-            'enq_dob': new Date()
-        };
-    
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -2315,10 +2170,11 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
 
+
         //  DECLARATION
         $scope.cities = [];
         $scope.allvalidation = [];
-        $
+
 
 
         // GET ALL DROPDOWN
@@ -2326,16 +2182,15 @@ angular.module('starter.controllers', ['myservices'])
             $scope.cities = data.Data;
         }
         MyServices.getdropdowncity().success(dropsuccess);
-
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
-            $scope.security.enq_company_id = comp;
+            $scope.twloan.enq_company_id = comp;
         }
 
         $scope.datechange = function () {
-            if (parseInt(age($scope.security.enq_dob)) < 21) {
+            if (parseInt(age($scope.twloan.enq_dob)) < 21) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 21",
@@ -2349,82 +2204,228 @@ angular.module('starter.controllers', ['myservices'])
 
         }
 
-
-        //  PERSONAL FIRST LOAN FORN SUBMIT
-        var stepawayscsuccess = function (data, status) {
-            console.log(data);
+        var manufsuccess = function (data, status) {
+            $scope.models = data.Data;
+            console.log($scope.models);
         }
-        $scope.getmedeals = function (security) {
-            console.log(security);
-//            if (personal.enq_is_salaried_ddl != "no") {
-//                personal.enq_occupation = "Salaried";
-//            }
-//            if ($scope.personal.salaried == "1") {
-//                $scope.allvalidation = [{
-//                    field: $scope.personal.enq_loanAmtTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_tenureTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_is_salaried_ddl,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_company_id,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            } else {
-//                $scope.allvalidation = [{
-//                    field: $scope.personal.enq_loanAmtTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_tenureTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_currIncomeTo,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_dob,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_city,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_is_salaried_ddl,
-//                    validation: ""
-//                }, {
-//                    field: $scope.personal.enq_occupation,
-//                    validation: ""
-//                }];
-//                var check = formvalidation($scope.allvalidation);
-//            }
+        $scope.getmodel = function (manuf) {
+            console.log(manuf);
+            MyServices.getmanumodel(manuf).success(manufsuccess);
+        }
 
-//            if (check) {
-                //                $scope.today = new Date();
-                security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
-                console.log(security.enq_dob);
+        //        $scope.twloanshow=function(){
+        //             $scope.twloan.enq_dob = $filter('date')($scope.twloan.enq_dob, "dd-MM-yyyy");
+        //        console.log($scope.twloan.enq_dob);
+        //        
+        //            console.log($scope.twloan);
+        //        };
 
-                MyServices.stepawayset(security);
-                $location.url("/app/securitychk");
-                //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-//            };
+        $scope.twloanclick = function (twloan) {
+            console.log(twloan);
+            //            if (twloan.enq_is_salaried_ddl != "no") {
+            //                twloan.enq_occupation = "Salaried";
+            //            }
+            //            if ($scope.twloan.salaried == "1") {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.twloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_company_id,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            } else {
+            //                $scope.allvalidation = [{
+            //                    field: $scope.twloan.enq_loanAmtTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_tenureTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_currIncomeTo,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_dob,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_city,
+            //                    validation: ""
+            //                }, {
+            //                    field: $scope.twloan.enq_is_salaried_ddl,
+            //                    validation: ""
+            //                },,{
+            //                    field: $scope.twloan.enq_occupation,
+            //                    validation: ""
+            //                }];
+            //                var check = formvalidation($scope.allvalidation);
+            //            }
+            //
+            //            if (check) {
+            //                //                $scope.today = new Date();
+            twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
+            console.log(twloan.enq_dob);
+
+            MyServices.stepawayset(twloan);
+            $location.url("/app/twowheelerlistchk");
+            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+            //            };
         }
 
     })
 
+//  DHAVAL END
+//SAPANA START loan security page
+.controller('SecurityLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+
+    //  DESIGN CODE
+    $scope.security = {
+        'enq_loanAmtTo': 20000,
+        'enq_tenureTo': 6,
+        'enq_currIncomeTo': 15000,
+        'enq_is_salaried_ddl': 'No',
+        'enq_dob': new Date()
+    };
+
+    $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openedit = function () {
+        $scope.modal.show();
+    }
+
+    $scope.closeModal = function () {
+        $scope.modal.hide();
+    };
+
+    //  DECLARATION
+    $scope.cities = [];
+    $scope.allvalidation = [];
+    $
+
+
+    // GET ALL DROPDOWN
+    var dropsuccess = function (data, status) {
+        $scope.cities = data.Data;
+    }
+    MyServices.getdropdowncity().success(dropsuccess);
+
+    //  SELECT COMPANY
+    $scope.selectcomp = function (comp) {
+        console.log(comp);
+        $scope.modal.hide();
+        $scope.security.enq_company_id = comp;
+    }
+
+    $scope.datechange = function () {
+        if (parseInt(age($scope.security.enq_dob)) < 21) {
+            console.log("chintoo");
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 21",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+
+
+    }
+
+
+    //  PERSONAL FIRST LOAN FORN SUBMIT
+    var stepawayscsuccess = function (data, status) {
+        console.log(data);
+    }
+    $scope.getmedeals = function (security) {
+        console.log(security);
+        //            if (personal.enq_is_salaried_ddl != "no") {
+        //                personal.enq_occupation = "Salaried";
+        //            }
+        //            if ($scope.personal.salaried == "1") {
+        //                $scope.allvalidation = [{
+        //                    field: $scope.personal.enq_loanAmtTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_tenureTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_currIncomeTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_dob,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_city,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_is_salaried_ddl,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_company_id,
+        //                    validation: ""
+        //                }];
+        //                var check = formvalidation($scope.allvalidation);
+        //            } else {
+        //                $scope.allvalidation = [{
+        //                    field: $scope.personal.enq_loanAmtTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_tenureTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_currIncomeTo,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_dob,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_city,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_is_salaried_ddl,
+        //                    validation: ""
+        //                }, {
+        //                    field: $scope.personal.enq_occupation,
+        //                    validation: ""
+        //                }];
+        //                var check = formvalidation($scope.allvalidation);
+        //            }
+
+        //            if (check) {
+        //                $scope.today = new Date();
+        security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
+        console.log(security.enq_dob);
+
+        MyServices.stepawayset(security);
+        $location.url("/app/securitychk");
+        //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+        //            };
+    }
+
+})
+
 //SAPANA ENDS
 // propertyloan
-    .controller('PropertyLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+.controller('PropertyLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
         $scope.propertyloan = {
             'enq_loanAmtTo': 20000,
@@ -2544,84 +2545,84 @@ angular.module('starter.controllers', ['myservices'])
 
 
     })
-//property loan ends
-//SAPANA STARTS
+    //property loan ends
+    //SAPANA STARTS
     .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
-//
-//        $scope.carloan = {
-//            'loan': 20000,
-//            'tenure': 6,
-//            'income': 15000
-//
-//        };
-     //  DECLARATION
-    $scope.refine = {};
-    $scope.refine.appid = $stateParams.appid;
-    $scope.refine.salary_credited_since = new Date;
-    $scope.allvalidation = [];
+        //
+        //        $scope.carloan = {
+        //            'loan': 20000,
+        //            'tenure': 6,
+        //            'income': 15000
+        //
+        //        };
+        //  DECLARATION
+        $scope.refine = {};
+        $scope.refine.appid = $stateParams.appid;
+        $scope.refine.salary_credited_since = new Date;
+        $scope.allvalidation = [];
 
-    //  MODAL FOR BANK RELATIONSHIP
-    $ionicModal.fromTemplateUrl('templates/bank.html', {
-        id: '3',
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.oModal3 = modal;
-    });
-    $scope.showbank = function () {
-        $scope.oModal3.show();
-    };
+        //  MODAL FOR BANK RELATIONSHIP
+        $ionicModal.fromTemplateUrl('templates/bank.html', {
+            id: '3',
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.oModal3 = modal;
+        });
+        $scope.showbank = function () {
+            $scope.oModal3.show();
+        };
 
-    //  REFINE PERSONAL 
-    var refinesuccess = function (data, status) {
-        console.log(data);
-    }
-    $scope.refinecar = function (refine) {
-        console.log($scope.refine);
-//        $scope.allvalidation = [{
-//            field: $scope.refine.enq_gender,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_maritial_status,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_nationality,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_present_use_property,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_staying_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.salary_credited_since,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.pl_total_exp_job_years,
-//            validation: ""
-//        }, {
-//            field: $scope.refine.enq_have_loan_ddl,
-//            validation: ""
-//        }];
-//        var check = formvalidation($scope.allvalidation);
+        //  REFINE PERSONAL 
+        var refinesuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.refinecar = function (refine) {
+            console.log($scope.refine);
+            //        $scope.allvalidation = [{
+            //            field: $scope.refine.enq_gender,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_maritial_status,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_nationality,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_present_use_property,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_staying_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.salary_credited_since,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.pl_total_exp_job_years,
+            //            validation: ""
+            //        }, {
+            //            field: $scope.refine.enq_have_loan_ddl,
+            //            validation: ""
+            //        }];
+            //        var check = formvalidation($scope.allvalidation);
 
-//        if (check) {
-//            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+            //        if (check) {
+            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-//            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
-        MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/carapply");
+            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
+            MyServices.refinestepawayset($scope.refine);
+            $location.url("/app/carapply");
 
-//        };
-//        MyServices.stepawayset(carloan);
+            //        };
+            //        MyServices.stepawayset(carloan);
 
-    }
+        }
 
 
-    
+
 
     })
-//SAPANA ENDS
+    //SAPANA ENDS
     //sapana starts
     .controller('HomeLoansCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
@@ -2646,7 +2647,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-     //  SELECT COMPANY
+        //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
@@ -2674,15 +2675,15 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.getmedeals = function (homeloan) {
             console.log(homeloan);
-            
-            
+
+
             homeloan.enq_dob = $filter('date')(homeloan.enq_dob, "dd-MM-yyyy");
             console.log(homeloan.enq_dob);
-            
+
             MyServices.stepawayset(homeloan);
             $location.url("/app/homechklist");
         }
-        
+
         $scope.cities = [];
         $scope.allvalidation = [];
 
@@ -2752,11 +2753,11 @@ angular.module('starter.controllers', ['myservices'])
         if (check) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-//            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
+            //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/listloan");
-//            sapana akshay
-            };
+            //            sapana akshay
+        };
 
     }
 

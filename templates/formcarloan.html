@@ -84,21 +84,21 @@
                     <div class="input-label">
                         Manufacturer
                     </div>
-                    <select ng-model="carloan.enq_manufacturer" ng-change="manufacture_model(carloan.enq_manufacturer)">
+                    <select ng-model="carloan.enq_manufacturer" ng-change="getmodel(carloan.enq_manufacturer)">
                         <option>Please select</option>
-                        <option ng-repeat="manufacture in manufacturers" value="{{manufacture.manufacture_id}}">{{manufacture.manufacturer_name}}</option>
-<!--                        <option>MARUTI</option>-->
+                        <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
+                        <!--                        <option>MARUTI</option>-->
                     </select>
                 </label>
 
                 <label class="item item-input item-select">
-                    <div class="input-label" ng-model="carloan.enq_model" >
+                    <div class="input-label">
                         Model
                     </div>
-                    <select>
+                    <select ng-model="carloan.enq_model">
                         <option>Please select</option>
-                        <option>MAZE</option>
-<!--                        <option>Maruti Suzuki</option>-->
+                        <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
+                        <!--                        <option>Maruti Suzuki</option>-->
                     </select>
                 </label>
                 <label class="item item-input">
@@ -115,7 +115,7 @@
                 </ion-item>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-<!--            <a href="#/app/carchklist">-->
+            <!--            <a href="#/app/carchklist">-->
             <a ng-click="getmedeals(carloan)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
