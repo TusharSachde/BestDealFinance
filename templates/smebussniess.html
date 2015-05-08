@@ -3,56 +3,53 @@
         <form ng-submit="" class="deal-form">
             <div class="list signin">
                 <label class="item item-input">
-                    <span class="input-label">Name</span>
-                    <input type="text" ng-model="sme.enq_name">
+                    <span class="input-label">Name*</span>
+                    <input type="text" ng-model="sme.enq_name" ng-class="allvalidation[0].validation" required>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Email</span>
-                    <input type="email" ng-model="sme.enq_email">
+                    <span class="input-label">Email*</span>
+                    <input type="email" ng-model="sme.enq_email" ng-class="allvalidation[1].validation" required>
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Date of Registration</span>
-                    <input type="date" ng-model="sme.enq_dor">
+                    <span class="input-label">Date of Registration*</span>
+                    <input type="date" ng-model="sme.enq_dob" ng-class="allvalidation[2].validation" required>
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Company Name</span>
-                    <input type="text" ng-model="sme.enq_company_name">
+                    <span class="input-label">Company Name*</span>
+                    <input type="text" ng-model="sme.enq_company_name" ng-class="allvalidation[3].validation" required>
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Designation</span>
-                    <input type="text" ng-model="sme.enq_designation">
+                    <span class="input-label">Designation*</span>
+                    <input type="text" ng-model="sme.enq_designation" ng-class="allvalidation[4].validation" required>
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Address</span>
-                    <input type="text" ng-model="sme.enq_address">
+                    <span class="input-label">Address*</span>
+                    <input type="text" ng-model="sme.enq_address" ng-class="allvalidation[5].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        State
+                        State*
                     </div>
-                    <select ng-model="sme.enq_state">
-                        <option>Please select</option>
+                    <select ng-model="sme.enq_state" ng-class="allvalidation[6].validation" required>
                         <option ng-repeat="state in states" value="{{state.state_id}}">{{state.state_name}}</option>
 <!--                        <option>Karnataka</option>-->
                     </select>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        City
+                        City*
                     </div>
-                    <select ng-model="sme.enq_city">
-                        <option>Please select</option>
+                    <select ng-model="sme.enq_city" ng-class="allvalidation[7].validation" required>
                         <option ng-repeat="city in cities" value="{{city.city_id}}">{{city.city_name}}</option>
                     </select>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Product
+                        Product*
                     </div>
-                    <select ng-model="sme.enq_loanType_string">
-                        <option>Select Product</option>
+                    <select ng-model="sme.enq_loanType_string" ng-class="allvalidation[8].validation" required>
                         <option>Commercial Vehicle Finance</option>
                         <option>SME Finance</option>
                         <option>SME Business Solutions</option>
@@ -60,14 +57,14 @@
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="sme.enq_loanAmtTo">
+                    <span class="input-label">Loan Amount*</span>
+                    <input type="text" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[9].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Country Code
+                        Country Code*
                     </div>
-                    <select ng-model="sme.enq_countryCode">
+                    <select ng-model="sme.enq_countryCode" ng-class="allvalidation[10].validation" required>
                         <option value="91">India +91</option>
                         <option value="91">India +91</option>
                     </select>
@@ -75,9 +72,9 @@
 
                 <label class="item item-input">
                     <div class="input-label">
-                        Mobile No
+                        Mobile No*
                     </div>
-                    <input type="text" ng-model="sme.enq_mobile">
+                    <input type="text" ng-model="sme.enq_mobile" ng-class="allvalidation[11].validation" required>
                 </label>
 
                 <ion-item class="item-checkbox">
