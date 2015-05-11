@@ -81,9 +81,9 @@
     background: rgba(255, 255, 255, 0.65);
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 5px 5px 0 0;
     width: 97%;
-    margin: 4px auto;
+    margin: auto;
     border-color: transparent;
 }
 .signin .item+.item {
@@ -507,10 +507,7 @@ p.padded {
     left: 0px;
     position: absolute;
 }
-.range-item {
-    padding-bottom: 40px;
-}
-.item-checkbox {
+.range-item {} .item-checkbox {
     font-size: 16px;
     font-weight: normal;
     color: #4d4d4d;
@@ -1158,4 +1155,14 @@ form.ng-invalid.ng-dirty.frm-bdr {
 }
 .list .range {
     width: 100%;
+}
+.list .range.range-assertive {
+    background: rgba(255, 255, 255, 0.65);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 0 0 5px 5px;
+    width: 97%;
+    margin: auto;
+    border-color: transparent;
+    margin-bottom: 4px;
 }
