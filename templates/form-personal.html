@@ -16,20 +16,20 @@
             <label class="item item-input range-item">
                 <span class="input-label">Tenure*</span>
                 <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
-                <div class="range range-assertive">
-                    <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
-                </div>
-            </label>
 
+            </label>
+            <div class="range range-assertive">
+                <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
+            </div>
 
             <label class="item item-input range-item">
                 <span class="input-label">Gross Monthly Income*</span>
                 <input type="text" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
-                <div class="range range-assertive">
-                    <input type="range" min="15000" max="7500000" ng-model="personal.enq_currIncomeTo" step="1000">
-                </div>
-            </label>
 
+            </label>
+            <div class="range range-assertive">
+                <input type="range" min="15000" max="7500000" ng-model="personal.enq_currIncomeTo" step="1000">
+            </div>
             <label class="item item-input">
                 <span class="input-label">Date of Birth*</span>
                 <input type="date" ng-model="personal.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange()" required>
