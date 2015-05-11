@@ -1980,7 +1980,7 @@ angular.module('starter.controllers', ['myservices'])
         //        console.log(age());
 
         //  DESIGN CODE
-        $ionicLoading.show();
+        
         $scope.personal = {
             'enq_loanAmtTo': 20000,
             'enq_tenureTo': 6,
@@ -2006,14 +2006,14 @@ angular.module('starter.controllers', ['myservices'])
         //  DECLARATION
         $scope.cities = [];
         $scope.allvalidation = [];
-        $
-
+       
 
         // GET ALL DROPDOWN
         var dropsuccess = function(data, status) {
             $scope.cities = data.Data;
             $ionicLoading.hide();
         }
+        $ionicLoading.show();
         MyServices.getdropdowncity().success(dropsuccess);
 
         //  SELECT COMPANY
