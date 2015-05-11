@@ -1,30 +1,32 @@
 <ion-view view-title="Two Wheeler Loan" class="scroll-bg">
     <ion-content class="has-header font500" scroll="false">
-        <form ng-submit="" class="deal-form">
+        
             <div class="list signin">
-                <label class="item item-input range-item">
+                <label class="item item-input range-item forrange">
                     <span class="input-label">Loan Amount*</span>
                     <input type="text" ng-model="twloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
-                    <div class="range range-assertive">
+                </label>
+                <div class="range range-assertive">
                         <input type="range" min="100000" max="20000000" ng-model="twloan.enq_loanAmtTo" step="1000">
                     </div>
-                </label>
 
-                <label class="item item-input range-item">
+                <label class="item item-input range-item forrange">
                     <span class="input-label">Tenure*</span>
                     <input type="text" ng-model="twloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
-                    <div class="range range-assertive">
+                    
+                </label>
+                <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="twloan.enq_tenureTo" step="1">
                     </div>
-                </label>
 
-                <label class="item item-input range-item">
+                <label class="item item-input range-item forrange">
                     <span class="input-label">Gross Monthly Income*</span>
                     <input type="text" ng-model="twloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
-                    <div class="range range-assertive">
+                    
+                </label>
+                <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="twloan.enq_currIncomeTo" step="1000">
                     </div>
-                </label>
 
                 <label class="item item-input">
                     <span class="input-label">Date of Birth*</span>
@@ -126,7 +128,7 @@
                     <div class="button-text assertive ">Get me deals</div>
                 </div>
             </a>
-        </form>
+    
 
     </ion-content>
 </ion-view>

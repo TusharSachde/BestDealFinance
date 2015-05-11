@@ -1,136 +1,139 @@
 <ion-view view-title="Loan Against Properties" class="scroll-bg">
     <ion-content class="has-header font500" scroll="false">
 
-        <form ng-submit="" class="deal-form">
-            <div class="list signin">
 
-                <label class="item item-input range-item">
-                    <span class="input-label">Loan Amount*</span>
-                    <input type="text" ng-model="propertyloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
-                    <div class="range range-assertive">
-                        <input type="range" min="100000" max="20000000" ng-model="propertyloan.enq_loanAmtTo" step="1000">
-                    </div>
-                </label>
+        <div class="list signin">
 
-                <label class="item item-input range-item">
-                    <span class="input-label">Tenure*</span>
-                    <input type="text" ng-model="propertyloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
-                    <div class="range range-assertive">
-                        <input type="range" min="6" max="84" ng-model="propertyloan.enq_tenureTo" step="1">
-                    </div>
-                </label>
+            <label class="item item-input range-item forrange">
+                <span class="input-label">Loan Amount*</span>
+                <input type="text" ng-model="propertyloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
 
-                <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income*</span>
-                    <input type="text" ng-model="propertyloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
-                    <div class="range range-assertive">
-                        <input type="range" min="15000" max="7500000" ng-model="propertyloan.enq_currIncomeTo" step="1000">
-                    </div>
-                </label>
+            </label>
+            <div class="range range-assertive">
+                <input type="range" min="100000" max="20000000" ng-model="propertyloan.enq_loanAmtTo" step="1000">
+            </div>
 
-                <label class="item item-input">
-                    <span class="input-label">Date of Birth*</span>
-                    <input type="date" ng-model="propertyloan.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
-                </label>
-                
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                        Are You Salaried ?*
-                    </div>
-                    <select ng-model="propertyloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
-                </label>
-                
-                <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl == 'No'">
-                    <div class="input-label">
-                        Occupation
-                    </div>
-                    <select ng-model="propertyloan.enq_occupation">
-                        <option>Please select</option>
-                        <option>Housewife</option>
-                        <option>Retired</option>
-                        <option>Salaried</option>
-                        <option>Self Employed</option>
-                        <option>Self Employed Professional</option>
-                        <option>Self Employed Professional Doctor</option>
-                        <option>Student</option>
-                    </select>
-                </label> 
-                
-                <label class="item item-input" ng-click="openedit();" ng-if="propertyloan.enq_is_salaried_ddl != 'No'">
-                    <div class=" input-label ">
-                        Company
-                    </div>
-                    <div class="">
-                        {{propertyloan.enq_company_id}}
+            <label class="item item-input range-item forrange">
+                <span class="input-label">Tenure*</span>
+                <input type="text" ng-model="propertyloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
 
-                    </div>
-                    <!--
+            </label>
+            <div class="range range-assertive">
+                <input type="range" min="6" max="84" ng-model="propertyloan.enq_tenureTo" step="1">
+            </div>
+
+            <label class="item item-input range-item forrange">
+                <span class="input-label">Gross Monthly Income*</span>
+                <input type="text" ng-model="propertyloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
+
+            </label>
+            <div class="range range-assertive">
+                <input type="range" min="15000" max="7500000" ng-model="propertyloan.enq_currIncomeTo" step="1000">
+            </div>
+
+            <label class="item item-input">
+                <span class="input-label">Date of Birth*</span>
+                <input type="date" ng-model="propertyloan.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Are You Salaried ?*
+                </div>
+                <select ng-model="propertyloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl == 'No'">
+                <div class="input-label">
+                    Occupation
+                </div>
+                <select ng-model="propertyloan.enq_occupation">
+                    <option>Please select</option>
+                    <option>Housewife</option>
+                    <option>Retired</option>
+                    <option>Salaried</option>
+                    <option>Self Employed</option>
+                    <option>Self Employed Professional</option>
+                    <option>Self Employed Professional Doctor</option>
+                    <option>Student</option>
+                </select>
+            </label>
+
+            <label class="item item-input" ng-click="openedit();" ng-if="propertyloan.enq_is_salaried_ddl != 'No'">
+                <div class=" input-label ">
+                    Company
+                </div>
+                <div class="">
+                    {{propertyloan.enq_company_id}}
+
+                </div>
+                <!--
 <select>
     <option>Please select</option>
     <option>Puratek company</option>
     <option>TCS</option>
 </select>
 -->
-                </label>
-                
-                <label class="item item-input">
-                    <span class="input-label">Market value of Property*</span>
-                    <input type="text" ng-model="propertyloan.property_current_market_value" ng-class="allvalidation[5].validation" required>
-                    
-                </label>
-                
-                 <label class="item item-input item-select">
-                    <div class="input-label">
-                       Type Of Property*
-                    </div>
-                    <select ng-model="propertyloan.property_type" ng-class="allvalidation[6].validation" required>
-                        <option>Commercial</option>
-                        <option>Residential</option>
-                        <option>Personal</option>
-                    </select>
-                </label>
-                
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                       Present Use of Property*
-                    </div>
-                    <select ng-model="propertyloan.enq_present_use_property" ng-class="allvalidation[7].validation" required>
-                       <option>&nbsp;</option>
-                        <option>Self occupied</option>
-                        <option>On Rent</option>
-                    </select>
-                </label>
-                
-                   <label class="item item-input item-select">
-                    <div class="input-label">
-                       City*
-                    </div>
-                    <select ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>
-                        <option>Mumbai</option>
-                        <option>Pune</option>
-                        <option>Panvel</option>
-                    </select>
-                </label>
-                    
-                <ion-item class="item-checkbox">
-                    <label class="checkbox">
-                        <input type="checkbox" ng-click="iagree()">
-                    </label>
-                    I Agree
-                </ion-item>
-                <div class="text-center light" ng-click="openTerms();">Know more</div>
-            </div>
-<!--            <a href="#/app/propertychk">-->
-            <a ng-click="getmedeals(propertyloan)">
-                <div class="button-image" ng-click="">
-                    <img src="img/button2.png" alt="" class="full-image">
-                    <div class="button-text assertive">Get me deals</div>
+            </label>
+
+            <label class="item item-input">
+                <span class="input-label">Market value of Property*</span>
+                <input type="text" ng-model="propertyloan.property_current_market_value" ng-class="allvalidation[5].validation" required>
+
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Type Of Property*
                 </div>
-            </a>
-        </form>
+                <select ng-model="propertyloan.property_type" ng-class="allvalidation[6].validation" required>
+                    <option>Commercial</option>
+                    <option>Residential</option>
+                    <option>Personal</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Present Use of Property*
+                </div>
+                <select ng-model="propertyloan.enq_present_use_property" ng-class="allvalidation[7].validation" required>
+                    <option>&nbsp;</option>
+                    <option>Self occupied</option>
+                    <option>On Rent</option>
+                </select>
+            </label>
+
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    City*
+                </div>
+                <select ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>
+                    <option>Mumbai</option>
+                    <option>Pune</option>
+                    <option>Panvel</option>
+                </select>
+            </label>
+
+            <ion-item class="item-checkbox">
+                <label class="checkbox">
+                    <input type="checkbox" ng-click="iagree()">
+                </label>
+                I Agree
+            </ion-item>
+            <div class="text-center light" ng-click="openTerms();">Know more</div>
+        </div>
+        <!--            <a href="#/app/propertychk">-->
+        <a ng-click="getmedeals(propertyloan)">
+            <div class="button-image" ng-click="">
+                <img src="img/button2.png" alt="" class="full-image">
+                <div class="button-text assertive">Get me deals</div>
+            </div>
+        </a>
+
 
     </ion-content>
 </ion-view>
