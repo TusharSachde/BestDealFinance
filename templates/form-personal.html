@@ -6,8 +6,8 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
-                    <div class="range range-assertive">
+                    <input type="text" class="lamt" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
+                    <div class="range range-assertive" ng-touch="$('.lamt').focus();">
                         <input type="range" min="100000" max="20000000" ng-model="personal.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
@@ -15,7 +15,7 @@
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
                     <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
-                    <div class="range range-assertive">
+                    <div class="range range-assertive" ng-touch="$('.lamt').focus();">
                         <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
                     </div>
                 </label>
