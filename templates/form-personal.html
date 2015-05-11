@@ -4,7 +4,7 @@
 
 
         <div class="list signin">
-            <label class="item item-input range-item">
+            <label class="item item-input range-item forrange">
                 <span class="input-label">Loan Amount*</span>
                 <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
 
@@ -13,7 +13,7 @@
                 <input type="range" min="100000" max="20000000" step="1000" ng-model="personal.enq_loanAmtTo">
             </div>
 
-            <label class="item item-input range-item">
+            <label class="item item-input range-item forrange">
                 <span class="input-label">Tenure*</span>
                 <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
 
@@ -22,7 +22,7 @@
                 <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
             </div>
 
-            <label class="item item-input range-item">
+            <label class="item item-input range-item forrange">
                 <span class="input-label">Gross Monthly Income*</span>
                 <input type="text" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
 
