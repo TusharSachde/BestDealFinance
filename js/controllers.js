@@ -1971,15 +1971,16 @@ angular.module('starter.controllers', ['myservices'])
 
     })
 
-    //  MAHESH END
-    .controller('ReferCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+//  MAHESH END
+.controller('ReferCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('GenieDealCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ContactusCtrl', function($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('PersonalLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
+    .controller('PersonalLoanCtrl', function($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 
         //        console.log(age());
 
         //  DESIGN CODE
+        $ionicLoading.show();
         $scope.personal = {
             'enq_loanAmtTo': 20000,
             'enq_tenureTo': 6,
@@ -2011,6 +2012,7 @@ angular.module('starter.controllers', ['myservices'])
         // GET ALL DROPDOWN
         var dropsuccess = function(data, status) {
             $scope.cities = data.Data;
+            $ionicLoading.hide();
         }
         MyServices.getdropdowncity().success(dropsuccess);
 
