@@ -1600,53 +1600,39 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.getmedeals = function (creditloan) {
             console.log(creditloan);
-            //            if (creditloan.enq_is_salaried_ddl != "no") {
-            //                creditloan.enq_occupation = "Salaried";
-            //            }
-            //            if ($scope.creditloan.salaried == "1") {
-            //                $scope.allvalidation = [ {
-            //                    field: $scope.creditloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                },  {
-            //                    field: $scope.creditloan.enq_occupation,
-            //                    validation: ""
-            //                }
-            //                  ,                      {
-            //                    field: $scope.creditloan.enq_company_id,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            } else {
-            //                $scope.allvalidation = [ {
-            //                    field: $scope.creditloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.creditloan.enq_occupation,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            }
-            //
-            //            if (check) {
-
+                        if (creditloan.enq_is_salaried_ddl != "no") {
+                            creditloan.enq_occupation = "Salaried";
+                        }
+                            $scope.allvalidation = [ {
+                                field: $scope.creditloan.enq_currIncomeTo,
+                                validation: ""
+                            }, {
+                                field: $scope.creditloan.enq_dob,
+                                validation: ""
+                            }, {
+                                field: $scope.creditloan.enq_city,
+                                validation: ""
+                            }, {
+                                field: $scope.creditloan.enq_is_salaried_ddl,
+                                validation: ""
+                            },{
+                                field: $scope.creditloan.salary_credited_since,
+                                validation: ""
+                            },{
+                                field: $scope.creditloan.enq_staying_since,
+                                validation: ""
+                            },{
+                                field: $scope.creditloan.fd_maturity_type,
+                                validation: ""
+                            },{
+                                field: $scope.creditloan.enq_existing_card_holder,
+                                validation: ""
+                            },{
+                                field: $scope.creditloan.cc_card_limit,
+                                validation: ""
+                            }];
+                            var check = formvalidation($scope.allvalidation);
+                        if (check) {
             creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
             console.log(creditloan.enq_dob);
             creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
@@ -1657,7 +1643,7 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.stepawayset(creditloan);
             $location.url("/app/creditapply");
 
-            //            };
+                      };
         }
 
 
@@ -1742,7 +1728,48 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.smesubmit = function (sme) {
             console.log(sme);
-            MyServices.smecommercialvehicle(sme).success(smecommercial);;
+        $scope.allvalidation = [{
+            field: $scope.sme.enq_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_email,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_dob,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_company_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_designation,
+            validation: ""
+        },{
+            field: $scope.sme.enq_address,
+            validation: ""
+        },{
+            field: $scope.sme.enq_state,
+            validation: ""
+        },{
+            field: $scope.sme.enq_city,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanType_string,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanAmtTo,
+            validation: ""
+        },{
+            field: $scope.sme.enq_countryCode,
+            validation: ""
+        },{
+            field: $scope.sme.enq_mobile,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
+            MyServices.smecommercialvehicle(sme).success(smecommercial);
+            };
         }
 
     })
@@ -1781,10 +1808,51 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.smesubmit = function (sme) {
             console.log(sme);
-            MyServices.smebusinesssolution(sme).success(smebusiness);;
-        }
+            $scope.allvalidation = [{
+            field: $scope.sme.enq_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_email,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_dob,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_company_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_designation,
+            validation: ""
+        },{
+            field: $scope.sme.enq_address,
+            validation: ""
+        },{
+            field: $scope.sme.enq_state,
+            validation: ""
+        },{
+            field: $scope.sme.enq_city,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanType_string,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanAmtTo,
+            validation: ""
+        },{
+            field: $scope.sme.enq_countryCode,
+            validation: ""
+        },{
+            field: $scope.sme.enq_mobile,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
 
-    })
+        if (check) {
+            MyServices.smebusinesssolution(sme).success(smebusiness);;
+        };
+
+    }
+})
     //DHAVAL END
     //DHAVAL START
     .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
@@ -1819,7 +1887,47 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.smesubmit = function (sme) {
             console.log(sme);
+            $scope.allvalidation = [{
+            field: $scope.sme.enq_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_email,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_dob,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_company_name,
+            validation: ""
+        }, {
+            field: $scope.sme.enq_designation,
+            validation: ""
+        },{
+            field: $scope.sme.enq_address,
+            validation: ""
+        },{
+            field: $scope.sme.enq_state,
+            validation: ""
+        },{
+            field: $scope.sme.enq_city,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanType_string,
+            validation: ""
+        },{
+            field: $scope.sme.enq_loanAmtTo,
+            validation: ""
+        },{
+            field: $scope.sme.enq_countryCode,
+            validation: ""
+        },{
+            field: $scope.sme.enq_mobile,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+        if (check) {
             MyServices.smeprojectfinance(sme).success(smefinance);;
+        };
         }
     })
     //DHAVAL END
@@ -2069,76 +2177,48 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.getmedeals = function (carloan) {
             console.log(carloan);
-            //            if (carloan.enq_is_salaried_ddl != "no") {
-            //                carloan.enq_occupation = "Salaried";
-            //            }
-            //            if ($scope.carloan.salaried == "1") {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_company_id,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            } else {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_occupation,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            }
-
-            //            if (check) {
+                        if (carloan.enq_is_salaried_ddl != "no") {
+                            carloan.enq_occupation = "Salaried";
+                        }
+                            $scope.allvalidation = [{
+                                field: $scope.carloan.enq_loanAmtTo,
+                                validation: ""
+                            }, {
+                                field: $scope.carloan.enq_tenureTo,
+                                validation: ""
+                            }, {
+                                field: $scope.carloan.enq_currIncomeTo,
+                                validation: ""
+                            }, {
+                                field: $scope.carloan.enq_dob,
+                                validation: ""
+                            },{
+                                field: $scope.carloan.enq_state,
+                                validation: ""
+                            }, {
+                                field: $scope.carloan.enq_is_salaried_ddl,
+                                validation: ""
+                            },{
+                                field: $scope.carloan.enq_manufacturer,
+                                validation: ""
+                            },{
+                                field: $scope.carloan.enq_model,
+                                validation: ""
+                            },{
+                                field: $scope.carloan.ex_showroom_cost,
+                                validation: ""
+                            }];
+                            var check = formvalidation($scope.allvalidation);
+                        if (check) {
             //                $scope.today = new Date();
             carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
             console.log(carloan.enq_dob);
 
             MyServices.stepawayset(carloan);
             $location.url("/app/carchklist");
-            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            //            };
+            //      MyServices.stepawaypl(personal).success(stepawayplsuccess);
+                        };
         }
-
-
-
-
-
-
-
         //sapana end
 
     })
@@ -2222,68 +2302,48 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.twloanclick = function (twloan) {
             console.log(twloan);
-            //            if (twloan.enq_is_salaried_ddl != "no") {
-            //                twloan.enq_occupation = "Salaried";
-            //            }
-            //            if ($scope.twloan.salaried == "1") {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.twloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_company_id,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            } else {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.twloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.twloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                },,{
-            //                    field: $scope.twloan.enq_occupation,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            }
-            //
-            //            if (check) {
-            //                //                $scope.today = new Date();
+                        if (twloan.enq_is_salaried_ddl != "no") {
+                            twloan.enq_occupation = "Salaried";
+                        }
+                            $scope.allvalidation = [{
+                                field: $scope.twloan.enq_loanAmtTo,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_tenureTo,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_currIncomeTo,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_dob,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_is_salaried_ddl,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_city,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_manufacturer,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.enq_model,
+                                validation: ""
+                            }, {
+                                field: $scope.twloan.ex_showroom_cost,
+                                validation: ""
+                            }];
+                            var check = formvalidation($scope.allvalidation);
+            
+                        if (check) {
+                            //                $scope.today = new Date();
             twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
             console.log(twloan.enq_dob);
 
             MyServices.stepawayset(twloan);
             $location.url("/app/twowheelerlistchk");
             //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            //            };
+                        };
         }
 
     })
@@ -2357,60 +2417,33 @@ angular.module('starter.controllers', ['myservices'])
     }
     $scope.getmedeals = function (security) {
         console.log(security);
-        //            if (personal.enq_is_salaried_ddl != "no") {
-        //                personal.enq_occupation = "Salaried";
-        //            }
-        //            if ($scope.personal.salaried == "1") {
-        //                $scope.allvalidation = [{
-        //                    field: $scope.personal.enq_loanAmtTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_tenureTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_currIncomeTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_dob,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_city,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_is_salaried_ddl,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_company_id,
-        //                    validation: ""
-        //                }];
-        //                var check = formvalidation($scope.allvalidation);
-        //            } else {
-        //                $scope.allvalidation = [{
-        //                    field: $scope.personal.enq_loanAmtTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_tenureTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_currIncomeTo,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_dob,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_city,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_is_salaried_ddl,
-        //                    validation: ""
-        //                }, {
-        //                    field: $scope.personal.enq_occupation,
-        //                    validation: ""
-        //                }];
-        //                var check = formvalidation($scope.allvalidation);
-        //            }
-
-        //            if (check) {
+                    if (security.enq_is_salaried_ddl != "no") {
+                        security.enq_occupation = "Salaried";
+                    }
+                        $scope.allvalidation = [{
+                            field: $scope.security.enq_loanAmtTo,
+                            validation: ""
+                        }, {
+                            field: $scope.security.enq_tenureTo,
+                            validation: ""
+                        }, {
+                            field: $scope.security.enq_currIncomeTo,
+                            validation: ""
+                        }, {
+                            field: $scope.security.enq_dob,
+                            validation: ""
+                        }, {
+                            field: $scope.security.enq_city,
+                            validation: ""
+                        }, {
+                            field: $scope.security.enq_is_salaried_ddl,
+                            validation: ""
+                        }, {
+                            field: $scope.security.property_current_market_value,
+                            validation: ""
+                        }];
+                        var check = formvalidation($scope.allvalidation);
+                    if (check) {
         //                $scope.today = new Date();
         security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
         console.log(security.enq_dob);
@@ -2418,7 +2451,7 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.stepawayset(security);
         $location.url("/app/securitychk");
         //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-        //            };
+                   };
     }
 
 })
@@ -2479,60 +2512,40 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.getmedeals = function (propertyloan) {
             console.log(propertyloan);
-            //            if (carloan.enq_is_salaried_ddl != "no") {
-            //                carloan.enq_occupation = "Salaried";
-            //            }
-            //            if ($scope.carloan.salaried == "1") {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_company_id,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            } else {
-            //                $scope.allvalidation = [{
-            //                    field: $scope.carloan.enq_loanAmtTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_tenureTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_currIncomeTo,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_dob,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_city,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_is_salaried_ddl,
-            //                    validation: ""
-            //                }, {
-            //                    field: $scope.carloan.enq_occupation,
-            //                    validation: ""
-            //                }];
-            //                var check = formvalidation($scope.allvalidation);
-            //            }
+                        if (propertyloan.enq_is_salaried_ddl != "no") {
+                            propertyloan.enq_occupation = "Salaried";
+                        }
+                            $scope.allvalidation = [{
+                                field: $scope.propertyloan.enq_loanAmtTo,
+                                validation: ""
+                            }, {
+                                field: $scope.propertyloan.enq_tenureTo,
+                                validation: ""
+                            }, {
+                                field: $scope.propertyloan.enq_currIncomeTo,
+                                validation: ""
+                            }, {
+                                field: $scope.propertyloan.enq_dob,
+                                validation: ""
+                            }, {
+                                field: $scope.propertyloan.enq_is_salaried_ddl,
+                                validation: ""
+                            },{
+                                field: $scope.propertyloan.property_current_market_value,
+                                validation: ""
+                            },{
+                                field: $scope.propertyloan.property_type,
+                                validation: ""
+                            },{
+                                field: $scope.propertyloan.enq_present_use_property,
+                                validation: ""
+                            },{
+                                field: $scope.propertyloan.enq_city,
+                                validation: ""
+                            }];
+                            var check = formvalidation($scope.allvalidation);
 
-            //            if (check) {
+                        if (check) {
             //                $scope.today = new Date();
             propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
             console.log(propertyloan.enq_dob);
@@ -2540,7 +2553,7 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.stepawayset(propertyloan);
             $location.url("/app/propertychk");
             //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            //            };
+                        };
         }
 
 
@@ -2668,22 +2681,48 @@ angular.module('starter.controllers', ['myservices'])
 
 
         }
-
-
-
-
-
         $scope.getmedeals = function (homeloan) {
             console.log(homeloan);
-
-
+                        if (homeloan.enq_is_salaried_ddl != "no") {
+                            homeloan.enq_occupation = "Salaried";
+                        }
+                            $scope.allvalidation = [{
+                                field: $scope.homeloan.enq_loanAmtTo,
+                                validation: ""
+                            }, {
+                                field: $scope.homeloan.enq_tenureTo,
+                                validation: ""
+                            }, {
+                                field: $scope.homeloan.enq_currIncomeTo,
+                                validation: ""
+                            }, {
+                                field: $scope.homeloan.enq_dob,
+                                validation: ""
+                            }, {
+                                field: $scope.homeloan.enq_city,
+                                validation: ""
+                            }, {
+                                field: $scope.homeloan.enq_is_salaried_ddl,
+                                validation: ""
+                            },{
+                                field: $scope.homeloan.property_type,
+                                validation: ""
+                            },{
+                                field: $scope.homeloan.enq_current_value_property,
+                                validation: ""
+                            }];
+                            var check = formvalidation($scope.allvalidation);
+                        if (check) {
+            //                $scope.today = new Date();
             homeloan.enq_dob = $filter('date')(homeloan.enq_dob, "dd-MM-yyyy");
             console.log(homeloan.enq_dob);
 
             MyServices.stepawayset(homeloan);
             $location.url("/app/homechklist");
+            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+                        };
+            
         }
-
         $scope.cities = [];
         $scope.allvalidation = [];
 

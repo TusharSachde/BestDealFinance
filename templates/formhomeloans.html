@@ -1,42 +1,42 @@
 <ion-view view-title="Home Loan" class="scroll-bg">
-    <ion-content class="has-header font500">
+    <ion-content class="has-header font500" scroll="false">
 
         <form ng-submit="" class="deal-form">
             <div class="list signin">
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="homeloan.enq_loanAmtTo">
+                    <span class="input-label">Loan Amount*</span>
+                    <input type="text" ng-model="homeloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="100000" max="20000000" ng-model="homeloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Tenure</span>
-                    <input type="text" ng-model="homeloan.enq_tenureTo">
+                    <span class="input-label">Tenure*</span>
+                    <input type="text" ng-model="homeloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="homeloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income</span>
-                    <input type="text" ng-model="homeloan.enq_currIncomeTo">
+                    <span class="input-label">Gross Monthly Income*</span>
+                    <input type="text" ng-model="homeloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="homeloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Date of Birth</span>
-                    <input type="date" ng-model="homeloan.enq_dob" ng-change="datechange()">
+                    <span class="input-label">Date of Birth*</span>
+                    <input type="date" ng-model="homeloan.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        City
+                        City*
                     </div>
-                    <select ng-model="homeloan.enq_city">
+                    <select ng-model="homeloan.enq_city" ng-class="allvalidation[4].validation" required>
                         <option>Please select</option>
 <!--
                         <option>Mumbai</option>
@@ -66,10 +66,9 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Are You Salaried ?
+                        Are You Salaried ?*
                     </div>
-                    <select ng-model="homeloan.enq_is_salaried_ddl">
-                        <option>Please select</option>
+                    <select ng-model="homeloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
@@ -105,10 +104,9 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Type Of Property
+                        Type Of Property*
                     </div>
-                    <select ng-model="homeloan.property_type">
-                        <option>Please select</option>
+                    <select ng-model="homeloan.property_type" ng-class="allvalidation[6].validation" required>
                         <option>Residential</option>
                         <option>Plot</option>
                     </select>
@@ -116,9 +114,9 @@
 
 
                 <label class="item item-input">
-                    <div class="input-label">Market Value</div>
+                    <div class="input-label">Market Value*</div>
                     <div class="price">
-                        <input type="number" ng-model="homeloan.enq_current_value_property">
+                        <input type="number" ng-model="homeloan.enq_current_value_property" ng-class="allvalidation[7].validation" required>
                     </div>
                 </label>
                 <ion-item class="item-checkbox">

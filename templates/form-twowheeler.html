@@ -1,43 +1,42 @@
 <ion-view view-title="Two Wheeler Loan" class="scroll-bg">
-    <ion-content class="has-header font500">
+    <ion-content class="has-header font500" scroll="false">
         <form ng-submit="" class="deal-form">
             <div class="list signin">
                 <label class="item item-input range-item">
-                    <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="twloan.enq_loanAmtTo">
+                    <span class="input-label">Loan Amount*</span>
+                    <input type="text" ng-model="twloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="100000" max="20000000" ng-model="twloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Tenure</span>
-                    <input type="text" ng-model="twloan.enq_tenureTo">
+                    <span class="input-label">Tenure*</span>
+                    <input type="text" ng-model="twloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="twloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income</span>
-                    <input type="text" ng-model="twloan.enq_currIncomeTo">
+                    <span class="input-label">Gross Monthly Income*</span>
+                    <input type="text" ng-model="twloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="twloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Date of Birth</span>
-                    <input type="date" ng-model="twloan.enq_dob" ng-change="datechange();">
+                    <span class="input-label">Date of Birth*</span>
+                    <input type="date" ng-model="twloan.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange();" required>
                 </label>
 
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Are You Salaried ?
+                        Are You Salaried ?*
                     </div>
-                    <select ng-model="twloan.enq_is_salaried_ddl">
-                        <option>Please select</option>
+                    <select ng-model="twloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
@@ -47,7 +46,7 @@
                     <div class="input-label">
                         Occupation
                     </div>
-                    <select ng-model="twloan.enq_occupation" ng-init="twloan.enq_occupation=''">
+                    <select ng-model="twloan.enq_occupation" ng-init="twloan.enq_occupation=''" required>
                         <option value="">Please select</option>
                         <option value="Housewife">Housewife</option>
                         <option value="Retired">Retired</option>
@@ -76,19 +75,18 @@
 
                 <label class="item item-input item-select ">
                     <div class="input-label ">
-                        City (Residing at)
+                        City (Residing at)*
                     </div>
-                    <select ng-model="twloan.enq_city">
+                    <select ng-model="twloan.enq_city" ng-class="allvalidation[5].validation" required>
                         <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
                     </select>
                 </label>
 
                 <label class="item item-input item-select ">
                     <div class="input-label ">
-                        Manufacturer
+                        Manufacturer*
                     </div>
-                    <select ng-model="twloan.enq_manufacturer" ng-change="getmodel(twloan.enq_manufacturer)">
-                        <option>Please select</option>
+                    <select ng-model="twloan.enq_manufacturer" ng-change="getmodel(twloan.enq_manufacturer)" ng-class="allvalidation[6].validation" required>
                         <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
 <!--
                         <option>HONDA</option>
@@ -99,10 +97,9 @@
 
                 <label class="item item-input item-select ">
                     <div class="input-label ">
-                        Model
+                        Model*
                     </div>
-                    <select ng-model="twloan.enq_model">
-                        <option>Please select</option>
+                    <select ng-model="twloan.enq_model" ng-class="allvalidation[7].validation" required>
                         <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
 <!--                        <option>Maruti Suzuki</option>-->
                     </select>
@@ -110,8 +107,8 @@
 
 
                 <label class="item item-input ">
-                    <span class="input-label ">Ex-Show Room Price of Car</span>
-                    <input type="text" ng-model="twloan.ex_showroom_cost">
+                    <span class="input-label ">Ex-Show Room Price of Car*</span>
+                    <input type="text" ng-model="twloan.ex_showroom_cost" ng-class="allvalidation[8].validation" required>
 
                 </label>
                 <ion-item class="item-checkbox">

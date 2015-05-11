@@ -1,53 +1,51 @@
 <ion-view view-title="Car Loan" class="scroll-bg">
-    <ion-content class="has-header font500">
+    <ion-content class="has-header font500" scroll="false">
         <form ng-submit="" class="deal-form">
             <div class="list signin">
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Loan Amount</span>
-                    <input type="text" ng-model="carloan.enq_loanAmtTo">
+                    <span class="input-label">Loan Amount*</span>
+                    <input type="text" ng-model="carloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="100000" max="20000000" ng-model="carloan.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Tenure</span>
-                    <input type="text" ng-model="carloan.enq_tenureTo">
+                    <span class="input-label">Tenure*</span>
+                    <input type="text" ng-model="carloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="carloan.enq_tenureTo" step="1">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income</span>
-                    <input type="text" ng-model="carloan.enq_currIncomeTo">
+                    <span class="input-label">Gross Monthly Income*</span>
+                    <input type="text" ng-model="carloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="carloan.enq_currIncomeTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Date of Birth</span>
-                    <input type="date" ng-model="carloan.enq_dob" ng-change="datechange()">
+                    <span class="input-label">Date of Birth*</span>
+                    <input type="date" ng-model="carloan.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange()" required>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
                         State
                     </div>
-                    <select ng-model="carloan.enq_state">
-                        <option>Please select</option>
+                    <select ng-model="carloan.enq_state" ng-class="allvalidation[4].validation" required>
                         <option ng-repeat="state in states" value="{{state.state_id}}">{{state.state_name}}</option>
                     </select>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Are You Salaried ?
+                        Are You Salaried ?*
                     </div>
-                    <select ng-model="carloan.enq_is_salaried_ddl">
-                        <option>Please select</option>
+                    <select ng-model="carloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
                         <option>Yes</option>
                         <option>No</option>
                     </select>
@@ -58,7 +56,6 @@
                         Occupation
                     </div>
                     <select ng-model="carloan.enq_occupation">
-                        <option>Please select</option>
                         <option ng-repeat="occupation in occupations" value="occupation.occupation">{{occupation.occupation}}</option>
                     </select>
                 </label>
@@ -82,10 +79,10 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Manufacturer
+                        Manufacturer*
                     </div>
-                    <select ng-model="carloan.enq_manufacturer" ng-change="getmodel(carloan.enq_manufacturer)">
-                        <option>Please select</option>
+                    <select ng-model="carloan.enq_manufacturer" ng-change="getmodel(carloan.enq_manufacturer)" ng-class="allvalidation[6].validation" required>
+                        
                         <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
                         <!--                        <option>MARUTI</option>-->
                     </select>
@@ -93,18 +90,17 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Model
+                        Model*
                     </div>
-                    <select ng-model="carloan.enq_model">
-                        <option>Please select</option>
+                    <select ng-model="carloan.enq_model" ng-class="allvalidation[7].validation" required>
                         <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
                         <!--                        <option>Maruti Suzuki</option>-->
                     </select>
                 </label>
                 <label class="item item-input">
-                    <div class="input-label">Ex-Show Room Price of Car</div>
+                    <div class="input-label">Ex-Show Room Price of Car*</div>
                     <div class="price">
-                        <input type="text" ng-model="carloan.ex_showroom_cost">
+                        <input type="text" ng-model="carloan.ex_showroom_cost" ng-class="allvalidation[8].validation" required>
                     </div>
                 </label>
                 <ion-item class="item-checkbox">

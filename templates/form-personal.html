@@ -1,19 +1,25 @@
 <ion-view view-title="Personal Loan" class="scroll-bg">
-    <ion-content class="has-header font500">
+    <ion-content class="has-header font500" scroll="false">
 
         <form ng-submit="" class="deal-form">
             <div class="list signin">
 
                 <label class="item item-input range-item">
+<<<<<<< HEAD
                     <span class="input-label">Loan Amount</span>
                     <input type="text" class="lamt" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
                     <div class="range range-assertive" ng-touch="$('.lamt').focus();">
+=======
+                    <span class="input-label">Loan Amount*</span>
+                    <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
+                    <div class="range range-assertive">
+>>>>>>> origin/master
                         <input type="range" min="100000" max="20000000" ng-model="personal.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Tenure</span>
+                    <span class="input-label">Tenure*</span>
                     <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
                     <div class="range range-assertive" ng-touch="$('.lamt').focus();">
                         <input type="range" min="6" max="84" ng-model="personal.enq_tenureTo" step="1">
@@ -21,7 +27,7 @@
                 </label>
 
                 <label class="item item-input range-item">
-                    <span class="input-label">Gross Monthly Income</span>
+                    <span class="input-label">Gross Monthly Income*</span>
                     <input type="text" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="personal.enq_currIncomeTo" step="1000">
@@ -29,7 +35,7 @@
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Date of Birth</span>
+                    <span class="input-label">Date of Birth*</span>
                     <input type="date" ng-model="personal.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange()" required>
                 </label>
 
@@ -44,7 +50,7 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Are You Salaried ?
+                        Are You Salaried ?*
                     </div>
                     <select ng-model="personal.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
                         <option value="Yes">Yes</option>
