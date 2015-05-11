@@ -6,6 +6,8 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
+                    <input type="text" id="lamt" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
+                    <div class="range range-assertive" onclick="document.getElementById('lamt').focus(); return false;">
                         <input type="range" min="100000" max="20000000" ng-model="personal.enq_loanAmtTo" step="1000">
                     </div>
                 </label>
