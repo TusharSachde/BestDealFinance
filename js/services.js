@@ -372,9 +372,9 @@ var myservices = angular.module('myservices', [])
                 url: adminurl + "getcompany",
                 method: "POST",
                 data: {
-                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
-                    "Token": "1234",
-                    "Data": {}
+//                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+//                    "Token": "1234",
+//                    "Data": {}
                 }
             })
         },

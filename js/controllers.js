@@ -42,6 +42,7 @@ angular.module('starter.controllers', ['myservices'])
     //  GET COMPANY
     var companysuccess = function (data, status) {
         $scope.companies = data.Data;
+        console.log($scope.companies);
     }
     MyServices.getcompany().success(companysuccess);
 
