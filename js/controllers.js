@@ -1987,10 +1987,10 @@ angular.module('starter.controllers', ['myservices'])
         //  DESIGN CODE
 
         $scope.personal = {
-            'enq_loanAmtTo': 20000,
-            'enq_tenureTo': 6,
-            'enq_currIncomeTo': 15000,
-            'enq_is_salaried_ddl': 'No',
+            'enq_loanAmtTo':'50000',
+            'enq_tenureTo': '12',
+            'enq_currIncomeTo':'12000',
+            'enq_is_salaried_ddl':'',
             'enq_dob': new Date()
         };
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
