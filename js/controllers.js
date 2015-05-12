@@ -1584,11 +1584,11 @@ angular.module('starter.controllers', ['myservices'])
         }
 
         //  SELECT COMPANY
-        $scope.selectcomp = function (comp) {
-            console.log(comp);
-            $scope.modal.hide();
-            $scope.creditloan.enq_company_id = comp;
-        }
+//        $scope.selectcomp = function (comp) {
+//            console.log(comp);
+//            $scope.modal.hide();
+//            $scope.creditloan.enq_company_id = comp;
+//        }
 
         //  PERSONAL FIRST LOAN FORN SUBMIT
         var stepawayplsuccess = function (data, status) {
