@@ -2007,6 +2007,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
+    
+    //know more
+     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
+
+    $scope.openTerms = function () {
+        $scope.modal.show();
+    };
+
+    $scope.closeModal = function () {
+        $scope.modal.hide();
+    };
 
         //  DECLARATION
         $scope.cities = [];
