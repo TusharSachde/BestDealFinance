@@ -40,10 +40,10 @@ angular.module('starter.controllers', ['myservices'])
     MyServices.getocupation().success(ocupationsuccess);
 
     //  GET COMPANY
-    //    var companysuccess = function (data, status) {
-    //        $scope.companies = data.Data;
-    //    }
-    //    MyServices.getcompany().success(companysuccess);
+    var companysuccess = function (data, status) {
+        $scope.companies = data.Data;
+    }
+    MyServices.getcompany().success(companysuccess);
 
 })
 
@@ -2013,15 +2013,15 @@ angular.module('starter.controllers', ['myservices'])
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function (modal) {
-        $scope.modal = modal;
+        $scope.modalterms= modal;
     });
 
     $scope.openTerms = function () {
-        $scope.modal.show();
+        $scope.modalterms.show();
     };
 
     $scope.closeModal = function () {
-        $scope.modal.hide();
+        $scope.modalterms.hide();
     };
 
         //  DECLARATION
