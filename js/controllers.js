@@ -54,7 +54,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.allvalidation = [];
 
     //  AUTHENTICATE JSTORAGE
-    //    MyServices.flushuser();
+        MyServices.flushuser();
     if (MyServices.getuser()) {
         $location.url("/app/home");
     }
