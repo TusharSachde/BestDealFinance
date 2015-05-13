@@ -2008,7 +2008,23 @@ angular.module('starter.controllers', ['myservices'])
     })
     //DHAVAL END
 
-.controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+.controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location,$ionicModal) {
+    //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
+
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
+})
     .controller('ReferPropertyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferEarnCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferalDetailsCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
