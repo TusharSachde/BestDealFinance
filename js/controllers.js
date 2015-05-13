@@ -54,7 +54,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.allvalidation = [];
 
     //  AUTHENTICATE JSTORAGE
-        MyServices.flushuser();
+    MyServices.flushuser();
     if (MyServices.getuser()) {
         $location.url("/app/home");
     }
@@ -439,7 +439,19 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+.controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+
+    var geniesuccess = function (data, status) {
+        console.log(data);
+        if (data.Message != "Fail message.") {
+            $location.url("/app/listgenie");
+        }
+    }
+    $scope.getgeniecat = function () {
+        console.log("genie clicked");
+        MyServices.getgeniecategory().success(geniesuccess);
+    }
+})
 
 .controller('LoanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
         //    jagruti
@@ -1553,22 +1565,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         //  DECLARATION
         $scope.cities = [];
@@ -1599,7 +1611,7 @@ angular.module('starter.controllers', ['myservices'])
 
         }
 
-          //SELECT COMPANY
+        //SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
@@ -1708,27 +1720,27 @@ angular.module('starter.controllers', ['myservices'])
         };
     })
     //DHAVAL START
-    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading,$ionicModal) {
+    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "29",
         }
-        
-         //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
@@ -1809,22 +1821,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.sme = {
             enq_loanType: "33",
         }
-        
-         //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
@@ -1906,22 +1918,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.sme = {
             enq_loanType: "32",
         }
-        
-         //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         var dropsuccess = function (data, status) {
             $scope.cities = data.Data;
@@ -2052,10 +2064,10 @@ angular.module('starter.controllers', ['myservices'])
         //  DESIGN CODE
 
         $scope.personal = {
-            'enq_loanAmtTo':'50000',
+            'enq_loanAmtTo': '50000',
             'enq_tenureTo': '12',
-            'enq_currIncomeTo':'12000',
-            'enq_is_salaried_ddl':'',
+            'enq_currIncomeTo': '12000',
+            'enq_is_salaried_ddl': '',
             'enq_dob': new Date()
         };
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
@@ -2072,22 +2084,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-    //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         //  DECLARATION
         $scope.cities = [];
@@ -2221,22 +2233,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
@@ -2349,22 +2361,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
 
         //  DECLARATION
@@ -2495,13 +2507,13 @@ angular.module('starter.controllers', ['myservices'])
     $scope.closeModal = function () {
         $scope.modal.hide();
     };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+
+    //know more
+    $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
         scope: $scope,
         animation: 'slide-in-up'
     }).then(function (modal) {
-        $scope.modalterms= modal;
+        $scope.modalterms = modal;
     });
 
     $scope.openTerms = function () {
@@ -2618,22 +2630,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
 
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
@@ -2812,22 +2824,22 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modal.hide();
         };
-    
-     //know more
-     $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.modalterms= modal;
-    });
 
-    $scope.openTerms = function () {
-        $scope.modalterms.show();
-    };
+        //know more
+        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalterms = modal;
+        });
 
-    $scope.closeModal = function () {
-        $scope.modalterms.hide();
-    };
+        $scope.openTerms = function () {
+            $scope.modalterms.show();
+        };
+
+        $scope.closeModal = function () {
+            $scope.modalterms.hide();
+        };
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
