@@ -397,7 +397,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         })
         .state('app.geniedeal', {
-            url: "/geniedeal",
+            url: "/geniedeal/:dealid",
             views: {
                 'menuContent': {
                     templateUrl: "templates/geinedeal.html",

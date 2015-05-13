@@ -957,6 +957,19 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        getgeniedeal: function (deal) {
+            var session = $.jStorage.get("user");
+            return $http({
+                url: adminurl + "getdealgeniedetails",
+                method: "POST",
+                data: {
+                    "Data": {
+                        "customersessionid": session.customersessionid,
+                        "dealid": deal
+                    }
+                }
+            })
+        },
         //DHAVAL END
         getplaningfor: function () {
             return planfor;

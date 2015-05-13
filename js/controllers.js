@@ -2008,8 +2008,8 @@ angular.module('starter.controllers', ['myservices'])
     })
     //DHAVAL END
 
-.controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location,$ionicModal) {
-    //know more
+.controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal) {
+        //know more
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -2024,7 +2024,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModal = function () {
             $scope.modalterms.hide();
         };
-})
+    })
     .controller('ReferPropertyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferEarnCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('ReferalDetailsCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
@@ -2071,7 +2071,15 @@ angular.module('starter.controllers', ['myservices'])
 
 //  MAHESH END
 .controller('ReferCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+        console.log("DealId=" + $stateParams.dealid);
+        
+        var geniedealsuccess=function(data,status){
+            $scope.deals=data;
+            console.log(data);
+        };
+        MyServices.getgeniedeal($stateParams.dealid).success(geniedealsuccess);
+    })
     .controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 
