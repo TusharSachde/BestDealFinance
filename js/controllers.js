@@ -1708,7 +1708,7 @@ angular.module('starter.controllers', ['myservices'])
         };
     })
     //DHAVAL START
-    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading,$ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "29",
@@ -1804,7 +1804,7 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL END
     .controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     //DHAVAl START
-    .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "33",
@@ -1901,7 +1901,7 @@ angular.module('starter.controllers', ['myservices'])
     })
     //DHAVAL END
     //DHAVAL START
-    .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+    .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "32",
