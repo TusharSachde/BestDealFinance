@@ -1170,3 +1170,14 @@ form.ng-invalid.ng-dirty.frm-bdr {
     border-color: transparent;
     margin-bottom: 4px;
 }
+.tnc p{
+    padding:60px 15px 15px 15px;
+}
+.tnc{
+    background-color: white;
+    width: 90%;
+    margin:20% auto;
+}
+.termsbg{
+    background-color: rgba(0, 0, 0, 0.72);
+}
