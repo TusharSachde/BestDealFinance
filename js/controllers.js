@@ -2073,9 +2073,9 @@ angular.module('starter.controllers', ['myservices'])
 .controller('ReferCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
         console.log("DealId=" + $stateParams.dealid);
-        
-        var geniedealsuccess=function(data,status){
-            $scope.deals=data;
+
+        var geniedealsuccess = function (data, status) {
+            $scope.deals = data;
             console.log(data);
         };
         MyServices.getgeniedeal($stateParams.dealid).success(geniedealsuccess);
@@ -2094,6 +2094,8 @@ angular.module('starter.controllers', ['myservices'])
             'enq_is_salaried_ddl': '',
             'enq_dob': new Date()
         };
+
+
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'

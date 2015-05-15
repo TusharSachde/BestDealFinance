@@ -44,7 +44,7 @@
                         <option>Mumbai</option>
                         <option>Pune</option>
 -->
-                    <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
+                    <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>
                     <!--
                         <option>Banglore</option>
                         <option>Pune</option>

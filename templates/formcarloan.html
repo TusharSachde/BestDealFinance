@@ -40,7 +40,7 @@
                     State
                 </div>
                 <select ng-model="carloan.enq_state" ng-class="allvalidation[4].validation" required>
-                    <option ng-repeat="state in states" value="{{state.state_id}}">{{state.state_name}}</option>
+                    <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
                 </select>
             </label>
 

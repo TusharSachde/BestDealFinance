@@ -22,7 +22,7 @@
                     City*
                 </div>
                 <select ng-model="creditloan.enq_city" ng-class="allvalidation[2].validation" required>
-                    <option ng-repeat="city in cities" value="{{city.city_name}}">{{city.city_name}}</option>
+                    <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>
                     <!--
                         <option>Please select</option>
                         <option>Mumbai</option>
