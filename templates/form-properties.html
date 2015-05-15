@@ -112,9 +112,7 @@
                     City*
                 </div>
                 <select ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>
-                    <option>Mumbai</option>
-                    <option>Pune</option>
-                    <option>Panvel</option>
+                    <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                 </select>
             </label>
 

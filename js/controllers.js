@@ -2665,6 +2665,12 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modalterms = modal;
         });
 
+        var dropsuccess = function (data, status) {
+            $scope.cities = data.Data;
+            $ionicLoading.hide();
+        }
+        MyServices.getdropdowncity().success(dropsuccess);
+
         $scope.openTerms = function () {
             $scope.modalterms.show();
         };
@@ -2745,8 +2751,6 @@ angular.module('starter.controllers', ['myservices'])
                 //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
             };
         }
-
-        $ionicLoading.hide();
     })
     //property loan ends
     //SAPANA STARTS
