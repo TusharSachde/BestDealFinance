@@ -51,7 +51,7 @@ angular.module('starter.controllers', ['myservices'])
     }
 
     var citysuccess = function (data, status) {
-        $scope.cities = data.Data;
+        $scope.citie = data.Data;
     }
     $scope.doSearchCity = function (datasearch) {
         if (datasearch.length >= 3) {
@@ -2218,17 +2218,17 @@ angular.module('starter.controllers', ['myservices'])
         };
 
         //  DECLARATION
-        $scope.cities = [];
+
         $scope.allvalidation = [];
 
-
-        // GET ALL DROPDOWN
-        var dropsuccess = function (data, status) {
-            $scope.cities = data.Data;
-            $ionicLoading.hide();
+        //  SELECT CITY
+        $scope.selectcityid = function (cityid,cityname) {
+            console.log("City Id=" + cityid);
+            $scope.modalcity.hide();
+            $scope.twloan.enq_city = cityid;
+            $scope.cityName=cityname;
         }
-        $ionicLoading.show();
-        MyServices.getdropdowncity().success(dropsuccess);
+
 
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
@@ -2522,17 +2522,16 @@ angular.module('starter.controllers', ['myservices'])
 
 
         //  DECLARATION
-        $scope.cities = [];
         $scope.allvalidation = [];
 
 
-
-        // GET ALL DROPDOWN
-        var dropsuccess = function (data, status) {
-            $scope.cities = data.Data;
-            $ionicLoading.hide();
+        //  SELECT CITY
+        $scope.selectcityid = function (cityid,cityname) {
+            console.log("City Id=" + cityid);
+            $scope.modalcity.hide();
+            $scope.twloan.enq_city = cityid;
+            $scope.cityName=cityname;
         }
-        MyServices.getdropdowncity().success(dropsuccess);
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -2618,6 +2617,7 @@ angular.module('starter.controllers', ['myservices'])
                 //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
             };
         }
+        $ionicLoading.hide();
 
     })
 
@@ -3089,17 +3089,16 @@ angular.module('starter.controllers', ['myservices'])
             };
 
         }
-        $scope.cities = [];
+        
         $scope.allvalidation = [];
-
-        // GET ALL DROPDOWN
-        var dropsuccess = function (data, status) {
-            $scope.cities = data.Data;
-            $ionicLoading.hide();
+        //  SELECT CITY
+        $scope.selectcityid = function (cityid,cityname) {
+            console.log("City Id=" + cityid);
+            $scope.modalcity.hide();
+            $scope.homeloan.enq_city = cityid;
+            $scope.cityName=cityname;
         }
-        MyServices.getdropdowncity().success(dropsuccess);
-
-
+        $ionicLoading.hide();
     })
     //sapana ends
 
