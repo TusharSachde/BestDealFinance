@@ -1719,6 +1719,12 @@ angular.module('starter.controllers', ['myservices'])
 
         //  GET USER DETAILS
         $scope.user = MyServices.getuser();
+    
+        var myaccountsuccess=function(data,status){
+            $scope.myapply=data.Data;
+            console.log($scope.myapply);
+        }
+        MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
 
     })
     .controller('ConstructFormCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location) {

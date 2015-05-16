@@ -15,19 +15,19 @@
         <div class="padding"></div>
         <div class="bold-list" ng-if="myapp=='bold'">
             <ion-list class="list-myprofile">
-                <ion-item>
+                <ion-item ng-repeat="apply in myapply">
                     <div class="row no-pad bordereds main-accnt text-center">
                         <div class="col-33 cls-bgcolor bordered">
                             <div class="assest">
                                 <img src="img/car.png" class="car full-image">
-                                <p class="padded">Car Loan</p>
+                                <p class="padded">{{apply.enq_loanType}}</p>
                             </div>
                         </div>
                         <div class="col-67 cls-bgcolors">
                             <div class="amt-text">
-                                <p class="top-corner">ID: <span>93834</span>
+                                <p class="top-corner">ID: <span>{{apply.enq_appID}}</span>
                                 </p>
-                                <h2>Rs 7,50,000</h2>
+                                <h2>Rs {{apply.enq_loanAmtTo}}</h2>
                             </div>
 
                             <div class="row no-pad bordereds text-center">
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="col">
                                     <p class="simple-text">Months</p>
-                                    <h3>2</h3>
+                                    <h3>{{apply.enq_tenureTo}}</h3>
                                 </div>
                                 <div class="col">
                                     <img src="img/edits.png" class="edit">
@@ -46,6 +46,7 @@
                         </div>
                     </div>
                 </ion-item>
+<!--
                 <ion-item>
                     <div class="row no-pad bordereds main-accnt text-center">
                         <div class="col-33 cls-bgcolor bordered">
@@ -108,6 +109,7 @@
                         </div>
                     </div>
                 </ion-item>
+-->
             </ion-list>
         </div>
 
