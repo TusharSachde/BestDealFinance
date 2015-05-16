@@ -458,6 +458,7 @@ angular.module('starter.controllers', ['myservices'])
         console.log(data);
         if (data.Message != "Fail message.") {
             $location.url("/app/listgenie");
+            $scope.genielist = data;
         }
     }
     $scope.getgeniecat = function () {
@@ -2157,6 +2158,18 @@ angular.module('starter.controllers', ['myservices'])
                 $ionicSlideBoxDelegate.next();
             }
 
+        };
+
+        $scope.redirectToLoan = function () {
+            if ($stateParams.dealid == 1) {
+                $location.url("/app/carloan");
+            } else if ($stateParams.dealid == 2 || $stateParams.dealid == 3) {
+                $location.url("/app/homeloan");
+            }else if ($stateParams.dealid == 4) {
+                $location.url("/app/twowheelerloan");
+            }else if ($stateParams.dealid == 5) {
+                $location.url("/app/personal");
+            }
         };
 
     })
