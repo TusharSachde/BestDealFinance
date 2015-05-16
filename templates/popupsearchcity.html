@@ -8,18 +8,18 @@
 
     <ion-content>
         <ion-list>
-            <form class="item item-input-inset only-horizontal " ng-submit="doSearchCompany(datasearch); ">
+            <form class="item item-input-inset only-horizontal " ng-submit="doSearchCity(datasearch); ">
                 <label class="item-input-wrapper ">
-                    <input type="text " placeholder="City Name " ng-model="datasearch " ng-change="doSearchCompany(datasearch);" style="border: 0px;">
+                    <input type="text " placeholder="City Name " ng-model="datasearch " ng-change="doSearchCity(datasearch);" style="border: 0px;">
                 </label>
                 <button class="button button-icon ion-search " type="submit "></button>
             </form>
 
             <!--Repeat pincode, cities-->
             <!--            <ion-item ng-click="selectcomp('Puratek company'); ">Puratek company</ion-item>-->
-            <ion-item ng-click="selectcomp(company.company_name);" ng-repeat="company in companies">{{company.company_name}}</ion-item>
+            <ion-item ng-click="selectcity(city.city_id);" ng-repeat="city in citie">{{city.city_name}}</ion-item>
 
-            <ion-item ng-if="allpincodes.length==0">No data found.</ion-item>
+<!--            <ion-item ng-if="allpincodes.length==0">No data found.</ion-item>-->
 
         </ion-list>
 
