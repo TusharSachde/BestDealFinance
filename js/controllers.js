@@ -192,7 +192,7 @@ angular.module('starter.controllers', ['myservices'])
     });
 
 
-    $scope.closeModal = function () {
+    $scope.closeModalComp = function () {
         $scope.modal.hide();
     };
 
@@ -1575,7 +1575,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
@@ -1728,7 +1728,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
     })
@@ -2132,7 +2132,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
@@ -2287,7 +2287,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
@@ -2422,7 +2422,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
@@ -2458,7 +2458,7 @@ angular.module('starter.controllers', ['myservices'])
         //  SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
-            $scope.modal.hide();
+            $scope.closeModalComp();
             $scope.twloan.enq_company_id = comp;
         }
 
@@ -2568,7 +2568,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.modal.show();
     }
 
-    $scope.closeModal = function () {
+    $scope.closeModalComp = function () {
         $scope.modal.hide();
     };
 
@@ -2691,7 +2691,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
@@ -2889,7 +2889,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
         }
 
-        $scope.closeModal = function () {
+        $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
 
