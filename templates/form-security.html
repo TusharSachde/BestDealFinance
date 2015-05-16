@@ -36,18 +36,20 @@
                 <input type="date" ng-model="security.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
             </label>
 
-            <label class="item item-input item-select">
+            <label class="item item-input" ng-click="selectcity();">
                 <div class="input-label">
                     City (Residing at)*
                 </div>
+                <!--
                 <select ng-model="security.enq_city" ng-class="allvalidation[4].validation" required>
                     <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>
-                    <!--
+                    
                         <option>Mumbai</option>
                         <option>Pune</option>
                         <option>Panvel</option>
--->
+
                 </select>
+-->
             </label>
 
 

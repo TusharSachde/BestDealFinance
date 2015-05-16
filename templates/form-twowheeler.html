@@ -75,13 +75,15 @@
 -->
             </label>
 
-            <label class="item item-input item-select ">
+            <label class="item item-input" ng-click="selectcity();">
                 <div class="input-label ">
                     City (Residing at)*
                 </div>
+                <!--
                 <select ng-model="twloan.enq_city" ng-class="allvalidation[5].validation" required>
                     <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>
                 </select>
+-->
             </label>
 
             <label class="item item-input item-select ">

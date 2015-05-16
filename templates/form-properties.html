@@ -107,13 +107,15 @@
                 </select>
             </label>
 
-            <label class="item item-input item-select">
+            <label class="item item-input" ng-click="selectcity();">
                 <div class="input-label">
                     City*
                 </div>
+                <!--
                 <select ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>
                     <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                 </select>
+-->
             </label>
 
             <ion-item class="item-checkbox">

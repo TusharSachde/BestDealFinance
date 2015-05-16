@@ -34,22 +34,24 @@
                 <span class="input-label">Date of Birth*</span>
                 <input type="date" ng-model="homeloan.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
             </label>
-            <label class="item item-input item-select">
+            <label class="item item-input" ng-click="selectcity();">
                 <div class="input-label">
                     City*
                 </div>
+                <!--
                 <select ng-model="homeloan.enq_city" ng-class="allvalidation[4].validation" required>
                     <option>Please select</option>
-                    <!--
+                    
                         <option>Mumbai</option>
                         <option>Pune</option>
--->
+
                     <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>
-                    <!--
+                    
                         <option>Banglore</option>
                         <option>Pune</option>
--->
+
                 </select>
+-->
             </label>
             <!--
                 

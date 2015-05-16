@@ -36,16 +36,18 @@
                     </div>
                     <select ng-model="sme.enq_state" ng-class="allvalidation[6].validation" required>
                         <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
-<!--                        <option>Karnataka</option>-->
+                        <!--                        <option>Karnataka</option>-->
                     </select>
                 </label>
-                <label class="item item-input item-select">
+                <label class="item item-input" ng-click="selectcity();">
                     <div class="input-label">
                         City
                     </div>
+                    <!--
                     <select ng-model="sme.enq_city" ng-class="allvalidation[7].validation" required>
                         <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                     </select>
+-->
                 </label>
 
                 <label class="item item-input item-select">
