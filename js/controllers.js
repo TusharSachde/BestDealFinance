@@ -2135,7 +2135,20 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModalComp = function () {
             $scope.modal.hide();
         };
+        $ionicModal.fromTemplateUrl('templates/popupsearchcity.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalcity = modal;
+        });
 
+        $scope.selectcity = function () {
+            $scope.modalcity.show();
+        }
+
+        $scope.closeModalCity = function () {
+            $scope.modalcity.hide();
+        };
         //know more
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,
