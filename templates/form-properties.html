@@ -107,9 +107,9 @@
                 </select>
             </label>
 
-            <label class="item item-input" ng-click="selectcity();">
+            <label class="item item-input" ng-click="selectcity();" ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>
                 <div class="input-label">
-                    City*
+                    City*<span class="citysearch">{{cityName}}</span>
                 </div>
                 <!--
                 <select ng-model="propertyloan.enq_city" ng-class="allvalidation[8].validation" required>

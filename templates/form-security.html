@@ -36,9 +36,9 @@
                 <input type="date" ng-model="security.enq_dob" ng-change="datechange()" ng-class="allvalidation[3].validation" required>
             </label>
 
-            <label class="item item-input" ng-click="selectcity();">
+            <label class="item item-input" ng-click="selectcity();" ng-model="security.enq_city" ng-class="allvalidation[4].validation" required>
                 <div class="input-label">
-                    City (Residing at)*
+                    City (Residing at)*<span class="citysearch">{{cityName}}</span>
                 </div>
                 <!--
                 <select ng-model="security.enq_city" ng-class="allvalidation[4].validation" required>

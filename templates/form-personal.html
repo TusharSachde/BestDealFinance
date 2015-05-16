@@ -34,9 +34,9 @@
                 <input type="date" ng-model="personal.enq_dob" ng-class="allvalidation[3].validation" ng-change="datechange()" required>
             </label>
 
-            <label class="item item-input" ng-click="selectcity();">
+            <label class="item item-input" ng-click="selectcity();" ng-model="personal.enq_city" ng-class="allvalidation[4].validation " required>
                 <div class=" input-label ">
-                    City
+                    City*<span class="citysearch">{{cityName}}</span>
                 </div>
                 <!--
                 <select ng-model="personal.enq_city " ng-class="allvalidation[4].validation " required>

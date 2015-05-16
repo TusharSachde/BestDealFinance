@@ -17,9 +17,9 @@
                 <input type="date" ng-model="creditloan.enq_dob" ng-change="datechange()" ng-class="allvalidation[1].validation" required>
             </label>
 
-            <label class="item item-input" ng-click="selectcity();">
+            <label class="item item-input" ng-click="selectcity();" ng-model="creditloan.enq_city" ng-class="allvalidation[2].validation" required>
                 <div class="input-label">
-                    City*
+                    City*<span class="citysearch">{{cityName}}</span>
                 </div>
                 <!--
                 <select ng-model="creditloan.enq_city" ng-class="allvalidation[2].validation" required>
