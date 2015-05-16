@@ -1,38 +1,28 @@
 <ion-view view-title="Buy a Car" class="scroll-bg">
     <ion-content class="has-header font500">
-        <ion-slide-box auto-play="true" show-pager="true" class="sliderss">
-            <ion-slide>
+        <ion-slide-box auto-play="true" show-pager="true" class="sliderss" ng-if="deals.length>0">
+            <ion-slide ng-repeat="deal in deals">
                 <div class="box">
                     <div class="sliders">
-                        <img src="img/slider.png">
+                        <img ng-src="{{deal.deal_image}}">
                     </div>
                 </div>
             </ion-slide>
-            <ion-slide>
-                <div class="box">
-                    <div class="sliders">
-                        <img src="img/slider.png">
-                    </div>
-                </div>
-            </ion-slide>
-            <ion-slide>
-                <div class="box">
-                    <div class="sliders">
-                        <img src="img/slider.png">
-                    </div>
-                </div>
-            </ion-slide>
+
         </ion-slide-box>
+        <div ng-if="deals.length==0">
+            <h5 style="padding:100px;color:white;text-align:center;">Loading...</h5>
+        </div>
         <div class="navigationss">
-            <img src="img/leftbutton.png" class="img-left">
-            <img src="img/rightbar.png" class="img-right">
+            <img src="img/leftbutton.png" class="img-left" ng-click="changeslide(1);">
+            <img src="img/rightbar.png" class="img-right" ng-click="changeslide(2);">
         </div>
         <div class="geinue-car">
             <div class="mk2">
                 <img src="img/tickred.png">
                 <h4>Apply Now</h4>
             </div>
-            <div class="mk2">
+            <div class="mk2" >
                 <img src="img/search.png">
                 <h4>Search More</h4>
             </div>

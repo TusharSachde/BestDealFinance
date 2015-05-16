@@ -2084,16 +2084,28 @@ angular.module('starter.controllers', ['myservices'])
 
 //  MAHESH END
 .controller('ReferCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+    .controller('GenieDealCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicSlideBoxDelegate) {
+        $scope.deals = [];
         console.log("DealId=" + $stateParams.dealid);
-
         var geniedealsuccess = function (data, status) {
             $scope.deals = data;
-            console.log(data);
+            console.log($scope.deals);
         };
         MyServices.getgeniedeal($stateParams.dealid).success(geniedealsuccess);
+
+        $scope.changeslide = function (num) {
+            //            console.log(num);
+            if (num == 1) {
+                $ionicSlideBoxDelegate.previous();
+            } else {
+                $ionicSlideBoxDelegate.next();
+            }
+
+        };
+
     })
-    .controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+
+.controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 
         //        console.log(age());
@@ -2263,7 +2275,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.manufacturers = data.Data;
         }
         MyServices.getdropdownmanufacturer(22).success(manufacturersuccess);
-    
+
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
