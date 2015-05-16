@@ -20,11 +20,6 @@ angular.module('starter.controllers', ['myservices'])
     }
     MyServices.getdropdownstate().success(statesuccess);
 
-    //  GET MANUFACTURER
-    var manufacturersuccess = function (data, status) {
-        $scope.manufacturers = data.Data;
-    }
-    MyServices.getdropdownmanufacturer().success(manufacturersuccess);
 
     //  GET MODEL
     var modelsuccess = function (data, status) {
@@ -40,11 +35,29 @@ angular.module('starter.controllers', ['myservices'])
     MyServices.getocupation().success(ocupationsuccess);
 
     //  GET COMPANY
+    //    var companysuccess = function (data, status) {
+    //        $scope.companies = data.Data;
+    //        console.log($scope.companies);
+    //    }
+    //    MyServices.getcompany().success(companysuccess);
+
     var companysuccess = function (data, status) {
         $scope.companies = data.Data;
-        console.log($scope.companies);
     }
-    MyServices.getcompany().success(companysuccess);
+    $scope.doSearchCompany = function (datasearch) {
+        if (datasearch.length >= 3) {
+            MyServices.getcompany(datasearch).success(companysuccess);
+        }
+    }
+
+    var citysuccess = function (data, status) {
+        $scope.cities = data.Data;
+    }
+    $scope.doSearchCity = function (datasearch) {
+        if (datasearch.length >= 3) {
+            MyServices.getdropdowncity(datasearch).success(citysuccess);
+        }
+    }
 
 })
 
@@ -2245,6 +2258,12 @@ angular.module('starter.controllers', ['myservices'])
             'enq_dob': new Date()
 
         };
+        //  GET MANUFACTURER
+        var manufacturersuccess = function (data, status) {
+            $scope.manufacturers = data.Data;
+        }
+        MyServices.getdropdownmanufacturer(22).success(manufacturersuccess);
+    
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -2373,6 +2392,13 @@ angular.module('starter.controllers', ['myservices'])
             'enq_dob': new Date(),
 
         };
+
+        //  GET MANUFACTURER
+        var manufacturersuccess = function (data, status) {
+            $scope.manufacturers = data.Data;
+        }
+        MyServices.getdropdownmanufacturer(23).success(manufacturersuccess);
+
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'

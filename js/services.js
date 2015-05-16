@@ -299,14 +299,16 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        getdropdowncity: function () {
+        getdropdowncity: function (datasearch) {
             return $http({
                 url: adminurl + "getcity",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
-                    "Data": {}
+                    "Data": {
+                        "citychar": datasearch
+                    }
                 }
             })
         },
@@ -321,14 +323,16 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        getdropdownmanufacturer: function () {
+        getdropdownmanufacturer: function (manuproductid) {
             return $http({
                 url: adminurl + "getmanufacturer",
                 method: "POST",
                 data: {
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
-                    "Data": {}
+                    "Data": {
+                        "manuproductid": manuproductid
+                    }
                 }
             })
         },
@@ -367,14 +371,14 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-        getcompany: function () {
+        getcompany: function (datasearch) {
             return $http({
                 url: adminurl + "getcompany",
                 method: "POST",
                 data: {
-                    //                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
-                    //                    "Token": "1234",
-                    //                    "Data": {}
+                    "Data": {
+                        "searchchar": datasearch
+                    }
                 }
             })
         },

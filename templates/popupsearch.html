@@ -2,15 +2,15 @@
     <ion-header-bar class="bg-grnd">
         <h1 class="title">Company Name</h1>
         <div class="buttons closebtn">
-            <button class=" button button-icon ion-close-round popup-btn" ng-click="closeModal(); "></button>
+            <button class=" button button-icon ion-close-round popup-btn" ng-click="closeModal();"></button>
         </div>
     </ion-header-bar>
 
     <ion-content>
         <ion-list>
-            <form class="item item-input-inset only-horizontal " ng-submit="doSearch(datasearch); ">
+            <form class="item item-input-inset only-horizontal " ng-submit="doSearchCompany(datasearch); ">
                 <label class="item-input-wrapper ">
-                    <input type="text " placeholder="Company Name " ng-model="datasearch " ng-change="doSearch(datasearch);" style="border: 0px;">
+                    <input type="text " placeholder="Company Name " ng-model="datasearch " ng-change="doSearchCompany(datasearch);" style="border: 0px;">
                 </label>
                 <button class="button button-icon ion-search " type="submit "></button>
             </form>
