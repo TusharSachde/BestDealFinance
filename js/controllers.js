@@ -1616,7 +1616,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.creditloan.enq_city = cityid;
+            $scope.creditloan.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -1791,7 +1791,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.sme.enq_city = cityid;
+            $scope.sme.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -1904,7 +1904,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.sme.enq_city = cityid;
+            $scope.sme.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -2015,7 +2015,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.sme.enq_city = cityid;
+            $scope.sme.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -2248,7 +2248,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.personal.enq_city = cityid;
+            $scope.personal.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -2552,7 +2552,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
                 console.log("City Id=" + cityid);
                 $scope.modalcity.hide();
-                $scope.twloan.enq_city = cityid;
+                $scope.twloan.enq_city = cityname;
                 $scope.cityName = cityname;
             }
             //  SELECT COMPANY
@@ -2709,7 +2709,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.selectcityid = function (cityid, cityname) {
         console.log("City Id=" + cityid);
         $scope.modalcity.hide();
-        $scope.security.enq_city = cityid;
+        $scope.security.enq_city = cityname;
         $scope.cityName = cityname;
     }
 
@@ -2842,7 +2842,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.propertyloan.enq_city = cityid;
+            $scope.propertyloan.enq_city = cityname;
             $scope.cityName = cityname;
         }
 
@@ -3121,7 +3121,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcityid = function (cityid, cityname) {
             console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-            $scope.homeloan.enq_city = cityid;
+            $scope.homeloan.enq_city = cityname;
             $scope.cityName = cityname;
         }
         $ionicLoading.hide();
