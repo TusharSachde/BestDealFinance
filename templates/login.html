@@ -9,26 +9,26 @@
 
         <div class="padding"></div>
 
-<!--        <form ng-submit="">-->
-            <div class="list signin">
-                <label class="item item-input">
-                    <span class="input-label"><i class="icon ion-android-mail"></i></span>
-                    <input type="text" placeholder="Email Address *" ng-model="login.enq_username" ng-class="allvalidation[0].validation" required>
-                </label>
-                <label class="item item-input">
-                    <span class="input-label"><i class="icon ion-android-lock"></i></span>
-                    <input type="password" placeholder="Password *" ng-model="login.enq_password" ng-class="allvalidation[1].validation" required>
-                </label>
+        <!--        <form ng-submit="">-->
+        <div class="list signin">
+            <label class="item item-input">
+                <span class="input-label"><i class="icon ion-android-mail"></i></span>
+                <input type="text" placeholder="Email Address *" ng-model="login.enq_username" ng-class="allvalidation[0].validation" required ng-trim='false'>
+            </label>
+            <label class="item item-input">
+                <span class="input-label"><i class="icon ion-android-lock"></i></span>
+                <input type="password" placeholder="Password *" ng-model="login.enq_password" ng-class="allvalidation[1].validation" required>
+            </label>
+        </div>
+
+
+        <a>
+            <div class="button-image" ng-click="">
+                <img src="img/button.png" alt="" class="full-image">
+                <div class="button-text assertive" ng-click="userlogin(login)">Sign In</div>
             </div>
-
-
-            <a>
-                <div class="button-image" ng-click="">
-                    <img src="img/button.png" alt="" class="full-image">
-                    <div class="button-text assertive" ng-click="userlogin(login)">Sign In</div>
-                </div>
-            </a>
-<!--        </form>-->
+        </a>
+        <!--        </form>-->
 
         <div class="socials">
             <img src="img/facebook.png" alt="facebook">

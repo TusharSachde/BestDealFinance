@@ -19,9 +19,9 @@
             </label>
         </div>
         <div class="buttons closebtn-otp">
-            <button class=" button button-icon popup-btn"> Resend</button>
+            <button class=" button button-icon popup-btn" ng-click="resendclick();"> Resend</button>
         </div>
-        
+
         <div class="btn-otp">
             <div class="button-image">
                 <button ng-click="otpsubmit(otpdata)">
@@ -35,7 +35,7 @@
             <a href="#"> Click Here</a>
         </div>
         <div class="buttons closebtn-otp pad-top">
-            <button class=" button button-icon popup-btn" ng-click="closeModal(); "> Close</button>
+            <button class=" button button-icon popup-btn" ng-click="closeModalOTP(); "> Close</button>
         </div>
     </ion-content>
 </ion-modal-view>

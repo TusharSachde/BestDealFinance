@@ -61,7 +61,7 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout) {
+.controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading) {
     //  DECLARATION
     $scope.login = [];
     $scope.allvalidation = [];
@@ -81,6 +81,7 @@ angular.module('starter.controllers', ['myservices'])
 
     //  USER LOGIN
     var loginsuccess = function (data, status) {
+        $ionicLoading.hide();
         console.log(data);
         if (data.msg == "fail") {
             var myPopup = $ionicPopup.show({
@@ -95,8 +96,12 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/app/home");
         }
     }
-    $scope.userlogin = function (login) {
+    $scope.login.enq_username = '';
+    $scope.$watch('login.enq_username', function () {
+        $scope.login.enq_username = $scope.login.enq_username.replace(/\s+/g, '');
+    });
 
+    $scope.userlogin = function (login) {
         $scope.allvalidation = [{
             field: $scope.login.enq_username,
             validation: ""
@@ -107,13 +112,14 @@ angular.module('starter.controllers', ['myservices'])
         var check = formvalidation($scope.allvalidation);
 
         if (check) {
+            $ionicLoading.show();
             MyServices.userlogin(login).success(loginsuccess);
-        };
+        }
     }
 
 })
 
-.controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading) {
+.controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading, $filter) {
 
     //  DECARATION
     $scope.register = [];
@@ -123,6 +129,18 @@ angular.module('starter.controllers', ['myservices'])
     $scope.otpdata = [];
 
     //  USER REGISTRATION
+    $scope.datechange = function () {
+        if (parseInt(age($scope.register.enq_dob)) < 21) {
+            console.log("chintoo");
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 21",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+    }
     var registersuccess = function (data, status) {
         console.log(data);
         if (data.msg == "Dup") {
@@ -186,8 +204,18 @@ angular.module('starter.controllers', ['myservices'])
         var check = formvalidation($scope.allvalidation);
 
         if (check) {
+            registeruser = register;
+            console.log(registeruser);
+            console.log(register);
             MyServices.userregister(register).success(registersuccess);
-        };
+        } else {
+            var myPopup = $ionicPopup.show({
+                title: "Please Enter Mandatory Fields!!"
+            });
+            $timeout(function () {
+                myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
     }
 
     //  OTP MODAL
@@ -198,8 +226,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.modal = modal;
     });
 
-
-    $scope.closeModalComp = function () {
+    $scope.closeModalOTP = function () {
         $scope.modal.hide();
     };
 
@@ -219,6 +246,10 @@ angular.module('starter.controllers', ['myservices'])
                 myPopup.close(); //close the popup after 3 seconds for some reason
             }, 1500);
         }
+    }
+    $scope.resendclick = function () {
+        console.log(registeruser);
+        MyServices.userregister(registeruser).success(registersuccess);
     }
     $scope.otpsubmit = function (otpdata) {
         console.log("otp otp");
@@ -2278,8 +2309,6 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-
-
         }
 
 
