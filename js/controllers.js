@@ -141,7 +141,6 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.show();
             $interval(callAtTimeout, 1000);
         }
-
         //  TIMER FUNCTION
         function callAtTimeout() {
             if ($scope.seconds == 0 && $scope.minutes == 0) {
@@ -155,6 +154,14 @@ angular.module('starter.controllers', ['myservices'])
                     $scope.seconds = $scope.seconds - 1;
                 }
             }
+        }
+
+    }
+    $scope.keypress = function ($event) {
+        if ($event.keyCode >= 48 && $event.keyCode <= 57) {
+
+        } else {
+            $scope.register.enq_mobile = '';
         }
     }
     $scope.userregister = function (register) {
@@ -1719,9 +1726,9 @@ angular.module('starter.controllers', ['myservices'])
 
         //  GET USER DETAILS
         $scope.user = MyServices.getuser();
-    
-        var myaccountsuccess=function(data,status){
-            $scope.myapply=data.Data;
+
+        var myaccountsuccess = function (data, status) {
+            $scope.myapply = data.Data;
             console.log($scope.myapply);
         }
         MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
@@ -2171,9 +2178,9 @@ angular.module('starter.controllers', ['myservices'])
                 $location.url("/app/carloan");
             } else if ($stateParams.dealid == 2 || $stateParams.dealid == 3) {
                 $location.url("/app/homeloan");
-            }else if ($stateParams.dealid == 4) {
+            } else if ($stateParams.dealid == 4) {
                 $location.url("/app/twowheelerloan");
-            }else if ($stateParams.dealid == 5) {
+            } else if ($stateParams.dealid == 5) {
                 $location.url("/app/personal");
             }
         };
