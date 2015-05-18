@@ -21,9 +21,11 @@
                             <div class="assest">
 
                                 <!--                                    <img src="img/car.png" class="car full-image">-->
-                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/home.png" ng-if="apply.enq_loanType=='Home'" class="car full-image">
-                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/credit_card.png" ng-if="apply.enq_loanType=='Credit Card'" class="car full-image">
-                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/car.png" ng-if="apply.enq_loanType=='Car'" class="car full-image">
+                                <img src="img/house.png" ng-if="apply.enq_loanType=='Home'" class="car full-image">
+                                <img src="img/creditcard.png" ng-if="apply.enq_loanType=='Credit Card'" class="car full-image">
+                                <img src="img/car.png" ng-if="apply.enq_loanType=='Car'" class="car full-image">
+                                <i class="item-sprite bike" ng-if="apply.enq_loanType=='Two Wheeler'"></i>
+                                <i class="item-sprite person" ng-if="apply.enq_loanType=='Personal'"></i>
                                 <p class="padded">{{apply.enq_loanType}}</p>
                             </div>
                         </div>
@@ -176,7 +178,7 @@
                 <a>
                     <div class="button-image" ng-click="">
                         <img src="img/button2.png" alt="" class="full-image">
-                        <div class="button-text assertive">Save</div>
+                        <div class="button-text assertive" ng-click="">Save</div>
                     </div>
                 </a>
             </form>

@@ -114,6 +114,17 @@ angular.module('starter.controllers', ['myservices'])
         if (check) {
             $ionicLoading.show();
             MyServices.userlogin(login).success(loginsuccess);
+<<<<<<< HEAD
+=======
+        } else {
+            var myPopup = $ionicPopup.show({
+                title: 'Please Enter Username and Password!!',
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+>>>>>>> origin/master
         }
     }
 
@@ -1760,6 +1771,7 @@ angular.module('starter.controllers', ['myservices'])
 
         var myaccountsuccess = function (data, status) {
             $scope.myapply = data.Data;
+            $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
         }
         MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
