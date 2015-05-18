@@ -19,7 +19,11 @@
                     <div class="row no-pad bordereds main-accnt text-center">
                         <div class="col-33 cls-bgcolor bordered">
                             <div class="assest">
-                                <img src="img/car.png" class="car full-image">
+
+                                <!--                                    <img src="img/car.png" class="car full-image">-->
+                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/home.png" ng-if="apply.enq_loanType=='Home'" class="car full-image">
+                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/credit_card.png" ng-if="apply.enq_loanType=='Credit Card'" class="car full-image">
+                                <img ng-src="http://demo.bestdealfinance.com/images/mobileapp/icons/car.png" ng-if="apply.enq_loanType=='Car'" class="car full-image">
                                 <p class="padded">{{apply.enq_loanType}}</p>
                             </div>
                         </div>
@@ -33,7 +37,7 @@
                             <div class="row no-pad bordereds text-center">
                                 <div class="col">
                                     <p class="simple-text">EMI</p>
-                                    <h3>20,000</h3>
+                                    <h3>{{apply.enq_applied_emi}}</h3>
                                 </div>
                                 <div class="col">
                                     <p class="simple-text">Months</p>
@@ -46,7 +50,7 @@
                         </div>
                     </div>
                 </ion-item>
-<!--
+                <!--
                 <ion-item>
                     <div class="row no-pad bordereds main-accnt text-center">
                         <div class="col-33 cls-bgcolor bordered">
