@@ -159,7 +159,7 @@
 
                     <label class="item item-input">
                         <span>  Mobile no. : </span>
-                        <input type="text" ng-model="user.customermobile" ng-class="allvalidation[1].validation" required>
+                        <input type="text" ng-model="user.customermobile" ng-class="allvalidation[1].validation" ng-keypress="keypress($event)" required>
                     </label>
                     <label class="item item-input">
                         <span>  Alternate no.</span>
@@ -178,7 +178,7 @@
                 <a>
                     <div class="button-image" ng-click="">
                         <img src="img/button2.png" alt="" class="full-image">
-                        <div class="button-text assertive" ng-click="">Save</div>
+                        <div class="button-text assertive" ng-click="save();">Save</div>
                     </div>
                 </a>
             </form>

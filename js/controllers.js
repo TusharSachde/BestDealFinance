@@ -1764,8 +1764,14 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapp = "";
             $scope.profile = "bold";
         }
+        $scope.keypress = function ($event) {
+                if ($event.keyCode >= 48 && $event.keyCode <= 57) {
 
-        //  GET USER DETAILS
+                } else {
+                    $scope.user.customermobile = '';
+                }
+            }
+            //  GET USER DETAILS
         $scope.user = MyServices.getuser();
 
         var myaccountsuccess = function (data, status) {
@@ -1773,7 +1779,23 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
         }
-        MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
+        $scope.save = function (user) {
+            console.log(user);
+            $scope.allvalidation = [{
+                field: $scope.user.customername,
+                validation: ""
+        }, {
+                field: $scope.user.customermobile,
+                validation: ""
+        }, {
+                field: $scope.user.customeremail,
+                validation: ""
+        }];
+            var check = formvalidation($scope.allvalidation);
+            if (check) {
+                MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
+            };
+        }
 
     })
     .controller('ConstructFormCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location) {
