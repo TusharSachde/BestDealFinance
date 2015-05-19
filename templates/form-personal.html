@@ -50,28 +50,47 @@
                     Are You Salaried ?*
                 </div>
                 <select ng-model="personal.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
-                    <option value="Yes ">Yes</option>
-                    <option value="No ">No</option>
-                    <option value="Salaried Doctor ">Yes/Salaried Doctor</option>
-                    <option value="Salaried Teacher ">Yes/Salaried Teacher</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="Salaried Doctor">Yes/Salaried Doctor</option>
+                    <option value="Salaried Teacher">Yes/Salaried Teacher</option>
                 </select>
             </label>
 
-            <label class="item item-input item-select " ng-if="personal.enq_is_salaried_ddl == 'No'">
+            <label class="item item-input item-select" ng-if="personal.enq_is_salaried_ddl == 'No'">
                 <div class="input-label ">
                     Occupation
                 </div>
-                <select ng-model="personal.enq_occupation " ng-init="personal.enq_occupation='' " ng-class="allvalidation[6].validation " required>
-                    <option value=" ">Please select</option>
-                    <option value="Housewife ">Housewife</option>
-                    <option value="Retired ">Retired</option>
-                    <option value="Self Employed ">Self Employed</option>
-                    <option value="Self Employed Professional ">Self Employed Professional</option>
-                    <option value="Self Employed Professional Doctor ">Self Employed Professional Doctor</option>
-                    <option value="Student ">Student</option>
+                <select ng-model="personal.enq_occupation" ng-init="personal.enq_occupation=''" required>
+                    <option value="">Please select</option>
+                    <option value="Housewife">Housewife</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Self Employed">Self Employed</option>
+                    <option value="Self Employed Professional">Self Employed Professional</option>
+                    <option value="Self Employed Professional Doctor">Self Employed Professional Doctor</option>
+                    <option value="Student">Student</option>
                 </select>
             </label>
+<!--
 
+             <label class="item item-input item-select" ng-if="twloan.enq_is_salaried_ddl == 'No'">
+                <div class="input-label">
+                    Occupation
+                </div>
+                <select ng-model="twloan.enq_occupation" ng-init="twloan.enq_occupation=''" required>
+                    <option value="">Please select</option>
+                    <option value="Housewife">Housewife</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Self Employed">Self Employed</option>
+                    <option value="Self Employed Professional">Self Employed Professional</option>
+                    <option value="Self Employed Professional Doctor">Self Employed Professional Doctor</option>
+                    <option value="Student">Student</option>
+                </select>
+            </label>
+-->
+            
+            
+            
 
             <label class="item item-input " ng-click="openedit(); " ng-if="personal.enq_is_salaried_ddl !='No' ">
                 <div class="input-label ">
