@@ -58,6 +58,12 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.getdropdowncity(datasearch).success(citysuccess);
         }
     }
+    //  GET BANKS
+    var banksuccess = function (data, status) {
+        $scope.banks = data.Data;
+        console.log(data);
+    }
+    MyServices.getbanks().success(banksuccess);
 
 })
 
@@ -2277,7 +2283,7 @@ angular.module('starter.controllers', ['myservices'])
         var ccsuccess = function (data, status) {
             console.log("string strin");
             console.log(data);
-            console.log(JSON.parse(data.Data));
+            //console.log(JSON.parse(data.Data));
             $ionicLoading.hide();
             if (data.Message != "Success Message") {
                 var myPopup1 = $ionicPopup.show({
