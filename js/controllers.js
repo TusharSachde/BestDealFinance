@@ -137,18 +137,20 @@ angular.module('starter.controllers', ['myservices'])
     $scope.minutes = 5;
     $scope.seconds = 0;
     $scope.otpdata = [];
-
+    $scope.valid_date = false;
     //  USER REGISTRATION
     $scope.datechange = function () {
-        if (parseInt(age($scope.register.enq_dob)) < 21) {
+        if (parseInt(age($scope.register.enq_dob)) < 18) {
             console.log("chintoo");
             var myPopup1 = $ionicPopup.show({
-                title: "Age should be Greater than 21",
+                title: "Age should be Greater than 18",
                 scope: $scope,
             });
             $timeout(function () {
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
+        } else {
+            $scope.valid_date = true;
         }
     }
     var registersuccess = function (data, status) {
@@ -212,8 +214,16 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
-
-        if (check) {
+        if ($scope.valid_date == false) {
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 18",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+        if (check && valid_date == true) {
             registeruser = register;
             console.log(registeruser);
             console.log(register);
@@ -1612,7 +1622,7 @@ angular.module('starter.controllers', ['myservices'])
             //            'enq_is_salaried_ddl': 'No',
             'enq_dob': new Date()
         };
-
+        $scope.valid_date = false;
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -1679,8 +1689,9 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
-
 
         }
 
@@ -1729,7 +1740,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-            if (check) {
+            if ($scope.valid_date == false) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 18",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && valid_date == true) {
                 creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
                 console.log(creditloan.enq_dob);
                 creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
@@ -1754,6 +1774,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.profile = "bold";
         $scope.updateuser = [];
         $scope.allvalidation = [];
+        $scope.valid_date = false;
         //  DESIGN CODE
         $scope.changemyapp = function () {
             $scope.myapp = "bold";
@@ -1774,15 +1795,17 @@ angular.module('starter.controllers', ['myservices'])
             //  GET USER DETAILS
         $scope.updateuser = MyServices.getuser();
         $scope.datechange = function () {
-            if (parseInt(age($scope.updateuser.enq_dob)) < 21) {
+            if (parseInt(age($scope.updateuser.enq_dob)) < 18) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 })
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
         }
         var myaccountsuccess = function (data, status) {
@@ -1827,7 +1850,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-            if (check) {
+            if ($scope.valid_date == false) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 18",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && valid_date == true) {
                 MyServices.updateuserprofile(updateuser).success(updateusersuccess);
             };
         }
@@ -2367,11 +2399,11 @@ angular.module('starter.controllers', ['myservices'])
         }
 
         $scope.datechange = function () {
-            if (parseInt(age($scope.personal.enq_dob)) < 21) {
+            if (parseInt(age($scope.personal.enq_dob)) < 18) {
 
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
@@ -2445,7 +2477,7 @@ angular.module('starter.controllers', ['myservices'])
             if ($scope.valid_date == false) {
                 console.log("Yo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
@@ -2477,6 +2509,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_dob': new Date()
 
         };
+        $scope.valid_date = false;
         //  GET MANUFACTURER
         var manufacturersuccess = function (data, status) {
             $scope.manufacturers = data.Data;
@@ -2530,15 +2563,17 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.manufature_models(manuf_model).success(manufacuturesuccess);
         }
         $scope.datechange = function () {
-            if (parseInt(age($scope.carloan.enq_dob)) < 21) {
+            if (parseInt(age($scope.carloan.enq_dob)) < 18) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
         }
         var manufsuccess = function (data, status) {
@@ -2585,7 +2620,16 @@ angular.module('starter.controllers', ['myservices'])
                     validation: ""
         }];
                 var check = formvalidation($scope.allvalidation);
-                if (check) {
+                if ($scope.valid_date == false) {
+                    var myPopup1 = $ionicPopup.show({
+                        title: "Age should be Greater than 18",
+                        scope: $scope,
+                    });
+                    $timeout(function () {
+                        myPopup1.close(); //close the popup after 3 seconds for some reason
+                    }, 1500);
+                }
+                if (check && valid_date == true) {
                     //                $scope.today = new Date();
                     carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
                     console.log(carloan.enq_dob);
@@ -2611,7 +2655,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_dob': new Date(),
 
         };
-
+        $scope.valid_date = false;
         //  GET MANUFACTURER
         var manufacturersuccess = function (data, status) {
             $scope.manufacturers = data.Data;
@@ -2682,15 +2726,17 @@ angular.module('starter.controllers', ['myservices'])
         }
 
         $scope.datechange = function () {
-            if (parseInt(age($scope.twloan.enq_dob)) < 21) {
+            if (parseInt(age($scope.twloan.enq_dob)) < 18) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
 
 
@@ -2748,8 +2794,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
-            if (check) {
+            if ($scope.valid_date == false) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 18",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && valid_date == true) {
                 //                $scope.today = new Date();
                 twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
                 console.log(twloan.enq_dob);
@@ -2776,7 +2830,7 @@ angular.module('starter.controllers', ['myservices'])
         'enq_is_salaried_ddl': 'No',
         'enq_dob': new Date()
     };
-
+    $scope.valid_date = false;
     $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
         scope: $scope,
         animation: 'slide-in-up'
@@ -2840,17 +2894,18 @@ angular.module('starter.controllers', ['myservices'])
     }
 
     $scope.datechange = function () {
-        if (parseInt(age($scope.security.enq_dob)) < 21) {
+        if (parseInt(age($scope.security.enq_dob)) < 18) {
             console.log("chintoo");
             var myPopup1 = $ionicPopup.show({
-                title: "Age should be Greater than 21",
+                title: "Age should be Greater than 18",
                 scope: $scope,
             });
             $timeout(function () {
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
+        } else {
+            $scope.valid_date = true;
         }
-
 
     }
 
@@ -2887,7 +2942,16 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
-        if (check) {
+        if ($scope.valid_date == false) {
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 18",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+        if (check && valid_date == true) {
             //                $scope.today = new Date();
             security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
             console.log(security.enq_dob);
@@ -2912,6 +2976,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_dob': new Date()
 
         };
+        $scope.valid_date = false;
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -2981,16 +3046,19 @@ angular.module('starter.controllers', ['myservices'])
             MyServices.manufature_models(manuf_model).success(manufacuturesuccess);
         }
         $scope.datechange = function () {
-            if (parseInt(age($scope.propertyloan.enq_dob)) < 21) {
+            if (parseInt(age($scope.propertyloan.enq_dob)) < 18) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
+
         }
         $scope.getmedeals = function (propertyloan) {
             console.log(propertyloan);
@@ -3026,8 +3094,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
-            if (check) {
+            if ($scope.valid_date == false) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 18",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && valid_date == true) {
                 //                $scope.today = new Date();
                 propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
                 console.log(propertyloan.enq_dob);
@@ -3051,8 +3127,8 @@ angular.module('starter.controllers', ['myservices'])
         //        };
         //  DECLARATION
         $scope.refine = {
-		"enq_nationality":"Indian"
-		};
+            "enq_nationality": "Indian"
+        };
         $scope.refine.appid = $stateParams.appid;
         $scope.refine.salary_credited_since = new Date;
         $scope.allvalidation = [];
@@ -3129,6 +3205,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_is_salaried_ddl': "No"
 
         };
+        $scope.valid_date = false;
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
             animation: 'slide-in-up'
@@ -3181,15 +3258,17 @@ angular.module('starter.controllers', ['myservices'])
         }
 
         $scope.datechange = function () {
-            if (parseInt(age($scope.homeloan.enq_dob)) < 21) {
+            if (parseInt(age($scope.homeloan.enq_dob)) < 18) {
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
 
 
@@ -3225,7 +3304,17 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-            if (check) {
+
+            if ($scope.valid_date == false) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 18",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && valid_date == true) {
                 //                $scope.today = new Date();
                 homeloan.enq_dob = $filter('date')(homeloan.enq_dob, "dd-MM-yyyy");
                 console.log(homeloan.enq_dob);
