@@ -313,6 +313,13 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        getbanks: function () {
+            return $http({
+                url: adminurl + "ccexistingbank",
+                method: "POST",
+                data: {}
+            })
+        },
         getdropdownstate: function () {
             return $http({
                 url: adminurl + "getstate",
@@ -589,6 +596,7 @@ var myservices = angular.module('myservices', [])
                 "fd_maturity_type": creditloan.fd_maturity_type,
                 "enq_existing_card_holder": creditloan.enq_existing_card_holder,
                 "cc_card_limit": creditloan.cc_card_limit,
+                "bankname": creditloan.bankname,
                 //                "enq_have_loan_ddl": "No",
                 "enq_currIncomeTo": creditloan.enq_currIncomeTo,
                 "customersessionid": session.customersessionid
