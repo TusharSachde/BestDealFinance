@@ -223,7 +223,7 @@ angular.module('starter.controllers', ['myservices'])
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
         }
-        if (check && valid_date == true) {
+        if (check && $scope.valid_date == true) {
             registeruser = register;
             console.log(registeruser);
             console.log(register);
@@ -1749,7 +1749,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && valid_date == true) {
+            if (check && $scope.valid_date == true) {
                 creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
                 console.log(creditloan.enq_dob);
                 creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
@@ -1859,7 +1859,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && valid_date == true) {
+            if (check && $scope.valid_date == true) {
                 MyServices.updateuserprofile(updateuser).success(updateusersuccess);
             };
         }
@@ -2629,7 +2629,7 @@ angular.module('starter.controllers', ['myservices'])
                         myPopup1.close(); //close the popup after 3 seconds for some reason
                     }, 1500);
                 }
-                if (check && valid_date == true) {
+                if (check && $scope.valid_date == true) {
                     //                $scope.today = new Date();
                     carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
                     console.log(carloan.enq_dob);
@@ -2803,7 +2803,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && valid_date == true) {
+            if (check && $scope.valid_date == true) {
                 //                $scope.today = new Date();
                 twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
                 console.log(twloan.enq_dob);
@@ -2951,7 +2951,7 @@ angular.module('starter.controllers', ['myservices'])
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
         }
-        if (check && valid_date == true) {
+        if (check && $scope.valid_date == true) {
             //                $scope.today = new Date();
             security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
             console.log(security.enq_dob);
@@ -3103,7 +3103,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && valid_date == true) {
+            if (check && $scope.valid_date == true) {
                 //                $scope.today = new Date();
                 propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
                 console.log(propertyloan.enq_dob);
@@ -3314,7 +3314,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && valid_date == true) {
+            if (check && $scope.valid_date == true) {
                 //                $scope.today = new Date();
                 homeloan.enq_dob = $filter('date')(homeloan.enq_dob, "dd-MM-yyyy");
                 console.log(homeloan.enq_dob);
