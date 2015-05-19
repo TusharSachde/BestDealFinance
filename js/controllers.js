@@ -110,23 +110,31 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
-
-        if (check) {
-            $ionicLoading.show();
-            MyServices.userlogin(login).success(loginsuccess);
-
-        } else {
+        if (navigator.network.connection.type == Connection.none) {
             var myPopup = $ionicPopup.show({
-                title: 'Please Enter Username and Password!!',
+                title: 'No Internet Connection',
                 scope: $scope,
             });
             $timeout(function () {
                 myPopup.close(); //close the popup after 3 seconds for some reason
             }, 1500);
+        } else {
+            if (check) {
+                $ionicLoading.show();
+                MyServices.userlogin(login).success(loginsuccess);
 
+            } else {
+                var myPopup = $ionicPopup.show({
+                    title: 'Please Enter Username and Password!!',
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+
+            }
         }
     }
-
 })
 
 .controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading, $filter) {
