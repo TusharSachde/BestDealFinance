@@ -18,6 +18,7 @@
                         Marital Status *
                     </div>
                     <select ng-model="refine.enq_maritial_status" ng-init="refine.enq_maritial_status='Married'" ng-class="allvalidation[1].validation" required>
+                        <option value="">Please Select</option>
                         <option value="Married">Married</option>
                         <option value="Single">Single</option>
                         <option value="Widowed">Widowed</option>
@@ -51,6 +52,7 @@
                         Type of Accommodation *
                     </div>
                     <select ng-model="refine.enq_present_use_property" ng-init="refine.enq_present_use_property = 'Owned'" ng-class="allvalidation[3].validation" required>
+                        <option value="">Please Select</option>
                         <option value="Owned">Owned</option>
                         <option value="Rented">Rented</option>
                     </select>
@@ -111,6 +113,7 @@
                         Do you have an existing loan? *
                     </div>
                     <select ng-model="refine.enq_have_loan_ddl" ng-class="allvalidation[7].validation" required>
+                        <option value="">Please Select</option>
                         <option value="No">No</option>
                         <option value="Yes">Yes</option>
                     </select>
