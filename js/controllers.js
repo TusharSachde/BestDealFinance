@@ -1670,10 +1670,10 @@ angular.module('starter.controllers', ['myservices'])
 
 
         $scope.datechange = function () {
-            if (parseInt(age($scope.creditloan.enq_dob)) < 21) {
+            if (parseInt(age($scope.creditloan.enq_dob)) < 18) {
                 //                console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 21",
+                    title: "Age should be Greater than 18",
                     scope: $scope,
                 });
                 $timeout(function () {

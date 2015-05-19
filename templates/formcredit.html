@@ -112,7 +112,7 @@
                     </div>
                 </label>
 -->
-            <label class="item item-input">
+            <label class="item item-input" ng-if="creditloan.enq_existing_card_holder=='Yes'">
                 <div class="input-label">Credit Limit*</div>
                 <div class="price">
                     <input type="text" ng-model="creditloan.cc_card_limit" ng-class="allvalidation[8].validation" required>
