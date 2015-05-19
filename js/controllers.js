@@ -1747,13 +1747,13 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 /////code end ///////
-.controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location) {
+.controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout) {
 
         //  DECLARATION
         $scope.returnsactive = "active";
         $scope.profile = "bold";
-        $scope.user = [];
-
+        $scope.updateuser = [];
+        $scope.allvalidation = [];
         //  DESIGN CODE
         $scope.changemyapp = function () {
             $scope.myapp = "bold";
@@ -1768,32 +1768,67 @@ angular.module('starter.controllers', ['myservices'])
                 if ($event.keyCode >= 48 && $event.keyCode <= 57) {
 
                 } else {
-                    $scope.user.customermobile = '';
+                    $scope.updateuser.customermobile = '';
                 }
             }
             //  GET USER DETAILS
-        $scope.user = MyServices.getuser();
-
+        $scope.updateuser = MyServices.getuser();
+        $scope.datechange = function () {
+            if (parseInt(age($scope.updateuser.enq_dob)) < 21) {
+                console.log("chintoo");
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 21",
+                    scope: $scope,
+                })
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+        }
         var myaccountsuccess = function (data, status) {
             $scope.myapply = data.Data;
             $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
+        };
+        MyServices.getmyaccount().success(myaccountsuccess)
+
+        var updateusersuccess = function (data, status) {
+            //$scope.updateuser = data.Data;
+            console.log(data);
+            if (data.msg == "Sucess") {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Your Profile Was Updated Successfully",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
         }
-        $scope.save = function (user) {
-            console.log(user);
+        $scope.save = function (updateuser) {
+            console.log(updateuser);
             $scope.allvalidation = [{
-                field: $scope.user.customername,
+                field: $scope.updateuser.customername,
                 validation: ""
         }, {
-                field: $scope.user.customermobile,
+                field: $scope.updateuser.enq_dob,
                 validation: ""
         }, {
-                field: $scope.user.customeremail,
+                field: $scope.updateuser.enq_gender,
+                validation: ""
+        }, {
+                field: $scope.updateuser.enq_maritial_status,
+                validation: ""
+        }, {
+                field: $scope.updateuser.customermobile,
+                validation: ""
+        }, {
+                field: $scope.updateuser.customeremail,
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
             if (check) {
-                MyServices.getmyaccount($scope.user.customersessionid).success(myaccountsuccess);
+                MyServices.updateuserprofile(updateuser).success(updateusersuccess);
             };
         }
 
@@ -2265,7 +2300,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_is_salaried_ddl': '',
             'enq_dob': new Date()
         };
-
+        $scope.valid_date = false;
 
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
@@ -2333,6 +2368,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.datechange = function () {
             if (parseInt(age($scope.personal.enq_dob)) < 21) {
+
                 console.log("chintoo");
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 21",
@@ -2341,6 +2377,8 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else {
+                $scope.valid_date = true;
             }
         }
 
@@ -2404,7 +2442,19 @@ angular.module('starter.controllers', ['myservices'])
                 var check = formvalidation($scope.allvalidation);
             }
 
-            if (check) {
+            if ($scope.valid_date == false) {
+                console.log("Yo");
+                var myPopup1 = $ionicPopup.show({
+                    title: "Age should be Greater than 21",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+
+            if (check && $scope.valid_date == true) {
+
                 //                $scope.today = new Date();
                 personal.enq_dob = $filter('date')(personal.enq_dob, "dd-MM-yyyy");
                 console.log(personal.enq_dob);

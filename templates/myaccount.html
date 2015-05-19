@@ -128,81 +128,80 @@
 
                     <label class="item item-input">
                         <span class="input-label">Name</span>
-                        <input type="text" ng-model="user.customername" ng-class="allvalidation[0].validation" required>
+                        <input type="text" ng-model="updateuser.customername" ng-class="allvalidation[0].validation" required>
                     </label>
-                    <label class="item item-input item-select">
+                    <label class="item item-input">
                         <span class="input-label">Date of Birth</span>
-                        <input type="date">
+                        <input type="date" onfocus="(this.type='date')" placeholder="Date of Birth" ng-change="datechange();" ng-model="updateuser.enq_dob" ng-class="allvalidation[1].validation" required>
                     </label>
 
-                    <label class="item item-input item-select">
-                        <div class="input-label">
+                    <label class="item item-input item-select ">
+                        <div class="input-label ">
                             Gender
                         </div>
-                        <select>
+                        <select ng-model="updateuser.enq_gender" ng-class="allvalidation[2].validation" required>
                             <option>Male</option>
                             <option>Female</option>
                             <option>other</option>
                         </select>
                     </label>
                     <label class="item item-input item-select">
-                        <div class="input-label">
+                        <div class="input-label ">
                             Marital Status
                         </div>
-                        <select>
+                        <select ng-model="updateuser.enq_maritial_status" ng-class="allvalidation[3].validation" required>
                             <option>Un-married</option>
                             <option>Married</option>
-
                         </select>
                     </label>
 
 
-                    <label class="item item-input">
+                    <label class="item item-input ">
                         <span>  Mobile no. : </span>
-                        <input type="text" ng-model="user.customermobile" ng-class="allvalidation[1].validation" ng-keypress="keypress($event)" required>
+                        <input type="text" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required>
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input ">
                         <span>  Alternate no.</span>
-                        <input type="number">
+                        <input type="text" ng-model="updateuser.enq_alt_no">
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input ">
                         <span>  Email Id :</span>
-                        <input type="email" ng-model="user.customeremail" ng-class="allvalidation[2].validation" required>
+                        <input type="email" ng-model="updateuser.customeremail" ng-class="allvalidation[5].validation" required>
                     </label>
-                    <label class="item item-input">
+                    <label class="item item-input ">
                         <span>  Altenate Email Id</span>
-                        <input type="email">
+                        <input type="email" ng-model="updateuser.enq_alt_email">
                     </label>
                 </div>
 
                 <a>
-                    <div class="button-image" ng-click="">
-                        <img src="img/button2.png" alt="" class="full-image">
-                        <div class="button-text assertive" ng-click="save();">Save</div>
+                    <div class="button-image " ng-click=" ">
+                        <img src="img/button2.png " alt=" " class="full-image ">
+                        <div class="button-text assertive " ng-click="save(updateuser); ">Update</div>
                     </div>
                 </a>
             </form>
 
         </div>
     </ion-content>
-    <ion-footer-bar class="myaccfoot" ng-if="myapp=='bold'">
-        <div class="row">
-            <div class="col">
-                <div class="tabssdwn">
-                    <img src="img/right.png" class="rights"><span>
+    <ion-footer-bar class="myaccfoot " ng-if="myapp=='bold' ">
+        <div class="row ">
+            <div class="col ">
+                <div class="tabssdwn ">
+                    <img src="img/right.png " class="rights "><span>
                         Applied
                     </span>
                 </div>
             </div>
-            <div class="col">
-                <div class="tabssdwn">
-                    <img src="img/reverse.png" class="rights">
+            <div class="col ">
+                <div class="tabssdwn ">
+                    <img src="img/reverse.png " class="rights ">
                     <span>Approved</span>
                 </div>
             </div>
-            <div class="col">
-                <div class="tabssdwn">
-                    <img src="img/edits.png" class="rights">
+            <div class="col ">
+                <div class="tabssdwn ">
+                    <img src="img/edits.png " class="rights ">
                     <span>
                         In Process
                     </span>

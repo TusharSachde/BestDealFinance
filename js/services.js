@@ -976,14 +976,40 @@ var myservices = angular.module('myservices', [])
             })
         },
         //DHAVAL END
-        getmyaccount: function (sessionid) {
+        getmyaccount: function () {
             var session = $.jStorage.get("user");
             return $http({
                 url: adminurl + "myAccount",
                 method: "POST",
                 data: {
                     "Data": {
-                        "customersessionid": sessionid
+                        "customersessionid": session.customersessionid
+                    }
+                }
+            })
+        },
+        updateuserprofile: function (updateuser) {
+            var session = $.jStorage.get("user");
+            return $http({
+                url: adminurl + "updateprofile",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "sessionid": session.customersessionid,
+                        "enq_dob": updateuser.enq_dob,
+                        "enq_gender": updateuser.enq_gender,
+                        "enq_maritial_status": updateuser.enq_maritial_status,
+                        "enq_alt_no": updateuser.enq_alt_no,
+                        "enq_alt_email": updateuser.enq_alt_email,
+                        "enq_email_cl": updateuser.customeremail,
+                        "enq_name": updateuser.customername,
+                        "enq_mobile": updateuser.customermobile,
+                        //                        "enq_old_password": "1",
+                        //                        "enq_new_password ": "123",
+                        //                        "enq_confirm_password": "123",
+                        "customersessionid": session.customersessionid
                     }
                 }
             })
