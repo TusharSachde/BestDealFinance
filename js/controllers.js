@@ -3000,7 +3000,9 @@ angular.module('starter.controllers', ['myservices'])
         //
         //        };
         //  DECLARATION
-        $scope.refine = {};
+        $scope.refine = {
+		"enq_nationality":"Indian"
+		};
         $scope.refine.appid = $stateParams.appid;
         $scope.refine.salary_credited_since = new Date;
         $scope.allvalidation = [];
