@@ -6,8 +6,8 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers'])
 
-.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+.run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
         if (window.cordova && window.cordova.plugins.Keyboard) {
             // Dont hide accesories
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
@@ -21,11 +21,11 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     });
 })
 
-.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+.config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.views.maxCache(0);
     $stateProvider
 
-    .state('login', {
+        .state('login', {
         url: "/login",
         templateUrl: "templates/login.html",
         controller: 'LoginCtrl'
@@ -38,17 +38,21 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('forgot', {
-        url: "/forgot",
-        templateUrl: "templates/forgot.html",
-        controller: 'ForgotCtrl'
-    })
-
-    .state('app', {
-        url: "/app",
-        abstract: true,
-        templateUrl: "templates/menu.html",
-        controller: 'AppCtrl'
-    })
+            url: "/forgot",
+            templateUrl: "templates/forgot.html",
+            controller: 'ForgotCtrl'
+        })
+        .state('contactus', {
+            url: "/contactus",
+            templateUrl: "templates/contactus.html",
+            controller: 'ContactusCtrl'
+        })
+        .state('app', {
+            url: "/app",
+            abstract: true,
+            templateUrl: "templates/menu.html",
+            controller: 'AppCtrl'
+        })
 
     .state('app.home', {
         url: "/home",
@@ -91,14 +95,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.finance', {
-        url: "/finance",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/finance.html",
-                controller: 'FinanceCtrl'
+            url: "/finance",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/finance.html",
+                    controller: 'FinanceCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.myaccount', {
             url: "/myaccount",
             views: {
@@ -162,14 +166,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
     //Loan FORMS
     .state('app.personal', {
-        url: "/personal",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/form-personal.html",
-                controller: 'PersonalLoanCtrl'
+            url: "/personal",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/form-personal.html",
+                    controller: 'PersonalLoanCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.creditapply', {
             url: "/creditapply",
             views: {
@@ -210,14 +214,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.checkcarloan', {
-        url: "/checkcarloan/:appid",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/checkcarloan.html",
-                controller: 'CheckCarLoanCtrl'
+            url: "/checkcarloan/:appid",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/checkcarloan.html",
+                    controller: 'CheckCarLoanCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.carapply', {
             url: "/carapply",
             views: {
@@ -293,15 +297,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }
         }
     })
-        .state('app.contactus', {
-            url: "/contactus",
-            views: {
-                'menuContent': {
-                    templateUrl: "templates/contactus.html",
-                    controller: 'ContactusCtrl'
-                }
-            }
-        })
+
 
     .state('app.propertychk', {
         url: "/propertychk",
@@ -314,14 +310,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.propertychk-form', {
-        url: "/propertychk-form/:appid",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/propertychk-form.html",
-                controller: 'PropertychkformCtrl'
+            url: "/propertychk-form/:appid",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/propertychk-form.html",
+                    controller: 'PropertychkformCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.propertyformapply', {
             url: "/propertyformapply",
             views: {
@@ -343,14 +339,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.securityloan', {
-        url: "/securityloan",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/form-security.html",
-                controller: 'SecurityLoanCtrl'
+            url: "/securityloan",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/form-security.html",
+                    controller: 'SecurityLoanCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.smeproject', {
             url: "/smeproject",
             views: {
@@ -479,14 +475,14 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     })
 
     .state('app.refer-property', {
-        url: "/refer-property",
-        views: {
-            'menuContent': {
-                templateUrl: "templates/refer-property.html",
-                controller: 'ReferPropertyCtrl'
+            url: "/refer-property",
+            views: {
+                'menuContent': {
+                    templateUrl: "templates/refer-property.html",
+                    controller: 'ReferPropertyCtrl'
+                }
             }
-        }
-    })
+        })
         .state('app.refer-earn', {
             url: "/refer-earn",
             views: {
@@ -528,12 +524,12 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     $urlRouterProvider.otherwise('/login');
 })
 
-.filter('bankimagepath', function() {
-    return function(input) {
+.filter('bankimagepath', function () {
+    return function (input) {
         return "http://demo.bestdealfinance.com/images/" + input;
     };
 });
-var formvalidation = function(allvalidation) {
+var formvalidation = function (allvalidation) {
     var isvalid2 = true;
     for (var i = 0; i < allvalidation.length; i++) {
         console.log("checking");
@@ -546,14 +542,14 @@ var formvalidation = function(allvalidation) {
     return isvalid2;
 };
 
-var getjsononly = function(myjson) {
+var getjsononly = function (myjson) {
     var msjon = [];
     console.log(angular.fromJson(myjson));
-    
+
     return msjon;
 };
 
-var age = function(birthdate) {
+var age = function (birthdate) {
 
 
     function calculateAge(birthday) { // birthday is a date

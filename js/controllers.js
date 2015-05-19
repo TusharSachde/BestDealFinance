@@ -100,7 +100,9 @@ angular.module('starter.controllers', ['myservices'])
     $scope.$watch('login.enq_username', function () {
         $scope.login.enq_username = $scope.login.enq_username.replace(/\s+/g, '');
     });
-
+    $scope.clickcont = function () {
+        $location.url("/contactus");
+    }
     $scope.userlogin = function (login) {
         $scope.allvalidation = [{
             field: $scope.login.enq_username,
@@ -347,7 +349,11 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function ($scope, $stateParams) {})
+.controller('HomeCtrl', function ($scope, $stateParams, $location) {
+    $scope.clickcont = function () {
+        $location.url("/contactus");
+    }
+})
 
 .controller('MyplanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 
@@ -2335,7 +2341,11 @@ angular.module('starter.controllers', ['myservices'])
 
     })
 
-.controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+.controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
+        $scope.backcont = function () {
+            $ionicHistory.goBack();
+        }
+    })
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 
         //        console.log(age());
