@@ -73,8 +73,11 @@
                     Are You Salaried ?*
                 </div>
                 <select ng-model="homeloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                    <option>Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
+                    <option>Yes No Income Proof</option>
+                    <option>No ITR</option>
                 </select>
             </label>
             <label class="item item-input" ng-click="openedit();" ng-if="homeloan.enq_is_salaried_ddl != 'No'">
@@ -111,6 +114,7 @@
                     Type Of Property*
                 </div>
                 <select ng-model="homeloan.property_type" ng-class="allvalidation[6].validation" required>
+                    <option>Please Select</option>
                     <option>Residential</option>
                     <option>Plot</option>
                 </select>
