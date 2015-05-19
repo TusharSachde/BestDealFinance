@@ -19,7 +19,9 @@
                 <div class="row no-pad bordered text-center">
                     <div class="col">
                         <p class="simple-text">Eligible Amount (In Rs)</p>
-                        <h3>{{data.eligible_loan_amount}}</h3>
+                          <h3 ng-if="data.eligible_loan_amount>data.requested_loan_amount">{{data.requested_loan_amount}}</h3>
+                        <h3 ng-if="data.eligible_loan_amount<data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
+                        <h3 ng-if="data.eligible_loan_amount=data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
                     </div>
                     <div class="col">
                         <p class="simple-text">Tenure (In Months)</p>
