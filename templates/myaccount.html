@@ -174,6 +174,18 @@
                         <span>  Altenate Email Id</span>
                         <input type="email" ng-model="updateuser.enq_alt_email">
                     </label>
+                    <label class="item item-input ">
+                        <span>  Old Password : </span>
+                        <input type="text" ng-model="updateuser.oldpassword" ng-class="allvalidation[6].validation" required>
+                    </label>
+                    <label class="item item-input ">
+                        <span>  New Password : </span>
+                        <input type="text" ng-model="updateuser.newpassword" ng-class="allvalidation[7].validation" required>
+                    </label>
+                    <label class="item item-input ">
+                        <span>  Retype New Password : </span>
+                        <input type="text" ng-model="updateuser.rnpassword" ng-class="allvalidation[8].validation" required>
+                    </label>
                 </div>
 
                 <a>

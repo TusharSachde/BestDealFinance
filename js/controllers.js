@@ -1848,6 +1848,15 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.updateuser.customeremail,
                 validation: ""
+        }, {
+                field: $scope.updateuser.oldpassword,
+                validation: ""
+        }, {
+                field: $scope.updateuser.newpassword,
+                validation: ""
+        }, {
+                field: $scope.updateuser.rnpassword,
+                validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
             if ($scope.valid_date == false) {
