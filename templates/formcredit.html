@@ -119,6 +119,16 @@
                     <input type="text" ng-model="creditloan.cc_card_limit" ng-class="allvalidation[8].validation" required>
                 </div>
             </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Bank
+                </div>
+                <select ng-model="creditloan.enq_existing_card_holder">
+                    <option>Please Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </label>
             <ion-item class="item-checkbox">
                 <label class="checkbox">
                     <input type="checkbox" ng-click="iagree()">
