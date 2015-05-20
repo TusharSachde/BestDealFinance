@@ -3,15 +3,15 @@
         <div class="padding"></div>
         <ion-list class="opaque-bg list-loan">
             <ion-item ng-repeat="check in checklist">
-                <div class="best-deal">
+                <div class="best-deal" ng-if="$index==0">
                     Best Deal
                 </div>
 
                 <!--                <img src="img/ribbon.png" class="ribbon">-->
 
                 <div class="thumb-left text-center">
-                    <p class="simple-text padded">Institution</p>
-                    <img src="{{check.casa_cc_image1 | bankimagepath}}" alt="" class="full-image">
+                    <p class="simple-text padded"></p>
+                    <img src="http://demo.bestdealfinance.com/images/casa_images/{{check.casa_cc_image1}}" alt="" class="full-image">
                     <p class="simple-text">{{check.casa_cc_card_name}}</p>
 
                 </div>
@@ -34,8 +34,8 @@
                 <div class="row no-pad bordered text-center">
                     <div class="col-75">
                         <h3>Feature</h3>
-                        <p class="simple-text">
-                            {{check.casa_cc_features}}
+                        <p class="simple-text" ng-bind-html="check.casa_cc_features">
+                            
                         </p>
                     </div>
                     <div class="col-25">
