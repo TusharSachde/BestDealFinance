@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
-                    <select>
+                    <select ng-model="refine.enq_gender">
                         <option>Please select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -17,7 +17,7 @@
                     <div class="input-label">
                         Marital Status
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_maritial_status">
                          <option>Please Select</option>
                          <option>Married</option>
                         <option>Single</option>
@@ -32,7 +32,7 @@
                     <div class="input-label">
                         Status
                     </div>
-                    <select>
+                    <select ng-model="refine.enq_status">
                         <option>Please select</option>
                         <option>Resident</option>
                         <option>Not Resident</option>
@@ -43,7 +43,7 @@
                     <span class="input-label">Nationality</span>
 
                     <div class="">
-                        <input type="text">
+                        <input type="text" ng-model="refine.enq_nationality">
                     </div>
                 </label>
                 
@@ -51,14 +51,14 @@
                     <span class="input-label">Pin Code</span>
 
 
-                    <input type="text">
+                    <input type="text" ng-model="refine.enq_pincode">
 
                 </label>
                  <label class="item item-input item-select">
                     <div class="input-label">
                         Details of the securities to be pledged
                     </div>
-                    <select>
+                    <select  ng-model="refine.enq_type_of_securities">
                         <option>Shares</option>
                         <option>Mutual Fund</option>
                         <option>Insurance Policy</option>
