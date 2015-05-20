@@ -859,6 +859,9 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                 field: $scope.refine.enq_type_of_securities,
                 validation: ""
+                    }, {
+                field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
                     }];
             var check = formvalidation($scope.allvalidation);
 
@@ -983,27 +986,25 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.refine.enq_nationality,
                 validation: ""
                     }, {
-                field: $scope.refine.enq_present_use_property,
+                field: $scope.refine.property_classification,
                 validation: ""
                     }, {
-                field: $scope.refine.enq_staying_since,
-                validation: ""
-                    }, {
-                field: $scope.refine.salary_credited_since,
-                validation: ""
-                    }, {
-                field: $scope.refine.pl_total_exp_job_years,
+                field: $scope.refine.property_area,
                 validation: ""
                     }, {
                 field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
+                    }, {
+                field: $scope.refine.owner_expiry_date,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_property_situated,
                 validation: ""
                     }];
             var check = formvalidation($scope.allvalidation);
 
             if (check) {
-                //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
-                $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");;
-                //         
+                $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");         
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/propertyformapply");
             };
