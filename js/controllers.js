@@ -665,8 +665,8 @@ angular.module('starter.controllers', ['myservices'])
 
 
     })
-    //DHAVAL END
-    //DHAVAL START
+  
+
     .controller('TwowheelerchkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
 
         $scope.refine = {};
@@ -741,8 +741,8 @@ angular.module('starter.controllers', ['myservices'])
         }
 
     })
-    //DHAVAL END
-    //DHAVAL START
+   
+  
     .controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
         $scope.checklist = {};
@@ -1917,11 +1917,12 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
-    //DHAVAL START
+//DHAVAL START  
     .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "29",
+            customersessionid:$.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2027,13 +2028,15 @@ angular.module('starter.controllers', ['myservices'])
             };
         }
     })
-    //DHAVAL END
+//DHAVAL END
+ 
     .controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-    //DHAVAl START
+//DHAVAL START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "33",
+            customersessionid:$.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2140,12 +2143,14 @@ angular.module('starter.controllers', ['myservices'])
 
         }
     })
-    //DHAVAL END
+//DHAVAL END
+ 
     //DHAVAL START
     .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "32",
+            customersessionid:$.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2245,6 +2250,7 @@ angular.module('starter.controllers', ['myservices'])
         }];
             var check = formvalidation($scope.allvalidation);
             if (check) {
+                console.log(sme);
                 MyServices.smeprojectfinance(sme).success(smefinance);;
             };
         }
@@ -2675,7 +2681,7 @@ angular.module('starter.controllers', ['myservices'])
             //sapana end
         $ionicLoading.hide();
     })
-    //dhaval start
+    
     .controller('TwowheelerLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
         $ionicLoading.show();
         $scope.twloan = {
@@ -2850,7 +2856,7 @@ angular.module('starter.controllers', ['myservices'])
 
     })
 
-//  DHAVAL END
+
 //SAPANA START loan security page
 .controller('SecurityLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
 

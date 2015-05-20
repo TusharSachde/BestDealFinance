@@ -125,7 +125,7 @@
                 </div>
                 <select ng-model="creditloan.bankname">
                     <option>Please Select</option>
-                    <option ng-repeat="bank in banks" value="{{bank}}">{{bank}}</option>
+                    <option ng-repeat="bank in banks" value="{{bank.bankid}}">{{bank.bankname}}</option>
                 </select>
             </label>
             <ion-item class="item-checkbox">
