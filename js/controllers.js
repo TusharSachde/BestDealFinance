@@ -864,14 +864,10 @@ angular.module('starter.controllers', ['myservices'])
 
             if (check) {
                 MyServices.refinestepawayset($scope.refine);
-<<<<<<< HEAD
                 //$location.url("/app/securityformapply");
 
             };
-            //        MyServices.stepawayset(carloan);
-=======
-                $location.url("/app/securityformapply");
-            };
+            
         }
 
     })
@@ -881,9 +877,6 @@ angular.module('starter.controllers', ['myservices'])
         $ionicLoading.show({
             template: 'Please wait...'
         });
->>>>>>> origin/master
-
-
         var lassuccess = function (data, status) {
             //console.log(data.Data.num);
             $ionicLoading.hide();
@@ -1696,17 +1689,11 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                 field: $scope.refine.enq_nationality,
                 validation: ""
-<<<<<<< HEAD
+
                     }, {
                 field: $scope.refine.property_classifications,
                 validation: ""
                     }, {
-=======
-                    }, {
-                field: $scope.refine.property_classifications,
-                validation: ""
-                    }, {
->>>>>>> origin/master
                 field: $scope.refine.salary_credited_since,
                 validation: ""
                     }, {
