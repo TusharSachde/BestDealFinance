@@ -54,11 +54,11 @@ angular.module('starter.controllers', ['myservices'])
         $scope.citie = data.Data;
     }
     $scope.doSearchCity = function (datasearch) {
-        if (datasearch.length >= 3) {
-            MyServices.getdropdowncity(datasearch).success(citysuccess);
+            if (datasearch.length >= 3) {
+                MyServices.getdropdowncity(datasearch).success(citysuccess);
+            }
         }
-    }
-    //  GET BANKS
+        //  GET BANKS
     var banksuccess = function (data, status) {
         $scope.banks = data.Data;
         console.log(data);
@@ -665,79 +665,79 @@ angular.module('starter.controllers', ['myservices'])
 
 
     })
-  
 
-    .controller('TwowheelerchkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
 
-        $scope.refine = {};
-        $scope.refine.appid = $stateParams.appid;
-        console.log($scope.refine.appid);
-        $scope.refine.enq_staying_since = new Date;
-        $scope.refine.salary_credited_since = new Date;
-        $scope.refine.enq_bank_ac_tw_since = new Date;
-        $scope.allvalidation = [];
+.controller('TwowheelerchkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal, $filter) {
 
-        //  MODAL FOR BANK RELATIONSHIP
-        $ionicModal.fromTemplateUrl('templates/bank.html', {
-            id: '3',
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.oModal3 = modal;
-        });
-        //        $scope.showbank = function () {
-        //            $scope.oModal3.show();
-        //        };
+    $scope.refine = {};
+    $scope.refine.appid = $stateParams.appid;
+    console.log($scope.refine.appid);
+    $scope.refine.enq_staying_since = new Date;
+    $scope.refine.salary_credited_since = new Date;
+    $scope.refine.enq_bank_ac_tw_since = new Date;
+    $scope.allvalidation = [];
 
-        //  REFINE PERSONAL 
-        $scope.show_hide = function () {
-            if ($scope.refine.enq_have_loan_ddl == "Yes")
-                $scope.show = 1;
-            else
-                $scope.show = 0;
-        }
-        $scope.bs_show = function () {
-            if ($scope.refine.enq_bank_ac_tw == "Yes")
-                $scope.showbs = 1;
-            else
-                $scope.showbs = 0;
-        }
+    //  MODAL FOR BANK RELATIONSHIP
+    $ionicModal.fromTemplateUrl('templates/bank.html', {
+        id: '3',
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.oModal3 = modal;
+    });
+    //        $scope.showbank = function () {
+    //            $scope.oModal3.show();
+    //        };
 
-        var refinesuccess = function (data, status) {
-            console.log(data);
-        }
-        $scope.refinetw = function () {
-                        $scope.allvalidation = [{
-                field: $scope.refine.enq_gender,
-                validation: ""
+    //  REFINE PERSONAL 
+    $scope.show_hide = function () {
+        if ($scope.refine.enq_have_loan_ddl == "Yes")
+            $scope.show = 1;
+        else
+            $scope.show = 0;
+    }
+    $scope.bs_show = function () {
+        if ($scope.refine.enq_bank_ac_tw == "Yes")
+            $scope.showbs = 1;
+        else
+            $scope.showbs = 0;
+    }
+
+    var refinesuccess = function (data, status) {
+        console.log(data);
+    }
+    $scope.refinetw = function () {
+        $scope.allvalidation = [{
+            field: $scope.refine.enq_gender,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_maritial_status,
-                validation: ""
+            field: $scope.refine.enq_maritial_status,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_nationality,
-                validation: ""
+            field: $scope.refine.enq_nationality,
+            validation: ""
                         }, {
-                field: $scope.refine.salary_credited_since,
-                validation: ""
+            field: $scope.refine.salary_credited_since,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_staying_since,
-                validation: ""
+            field: $scope.refine.enq_staying_since,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_bank_ac_tw,
-                validation: ""
+            field: $scope.refine.enq_bank_ac_tw,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_bank_ac_tw_since,
-                validation: ""
+            field: $scope.refine.enq_bank_ac_tw_since,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_have_loan_ddl,
-                validation: ""
+            field: $scope.refine.enq_have_loan_ddl,
+            validation: ""
                         }, {
-                field: $scope.refine.enq_emi_existing_loan,
-                validation: ""
+            field: $scope.refine.enq_emi_existing_loan,
+            validation: ""
                         }];
-                        var check = formvalidation($scope.allvalidation);
-            
-                        if (check) {
+        var check = formvalidation($scope.allvalidation);
+
+        if (check) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
             $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
@@ -745,14 +745,14 @@ angular.module('starter.controllers', ['myservices'])
             console.log($scope.refine);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/twowheelerapply");
-                            
-                            };
-        }
 
-    })
-   
-  
-    .controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
+        };
+    }
+
+})
+
+
+.controller('TwowheelerapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
 
         $scope.checklist = {};
         $ionicLoading.show({
@@ -844,29 +844,29 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.refinelas = function (refine) {
             console.log($scope.refine);
-                    $scope.allvalidation = [{
-                        field: $scope.refine.enq_gender,
-                        validation: ""
+            $scope.allvalidation = [{
+                field: $scope.refine.enq_gender,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_maritial_status,
-                        validation: ""
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_status,
-                        validation: ""
+                field: $scope.refine.enq_status,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_pincode,
-                        validation: ""
+                field: $scope.refine.enq_pincode,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_type_of_securities,
-                        validation: ""
+                field: $scope.refine.enq_type_of_securities,
+                validation: ""
                     }];
-                    var check = formvalidation($scope.allvalidation);
+            var check = formvalidation($scope.allvalidation);
 
-                    if (check) {
-                        MyServices.refinestepawayset($scope.refine);
-            //$location.url("/app/securityformapply");
+            if (check) {
+                MyServices.refinestepawayset($scope.refine);
+                //$location.url("/app/securityformapply");
 
-                    };
+            };
             //        MyServices.stepawayset(carloan);
 
         }
@@ -942,42 +942,40 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.refineproperty = function (refine) {
             console.log($scope.refine);
-            //        $scope.allvalidation = [{
-            //            field: $scope.refine.enq_gender,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_maritial_status,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_nationality,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_present_use_property,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_staying_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.salary_credited_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.pl_total_exp_job_years,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_have_loan_ddl,
-            //            validation: ""
-            //        }];
-            //        var check = formvalidation($scope.allvalidation);
+            $scope.allvalidation = [{
+                field: $scope.refine.enq_gender,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_nationality,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_present_use_property,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_staying_since,
+                validation: ""
+                    }, {
+                field: $scope.refine.salary_credited_since,
+                validation: ""
+                    }, {
+                field: $scope.refine.pl_total_exp_job_years,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
+                    }];
+            var check = formvalidation($scope.allvalidation);
 
-            //        if (check) {
-            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
-            $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");;
-            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
-            MyServices.refinestepawayset($scope.refine);
-            $location.url("/app/propertyformapply");
-
-            //        };
-            //        MyServices.stepawayset(carloan);
+            if (check) {
+                //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+                $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");;
+                //         
+                MyServices.refinestepawayset($scope.refine);
+                $location.url("/app/propertyformapply");
+            };
 
         }
 
@@ -1644,53 +1642,53 @@ angular.module('starter.controllers', ['myservices'])
         $scope.closeModalCity = function () {
             $scope.modalcity.hide();
         };
-    
+
         //  REFINE PERSONAL 
         var refinesuccess = function (data, status) {
             console.log(data);
         }
         $scope.applyhome = function (refine) {
             console.log($scope.refine);
-                    $scope.allvalidation = [{
-                        field: $scope.refine.enq_gender,
-                        validation: ""
+            $scope.allvalidation = [{
+                field: $scope.refine.enq_gender,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_maritial_status,
-                        validation: ""
-                    },{
-                        field: $scope.refine.enq_nationality,
-                        validation: ""
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
                     }, {
-                        field: $scope.refine.property_classifications,
-                        validation: ""
+                field: $scope.refine.enq_nationality,
+                validation: ""
                     }, {
-                        field: $scope.refine.salary_credited_since,
-                        validation: ""
+                field: $scope.refine.property_classifications,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_exclusive_rate_property,
-                        validation: ""
+                field: $scope.refine.salary_credited_since,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_Purpose,
-                        validation: ""
+                field: $scope.refine.enq_exclusive_rate_property,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_have_loan_ddl,
-                        validation: ""
-                    },{
-                        field: $scope.refine.enq_present_use_property,
-                        validation: ""
-                    },{
-                        field: $scope.refine.step_enq_city,
-                        validation: ""
+                field: $scope.refine.enq_Purpose,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
+                    }, {
+                field: $scope.refine.enq_present_use_property,
+                validation: ""
+                    }, {
+                field: $scope.refine.step_enq_city,
+                validation: ""
                     }];
-                    var check = formvalidation($scope.allvalidation);
+            var check = formvalidation($scope.allvalidation);
 
-                    if (check) {
-            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-            MyServices.refinestepawayset($scope.refine);
-            $location.url("/app/homeapply");
+            if (check) {
+                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+                MyServices.refinestepawayset($scope.refine);
+                $location.url("/app/homeapply");
 
 
-                    };
+            };
         }
 
 
@@ -1979,12 +1977,12 @@ angular.module('starter.controllers', ['myservices'])
             $scope.modal.hide();
         };
     })
-//DHAVAL START  
+    //DHAVAL START  
     .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "29",
-            customersessionid:$.jStorage.get("user").customersessionid
+            customersessionid: $.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2090,15 +2088,15 @@ angular.module('starter.controllers', ['myservices'])
             };
         }
     })
-//DHAVAL END
- 
-    .controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
-//DHAVAL START
+    //DHAVAL END
+
+.controller('HealthCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    //DHAVAL START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "33",
-            customersessionid:$.jStorage.get("user").customersessionid
+            customersessionid: $.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2205,14 +2203,14 @@ angular.module('starter.controllers', ['myservices'])
 
         }
     })
-//DHAVAL END
- 
-    //DHAVAL START
-    .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
+    //DHAVAL END
+
+//DHAVAL START
+.controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
         $scope.sme = {
             enq_loanType: "32",
-            customersessionid:$.jStorage.get("user").customersessionid
+            customersessionid: $.jStorage.get("user").customersessionid
         }
 
         //know more
@@ -2321,15 +2319,15 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal) {
         //know more
-        $scope.lap={};
+        $scope.lap = {};
         $scope.allvalidation = [];
-        $scope.lappro=function(lap){
-          $scope.allvalidation = [{
-                    field: $scope.lap.loanfor,
-                    validation: ""
+        $scope.lappro = function (lap) {
+            $scope.allvalidation = [{
+                field: $scope.lap.loanfor,
+                validation: ""
                 }];
-                var check = formvalidation($scope.allvalidation);
-            if(check){
+            var check = formvalidation($scope.allvalidation);
+            if (check) {
                 $location.url("/app/propertyloan");
             }
         }
@@ -2376,7 +2374,8 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
-                $scope.checklist = JSON.parse(data.Data);
+                //                $scope.checklist = JSON.parse(data.Data);
+                $scope.checklist = data.Data;
                 console.log(data);
                 //                console.log(getjsononly($scope.checklist));
             }
@@ -2754,180 +2753,180 @@ angular.module('starter.controllers', ['myservices'])
             //sapana end
         $ionicLoading.hide();
     })
-    
-    .controller('TwowheelerLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
-        $ionicLoading.show();
-        $scope.twloan = {
-            //            'loan': 20000,
-            //            'tenure': 6,
-            //            'income': 15000
-            'enq_loanAmtTo': 5000,
-            'enq_tenureTo': 15,
-            'enq_currIncomeTo': 9874,
-            'enq_dob': new Date(),
 
-        };
-        $scope.valid_date = false;
-        //  GET MANUFACTURER
-        var manufacturersuccess = function (data, status) {
-            $scope.manufacturers = data.Data;
-        }
-        MyServices.getdropdownmanufacturer(23).success(manufacturersuccess);
+.controller('TwowheelerLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
+    $ionicLoading.show();
+    $scope.twloan = {
+        //            'loan': 20000,
+        //            'tenure': 6,
+        //            'income': 15000
+        'enq_loanAmtTo': 5000,
+        'enq_tenureTo': 15,
+        'enq_currIncomeTo': 9874,
+        'enq_dob': new Date(),
 
-        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modal = modal;
-        });
+    };
+    $scope.valid_date = false;
+    //  GET MANUFACTURER
+    var manufacturersuccess = function (data, status) {
+        $scope.manufacturers = data.Data;
+    }
+    MyServices.getdropdownmanufacturer(23).success(manufacturersuccess);
 
-        $scope.openedit = function () {
-            $scope.modal.show();
-        }
+    $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modal = modal;
+    });
 
-        $scope.closeModalComp = function () {
-            $scope.modal.hide();
-        };
-        $ionicModal.fromTemplateUrl('templates/popupsearchcity.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modalcity = modal;
-        });
+    $scope.openedit = function () {
+        $scope.modal.show();
+    }
 
-        $scope.selectcity = function () {
-            $scope.modalcity.show();
-        }
+    $scope.closeModalComp = function () {
+        $scope.modal.hide();
+    };
+    $ionicModal.fromTemplateUrl('templates/popupsearchcity.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modalcity = modal;
+    });
 
-        $scope.closeModalCity = function () {
+    $scope.selectcity = function () {
+        $scope.modalcity.show();
+    }
+
+    $scope.closeModalCity = function () {
+        $scope.modalcity.hide();
+    };
+    //know more
+    $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
+        scope: $scope,
+        animation: 'slide-in-up'
+    }).then(function (modal) {
+        $scope.modalterms = modal;
+    });
+
+    $scope.openTerms = function () {
+        $scope.modalterms.show();
+    };
+
+    $scope.closeModal = function () {
+        $scope.modalterms.hide();
+    };
+
+
+    //  DECLARATION
+    $scope.allvalidation = [];
+
+
+    //  SELECT CITY
+    $scope.selectcityid = function (cityid, cityname) {
+            console.log("City Id=" + cityid);
             $scope.modalcity.hide();
-        };
-        //know more
-        $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.modalterms = modal;
-        });
+            $scope.twloan.enq_city = cityname;
+            $scope.cityName = cityname;
+        }
+        //  SELECT COMPANY
+    $scope.selectcomp = function (comp) {
+        console.log(comp);
+        $scope.closeModalComp();
+        $scope.twloan.enq_company_id = comp;
+    }
 
-        $scope.openTerms = function () {
-            $scope.modalterms.show();
-        };
-
-        $scope.closeModal = function () {
-            $scope.modalterms.hide();
-        };
-
-
-        //  DECLARATION
-        $scope.allvalidation = [];
-
-
-        //  SELECT CITY
-        $scope.selectcityid = function (cityid, cityname) {
-                console.log("City Id=" + cityid);
-                $scope.modalcity.hide();
-                $scope.twloan.enq_city = cityname;
-                $scope.cityName = cityname;
-            }
-            //  SELECT COMPANY
-        $scope.selectcomp = function (comp) {
-            console.log(comp);
-            $scope.closeModalComp();
-            $scope.twloan.enq_company_id = comp;
+    $scope.datechange = function () {
+        if (parseInt(age($scope.twloan.enq_dob)) < 18) {
+            console.log("chintoo");
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 18",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        } else {
+            $scope.valid_date = true;
         }
 
-        $scope.datechange = function () {
-            if (parseInt(age($scope.twloan.enq_dob)) < 18) {
-                console.log("chintoo");
-                var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 18",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            } else {
-                $scope.valid_date = true;
-            }
 
+    }
 
-        }
-
-        var manufsuccess = function (data, status) {
-            $scope.models = data.Data;
-            console.log($scope.models);
-            $ionicLoading.hide();
-        }
-        $scope.getmodel = function (manuf) {
-            console.log(manuf);
-            $ionicLoading.show();
-            MyServices.getmanumodel(manuf).success(manufsuccess);
-        }
-
-        //        $scope.twloanshow=function(){
-        //             $scope.twloan.enq_dob = $filter('date')($scope.twloan.enq_dob, "dd-MM-yyyy");
-        //        console.log($scope.twloan.enq_dob);
-        //        
-        //            console.log($scope.twloan);
-        //        };
-
-        $scope.twloanclick = function (twloan) {
-            console.log(twloan);
-            if (twloan.enq_is_salaried_ddl != "no") {
-                twloan.enq_occupation = "Salaried";
-            }
-            $scope.allvalidation = [{
-                field: $scope.twloan.enq_loanAmtTo,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_tenureTo,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_currIncomeTo,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_dob,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_is_salaried_ddl,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_city,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_manufacturer,
-                validation: ""
-        }, {
-                field: $scope.twloan.enq_model,
-                validation: ""
-        }, {
-                field: $scope.twloan.ex_showroom_cost,
-                validation: ""
-        }];
-            var check = formvalidation($scope.allvalidation);
-            if ($scope.valid_date == false) {
-                var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 18",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            }
-            if (check && $scope.valid_date == true) {
-                //                $scope.today = new Date();
-                twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
-                console.log(twloan.enq_dob);
-
-                MyServices.stepawayset(twloan);
-                $location.url("/app/twowheelerlistchk");
-                //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            };
-        }
+    var manufsuccess = function (data, status) {
+        $scope.models = data.Data;
+        console.log($scope.models);
         $ionicLoading.hide();
+    }
+    $scope.getmodel = function (manuf) {
+        console.log(manuf);
+        $ionicLoading.show();
+        MyServices.getmanumodel(manuf).success(manufsuccess);
+    }
 
-    })
+    //        $scope.twloanshow=function(){
+    //             $scope.twloan.enq_dob = $filter('date')($scope.twloan.enq_dob, "dd-MM-yyyy");
+    //        console.log($scope.twloan.enq_dob);
+    //        
+    //            console.log($scope.twloan);
+    //        };
+
+    $scope.twloanclick = function (twloan) {
+        console.log(twloan);
+        if (twloan.enq_is_salaried_ddl != "no") {
+            twloan.enq_occupation = "Salaried";
+        }
+        $scope.allvalidation = [{
+            field: $scope.twloan.enq_loanAmtTo,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_tenureTo,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_currIncomeTo,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_dob,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_is_salaried_ddl,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_city,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_manufacturer,
+            validation: ""
+        }, {
+            field: $scope.twloan.enq_model,
+            validation: ""
+        }, {
+            field: $scope.twloan.ex_showroom_cost,
+            validation: ""
+        }];
+        var check = formvalidation($scope.allvalidation);
+        if ($scope.valid_date == false) {
+            var myPopup1 = $ionicPopup.show({
+                title: "Age should be Greater than 18",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
+        if (check && $scope.valid_date == true) {
+            //                $scope.today = new Date();
+            twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
+            console.log(twloan.enq_dob);
+
+            MyServices.stepawayset(twloan);
+            $location.url("/app/twowheelerlistchk");
+            //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
+        };
+    }
+    $ionicLoading.hide();
+
+})
 
 
 //SAPANA START loan security page
@@ -3262,39 +3261,39 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.refinecar = function (refine) {
             console.log($scope.refine);
-                    $scope.allvalidation = [{
-                        field: $scope.refine.enq_gender,
-                        validation: ""
+            $scope.allvalidation = [{
+                field: $scope.refine.enq_gender,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_maritial_status,
-                        validation: ""
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_nationality,
-                        validation: ""
+                field: $scope.refine.enq_nationality,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_usage,
-                        validation: ""
+                field: $scope.refine.enq_usage,
+                validation: ""
                     }, {
-                        field: $scope.refine.selectAllexisting_bank_relationship,
-                        validation: ""
+                field: $scope.refine.selectAllexisting_bank_relationship,
+                validation: ""
                     }, {
-                        field: $scope.refine.enq_have_loan_ddl,
-                        validation: ""
+                field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
                     }, {
-                        field: $scope.refine.salary_credited_since,
-                        validation: ""
+                field: $scope.refine.salary_credited_since,
+                validation: ""
                     }, {
-                        field: $scope.refine.owner_expiry_date,
-                        validation: ""
+                field: $scope.refine.owner_expiry_date,
+                validation: ""
                     }];
-                    var check = formvalidation($scope.allvalidation);
+            var check = formvalidation($scope.allvalidation);
 
-                    if (check) {
-                        $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
-                        MyServices.refinestepawayset($scope.refine);
-                        $location.url("/app/carapply");
+            if (check) {
+                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
+                MyServices.refinestepawayset($scope.refine);
+                $location.url("/app/carapply");
 
-                    };
+            };
         }
     })
     //SAPANA ENDS
