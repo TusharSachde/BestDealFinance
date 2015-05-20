@@ -41,7 +41,7 @@
                     Are You Salaried ?*
                 </div>
                 <select ng-model="propertyloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
-                    <option>Please Select</option>
+                    <option value="">Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
                 </select>
@@ -51,8 +51,8 @@
                 <div class="input-label">
                     Occupation
                 </div>
-                <select ng-model="propertyloan.enq_occupation" ng-init="propertyloan.enq_occupation='Please select'">
-                    <option>Please select</option>
+                <select ng-model="propertyloan.enq_occupation">
+                    <option value="">Please select</option>
                     <option>Housewife</option>
                     <option>Retired</option>
                     <option>Salaried</option>
@@ -90,8 +90,8 @@
                 <div class="input-label">
                     Type Of Property*
                 </div>
-                <select ng-model="propertyloan.property_type" ng-init="propertyloan.property_type='Please Select'" ng-class="allvalidation[6].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="propertyloan.property_type" ng-class="allvalidation[6].validation" required>
+                    <option value="">Please Select</option>
                     <option>Commercial</option>
                     <option>Residential</option>
                     <option>Personal</option>
