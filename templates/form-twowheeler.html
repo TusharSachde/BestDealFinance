@@ -38,8 +38,8 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="twloan.enq_is_salaried_ddl" ng-init="twloan.enq_is_salaried_ddl='Please Select'" ng-class="allvalidation[4].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="twloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
+                    <option value="">Please Select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select>
@@ -49,8 +49,8 @@
                 <div class="input-label">
                     Occupation
                 </div>
-                <select ng-model="twloan.enq_occupation" ng-init="twloan.enq_occupation='Please select'" required>
-                    <option>Please select</option>
+                <select ng-model="twloan.enq_occupation"required>
+                    <option value="">Please select</option>
                     <option value="Housewife">Housewife</option>
                     <option value="Retired">Retired</option>
                     <option value="Self Employed">Self Employed</option>
@@ -92,7 +92,7 @@
                     Manufacturer*
                 </div>
                 <select ng-model="twloan.enq_manufacturer" ng-change="getmodel(twloan.enq_manufacturer)" ng-class="allvalidation[6].validation" required>
-                   <option>Please Select</option>
+                   <option value="">Please Select</option>
                     <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
                     <!--
                         <option>HONDA</option>
@@ -106,7 +106,7 @@
                     Model*
                 </div>
                 <select ng-model="twloan.enq_model" ng-class="allvalidation[7].validation" required>
-                   <option>Please Select</option>
+                   <option value="">Please Select</option>
                     <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
                     <!--                        <option>Maruti Suzuki</option>-->
                 </select>
