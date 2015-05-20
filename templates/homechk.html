@@ -4,8 +4,8 @@
             <div class="list signin">
 
                 <label class="item item-input item-select">
-                    <span class="input-label">Gender</span>
-                    <select ng-model="refine.enq_gender">
+                    <span class="input-label">Gender*</span>
+                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
                         <option>Please select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -15,9 +15,9 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Marital Status
+                        Marital Status*
                     </div>
-                    <select ng-model="refine.enq_maritial_status">
+                    <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
                         <option>Please Select</option>
                         <option>Married</option>
                         <option>Single</option>
@@ -53,9 +53,9 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Country
+                        Country*
                     </div>
-                    <select ng-model="refine.enq_nationality">
+                    <select ng-model="refine.enq_nationality" ng-class="allvalidation[2].validation" required ng-init="refine.enq_nationality='Please select'">
                         <option>Please Select</option>
                         <option>India</option>
                         <option>Nepal</option>
@@ -71,10 +71,10 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Classification of Property
+                        Classification of Property*
                     </div>
-                    <select ng-model="refine.property_classification">
-                        <option>Select</option>
+                    <select ng-model="refine.property_classification" ng-class="allvalidation[3].validation" required ng-init="refine.property_classification='Please select'">
+                        <option>Please select</option>
                         <option>Flat</option>
                         <option>RowHouse</option>
                         <option>Bunglow</option>
@@ -82,14 +82,14 @@
                     </select>
                 </label>
 				  <label class="item item-input">
-                    <span class="input-label">Employed Since</span>
-                    <input type="date" ng-model="refine.salary_credited_since">
+                    <span class="input-label">Employed Since*</span>
+                    <input type="date" ng-model="refine.salary_credited_since" ng-class="allvalidation[4].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Property at Exclusive Rates
+                        Property at Exclusive Rates*
                     </div>
-                    <select ng-model="refine.enq_exclusive_rate_property">
+                    <select ng-model="refine.enq_exclusive_rate_property" ng-class="allvalidation[5].validation" required ng-init="refine.enq_exclusive_rate_property='Please select'">
                         <option>Please Select</option>
                         <option>Vinayak Unique,Vinayak Unique Gardens</option>
                         <option>Balaji Darshan, Balaji Darshan Making</option>
@@ -97,9 +97,9 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Purpose of Loan
+                        Purpose of Loan*
                     </div>
-                    <select ng-model="refine.enq_Purpose">
+                    <select ng-model="refine.enq_Purpose" ng-class="allvalidation[6].validation" required ng-init="refine.enq_Purpose='Please Select'">
                         <option>Please Select</option>
                         <option>Purchase</option>
                         <option>Construction</option>
@@ -113,9 +113,9 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Do you have an existing loan?
+                        Do you have an existing loan?*
                     </div>
-                    <select ng-model="refine.enq_have_loan_ddl">
+                    <select ng-model="refine.enq_have_loan_ddl" ng-class="allvalidation[7].validation" required ng-init="refine.enq_Purpose='Please Select'">
                         <option>Please Select</option>
                         <option>No</option>
                         <option>Yes</option>
@@ -123,41 +123,34 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Status of Property
+                        Status of Property*
                     </div>
-                    <select ng-model="refine.enq_present_use_property">
+                    <select ng-model="refine.enq_present_use_property" ng-class="allvalidation[8].validation" required ng-init="refine.enq_present_use_property='Please Select'">
                         <option>Please Select</option>
                         <option>Ready Position</option>
                         <option>Under Construction</option>
                         <option>Not Identified</option>
                     </select>
                 </label>
-				  <label class="item item-input item-select" ng-if="refine.enq_present_use_property=='Under Construction'">
+				  <label class="item item-input" ng-model="refine.step_enq_city" ng-if="refine.enq_present_use_property!='Please Select'" ng-click="selectcity();">
                     <div class="input-label">
-                        Property City
+                        Property City*<span class="citysearch">{{cityName}}</span>
                     </div>
-                    <select ng-model="">
-<!--                        <option>&nbsp;</option>-->
-                        <option>Please Select</option>
-                        <option>abcd</option>
-                    </select>
                 </label>
-                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property=='Under Construction'">
+                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property!='Please Select'">
                     <div class="input-label">
                         Builder/Developer 
                     </div>
                     <select ng-model="">
-<!--                        <option>&nbsp;</option>-->
                         <option>Please Select</option>
                         <option>abcd</option>
                     </select>
                 </label>
-                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property=='Under Construction'">
+                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property!='Please Select'">
                     <div class="input-label">
                         Project Name
                     </div>
                     <select ng-model="">
-<!--                        <option>&nbsp;</option>-->
                         <option>Please Select</option>
                         <option>abcd</option>
                     </select>

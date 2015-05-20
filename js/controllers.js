@@ -1590,7 +1590,19 @@ angular.module('starter.controllers', ['myservices'])
         $scope.showbank = function () {
             $scope.oModal3.show();
         };
-
+        $ionicModal.fromTemplateUrl('templates/popupsearchcity.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modalcity = modal;
+        });
+        $scope.selectcity = function () {
+            $scope.modalcity.show();
+        }
+        $scope.closeModalCity = function () {
+            $scope.modalcity.hide();
+        };
+    
         //  REFINE PERSONAL 
         var refinesuccess = function (data, status) {
             console.log(data);
