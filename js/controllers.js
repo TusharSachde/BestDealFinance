@@ -708,7 +708,7 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.refinetw = function () {
                         $scope.allvalidation = [{
-                            field: $scope.refine.enq_gender,
+                field: $scope.refine.enq_gender,
                 validation: ""
                         }, {
                 field: $scope.refine.enq_maritial_status,
@@ -729,10 +729,10 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.refine.enq_bank_ac_tw_since,
                 validation: ""
                         }, {
-                field: $scope.refine.enq_emi_existing_loan,
+                field: $scope.refine.enq_have_loan_ddl,
                 validation: ""
                         }, {
-                field: $scope.refine.enq_have_loan_ddl,
+                field: $scope.refine.enq_emi_existing_loan,
                 validation: ""
                         }];
                         var check = formvalidation($scope.allvalidation);
@@ -3164,7 +3164,7 @@ angular.module('starter.controllers', ['myservices'])
         $ionicLoading.hide();
     })
     //property loan ends
-    //SAPANA STARTS
+    //vignesh STARTS
     .controller('CheckCarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
         //
         //        $scope.carloan = {
@@ -3199,48 +3199,40 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.refinecar = function (refine) {
             console.log($scope.refine);
-            //        $scope.allvalidation = [{
-            //            field: $scope.refine.enq_gender,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_maritial_status,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_nationality,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_present_use_property,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_staying_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.salary_credited_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.pl_total_exp_job_years,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_have_loan_ddl,
-            //            validation: ""
-            //        }];
-            //        var check = formvalidation($scope.allvalidation);
+                    $scope.allvalidation = [{
+                        field: $scope.refine.enq_gender,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_maritial_status,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_nationality,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_usage,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.selectAllexisting_bank_relationship,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_have_loan_ddl,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.salary_credited_since,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.owner_expiry_date,
+                        validation: ""
+                    }];
+                    var check = formvalidation($scope.allvalidation);
 
-            //        if (check) {
-            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
-            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
-            MyServices.refinestepawayset($scope.refine);
-            $location.url("/app/carapply");
+                    if (check) {
+                        $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
+                        MyServices.refinestepawayset($scope.refine);
+                        $location.url("/app/carapply");
 
-            //        };
-            //        MyServices.stepawayset(carloan);
-
+                    };
         }
-
-
-
-
     })
     //SAPANA ENDS
     //sapana starts
@@ -3432,9 +3424,6 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }, {
             field: $scope.refine.pl_total_exp_job_years,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_have_loan_ddl,
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
