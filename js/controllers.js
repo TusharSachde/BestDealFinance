@@ -696,39 +696,48 @@ angular.module('starter.controllers', ['myservices'])
             else
                 $scope.show = 0;
         }
+        $scope.bs_show = function () {
+            if ($scope.refine.enq_bank_ac_tw == "Yes")
+                $scope.showbs = 1;
+            else
+                $scope.showbs = 0;
+        }
 
         var refinesuccess = function (data, status) {
             console.log(data);
         }
         $scope.refinetw = function () {
-            //            $scope.allvalidation = [{
-            //                field: $scope.refine.enq_gender,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.enq_maritial_status,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.enq_nationality,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.enq_present_use_property,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.enq_staying_since,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.salary_credited_since,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.pl_total_exp_job_years,
-            //                validation: ""
-            //            }, {
-            //                field: $scope.refine.enq_have_loan_ddl,
-            //                validation: ""
-            //            }];
-            //            var check = formvalidation($scope.allvalidation);
-            //
-            //            if (check) {
+                        $scope.allvalidation = [{
+                            field: $scope.refine.enq_gender,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_nationality,
+                validation: ""
+                        }, {
+                field: $scope.refine.salary_credited_since,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_staying_since,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_bank_ac_tw,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_bank_ac_tw_since,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_emi_existing_loan,
+                validation: ""
+                        }, {
+                field: $scope.refine.enq_have_loan_ddl,
+                validation: ""
+                        }];
+                        var check = formvalidation($scope.allvalidation);
+            
+                        if (check) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
             $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
@@ -736,8 +745,8 @@ angular.module('starter.controllers', ['myservices'])
             console.log($scope.refine);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/twowheelerapply");
-            //                
-            //                };
+                            
+                            };
         }
 
     })
