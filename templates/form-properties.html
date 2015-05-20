@@ -47,7 +47,7 @@
                 </select>
             </label>
 
-            <label class="item item-input item-select" ng-if="carloan.enq_is_salaried_ddl == 'No'">
+            <label class="item item-input item-select" ng-if="propertyloan.enq_is_salaried_ddl != 'Yes'">
                 <div class="input-label">
                     Occupation
                 </div>
@@ -94,7 +94,6 @@
                     <option value="">Please Select</option>
                     <option>Commercial</option>
                     <option>Residential</option>
-                    <option>Personal</option>
                 </select>
             </label>
 
@@ -105,7 +104,8 @@
                 <select ng-model="propertyloan.enq_present_use_property" ng-class="allvalidation[7].validation" required>
                     <option value="">Please Select</option>
                     <option>Self occupied</option>
-                    <option>On Rent</option>
+                    <option>Rented</option>
+                    <option>Vacant</option>
                 </select>
             </label>
 

@@ -2640,6 +2640,7 @@ angular.module('starter.controllers', ['myservices'])
                 };
             }
 
+<<<<<<< HEAD
         })
         //Sapana starts
         .controller('CarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
@@ -2650,6 +2651,17 @@ angular.module('starter.controllers', ['myservices'])
                 'enq_currIncomeTo': 15000,
                 'enq_is_salaried_ddl': 'No',
                 'enq_dob': new Date()
+=======
+    })
+    //Sapana starts
+    .controller('CarLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
+        $ionicLoading.show();
+        $scope.carloan = {
+            'enq_loanAmtTo': 20000,
+            'enq_tenureTo': 6,
+            'enq_currIncomeTo': 15000,
+            'enq_dob': new Date()
+>>>>>>> origin/master
 
             };
             $scope.valid_date = false;
@@ -3107,6 +3119,7 @@ angular.module('starter.controllers', ['myservices'])
             $ionicLoading.hide();
         })
 
+<<<<<<< HEAD
         //SAPANA ENDS
         // propertyloan
         .controller('PropertyLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
@@ -3117,6 +3130,17 @@ angular.module('starter.controllers', ['myservices'])
                 'enq_currIncomeTo': 15000,
                 'enq_is_salaried_ddl': 'No',
                 'enq_dob': new Date()
+=======
+//SAPANA ENDS
+// propertyloan
+.controller('PropertyLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
+        $ionicLoading.show();
+        $scope.propertyloan = {
+            'enq_loanAmtTo': 20000,
+            'enq_tenureTo': 6,
+            'enq_currIncomeTo': 15000,
+            'enq_dob': new Date()
+>>>>>>> origin/master
 
             };
             $scope.valid_date = false;
