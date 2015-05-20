@@ -867,7 +867,7 @@ angular.module('starter.controllers', ['myservices'])
 
             if (check) {
                 MyServices.refinestepawayset($scope.refine);
-                //$location.url("/app/securityformapply");
+                $location.url("/app/securityformapply");
 
             };
             
@@ -875,13 +875,13 @@ angular.module('starter.controllers', ['myservices'])
 
     })
     //DHAVAL END
-    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location,$ionicLoading) {
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
         });
         var lassuccess = function (data, status) {
-            //console.log(data.Data.num);
+            console.log(data.Data);
             $ionicLoading.hide();
             if (data.Response != "Success") {
                 var myPopup1 = $ionicPopup.show({
