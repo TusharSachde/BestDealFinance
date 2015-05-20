@@ -1609,44 +1609,46 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.applyhome = function (refine) {
             console.log($scope.refine);
-            //        $scope.allvalidation = [{
-            //            field: $scope.refine.enq_gender,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_maritial_status,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_nationality,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_present_use_property,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_staying_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.salary_credited_since,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.pl_total_exp_job_years,
-            //            validation: ""
-            //        }, {
-            //            field: $scope.refine.enq_have_loan_ddl,
-            //            validation: ""
-            //        }];
-            //        var check = formvalidation($scope.allvalidation);
+                    $scope.allvalidation = [{
+                        field: $scope.refine.enq_gender,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_maritial_status,
+                        validation: ""
+                    },{
+                        field: $scope.refine.enq_nationality,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.property_classifications,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.salary_credited_since,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_exclusive_rate_property,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_Purpose,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_have_loan_ddl,
+                        validation: ""
+                    },{
+                        field: $scope.refine.enq_present_use_property,
+                        validation: ""
+                    },{
+                        field: $scope.refine.step_enq_city,
+                        validation: ""
+                    }];
+                    var check = formvalidation($scope.allvalidation);
 
-            //        if (check) {
-            //            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+                    if (check) {
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-            //            MyServices.refinestepawaycar($scope.refine).success(refinesuccess);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/homeapply");
 
 
-            //        };
-            //        MyServices.stepawayset(carloan);
-
+                    };
         }
 
 
@@ -2277,6 +2279,18 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('SmeFilesCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicModal) {
         //know more
+        $scope.lap={};
+        $scope.allvalidation = [];
+        $scope.lappro=function(lap){
+          $scope.allvalidation = [{
+                    field: $scope.lap.loanfor,
+                    validation: ""
+                }];
+                var check = formvalidation($scope.allvalidation);
+            if(check){
+                $location.url("/app/propertyloan");
+            }
+        }
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,
             animation: 'slide-in-up'

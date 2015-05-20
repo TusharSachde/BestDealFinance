@@ -1,4 +1,4 @@
-<ion-view view-title="Commercial Equiment" class="scroll-bg">
+<ion-view view-title="Loan Against Property" class="scroll-bg">
     <ion-content class="has-header font500">
         <form ng-submit="" class="deal-form">
             <div class="list signin">
@@ -18,16 +18,16 @@
                     <div class="input-label">
                         Loan For
                     </div>
-                    <select>
-                       <option>=LoanFor=</option>
+                    <select ng-model="lap.loanfor" ng-init="lap.loanfor='Please select'" ng-class="allvalidation[0].validation" required>
+                       <option>Please select</option>
                         <option>Self</option>
                         <option>Company</option>
                     </select>
                 </label>
                 <div class="text-center light" ng-click="openTerms();">Know more</div>
             </div>
-            <a href="#/app/propertyloan ">
-                <div class="button-image" ng-click="">
+            <a>
+                <div class="button-image" ng-click="lappro(lap);">
                     <img src="img/button2.png" alt="" class="full-image">
                     <div class="button-text assertive">Proceed</div>
                 </div>
