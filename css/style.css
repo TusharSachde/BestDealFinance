@@ -561,6 +561,8 @@ img.ribbon {
     right: 0px;
     bottom: 25px;
     font-weight: 500;
+     border-color: #230670!important;
+  background-color: #230670!important;
 }
 
 .best-deal {
