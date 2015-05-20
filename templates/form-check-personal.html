@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender *</span>
-                    <select ng-model="refine.enq_gender" ng-init="refine.gender='Please select'" ng-class="allvalidation[0].validation" required>
+                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
                         <option value="">Please select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -17,7 +17,7 @@
                     <div class="input-label">
                         Marital Status *
                     </div>
-                    <select ng-model="refine.enq_maritial_status" ng-init="refine.enq_maritial_status='Please Select'" ng-class="allvalidation[1].validation" required>
+                    <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
                         <option value="">Please Select</option>
                         <option value="Married">Married</option>
                         <option value="Single">Single</option>
@@ -51,7 +51,7 @@
                     <div class="input-label">
                         Type of Accommodation *
                     </div>
-                    <select ng-model="refine.enq_present_use_property" ng-init="refine.enq_present_use_property = 'Please Select'" ng-class="allvalidation[3].validation" required>
+                    <select ng-model="refine.enq_present_use_property" ng-class="allvalidation[3].validation" required>
                         <option value="">Please Select</option>
                         <option value="Owned">Owned</option>
                         <option value="Rented">Rented</option>

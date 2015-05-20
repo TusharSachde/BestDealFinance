@@ -6,7 +6,7 @@
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
                     <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
-                        <option>Please select</option>
+                        <option value="">Please select</option>
                         <option>Male</option>
                         <option>Female</option>
                     </select>
@@ -18,7 +18,7 @@
                         Marital Status
                     </div>
                     <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
-                         <option>Please Select</option>
+                         <option value="">Please Select</option>
                          <option>Married</option>
                         <option>Single</option>
                         <option>Divorced</option>
@@ -33,7 +33,7 @@
                         Status
                     </div>
                     <select ng-model="refine.enq_status" ng-class="allvalidation[2].validation" required>
-                        <option>Please select</option>
+                        <option value="">Please select</option>
                         <option>Resident</option>
                         <option>Not Resident</option>
                     </select>
@@ -59,6 +59,7 @@
                         Details of the securities to be pledged
                     </div>
                     <select  ng-model="refine.enq_type_of_securities"  ng-class="allvalidation[5].validation" required>
+                       <option value="">Please Select</option>
                         <option>Shares</option>
                         <option>Mutual Fund</option>
                         <option>Insurance Policy</option>
@@ -78,7 +79,7 @@
                         Do you have an existing loan?
                     </div>
                     <select>
-       
+                        <option value="">Please select</option>
                         <option>No</option>
                         <option>Yes</option>
                     </select>

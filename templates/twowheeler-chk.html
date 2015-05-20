@@ -6,7 +6,7 @@
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
                     <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
-                        <option>Please select</option>
+                        <option value="">Please select</option>
                         <option>Male</option>
                         <option>Female</option>
                         <option>Others</option>
@@ -19,7 +19,7 @@
                         Marital Status
                     </div>
                     <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
-                        <option>Please Select</option>
+                        <option value="">Please Select</option>
                         <option>Married</option>
                         <option>Single</option>
                         <option>Divorced</option>
@@ -34,7 +34,7 @@
                         Status
                     </div>
                     <select ng-model="refine.enq_status">
-                        <option>Please select</option>
+                        <option value="">Please select</option>
                         <option>Resident</option>
                         <option>NRI</option>
                         <option>Other</option>
@@ -68,7 +68,7 @@
                         Residence
                     </div>
                     <select ng-model="refine.enq_residence_tw">
-                        <option>Please Select</option>
+                        <option value="">Please Select</option>
                         <option>Owned</option>
                         <option>Rented</option>
                     </select>
@@ -84,7 +84,7 @@
                         Do you have an existing loan?*
                     </div>
                     <select ng-model="refine.enq_have_loan_ddl" ng-change="show_hide();" ng-class="allvalidation[7].validation" required>
-                        <option>Please Select</option>
+                        <option value="">Please Select</option>
                         <option>No</option>
                         <option>Yes</option>
                     </select>
@@ -97,7 +97,7 @@
                         Bank Account*
                     </div>
                     <select ng-model="refine.enq_bank_ac_tw" ng-class="allvalidation[5].validation" required ng-change="bs_show();">
-                        <option>Please Select</option>
+                        <option value="">Please Select</option>
                         <option>Yes</option>
                         <option>No</option>
 
