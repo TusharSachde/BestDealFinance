@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender *</span>
-                    <select ng-model="refine.enq_gender" ng-init="refine.enq_gender=''" ng-class="allvalidation[0].validation" required>
+                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
                         <option value="">Please select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
@@ -108,7 +108,7 @@
                     <input type="text" ng-model="refine.enq_emi_existing_loan">
 
                 </label>
-<!--
+                <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Do you have an existing loan? *
@@ -125,7 +125,7 @@
 
             </div>
 
-<!--            <a href="#/app/listloan">-->
+            <!--            <a href="#/app/listloan">-->
             <a ng-click="refinepl()">
                 <div class="button-image">
                     <img src="img/button2.png" alt="" class="full-image">
