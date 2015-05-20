@@ -124,6 +124,7 @@
     width: 98%;
     margin: 0 auto;
     position: relative;
+    text-align: center;
 }
 
 .button-text {
@@ -1390,6 +1391,11 @@ form.ng-invalid.ng-dirty.frm-bdr {
 
 .tnc p {
     padding: 60px 15px 15px 15px;
+}
+
+.full-image{
+    max-width: 100%;
+    width:auto;
 }
 
 .tnc {
