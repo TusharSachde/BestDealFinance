@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender</span>
-                    <select ng-model="refine.enq_gender">
+                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
                         <option>Please select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -17,7 +17,7 @@
                     <div class="input-label">
                         Marital Status
                     </div>
-                    <select ng-model="refine.enq_maritial_status">
+                    <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
                          <option>Please Select</option>
                          <option>Married</option>
                         <option>Single</option>
@@ -32,7 +32,7 @@
                     <div class="input-label">
                         Status
                     </div>
-                    <select ng-model="refine.enq_status">
+                    <select ng-model="refine.enq_status" ng-class="allvalidation[2].validation" required>
                         <option>Please select</option>
                         <option>Resident</option>
                         <option>Not Resident</option>
@@ -43,7 +43,7 @@
                     <span class="input-label">Nationality</span>
 
                     <div class="">
-                        <input type="text" ng-model="refine.enq_nationality">
+                        <input type="text" ng-model="refine.enq_nationality" ng-class="allvalidation[3].validation" required>
                     </div>
                 </label>
                 
@@ -51,14 +51,14 @@
                     <span class="input-label">Pin Code</span>
 
 
-                    <input type="text" ng-model="refine.enq_pincode">
+                    <input type="text" ng-model="refine.enq_pincode" ng-class="allvalidation[4].validation" required>
 
                 </label>
                  <label class="item item-input item-select">
                     <div class="input-label">
                         Details of the securities to be pledged
                     </div>
-                    <select  ng-model="refine.enq_type_of_securities">
+                    <select  ng-model="refine.enq_type_of_securities"  ng-class="allvalidation[5].validation" required>
                         <option>Shares</option>
                         <option>Mutual Fund</option>
                         <option>Insurance Policy</option>
@@ -85,14 +85,15 @@
                 </label>
 				    <label class="item item-input">
                     <span class="input-label">Total EMI Paid For Existing Loan</span>
-                        <input type="text" ng-model="">
+                        <input type="text">
                 </label>
 
 
             </div>
 
-            <a href="#/app/securityformapply">
-                <div class="button-image" ng-click="">
+<!--            <a href="#/app/securityformapply">-->
+            <a href="">
+                <div class="button-image" ng-click="refinelas(refine)">
                     <img src="img/button2.png" alt="" class="full-image">
                     <div class="button-text assertive">Proceed</div>
                 </div>
