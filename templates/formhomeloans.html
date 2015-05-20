@@ -72,8 +72,8 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="homeloan.enq_is_salaried_ddl" ng-init="homeloan.enq_is_salaried_ddl = 'Please Select'" ng-class="allvalidation[5].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="homeloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                    <option value="">Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
                     <option>Yes No Income Proof</option>
@@ -109,8 +109,8 @@
                 <div class="input-label">
                     Type Of Property*
                 </div>
-                <select ng-model="homeloan.property_type" ng-init="homeloan.property_type = 'Please Select'" ng-class="allvalidation[6].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="homeloan.property_type" ng-class="allvalidation[6].validation" required>
+                    <option value="">Please Select</option>
                     <option>Residential</option>
                     <option>Plot</option>
                 </select>

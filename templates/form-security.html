@@ -57,8 +57,8 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="security.enq_is_salaried_ddl" ng-init="security.enq_is_salaried_ddl='Please Select'" ng-class="allvalidation[5].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="security.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                    <option value="">Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
                 </select>
@@ -68,8 +68,8 @@
                 <div class="input-label">
                     Occupation
                 </div>
-                <select ng-model="security.enq_occupation" ng-init="security.enq_occupation='Please select'">
-                    <option>Please select</option>
+                <select ng-model="security.enq_occupation">
+                    <option value="">Please select</option>
                     <option>Housewife</option>
                     <option>Retired</option>
                     <option>Salaried</option>
