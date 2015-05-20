@@ -859,9 +859,6 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                 field: $scope.refine.enq_type_of_securities,
                 validation: ""
-                    }, {
-                field: $scope.refine.enq_have_loan_ddl,
-                validation: ""
                     }];
             var check = formvalidation($scope.allvalidation);
 
