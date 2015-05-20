@@ -1893,7 +1893,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapp = "bold";
             $scope.profile = "";
         }
-
+//
         $scope.chnageprofile = function () {
             $scope.myapp = "";
             $scope.profile = "bold";
@@ -1926,7 +1926,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
         };
-        MyServices.getmyaccount().success(myaccountsuccess)
+//        MyServices.getmyaccount().success(myaccountsuccess)
 
         var updateusersuccess = function (data, status) {
             //$scope.updateuser = data.Data;

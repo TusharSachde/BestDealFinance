@@ -140,7 +140,7 @@
                             Gender
                         </div>
                         <select ng-model="updateuser.enq_gender" ng-class="allvalidation[2].validation" required>
-                            <option>Please Select</option>
+                            <option value="">Please Select</option>
                             <option>Male</option>
                             <option>Female</option>
                             <option>other</option>
@@ -151,7 +151,7 @@
                             Marital Status
                         </div>
                         <select ng-model="updateuser.enq_maritial_status" ng-class="allvalidation[3].validation" required>
-                            <option>Please Select</option>
+                            <option value="">Please Select</option>
                             <option>Un-married</option>
                             <option>Married</option>
                         </select>
@@ -163,7 +163,7 @@
                         <input type="text" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required>
                     </label>
                     <label class="item item-input ">
-                        <span>  Alternate no.</span>
+                        <span>  Alternate no.:</span>
                         <input type="text" ng-model="updateuser.enq_alt_no">
                     </label>
                     <label class="item item-input ">
@@ -171,7 +171,7 @@
                         <input type="email" ng-model="updateuser.customeremail" ng-class="allvalidation[5].validation" required>
                     </label>
                     <label class="item item-input ">
-                        <span>  Altenate Email Id</span>
+                        <span>  Altenate Email Id :</span>
                         <input type="email" ng-model="updateuser.enq_alt_email">
                     </label>
                     <label class="item item-input ">
