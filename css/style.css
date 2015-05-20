@@ -116,6 +116,10 @@
     background: transparent;
 }
 
+.w85{
+    width:85%!important;
+}
+
 .button-image {
     width: 98%;
     margin: 0 auto;

@@ -38,7 +38,7 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="creditloan.enq_is_salaried_ddl" ng-class="allvalidation[3].validation" required>
+                <select ng-model="creditloan.enq_is_salaried_ddl" ng-init="creditloan.enq_is_salaried_ddl='Please select'" ng-class="allvalidation[3].validation" required>
                     <option value="Please select">Please select</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -48,7 +48,7 @@
                 <div class="input-label">
                     Occupation
                 </div>
-                <select ng-model="creditloan.enq_occupation" ng-init="creditloan.enq_occupation=''">
+                <select ng-model="creditloan.enq_occupation" ng-init="creditloan.enq_occupation='Please select'">
                     <option value="">Please select</option>
                     <option value="Housewife">Housewife</option>
                     <option value="Retired">Retired</option>
@@ -85,9 +85,9 @@
                 <div class="input-label">
                     Salary Credited*
                 </div>
-                <select ng-model="creditloan.fd_maturity_type" ng-class="allvalidation[6].validation" required>
+                <select ng-model="creditloan.fd_maturity_type" ng-init="creditloan.fd_maturity_type='Select'" ng-class="allvalidation[6].validation" required>
                     <!--                     <option ng-repeat="matur in maturs" value="{{matur.matur_type}}">{{matur.matur_type}}</option>-->
-                    <option value="">Select</option>
+                    <option>Select</option>
                     <option value="Cash">Cash</option>
                     <option value="Check">Check</option>
                     <option value="Bank Account">Bank Account</option>
@@ -99,7 +99,7 @@
                 <div class="input-label">
                     Existing Card Holder*
                 </div>
-                <select ng-model="creditloan.enq_existing_card_holder" ng-class="allvalidation[7].validation" required>
+                <select ng-model="creditloan.enq_existing_card_holder" ng-init="creditloan.enq_existing_card_holder='Please Select'" ng-class="allvalidation[7].validation" required>
                     <option>Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -123,7 +123,7 @@
                 <div class="input-label">
                     Bank
                 </div>
-                <select ng-model="creditloan.bankname">
+                <select ng-model="creditloan.bankname" ng-init="creditloan.bankname='Please Select'">
                     <option>Please Select</option>
                     <option ng-repeat="bank in banks" value="{{bank.bankid}}">{{bank.bankname}}</option>
                 </select>

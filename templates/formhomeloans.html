@@ -72,7 +72,7 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="homeloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                <select ng-model="homeloan.enq_is_salaried_ddl" ng-init="homeloan.enq_is_salaried_ddl = 'Please Select'" ng-class="allvalidation[5].validation" required>
                     <option>Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -100,12 +100,8 @@
                 <div class=" input-label">
                     Occupation
                 </div>
-                <select ng-model="homeloan.enq_occupation">
+                <select ng-model="homeloan.enq_occupation" ng-init="homeloan.enq_occupation = 'Please select'">
                     <option>Please select</option>
-                    <!--
-                        <option>Employed</option>
-                        <option>Not employed</option>
--->
                     <option ng-repeat="occupation in occupations" value="{{occupation.occupation}}">{{occupation.occupation}}</option>
                 </select>
             </label>
@@ -113,7 +109,7 @@
                 <div class="input-label">
                     Type Of Property*
                 </div>
-                <select ng-model="homeloan.property_type" ng-class="allvalidation[6].validation" required>
+                <select ng-model="homeloan.property_type" ng-init="homeloan.property_type = 'Please Select'" ng-class="allvalidation[6].validation" required>
                     <option>Please Select</option>
                     <option>Residential</option>
                     <option>Plot</option>
