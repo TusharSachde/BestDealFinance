@@ -3,8 +3,8 @@
         <form ng-submit="" class="deal-form">
             <div class="list signin">
                 <label class="item item-input item-select">
-                    <span class="input-label">Gender</span>
-                    <select ng-model="refine.enq_gender">
+                    <span class="input-label">Gender*</span>
+                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
                         <option>Please select</option>
                         <option>Male</option>
                         <option>Female</option>
@@ -14,9 +14,9 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Marital Status
+                        Marital Status*
                     </div>
-                    <select ng-model="refine.enq_maritial_status">
+                    <select ng-model="refine.enq_maritial_status" ng-class="allvalidation[1].validation" required>
                         <option>Please Select</option>
                         <option>Married</option>
                         <option>Single</option>
@@ -42,9 +42,9 @@
 
 
                 <label class="item item-input">
-                    <span class="input-label">Nationality</span>
+                    <span class="input-label">Nationality*</span>
                     <div class="">
-                        <input type="text" ng-model="refine.enq_nationality">
+                        <input type="text" ng-model="refine.enq_nationality" ng-class="allvalidation[2].validation" required>
                     </div>
                 </label>
 				  <label class="item item-input">
@@ -69,9 +69,9 @@
 
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Usage
+                        Usage*
                     </div>
-                    <select ng-model="refine.enq_usage">
+                    <select ng-model="refine.enq_usage" ng-class="allvalidation[3].validation" required>
                         <option>Please Select</option>
                         <option>Personal</option>
                         <option>Commercial</option>
@@ -79,9 +79,9 @@
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Existing Bank Relationship
+                        Existing Bank Relationship*
                     </div>
-                    <select ng-model="refine.selectAllexisting_bank_relationship">
+                    <select ng-model="refine.selectAllexisting_bank_relationship" ng-class="allvalidation[4].validation" required>
                         <option>Please Select</option>
                         <option>HDFC</option>
                         <option>SBI</option>
@@ -97,27 +97,27 @@
 -->
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Do you have an existing loan?
+                        Do you have an existing loan?*
                     </div>
-                    <select ng-model="refine.enq_have_loan_ddl" ng-init="refine.enq_have_loan_ddl=''">
+                    <select ng-model="refine.enq_have_loan_ddl" ng-init="refine.enq_have_loan_ddl=''" ng-class="allvalidation[5].validation" required>
                         <option value="">Please Select</option>
                         <option>No</option>
                         <option>Yes</option>
                     </select>
                 </label>
-                <label class="item item-input" ng-if="refine.enq_have_loan_ddl != 'No' && refine.enq_have_loan_ddl != ''">
+                <label class="item item-input" ng-if="refine.enq_have_loan_ddl = 'Yes'">
                     <span class="input-label">Total EMI Paid For Existing Loan</span>
                     <input type="text" ng-model="refine.enq_emi_existing_loan">
                 </label>
 
                 <label class="item item-input">
-                    <span class="input-label">Current company/Business since</span>
-                    <input type="date" ng-model="refine.salary_credited_since">
+                    <span class="input-label">Current company/Business since*</span>
+                    <input type="date" ng-model="refine.salary_credited_since" ng-class="allvalidation[6].validation" required>
                 </label>
 
                 <label class="item item-input">
-                    <span>Total Work Experience(yrs)</span>
-                    <input type="text" ng-model="refine.owner_expiry_date">
+                    <span>Total Work Experience(yrs)*</span>
+                    <input type="text" ng-model="refine.owner_expiry_date" ng-class="allvalidation[7].validation" required>
                 </label>
 
               
