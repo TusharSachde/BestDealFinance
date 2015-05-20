@@ -10,7 +10,7 @@
                 <img src="img/ribbon.png" class="ribbon">
 
                 <div class="thumb-left text-center">
-                    <p class="simple-text padded">{{data.bank_name}}</p>
+                    <p class="simple-text padded"></p>
 <!--                    <img src="img/icici.png" alt="" class="full-image">-->
                     <img ng-src="{{data.logo_image | bankimagepath}}" alt="" class="full-image">
 
@@ -18,28 +18,28 @@
 
                 <div class="row no-pad bordered text-center">
                     <div class="col">
-                        <p class="simple-text">Eligible Amount (In Rs)</p>
+                        <p class="simple-text">Eligible Amount(Rs.)</p>
                           <h3 ng-if="data.eligible_loan_amount>data.requested_loan_amount">{{data.requested_loan_amount}}</h3>
                         <h3 ng-if="data.eligible_loan_amount<data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
                         <h3 ng-if="data.eligible_loan_amount=data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
                     </div>
                     <div class="col">
-                        <p class="simple-text">Tenure (In Months)</p>
+                        <p class="simple-text">Tenure(Mths.)</p>
                         <h3>{{data.tenure}}</h3>
                     </div>
                     <div class="col">
-                        <p class="simple-text">Rate of Interest (In %)</p>
+                        <p class="simple-text">Rate of Interest(%)</p>
                         <h3>{{data.roi}}</h3>
                     </div>
                 </div>
 
                 <div class="row no-pad bordered text-center">
                     <div class="col">
-                        <p class="simple-text">EMI (In Rs)</p>
+                        <p class="simple-text">EMI(Rs.)</p>
                         <h3>{{data.emi}}</h3>
                     </div>
                     <div class="col">
-                        <p class="simple-text">Processing Fees (In %)</p>
+                        <p class="simple-text">Processing Fees</p>
                         <h3>{{data.processing}}</h3>
                     </div>
                     <div class="col">

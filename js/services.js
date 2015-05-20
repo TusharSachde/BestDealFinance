@@ -453,6 +453,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+		//POOJA START
         stepawaypl: function () {
             var personal = $.jStorage.get("stepaway");
             var session = $.jStorage.get("user");
@@ -469,6 +470,8 @@ var myservices = angular.module('myservices', [])
                 "enq_loanAmtTo": personal.enq_loanAmtTo,
                 "enq_tenureTo": personal.enq_tenureTo,
                 "enq_currIncomeTo": personal.enq_currIncomeTo,
+                "enq_emi_existing_loan": personal.enq_emi_existing_loan,
+                "enq_total_no_of_emi_paid": personal.enq_total_no_of_emi_paid,
                 "customersessionid": session.customersessionid
             };
             return $http({
@@ -481,6 +484,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+		//POOJA END
         refinestepawaypl: function () {
             var refine = $.jStorage.get("refine");
             var stepaway = $.jStorage.get("stepaway");
