@@ -39,7 +39,8 @@
                 <div class="input-label">
                     State
                 </div>
-                <select ng-model="carloan.enq_state" ng-class="allvalidation[4].validation" required>
+                <select ng-model="carloan.enq_state" ng-init="carloan.enq_state='Please Select'" ng-class="allvalidation[4].validation" required>
+                   <option>Please Select</option>
                     <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
                 </select>
             </label>
@@ -48,7 +49,7 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="carloan.enq_is_salaried_ddl" ng-class="allvalidation[5].validation" required>
+                <select ng-model="carloan.enq_is_salaried_ddl" ng-init="carloan.enq_is_salaried_ddl='Please Select'" ng-class="allvalidation[5].validation" required>
                     <option>Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -59,7 +60,8 @@
                 <div class="input-label">
                     Occupation
                 </div>
-                <select ng-model="carloan.enq_occupation">
+                <select ng-model="carloan.enq_occupation"  ng-init="carloan.enq_occupation='Please Select'">
+                   <option>Please Select</option>
                     <option ng-repeat="occupation in occupations" value="occupation.occupation">{{occupation.occupation}}</option>
                 </select>
             </label>
@@ -85,8 +87,8 @@
                 <div class="input-label">
                     Manufacturer*
                 </div>
-                <select ng-model="carloan.enq_manufacturer" ng-change="getmodel(carloan.enq_manufacturer)" ng-class="allvalidation[6].validation" required>
-
+                <select ng-model="carloan.enq_manufacturer" ng-init="carloan.enq_manufacturer='Please Select'" ng-change="getmodel(carloan.enq_manufacturer)" ng-class="allvalidation[6].validation" required>
+ <option>Please Select</option>
                     <option ng-repeat="manuf in manufacturers" value="{{manuf.manufacturer_id}}" ng-click="getmodel(manuf);">{{manuf.manufacturer_name}}</option>
                     <!--                        <option>MARUTI</option>-->
                 </select>
@@ -96,8 +98,9 @@
                 <div class="input-label">
                     Model*
                 </div>
-                <select ng-model="carloan.enq_model" ng-class="allvalidation[7].validation" required>
-                    <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
+                <select ng-model="carloan.enq_model" ng-init="carloan.enq_model='Please Select'" ng-class="allvalidation[7].validation" required>
+                   <option>Please Select</option>
+                     <option ng-repeat="model in models" value="{{model.manufacturer_model_id}}">{{model.model_name}}</option>
                     <!--                        <option>Maruti Suzuki</option>-->
                 </select>
             </label>
