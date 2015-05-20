@@ -830,7 +830,49 @@ angular.module('starter.controllers', ['myservices'])
 
     })
     //SAPANA ENDS
-    .controller('SecuritychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    //DHAVAL START
+    .controller('SecuritychkformCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+        //  DECLARATION
+        $scope.refine = {};
+        $scope.refine.appid = $stateParams.appid;
+        $scope.allvalidation = [];
+
+
+        //  REFINE LAS 
+        var refinesuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.refinelas = function (refine) {
+            console.log($scope.refine);
+                    $scope.allvalidation = [{
+                        field: $scope.refine.enq_gender,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_maritial_status,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_status,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_pincode,
+                        validation: ""
+                    }, {
+                        field: $scope.refine.enq_type_of_securities,
+                        validation: ""
+                    }];
+                    var check = formvalidation($scope.allvalidation);
+
+                    if (check) {
+                        MyServices.refinestepawayset($scope.refine);
+            //$location.url("/app/securityformapply");
+
+                    };
+            //        MyServices.stepawayset(carloan);
+
+        }
+
+    })
+    //DHAVAL END
     .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
     //propertychk starts
     .controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
