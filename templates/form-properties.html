@@ -40,7 +40,7 @@
                 <div class="input-label">
                     Are You Salaried ?*
                 </div>
-                <select ng-model="propertyloan.enq_is_salaried_ddl" ng-init="propertyloan.enq_is_salaried_ddl='Please Select'" ng-class="allvalidation[4].validation" required>
+                <select ng-model="propertyloan.enq_is_salaried_ddl" ng-class="allvalidation[4].validation" required>
                     <option>Please Select</option>
                     <option>Yes</option>
                     <option>No</option>
@@ -102,8 +102,8 @@
                 <div class="input-label">
                     Present Use of Property*
                 </div>
-                <select ng-model="propertyloan.enq_present_use_property" ng-init="propertyloan.enq_present_use_property='Please Select'" ng-class="allvalidation[7].validation" required>
-                    <option>Please Select</option>
+                <select ng-model="propertyloan.enq_present_use_property" ng-class="allvalidation[7].validation" required>
+                    <option value="">Please Select</option>
                     <option>Self occupied</option>
                     <option>On Rent</option>
                 </select>
