@@ -453,7 +453,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-		//POOJA START
+        //POOJA START
         stepawaypl: function () {
             var personal = $.jStorage.get("stepaway");
             var session = $.jStorage.get("user");
@@ -484,7 +484,7 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
-		//POOJA END
+        //POOJA END
         refinestepawaypl: function () {
             var refine = $.jStorage.get("refine");
             var stepaway = $.jStorage.get("stepaway");
@@ -775,6 +775,50 @@ var myservices = angular.module('myservices', [])
                         "enq_have_loan_ddl": refine.enq_have_loan_ddl,
                         "owner_expiry_date": refine.owner_expiry_date,
                         "enq_property_situated": refine.enq_property_situated,
+                        "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        "step_enq_tenureTo": stepaway.enq_tenureTo,
+                        "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,
+                        "appid": refine.appid
+                    }
+
+                }
+            })
+        },
+        refinestepawaylas: function () {
+            var refine = $.jStorage.get("refine");
+            var stepaway = $.jStorage.get("stepaway");
+            return $http({
+                url: adminurl + "refinestepawaylas",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        //                        "enq_gender": refine.enq_gender,
+                        //                        "enq_maritial_status": refine.enq_maritial_status,
+                        //                        "enq_status": refine.enq_status,
+                        //                        "enq_nationality": refine.enq_nationality,
+                        //                        "property_classification": refine.property_classification,
+                        //                        "enq_pincode": refine.enq_pincode,
+                        //                        "property_area": refine.property_area,
+                        //                        "enq_have_loan_ddl": refine.enq_have_loan_ddl,
+                        //                        "owner_expiry_date": refine.owner_expiry_date,
+                        //                        "enq_property_situated": refine.enq_property_situated,
+                        //                        "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
+                        //                        "step_enq_tenureTo": stepaway.enq_tenureTo,
+                        //                        "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,
+                        //                        "appid": refine.appid
+                        "enq_loanType": "Loan Against Shares",
+                        "enq_loanTypePreFix": "27",
+                        "enq_loanType_SubType": "11",
+                        "enq_gender": refine.enq_gender,
+                        "enq_maritial_status": refine.enq_maritial_status,
+                        "enq_status": refine.enq_status,
+                        "enq_nationality": refine.enq_nationality,
+                        "enq_pincode": refine.enq_pincode,
+                        "enq_type_of_securities": refine.enq_type_of_securities,
+                        "enq_have_loan_ddl ": refine.enq_have_loan_ddl ,
+                        "enq_emi_existing_loan ": refine.enq_emi_existing_loan,
                         "step_enq_loanAmtTo": stepaway.enq_loanAmtTo,
                         "step_enq_tenureTo": stepaway.enq_tenureTo,
                         "step_enq_currIncomeTo": stepaway.enq_currIncomeTo,

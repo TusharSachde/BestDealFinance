@@ -864,16 +864,54 @@ angular.module('starter.controllers', ['myservices'])
 
             if (check) {
                 MyServices.refinestepawayset($scope.refine);
+<<<<<<< HEAD
                 //$location.url("/app/securityformapply");
 
             };
             //        MyServices.stepawayset(carloan);
-
+=======
+                $location.url("/app/securityformapply");
+            };
         }
 
     })
     //DHAVAL END
-    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {})
+    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+        $scope.checklist = {};
+        $ionicLoading.show({
+            template: 'Please wait...'
+        });
+>>>>>>> origin/master
+
+
+        var lassuccess = function (data, status) {
+            //console.log(data.Data.num);
+            $ionicLoading.hide();
+            if (data.Response != "Success") {
+                var myPopup1 = $ionicPopup.show({
+                    title: data.Response,
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    //$location.url("/app/personal");
+                }, 1500);
+            } else {
+                //                $scope.appid = data.Applicationid;
+                $scope.checklist = data.Data;
+                console.log($scope.checklist);
+                //                console.log(getjsononly($scope.checklist));
+            }
+        }
+        MyServices.refinestepawaylas().success(lassuccess);
+
+        //  CHECK checkeligibility
+        $scope.checkeligibility = function (check) {
+            console.log(check);
+            //MyServices.setcheck(check);
+            $location.url("/app/thankyou");
+        }
+    })
     //propertychk starts
     .controller('PropertychkCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
         //  DEPLARATION
@@ -1658,10 +1696,17 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                 field: $scope.refine.enq_nationality,
                 validation: ""
+<<<<<<< HEAD
                     }, {
                 field: $scope.refine.property_classifications,
                 validation: ""
                     }, {
+=======
+                    }, {
+                field: $scope.refine.property_classifications,
+                validation: ""
+                    }, {
+>>>>>>> origin/master
                 field: $scope.refine.salary_credited_since,
                 validation: ""
                     }, {
@@ -2617,6 +2662,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_loanAmtTo': 20000,
             'enq_tenureTo': 6,
             'enq_currIncomeTo': 15000,
+            'enq_is_salaried_ddl': 'No',
             'enq_dob': new Date()
 
         };
@@ -3083,6 +3129,7 @@ angular.module('starter.controllers', ['myservices'])
             'enq_loanAmtTo': 20000,
             'enq_tenureTo': 6,
             'enq_currIncomeTo': 15000,
+            'enq_is_salaried_ddl': 'No',
             'enq_dob': new Date()
 
         };
