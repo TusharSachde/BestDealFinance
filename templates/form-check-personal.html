@@ -5,7 +5,7 @@
 
                 <label class="item item-input item-select">
                     <span class="input-label">Gender *</span>
-                    <select ng-model="refine.enq_gender" ng-class="allvalidation[0].validation" required>
+                    <select ng-model="refine.enq_gender" ng-init="refine.gender=''" ng-class="allvalidation[0].validation" required>
                         <option value="">Please select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
