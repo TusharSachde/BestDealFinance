@@ -1776,9 +1776,6 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.creditloan.enq_existing_card_holder,
                 validation: ""
-        }, {
-                field: $scope.creditloan.cc_card_limit,
-                validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
             if ($scope.valid_date == false) {
