@@ -65,6 +65,12 @@ angular.module('starter.controllers', ['myservices'])
     }
     MyServices.getbanks().success(banksuccess);
 
+//    Number VAlidation
+     var validatemobile = function (value) {
+        value = value.replace(" ", '');
+        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
+
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading) {
@@ -102,7 +108,7 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/app/home");
         }
     }
-    $scope.validateemail=function (value) {
+    $scope.validateemail = function (value) {
         value.enq_username = value.enq_username.replace(" ", '');
     };
     $scope.clickcont = function () {
@@ -150,6 +156,11 @@ angular.module('starter.controllers', ['myservices'])
     $scope.register = {
         'enq_dob': new Date()
     };
+//    $scope.validatemobile = function (value) {
+//        value.enq_mobile = value.enq_mobile.replace(" ", '');
+//        value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+//
+//    }
     $scope.allvalidation = [];
     $scope.minutes = 5;
     $scope.seconds = 0;

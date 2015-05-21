@@ -528,7 +528,16 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     return function (input) {
         return "http://demo.bestdealfinance.com/images/" + input;
     };
+})
+
+.filter('validatemobile', function () {
+    return function (value) {
+        value = value.replace(" ", '');
+        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        return value;
+    };
 });
+
 var formvalidation = function (allvalidation) {
     var isvalid2 = true;
     for (var i = 0; i < allvalidation.length; i++) {
