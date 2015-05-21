@@ -3,10 +3,10 @@
         <div class="list signin">
             <label class="item item-input range-item forrange">
                 <span class="input-label">Loan Amount*</span>
-                <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
+                <input type="text" ng-model="personal.enq_loanAmtTo" ng-class="allvalidation[0].validation" required only-digits ng-trim='false'>
             </label>
             <div class="range range-assertive">
-                <input type="range" min="50000" max="5000000" step="5000" ng-model="personal.enq_loanAmtTo">
+                <input type="range" min="50000" max="5000000" step="5000" ng-model="personal.enq_loanAmtTo" only-replace ng-trim='false'>
             </div>
 
             <label class="item item-input range-item forrange">
