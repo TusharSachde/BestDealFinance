@@ -103,12 +103,24 @@
                         <input type="number" min="0" max="60" step="1" ng-model="refine.pl_total_exp_job_years" ng-class="allvalidation[6].validation" required>
                     </div>
                 </label>
+<!--
                 <label class="item item-input">
                     <span>Existing Bank Relationship</span>
 
                     <input type="text" ng-model="refine.enq_emi_existing_loan">
 
                 </label>
+-->
+                
+                  <label class="item item-input item-select">
+                <div class="input-label">
+                   Existing Bank Relationship
+                </div>
+                <select ng-model="refine.bankname">
+                    <option value="">Please Select</option>
+                    <option ng-repeat="bank in banks" value="{{bank.bankid}}">{{bank.bankname}}</option>
+                </select>
+            </label>
                 <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
