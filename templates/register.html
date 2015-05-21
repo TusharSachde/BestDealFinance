@@ -21,11 +21,11 @@
             <div class="list signin signup">
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-iphone"></i></span>
-                    <input type="text" placeholder="Mobile Number *" ng-model="register.enq_mobile" ng-class="allvalidation[0].validation" required maxlength="10" ng-change="register.enq_mobile | validatemobile" ng-trim='false'>
+                    <input type="text" placeholder="Mobile Number *" ng-model="register.enq_mobile" ng-class="allvalidation[0].validation" required maxlength="10" ng-change="validatemobile(register)" ng-trim='false'>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-person"></i></span>
-                    <input type="text" placeholder="Name *" ng-model="register.enq_name" ng-class="allvalidation[1].validation" required>
+                    <input type="text" placeholder="Name *" ng-model="register.enq_name" ng-class="allvalidation[1].validation" ng-change="validatename(register)" required ng-trim='false'>
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-mail"></i></span>

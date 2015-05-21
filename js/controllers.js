@@ -66,11 +66,14 @@ angular.module('starter.controllers', ['myservices'])
     MyServices.getbanks().success(banksuccess);
 
 //    Number VAlidation
-     var validatemobile = function (value) {
-        value = value.replace(" ", '');
-        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-    }
-
+//     var validatemobile = function (value) {
+//        value = value.replace(" ", '');
+//        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+//    }
+//     var validatename = function (value) {
+//        value.register.enq_name = value.register.enq_name.replace(" ", '');
+//        value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+//    }
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading) {
@@ -156,11 +159,15 @@ angular.module('starter.controllers', ['myservices'])
     $scope.register = {
         'enq_dob': new Date()
     };
-//    $scope.validatemobile = function (value) {
-//        value.enq_mobile = value.enq_mobile.replace(" ", '');
-//        value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-//
-//    }
+    $scope.validatemobile = function (value) {
+        value.enq_mobile = value.enq_mobile.replace(" ", '');
+        value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+
+    }
+    $scope.validatename = function (value) {
+        value.enq_name = value.enq_name.replace(" ", '');
+        value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
     $scope.allvalidation = [];
     $scope.minutes = 5;
     $scope.seconds = 0;
