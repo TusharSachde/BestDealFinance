@@ -59,6 +59,11 @@
                     </div>
                 </div>
             </ion-item>
+            <ion-item ng-if="checklist.length==0">
+                <div>
+                    <h3>No matching results found for your query.</h3>
+                </div>
+            </ion-item>
         </ion-list>
     </ion-content>
 </ion-view>
