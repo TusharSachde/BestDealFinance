@@ -102,10 +102,9 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/app/home");
         }
     }
-    $scope.login.enq_username = '';
-    $scope.$watch('login.enq_username', function () {
-        $scope.login.enq_username = $scope.login.enq_username.replace(/\s+/g, '');
-    });
+    $scope.validateemail=function (value) {
+        value.enq_username = value.enq_username.replace(" ", '');
+    };
     $scope.clickcont = function () {
         $location.url("/contactus");
     }
@@ -148,7 +147,9 @@ angular.module('starter.controllers', ['myservices'])
 .controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading, $filter) {
 
     //  DECARATION
-    $scope.register = {'enq_dob': new Date()};
+    $scope.register = {
+        'enq_dob': new Date()
+    };
     $scope.allvalidation = [];
     $scope.minutes = 5;
     $scope.seconds = 0;
@@ -158,24 +159,24 @@ angular.module('starter.controllers', ['myservices'])
     var age2 = function (birthdate) {
 
 
-    function calculateAge(birthday) { // birthday is a date
-        var ageDifMs = Date.now() - birthday.getTime();
-        var ageDate = new Date(ageDifMs); // miliseconds from epoch
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-    }
-
-    function monthDiff(d1, d2) {
-        if (d1 < d2) {
-            var months = d2.getMonth() - d1.getMonth();
-            return months <= 0 ? 0 : months;
+        function calculateAge(birthday) { // birthday is a date
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs); // miliseconds from epoch
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
         }
-        return 0;
-    }
-    var age = calculateAge(birthdate);
-    if (age == 0)
-        return monthDiff(birthdate, new Date()) + ' months';
-    return age;
-};
+
+        function monthDiff(d1, d2) {
+            if (d1 < d2) {
+                var months = d2.getMonth() - d1.getMonth();
+                return months <= 0 ? 0 : months;
+            }
+            return 0;
+        }
+        var age = calculateAge(birthdate);
+        if (age == 0)
+            return monthDiff(birthdate, new Date()) + ' months';
+        return age;
+    };
     $scope.datechange = function () {
         if (parseInt(age2($scope.register.enq_dob)) < 18) {
             console.log("chintoo");
@@ -249,7 +250,7 @@ angular.module('starter.controllers', ['myservices'])
         }, {
             field: $scope.register.password_again,
             validation: ""
-        },{
+        }, {
             field: $scope.register.enq_dob,
             validation: ""
         }];
@@ -1729,17 +1730,17 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                     field: $scope.refine.enq_present_use_property,
                     validation: ""
-                    },{
+                    }, {
                     field: $scope.refine.enq_present_use_property,
                     validation: ""
                     }];
                 var check = formvalidation($scope.allvalidation);
 
-//                if (check) {
-                    $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-                    MyServices.refinestepawayset($scope.refine);
-                    $location.url("/app/homeapply");
-//                };
+                //                if (check) {
+                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+                MyServices.refinestepawayset($scope.refine);
+                $location.url("/app/homeapply");
+                //                };
             }
             //  SELECT CITY
         $scope.selectcityid = function (cityid, cityname) {
@@ -1749,19 +1750,19 @@ angular.module('starter.controllers', ['myservices'])
             $scope.cityName = cityname;
             MyServices.getbuilderdropdown(cityname).success(buildersuccess)
         }
-        var buildersuccess=function(data,status){
+        var buildersuccess = function (data, status) {
             console.log("Builders");
             console.log(data.Data);
-            $scope.builders=data.Data;
+            $scope.builders = data.Data;
         }
-        $scope.getprojects=function(buildername){
+        $scope.getprojects = function (buildername) {
             console.log(buildername);
             MyServices.getprojectsdropdown(buildername).success(projectsuccess)
         }
-        var projectsuccess=function(data,status){
+        var projectsuccess = function (data, status) {
             console.log("projects");
             console.log(data.Data);
-            $scope.projects=data.Data;
+            $scope.projects = data.Data;
         }
 
     })
@@ -2054,7 +2055,25 @@ angular.module('starter.controllers', ['myservices'])
             enq_loanType: "29",
             customersessionid: $.jStorage.get("user").customersessionid
         }
+        $scope.selectcomp = function (comp) {
+            console.log(comp);
+            $scope.modal.hide();
+            $scope.sme.enq_company_id = comp;
+        }
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
 
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModalComp = function () {
+            $scope.modal.hide();
+        };
         //know more
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,
@@ -2168,7 +2187,25 @@ angular.module('starter.controllers', ['myservices'])
             enq_loanType: "33",
             customersessionid: $.jStorage.get("user").customersessionid
         }
+        $scope.selectcomp = function (comp) {
+            console.log(comp);
+            $scope.modal.hide();
+            $scope.sme.enq_company_id = comp;
+        }
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
 
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModalComp = function () {
+            $scope.modal.hide();
+        };
         //know more
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,
@@ -2282,7 +2319,25 @@ angular.module('starter.controllers', ['myservices'])
             enq_loanType: "32",
             customersessionid: $.jStorage.get("user").customersessionid
         }
+        $scope.selectcomp = function (comp) {
+            console.log(comp);
+            $scope.modal.hide();
+            $scope.sme.enq_company_id = comp;
+        }
+        $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.modal = modal;
+        });
 
+        $scope.openedit = function () {
+            $scope.modal.show();
+        }
+
+        $scope.closeModalComp = function () {
+            $scope.modal.hide();
+        };
         //know more
         $ionicModal.fromTemplateUrl('templates/termsandcondition.html', {
             scope: $scope,

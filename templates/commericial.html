@@ -17,10 +17,11 @@
                     <span class="input-label">Date of Registration</span>
                     <input type="date" ng-model="sme.enq_dob" ng-class="allvalidation[2].validation" required>
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Company Name</span>
-                    <input type="text" ng-model="sme.enq_company_name" ng-class="allvalidation[3].validation" required>
-                </label>
+                <label class="item item-input" ng-click="openedit();" ng-class="allvalidation[3].validation" required ng-model="sme.enq_company_name">
+                <div class="input-label">
+                    Company*<span class="citysearch">{{sme.enq_company_name}}</span>
+                </div>
+            </label>
                 <label class="item item-input">
                     <span class="input-label">Designation</span>
                     <input type="text" ng-model="sme.enq_designation" ng-class="allvalidation[4].validation" required>
@@ -43,11 +44,6 @@
                     <div class="input-label">
                         City*<span class="citysearch">{{cityName}}</span>
                     </div>
-                    <!--
-                    <select ng-model="sme.enq_city" ng-class="allvalidation[7].validation" required>
-                        <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
-                    </select>
--->
                 </label>
 
                 <label class="item item-input item-select">

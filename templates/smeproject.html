@@ -17,10 +17,11 @@
                     <span class="input-label">Date of Registration*</span>
                     <input type="date" ng-model="sme.enq_dob" ng-class="allvalidation[2].validation" required>
                 </label>
-                <label class="item item-input">
-                    <span class="input-label">Company Name*</span>
-                    <input type="text" ng-model="sme.enq_company_name" ng-class="allvalidation[3].validation" required>
-                </label>
+                <label class="item item-input" ng-model="sme.enq_company_name" ng-click="openedit();" ng-class="allvalidation[3].validation" required>
+                <div class=" input-label">
+                    Company*<span class="citysearch">{{sme.enq_company_id}}</span>
+                </div>
+            </label>
                 <label class="item item-input">
                     <span class="input-label">Designation*</span>
                     <input type="text" ng-model="sme.enq_designation" ng-class="allvalidation[4].validation" required>
