@@ -148,15 +148,36 @@ angular.module('starter.controllers', ['myservices'])
 .controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading, $filter) {
 
     //  DECARATION
-    $scope.register = [];
+    $scope.register = {'enq_dob': new Date()};
     $scope.allvalidation = [];
     $scope.minutes = 5;
     $scope.seconds = 0;
     $scope.otpdata = [];
     $scope.valid_date = false;
     //  USER REGISTRATION
+    var age2 = function (birthdate) {
+
+
+    function calculateAge(birthday) { // birthday is a date
+        var ageDifMs = Date.now() - birthday.getTime();
+        var ageDate = new Date(ageDifMs); // miliseconds from epoch
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+
+    function monthDiff(d1, d2) {
+        if (d1 < d2) {
+            var months = d2.getMonth() - d1.getMonth();
+            return months <= 0 ? 0 : months;
+        }
+        return 0;
+    }
+    var age = calculateAge(birthdate);
+    if (age == 0)
+        return monthDiff(birthdate, new Date()) + ' months';
+    return age;
+};
     $scope.datechange = function () {
-        if (parseInt(age($scope.register.enq_dob)) < 18) {
+        if (parseInt(age2($scope.register.enq_dob)) < 18) {
             console.log("chintoo");
             var myPopup1 = $ionicPopup.show({
                 title: "Age should be Greater than 18",
@@ -227,6 +248,9 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }, {
             field: $scope.register.password_again,
+            validation: ""
+        },{
+            field: $scope.register.enq_dob,
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
@@ -1687,7 +1711,6 @@ angular.module('starter.controllers', ['myservices'])
                     }, {
                     field: $scope.refine.enq_nationality,
                     validation: ""
-
                     }, {
                     field: $scope.refine.property_classifications,
                     validation: ""
@@ -1704,6 +1727,9 @@ angular.module('starter.controllers', ['myservices'])
                     field: $scope.refine.enq_have_loan_ddl,
                     validation: ""
                     }, {
+                    field: $scope.refine.enq_present_use_property,
+                    validation: ""
+                    },{
                     field: $scope.refine.enq_present_use_property,
                     validation: ""
                     }];
