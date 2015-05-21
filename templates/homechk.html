@@ -132,27 +132,27 @@
                         <option>Not Identified</option>
                     </select>
                 </label>
-				  <label class="item item-input" ng-model="refine.step_enq_city" ng-if="refine.enq_present_use_property!='Please Select'" ng-click="selectcity();" ng-class="allvalidation[9].validation">
+				  <label class="item item-input" ng-model="refine.step_enq_city" ng-click="selectcity();" ng-class="allvalidation[9].validation">
                     <div class="input-label">
                         Property City*<span class="citysearch">{{cityName}}</span>
                     </div>
                 </label>
-                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property!='Please Select'">
+                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property=='Under Construction'">
                     <div class="input-label">
                         Builder/Developer 
                     </div>
-                    <select ng-model="refine.developer">
-                        <option>Please Select</option>
-                        <option>abcd</option>
+                    <select ng-model="refine.developer" ng-change="getprojects(refine.developer);">
+                        <option value="">Please Select</option>
+                        <option ng-repeat="builder in builders">{{builder.developer}}</option>
                     </select>
                 </label>
-                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property!='Please Select'">
+                 <label class="item item-input item-select" ng-if="refine.enq_present_use_property=='Under Construction'">
                     <div class="input-label">
                         Project Name
                     </div>
                     <select ng-model="refine.property_name">
-                        <option>Please Select</option>
-                        <option>abcd</option>
+                        <option value="">Please Select</option>
+                        <option ng-repeat="project in projects">{{project.project}}</option>
                     </select>
                 </label>
 

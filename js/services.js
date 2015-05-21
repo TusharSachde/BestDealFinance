@@ -313,6 +313,28 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        getbuilderdropdown: function (cityname) {
+            return $http({
+                url: adminurl + "getbulders",
+                method: "POST",
+                data: {
+                    "Data": {
+                        "property_current_city": cityname
+                    }
+                }
+            })
+        },
+        getprojectsdropdown: function (buildername) {
+            return $http({
+                url: adminurl + "getprojectnames",
+                method: "POST",
+                data: {
+                    "Data": {
+                        "property_developer": buildername
+                    }
+                }
+            })
+        },
         getbanks: function () {
             return $http({
                 url: adminurl + "ccexistingbank",

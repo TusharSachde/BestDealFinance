@@ -867,12 +867,12 @@ angular.module('starter.controllers', ['myservices'])
                 $location.url("/app/securityformapply");
 
             };
-            
+
         }
 
     })
     //DHAVAL END
-    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location,$ionicLoading) {
+    .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
         $scope.checklist = {};
         $ionicLoading.show({
             template: 'Please wait...'
@@ -1001,7 +1001,7 @@ angular.module('starter.controllers', ['myservices'])
             var check = formvalidation($scope.allvalidation);
 
             if (check) {
-                $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");         
+                $scope.refine.owner_expiry_date = $filter('date')($scope.refine.owner_expiry_date, "yyyy-MM-dd");
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/propertyformapply");
             };
@@ -1677,52 +1677,66 @@ angular.module('starter.controllers', ['myservices'])
             console.log(data);
         }
         $scope.applyhome = function (refine) {
-            console.log($scope.refine);
-            $scope.allvalidation = [{
-                field: $scope.refine.enq_gender,
-                validation: ""
+                console.log($scope.refine);
+                $scope.allvalidation = [{
+                    field: $scope.refine.enq_gender,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_maritial_status,
-                validation: ""
+                    field: $scope.refine.enq_maritial_status,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_nationality,
-                validation: ""
+                    field: $scope.refine.enq_nationality,
+                    validation: ""
 
                     }, {
-                field: $scope.refine.property_classifications,
-                validation: ""
+                    field: $scope.refine.property_classifications,
+                    validation: ""
                     }, {
-                field: $scope.refine.salary_credited_since,
-                validation: ""
+                    field: $scope.refine.salary_credited_since,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_exclusive_rate_property,
-                validation: ""
+                    field: $scope.refine.enq_exclusive_rate_property,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_Purpose,
-                validation: ""
+                    field: $scope.refine.enq_Purpose,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_have_loan_ddl,
-                validation: ""
+                    field: $scope.refine.enq_have_loan_ddl,
+                    validation: ""
                     }, {
-                field: $scope.refine.enq_present_use_property,
-                validation: ""
-                    }, {
-                field: $scope.refine.step_enq_city,
-                validation: ""
+                    field: $scope.refine.enq_present_use_property,
+                    validation: ""
                     }];
-            var check = formvalidation($scope.allvalidation);
+                var check = formvalidation($scope.allvalidation);
 
-            if (check) {
-                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-                MyServices.refinestepawayset($scope.refine);
-                $location.url("/app/homeapply");
-
-
-            };
+//                if (check) {
+                    $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+                    MyServices.refinestepawayset($scope.refine);
+                    $location.url("/app/homeapply");
+//                };
+            }
+            //  SELECT CITY
+        $scope.selectcityid = function (cityid, cityname) {
+            console.log("City Id=" + cityid);
+            $scope.modalcity.hide();
+            $scope.refine.enq_city = cityname;
+            $scope.cityName = cityname;
+            MyServices.getbuilderdropdown(cityname).success(buildersuccess)
         }
-
-
-
+        var buildersuccess=function(data,status){
+            console.log("Builders");
+            console.log(data.Data);
+            $scope.builders=data.Data;
+        }
+        $scope.getprojects=function(buildername){
+            console.log(buildername);
+            MyServices.getprojectsdropdown(buildername).success(projectsuccess)
+        }
+        var projectsuccess=function(data,status){
+            console.log("projects");
+            console.log(data.Data);
+            $scope.projects=data.Data;
+        }
 
     })
     //SAPANA ENDS
@@ -1887,10 +1901,10 @@ angular.module('starter.controllers', ['myservices'])
         $scope.valid_date = false;
         //  DESIGN CODE
         $scope.changemyapp = function () {
-            $scope.myapp = "bold";
-            $scope.profile = "";
-        }
-//
+                $scope.myapp = "bold";
+                $scope.profile = "";
+            }
+            //
         $scope.chnageprofile = function () {
             $scope.myapp = "";
             $scope.profile = "bold";
@@ -1923,7 +1937,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
         };
-//        MyServices.getmyaccount().success(myaccountsuccess)
+        //        MyServices.getmyaccount().success(myaccountsuccess)
 
         var updateusersuccess = function (data, status) {
             //$scope.updateuser = data.Data;
