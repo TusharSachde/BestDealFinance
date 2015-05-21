@@ -6,7 +6,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Loan Amount*</span>
-                <input type="text" ng-model="propertyloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required>
+                <input type="text" ng-model="propertyloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required only-digits ng-trim='false'>
 
             </label>
             <div class="range range-assertive">
@@ -15,7 +15,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Tenure*</span>
-                <input type="text" ng-model="propertyloan.enq_tenureTo" ng-class="allvalidation[1].validation" required>
+                <input type="text" ng-model="propertyloan.enq_tenureTo" ng-class="allvalidation[1].validation" required only-digits ng-trim='false'>
 
             </label>
             <div class="range range-assertive">
@@ -24,7 +24,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Gross Monthly Income*</span>
-                <input type="text" ng-model="propertyloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
+                <input type="text" ng-model="propertyloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required only-digits ng-trim='false'>
 
             </label>
             <div class="range range-assertive">
@@ -75,7 +75,7 @@
 
             <label class="item item-input">
                 <span class="input-label">Market value of Property*</span>
-                <input type="text" ng-model="propertyloan.property_current_market_value" ng-class="allvalidation[5].validation" required>
+                <input type="text" ng-model="propertyloan.property_current_market_value" ng-class="allvalidation[5].validation" required only-digits ng-trim='false'>
 
             </label>
 
