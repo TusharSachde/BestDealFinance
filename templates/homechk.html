@@ -121,6 +121,10 @@
                         <option>Yes</option>
                     </select>
                 </label>
+                   <label class="item item-input" ng-if="refine.enq_have_loan_ddl=='Yes'">
+                    <span class="input-label">Total EMI Paid For Existing Loan</span>
+                        <input type="text" ng-model="refine.enq_emi_existing_loan">
+                </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Status of Property*
