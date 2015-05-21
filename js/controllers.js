@@ -2197,6 +2197,12 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
+    $scope.validatename = function (value) {
+        value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
+        $scope.validatedesg = function (value) {
+        value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
         $scope.sme = {
             enq_loanType: "33",
             customersessionid: $.jStorage.get("user").customersessionid
@@ -2212,7 +2218,7 @@ angular.module('starter.controllers', ['myservices'])
         }).then(function (modal) {
             $scope.modal = modal;
         });
-
+        
         $scope.openedit = function () {
             $scope.modal.show();
         }
@@ -2323,6 +2329,12 @@ angular.module('starter.controllers', ['myservices'])
 //DHAVAL START
 .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
+    $scope.validatename = function (value) {
+        value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
+        $scope.validatedesg = function (value) {
+        value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
         $scope.sme = {
             enq_loanType: "32",
             customersessionid: $.jStorage.get("user").customersessionid
