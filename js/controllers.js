@@ -2069,7 +2069,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
-            $scope.sme.enq_company_id = comp;
+            $scope.sme.enq_company_name = comp;
         }
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
@@ -2201,7 +2201,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
-            $scope.sme.enq_company_id = comp;
+            $scope.sme.enq_company_name = comp;
         }
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
@@ -2282,17 +2282,11 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.sme.enq_email,
                 validation: ""
-        }, {
-                field: $scope.sme.enq_dob,
-                validation: ""
-        }, {
+        },{
                 field: $scope.sme.enq_company_name,
                 validation: ""
         }, {
                 field: $scope.sme.enq_designation,
-                validation: ""
-        }, {
-                field: $scope.sme.enq_address,
                 validation: ""
         }, {
                 field: $scope.sme.enq_state,
@@ -2333,7 +2327,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
-            $scope.sme.enq_company_id = comp;
+            $scope.sme.enq_company_name = comp;
         }
         $ionicModal.fromTemplateUrl('templates/popupsearch.html', {
             scope: $scope,
@@ -2413,17 +2407,11 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.sme.enq_email,
                 validation: ""
-        }, {
-                field: $scope.sme.enq_dob,
-                validation: ""
-        }, {
-                field: $scope.sme.enq_company_name,
+        },{
+                field: $scope.sme.enq_comp_name,
                 validation: ""
         }, {
                 field: $scope.sme.enq_designation,
-                validation: ""
-        }, {
-                field: $scope.sme.enq_address,
                 validation: ""
         }, {
                 field: $scope.sme.enq_state,
