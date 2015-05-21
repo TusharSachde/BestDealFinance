@@ -3559,6 +3559,12 @@ angular.module('starter.controllers', ['myservices'])
         }, {
             field: $scope.refine.pl_total_exp_job_years,
             validation: ""
+        }, {
+            field: $scope.refine.enq_company_consitution,
+            validation: ""
+        }, {
+            field: $scope.refine.enq_status,
+            validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
 
