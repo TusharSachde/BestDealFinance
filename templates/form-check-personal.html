@@ -32,8 +32,8 @@
                     <div class="input-label">
                         Status*
                     </div>
-                    <select>
-                        <option>Please select</option>
+                    <select ng-model="refine.enq_status" ng-class="allvalidation[8].validation" required>
+                        <option value="">Please select</option>
                         <option>Resident</option>
                         <option>NRI</option>
                         <option>Others</option>
@@ -76,7 +76,7 @@
                     <div class="input-label">
                         Type of Company
                     </div>
-                    <select ng-model="refine.enq_company_consitution">
+                    <select ng-model="refine.enq_company_consitution" ng-class="allvalidation[7].validation" required>
                         <option value="">Please select</option>
                         <option value="Public Limited">Public Limited</option>
                         <option value="MNC">MNC</option>
