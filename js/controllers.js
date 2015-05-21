@@ -65,15 +65,14 @@ angular.module('starter.controllers', ['myservices'])
     }
     MyServices.getbanks().success(banksuccess);
 
-//    Number VAlidation
-//     var validatemobile = function (value) {
-//        value = value.replace(" ", '');
-//        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-//    }
-//     var validatename = function (value) {
-//        value.register.enq_name = value.register.enq_name.replace(" ", '');
-//        value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-//    }
+    //    Number VAlidation
+    //     var validatemobile = function (value) {
+    //        value = value.replace(" ", '');
+    //        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    //    }
+         var validatename = function (value) {
+            value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading) {
@@ -1849,25 +1848,22 @@ angular.module('starter.controllers', ['myservices'])
             $scope.creditloan.enq_city = cityname;
             $scope.cityName = cityname;
         }
-
-
         $scope.datechange = function () {
-            if (parseInt(age($scope.creditloan.enq_dob)) < 18) {
-                //                console.log("chintoo");
-                var myPopup1 = $ionicPopup.show({
-                    title: "Age should be Greater than 18",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            } else {
-                $scope.valid_date = true;
+                if (parseInt(age($scope.creditloan.enq_dob)) < 18) {
+
+                    console.log("chintoo");
+                    var myPopup1 = $ionicPopup.show({
+                        title: "Age should be Greater than 18",
+                        scope: $scope,
+                    });
+                    $timeout(function () {
+                        myPopup1.close(); //close the popup after 3 seconds for some reason
+                    }, 1500);
+                } else {
+                    $scope.valid_date = true;
+                }
             }
-
-        }
-
-        //SELECT COMPANY
+            //SELECT COMPANY
         $scope.selectcomp = function (comp) {
             console.log(comp);
             $scope.modal.hide();
@@ -2289,7 +2285,7 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.sme.enq_email,
                 validation: ""
-        },{
+        }, {
                 field: $scope.sme.enq_company_name,
                 validation: ""
         }, {
@@ -2414,8 +2410,8 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.sme.enq_email,
                 validation: ""
-        },{
-                field: $scope.sme.enq_comp_name,
+        }, {
+                field: $scope.sme.enq_company_name,
                 validation: ""
         }, {
                 field: $scope.sme.enq_designation,
@@ -3644,24 +3640,51 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('SMECtrl', function ($scope, $stateParams) {})
-.directive('onlyDigits', function () {
-    return {
-      require: 'ngModel',
-      restrict: 'A',
-      link: function (scope, element, attr, ctrl) {
-        function inputValue(val) {
-          if (val) {
-            var digits = val.replace(/[^0-9]/g, '');
+    .directive('onlyDigits', function () {
+        return {
+            require: 'ngModel',
+            restrict: 'A',
+            link: function (scope, element, attr, ctrl) {
+                function inputValue(val) {
+                    if (val) {
+                        var digits = val.replace(/[^0-9]/g, '');
 
-            if (digits !== val) {
-              ctrl.$setViewValue(digits);
-              ctrl.$render();
+                        if (digits !== val) {
+                            ctrl.$setViewValue(digits);
+                            ctrl.$render();
+                        }
+                        return parseInt(digits, 10);
+                    }
+                    return undefined;
+                }
+                ctrl.$parsers.push(inputValue);
             }
-            return parseInt(digits,10);
-          }
-          return undefined;
-        }            
-        ctrl.$parsers.push(inputValue);
-      }
+        };
+    })
+.directive('onlyAlphabets', function () {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModel) {
+            if (!ngModel) {
+                return;
+            }
+            ngModel.$parsers.unshift(function (inputValue) {
+                var alphabets = inputValue.split('').filter(function (s) {
+                    return (isALetter(s));
+                }).join('');
+                ngModel.$viewValue = alphabets;
+                ngModel.$render();
+                return alphabets;
+            });
+        }
     };
-})
+
+    function isALetter(charVal) {
+        if (charVal.toUpperCase() != charVal.toLowerCase()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+});
