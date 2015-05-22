@@ -94,6 +94,7 @@
 }
 .signin .item+.item {
     margin-top: 2px;
+    white-space: normal;
 }
 .signin select {
     background: transparent;
@@ -1104,8 +1105,8 @@ button.button.button-icon.popup-btn:before {
 */
 
 .ng-invalid.ng-dirty {
-    border-right: 2px solid red !important;
-    border-left: 2px solid red !important;
+    border-bottom: 1px solid red !important;
+/*    border-left: 2px solid red !important;*/
 }
 form.ng-invalid.ng-dirty.frm-bdr {
     border: none!important;
