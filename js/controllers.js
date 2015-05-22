@@ -1904,6 +1904,15 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
+            if (!creditloan.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
             if ($scope.valid_date == false) {
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 18",
@@ -1913,7 +1922,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && $scope.valid_date == true) {
+            if (check && $scope.valid_date == true && creditloan.checkboxModel) {
                 creditloan.enq_dob = $filter('date')(creditloan.enq_dob, "dd-MM-yyyy");
                 console.log(creditloan.enq_dob);
                 creditloan.salary_credited_since = $filter('date')(creditloan.salary_credited_since, "dd-MM-yyyy");
@@ -2184,8 +2193,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
-            if (check) {
+            if (!sme.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && sme.checkboxModel) {
                 MyServices.smecommercialvehicle(sme).success(smecommercial);
             };
         }
@@ -2316,8 +2333,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
-            if (check) {
+            if (!sme.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && sme.checkboxModel) {
                 MyServices.smebusinesssolution(sme).success(smebusiness);;
             };
 
@@ -2447,7 +2472,16 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-            if (check) {
+            if (!sme.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && sme.checkboxModel) {
                 console.log(sme);
                 MyServices.smeprojectfinance(sme).success(smefinance);;
             };
@@ -2876,6 +2910,15 @@ angular.module('starter.controllers', ['myservices'])
                     validation: ""
         }];
                 var check = formvalidation($scope.allvalidation);
+            if (!carloan.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
                 if ($scope.valid_date == false) {
                     var myPopup1 = $ionicPopup.show({
                         title: "Age should be Greater than 18",
@@ -2885,7 +2928,7 @@ angular.module('starter.controllers', ['myservices'])
                         myPopup1.close(); //close the popup after 3 seconds for some reason
                     }, 1500);
                 }
-                if (check && $scope.valid_date == true) {
+                if (check && $scope.valid_date == true && carloan.checkboxModel) {
                     //                $scope.today = new Date();
                     carloan.enq_dob = $filter('date')(carloan.enq_dob, "dd-MM-yyyy");
                     console.log(carloan.enq_dob);
@@ -3050,6 +3093,15 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
+        if (!twloan.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
         if ($scope.valid_date == false) {
             var myPopup1 = $ionicPopup.show({
                 title: "Age should be Greater than 18",
@@ -3059,7 +3111,7 @@ angular.module('starter.controllers', ['myservices'])
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
         }
-        if (check && $scope.valid_date == true) {
+        if (check && $scope.valid_date == true && twloan.checkboxModel) {
             //                $scope.today = new Date();
             twloan.enq_dob = $filter('date')(twloan.enq_dob, "dd-MM-yyyy");
             console.log(twloan.enq_dob);
@@ -3198,6 +3250,15 @@ angular.module('starter.controllers', ['myservices'])
             validation: ""
         }];
         var check = formvalidation($scope.allvalidation);
+        if (!security.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
         if ($scope.valid_date == false) {
             var myPopup1 = $ionicPopup.show({
                 title: "Age should be Greater than 18",
@@ -3207,7 +3268,7 @@ angular.module('starter.controllers', ['myservices'])
                 myPopup1.close(); //close the popup after 3 seconds for some reason
             }, 1500);
         }
-        if (check && $scope.valid_date == true) {
+        if (check && $scope.valid_date == true && security.checkboxModel) {
             //                $scope.today = new Date();
             security.enq_dob = $filter('date')(security.enq_dob, "dd-MM-yyyy");
             console.log(security.enq_dob);
@@ -3349,6 +3410,15 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.propertyloan.enq_city,
                 validation: ""
         }];
+            if (!propertyloan.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
             var check = formvalidation($scope.allvalidation);
             if ($scope.valid_date == false) {
                 var myPopup1 = $ionicPopup.show({
@@ -3359,7 +3429,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && $scope.valid_date == true) {
+            if (check && $scope.valid_date == true && propertyloan.checkboxModel) {
                 //                $scope.today = new Date();
                 propertyloan.enq_dob = $filter('date')(propertyloan.enq_dob, "dd-MM-yyyy");
                 console.log(propertyloan.enq_dob);
@@ -3552,7 +3622,15 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
+            if (!homeloan.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
             if ($scope.valid_date == false) {
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 18",
@@ -3562,7 +3640,7 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && $scope.valid_date == true) {
+            if (check && $scope.valid_date == true && homeloan.checkboxModel) {
                 //                $scope.today = new Date();
                 homeloan.enq_dob = $filter('date')(homeloan.enq_dob, "dd-MM-yyyy");
                 console.log(homeloan.enq_dob);
