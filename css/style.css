@@ -1208,13 +1208,8 @@ form.ng-invalid.ng-dirty.frm-bdr {
 .ico-pad {
     padding-right: 2px !important;
 }
-<<<<<<< HEAD
-.ico-pad{
-    padding-right:2px !important;
-}
-=======
 .spinner svg {
     stroke: #fff;
     fill: #fff;
 }
->>>>>>> origin/master
+
