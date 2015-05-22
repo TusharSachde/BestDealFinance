@@ -102,6 +102,9 @@
 .w85 {
     width: 85%!important;
 }
+.item-select select{
+    padding:14px 25px 16px 16px;
+}
 .button-image {
     width: 98%;
     margin: 0 auto;
