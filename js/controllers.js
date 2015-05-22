@@ -2664,13 +2664,13 @@ angular.module('starter.controllers', ['myservices'])
             }
         }
 
-
         //  PERSONAL FIRST LOAN FORN SUBMIT
         var stepawayplsuccess = function (data, status) {
             console.log(data);
         }
         $scope.getmedeals = function (personal) {
             console.log(personal);
+
             if (personal.enq_is_salaried_ddl != "no") {
                 personal.enq_occupation = "Salaried";
             }
@@ -2723,7 +2723,15 @@ angular.module('starter.controllers', ['myservices'])
                 }];
                 var check = formvalidation($scope.allvalidation);
             }
-
+            if (!personal.checkboxModel) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please Agree To The Terms",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
             if ($scope.valid_date == false) {
                 console.log("Yo");
                 var myPopup1 = $ionicPopup.show({
@@ -2735,16 +2743,14 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
 
-            if (check && $scope.valid_date == true) {
-
+            if (check && $scope.valid_date && personal.checkboxModel) {
                 //                $scope.today = new Date();
                 personal.enq_dob = $filter('date')(personal.enq_dob, "dd-MM-yyyy");
                 console.log(personal.enq_dob);
-
                 MyServices.stepawayset(personal);
                 $location.url("/app/listcheckloan");
                 //                MyServices.stepawaypl(personal).success(stepawayplsuccess);
-            };
+            }
         }
 
     })
