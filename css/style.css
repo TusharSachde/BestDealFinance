@@ -1416,3 +1416,6 @@ form.ng-invalid.ng-dirty.frm-bdr {
 .pad-bac{
     padding-left:5px;
 }
+.ico-pad{
+    padding-right:2px !important;
+}
