@@ -2566,7 +2566,7 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('ContactusCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
         $scope.backcont = function () {
-            $ionicHistory.goBack();
+            $location.url("/login");
         }
     })
     .controller('PersonalLoanCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
