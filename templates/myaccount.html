@@ -21,11 +21,16 @@
                             <div class="assest">
 
                                 <!--                                    <img src="img/car.png" class="car full-image">-->
-                                <img src="img/house.png" ng-if="apply.enq_loanType=='Home'" class="car full-image">
-                                <img src="img/creditcard.png" ng-if="apply.enq_loanType=='Credit Card'" class="car full-image">
-                                <img src="img/car.png" ng-if="apply.enq_loanType=='Car'" class="car full-image">
-                                <i class="item-sprite bike" ng-if="apply.enq_loanType=='Two Wheeler'"></i>
-                                <i class="item-sprite person" ng-if="apply.enq_loanType=='Personal'"></i>
+                                <i class="item-sprite12 home" ng-if="apply.enq_loanType=='Home'"></i>
+                                <i class="item-sprite12 cards" ng-if="apply.enq_loanType=='Credit Card'"></i>
+                                <i class="item-sprite12 car" ng-if="apply.enq_loanType=='Car'"></i>
+                                <i class="item-sprite12 bike" ng-if="apply.enq_loanType=='Two Wheeler'"></i>
+                                <i class="item-sprite12 person" ng-if="apply.enq_loanType=='Personal'"></i>
+                                <i class="item-sprite12 security" ng-if="apply.enq_loanType=='Loan Against Shares'"></i>
+                                <i class="item-sprite12 property" ng-if="apply.enq_loanType=='Loan Against Property'"></i>
+                                <i class="item-sprite12 commercial" ng-if="apply.enq_loanType=='Commercial Vehicle Finance'"></i>
+                                <i class="item-sprite12 business" ng-if="apply.enq_loanType=='SME Business Solutions'"></i>
+                                <i class="item-sprite12 project" ng-if="apply.enq_loanType=='SME Finance'"></i>
                                 <p class="padded">{{apply.enq_loanType}}</p>
                             </div>
                         </div>
