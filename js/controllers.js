@@ -1977,7 +1977,7 @@ angular.module('starter.controllers', ['myservices'])
             $scope.myapplyimages = data.Images;
             console.log($scope.myapply);
         };
-        //        MyServices.getmyaccount().success(myaccountsuccess)
+        MyServices.getmyaccount().success(myaccountsuccess)
 
         var updateusersuccess = function (data, status) {
             //$scope.updateuser = data.Data;
@@ -3582,80 +3582,80 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('PersonalChkCtrl', function ($scope, $stateParams, $ionicModal, MyServices, $ionicPopup, $timeout, $location, $filter) {
 
-    //  DECLARATION
-    $scope.refine = {};
-    $scope.refine.appid = $stateParams.appid;
-    $scope.refine.enq_staying_since = new Date;
-    $scope.refine.salary_credited_since = new Date;
-    $scope.allvalidation = [];
+        //  DECLARATION
+        $scope.refine = {};
+        $scope.refine.appid = $stateParams.appid;
+        $scope.refine.enq_staying_since = new Date;
+        $scope.refine.salary_credited_since = new Date;
+        $scope.allvalidation = [];
 
-    //  MODAL FOR BANK RELATIONSHIP
-    $ionicModal.fromTemplateUrl('templates/bank.html', {
-        id: '3',
-        scope: $scope,
-        animation: 'slide-in-up'
-    }).then(function (modal) {
-        $scope.oModal3 = modal;
-    });
-    $scope.showbank = function () {
-        $scope.oModal3.show();
-    };
-
-    //  REFINE PERSONAL 
-    var refinesuccess = function (data, status) {
-        console.log(data);
-    }
-    $scope.refinepl = function () {
-        $scope.allvalidation = [{
-            field: $scope.refine.enq_gender,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_maritial_status,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_nationality,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_present_use_property,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_staying_since,
-            validation: ""
-        }, {
-            field: $scope.refine.salary_credited_since,
-            validation: ""
-        }, {
-            field: $scope.refine.pl_total_exp_job_years,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_company_consitution,
-            validation: ""
-        }, {
-            field: $scope.refine.enq_status,
-            validation: ""
-        }];
-        var check = formvalidation($scope.allvalidation);
-
-        if (check) {
-            $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
-            $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-            //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
-            MyServices.refinestepawayset($scope.refine);
-            $location.url("/app/listloan");
-            //            sapana akshay
+        //  MODAL FOR BANK RELATIONSHIP
+        $ionicModal.fromTemplateUrl('templates/bank.html', {
+            id: '3',
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.oModal3 = modal;
+        });
+        $scope.showbank = function () {
+            $scope.oModal3.show();
         };
 
-    }
+        //  REFINE PERSONAL 
+        var refinesuccess = function (data, status) {
+            console.log(data);
+        }
+        $scope.refinepl = function () {
+            $scope.allvalidation = [{
+                field: $scope.refine.enq_gender,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_maritial_status,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_nationality,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_present_use_property,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_staying_since,
+                validation: ""
+        }, {
+                field: $scope.refine.salary_credited_since,
+                validation: ""
+        }, {
+                field: $scope.refine.pl_total_exp_job_years,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_company_consitution,
+                validation: ""
+        }, {
+                field: $scope.refine.enq_status,
+                validation: ""
+        }];
+            var check = formvalidation($scope.allvalidation);
+
+            if (check) {
+                $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
+                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+                //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
+                MyServices.refinestepawayset($scope.refine);
+                $location.url("/app/listloan");
+                //            sapana akshay
+            };
+
+        }
 
 
-})
-.controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
+    })
+    .controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
         $scope.backcont = function () {
             $location.url("/app/home");
         }
     })
-.controller('SMECtrl', function ($scope, $stateParams) {})
-.directive('onlyDigits', function () {
+    .controller('SMECtrl', function ($scope, $stateParams) {})
+    .directive('onlyDigits', function () {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -3676,7 +3676,7 @@ angular.module('starter.controllers', ['myservices'])
             }
         };
     })
-.directive('onlyAlphabets', function () {
+    .directive('onlyAlphabets', function () {
         return {
             restrict: 'A',
             require: 'ngModel',
