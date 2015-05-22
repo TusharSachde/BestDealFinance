@@ -164,7 +164,6 @@ angular.module('starter.controllers', ['myservices'])
 
     }
     $scope.validatename = function (value) {
-        value.enq_name = value.enq_name.replace(" ", '');
         value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
     }
     $scope.allvalidation = [];
