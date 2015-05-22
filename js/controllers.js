@@ -437,7 +437,7 @@ angular.module('starter.controllers', ['myservices'])
     var plansuccess = function (data, status) {
         console.log(data);
         var myPopup1 = $ionicPopup.show({
-            title: data.msg,
+            title: "Congratulations!! Await bestdeals from us to realize your dream!!",
             scope: $scope,
         });
         $timeout(function () {
