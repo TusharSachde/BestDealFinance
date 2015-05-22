@@ -59,7 +59,7 @@
                         Product*
                     </div>
                     <select ng-model="sme.enq_loanType_string" ng-class="allvalidation[6].validation" required>
-                        <option>Please Select</option>
+                        <option value="">Please Select</option>
                         <option>Commercial Vehicle Finance</option>
                         <option>SME Finance</option>
                         <option>SME Business Solutions</option>
@@ -68,7 +68,7 @@
 
                 <label class="item item-input">
                     <span class="input-label">Loan Amount*</span>
-                    <input type="text" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[7].validation" required only-digits ng-trim='false'>
+                    <input type="tel" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[7].validation" required only-digits ng-trim='false'>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -85,7 +85,7 @@
                     <div class="input-label">
                         Mobile No*
                     </div>
-                    <input type="text" maxlength="10" ng-model="sme.enq_mobile" ng-class="allvalidation[9].validation" required only-digits ng-trim='false'>
+                    <input type="tel" maxlength="10" ng-model="sme.enq_mobile" ng-class="allvalidation[9].validation" required only-digits ng-trim='false'>
                 </label>
 
                 <ion-item class="item-checkbox">

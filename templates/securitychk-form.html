@@ -51,7 +51,7 @@
                     <span class="input-label">Pin Code*</span>
 
 
-                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" ng-class="allvalidation[4].validation" required only-digits ng-trim='false'>
+                    <input type="tel" maxlength="6" ng-model="refine.enq_pincode" ng-class="allvalidation[4].validation" required only-digits ng-trim='false'>
 
                 </label>
                  <label class="item item-input item-select">
@@ -86,7 +86,7 @@
                 </label>
 				    <label class="item item-input" ng-if="refine.enq_have_loan_ddl=='Yes'">
                     <span class="input-label">Total EMI Paid For Existing Loan</span>
-                        <input type="text" ng-model="refine.enq_emi_existing_loan">
+                        <input type="tel" ng-model="refine.enq_emi_existing_loan">
                 </label>
 
 

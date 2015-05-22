@@ -4,7 +4,7 @@
         <div class="list signin">
             <label class="item item-input range-item forrange">
                 <span class="input-label">Loan Amount*</span>
-                <input type="text" ng-model="twloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required only-digits ng-trim='false'>
+                <input type="tel" ng-model="twloan.enq_loanAmtTo" ng-class="allvalidation[0].validation" required only-digits ng-trim='false'>
             </label>
             <div class="range range-assertive">
                 <input type="range" min="10000" max="1000000" step="1000" ng-model="twloan.enq_loanAmtTo" only-digits ng-trim='false'>
@@ -12,7 +12,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Tenure*</span>
-                <input type="text" ng-model="twloan.enq_tenureTo" ng-class="allvalidation[1].validation" required only-digits ng-trim='false'>
+                <input type="tel" ng-model="twloan.enq_tenureTo" ng-class="allvalidation[1].validation" required only-digits ng-trim='false'>
 
             </label>
             <div class="range range-assertive">
@@ -21,7 +21,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Gross Monthly Income*</span>
-                <input type="text" ng-model="twloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required only-digits ng-trim='false'>
+                <input type="tel" ng-model="twloan.enq_currIncomeTo" ng-class="allvalidation[2].validation" required only-digits ng-trim='false'>
 
             </label>
             <div class="range range-assertive">
@@ -115,7 +115,7 @@
 
             <label class="item item-input ">
                 <span class="input-label ">Ex-Show Room Price of Car*</span>
-                <input type="text" ng-model="twloan.ex_showroom_cost" ng-class="allvalidation[8].validation" required only-digits ng-trim='false'>
+                <input type="tel" ng-model="twloan.ex_showroom_cost" ng-class="allvalidation[8].validation" required only-digits ng-trim='false'>
 
             </label>
             <ion-item class="item-checkbox">
