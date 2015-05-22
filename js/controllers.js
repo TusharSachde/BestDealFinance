@@ -607,7 +607,7 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/personal");
+                    $location.url("/app/personal-chk");
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
