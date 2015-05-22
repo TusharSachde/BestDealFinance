@@ -100,11 +100,11 @@
             </label>
             <label class="item item-input range-item forrange" ng-if="personal.enq_have_loan_ddl=='Yes'">
                 <span class="input-label"> Total EMI For Existing Loan</span>
-                <input type="tel" ng-model="personal.enq_emi_existing_loan">
+                <input type="tel" ng-model="personal.enq_emi_existing_loan" only-digits ng-trim='false'>
             </label>
             <label class="item item-input range-item forrange" ng-if="personal.enq_have_loan_ddl=='Yes'">
                 <span class="input-label"> Number of EMI paid</span>
-                <input type="tel" ng-model="personal.enq_total_no_of_emi_paid">
+                <input type="tel" ng-model="personal.enq_total_no_of_emi_paid" only-digits ng-trim='false'>
             </label>
             <ion-item class="item-checkbox ">
                 <label class="checkbox">

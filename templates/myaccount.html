@@ -165,11 +165,11 @@
 
                     <label class="item item-input ">
                         <span>  Mobile no. : </span>
-                        <input type="tel" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required>
+                        <input type="tel" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required only-digits ng-trim='false'>
                     </label>
                     <label class="item item-input ">
                         <span>  Alternate no.:</span>
-                        <input type="tel" ng-model="updateuser.enq_alt_no">
+                        <input type="tel" ng-model="updateuser.enq_alt_no" only-digits ng-trim='false'>
                     </label>
                     <label class="item item-input ">
                         <span>  Email Id :</span>

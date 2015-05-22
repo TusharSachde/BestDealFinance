@@ -4,7 +4,7 @@
             <div class="list signin">
                 <label class="item item-input range-item">
                     <span class="input-label">Loan Amount</span>
-                    <input type="tel" ng-model="carloan.loan">
+                    <input type="tel" ng-model="carloan.loan" only-digits ng-trim='false'>
                     <div class="range range-assertive">
                         <input type="range" min="100000" max="20000000" ng-model="personal.loan" step="1000">
                     </div>
@@ -12,7 +12,7 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Tenure</span>
-                    <input type="tel" ng-model="carloan.tenure">
+                    <input type="tel" ng-model="carloan.tenure" only-digits ng-trim='false'>
                     <div class="range range-assertive">
                         <input type="range" min="6" max="84" ng-model="carloan.tenure" step="1">
                     </div>
@@ -20,7 +20,7 @@
 
                 <label class="item item-input range-item">
                     <span class="input-label">Gross Monthly Income</span>
-                    <input type="tel" ng-model="carloan.income">
+                    <input type="tel" ng-model="carloan.income" only-digits ng-trim='false'>
                     <div class="range range-assertive">
                         <input type="range" min="15000" max="7500000" ng-model="carloan.income" step="1000">
                     </div>
@@ -69,12 +69,12 @@
 
                 <label class="item item-input">
                     <span class="input-label">No. of years at current office</span>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
 
                 <label class="item item-input">
                     <span class="input-label">No. of vehicle / equipment to be purchased</span>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
                 <label class="item item-input">
                     <span class="input-label">Birth Date</span>
@@ -95,14 +95,14 @@
                     <div class="input-label">
                         Existing fleet size
                     </div>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
 
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Funded fleet size
                     </div>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
 
                 <label class="item item-input item-select">
@@ -168,19 +168,19 @@
                     <div class="input-label">
                         Chassis Amount
                     </div>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Other Charges
                     </div>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Body Amount
                     </div>
-                    <input type="tel">
+                    <input type="tel" only-digits ng-trim='false'>
                 </label>
                 <ion-item class="item-checkbox">
                     <label class="checkbox">
