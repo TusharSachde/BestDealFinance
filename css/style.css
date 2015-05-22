@@ -1413,3 +1413,6 @@ form.ng-invalid.ng-dirty.frm-bdr {
 .citysearch {
     margin-left: 20px !important;
 }
+.pad-bac{
+    padding-left:5px;
+}
