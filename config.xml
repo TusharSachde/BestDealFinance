@@ -92,8 +92,8 @@
     <gap:splash src="screen/ios/Default-1242@3x~iphone6s-portrait_1242x2208.png" gap:platform="ios" width="1242" height="2208" />
     
     <!--Default icon & splash-->
-    <icon src="img/logo.png" />
-    <gap:splash src="img/background.png" />
+    <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" />
+    <gap:splash src="screen/ios/Default-750@2x~iphone6-portrait_750x1334.png" />
 
     <access origin="*" />
 

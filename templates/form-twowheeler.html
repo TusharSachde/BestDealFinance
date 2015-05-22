@@ -77,9 +77,10 @@
             </label>
 
             <label class="item item-input" ng-click="selectcity();" ng-model="twloan.enq_city" ng-class="allvalidation[5].validation" required>
-                <div class="input-label ">
-                    City (Residing at)*<span class="citysearch">{{cityName}}</span>
-                </div>
+                <span class="input-label ">
+                    City (Residing at)*
+                </span>
+                <div class="citysearch">{{cityName}}</div>
                 <!--
                 <select ng-model="twloan.enq_city" ng-class="allvalidation[5].validation" required>
                     <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_name}}">{{city.city_name}}</option>

@@ -344,7 +344,7 @@ angular.module('starter.controllers', ['myservices'])
             console.log("otp data");
             console.log($scope.otpdata);
             $ionicLoading.show({
-                template: 'Please wait...'
+                template: '<ion-spinner class="spinner-light"></ion-spinner>'
             });
             MyServices.validateotp($scope.otpdata).success(validateotpsuccess);
         };
@@ -412,7 +412,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
     $ionicLoading.show({
-        template: 'Please wait...'
+        template: '<ion-spinner class="spinner-light"></ion-spinner>'
     });
 
     //  CHANGE TAB
@@ -493,7 +493,7 @@ angular.module('starter.controllers', ['myservices'])
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
     //    $ionicLoading.show({
-    //        template: 'Please wait...'
+    //        template: '<ion-spinner class="spinner-light"></ion-spinner>'
     //    });
 
     //  CHANGE TAB
@@ -592,7 +592,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -632,7 +632,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -672,7 +672,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -797,7 +797,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -835,7 +835,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -916,7 +916,7 @@ angular.module('starter.controllers', ['myservices'])
     .controller('SecurityapplyCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
         var lassuccess = function (data, status) {
             console.log(data.Data);
@@ -951,7 +951,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -1058,7 +1058,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
         $ionicLoading.hide();
@@ -1099,7 +1099,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
         $ionicLoading.hide();
@@ -1142,7 +1142,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
@@ -1182,7 +1182,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
         // testing
@@ -1644,7 +1644,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
         $ionicLoading.hide();
@@ -2492,7 +2492,7 @@ angular.module('starter.controllers', ['myservices'])
         //  DEPLARATION
         $scope.checklist = {};
         $ionicLoading.show({
-            template: 'Please wait...'
+            template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
 
