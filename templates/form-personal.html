@@ -11,7 +11,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Tenure*</span>
-                <input type="text" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
+                <input type="tel" ng-model="personal.enq_tenureTo" ng-class="allvalidation[1].validation" required>
 
             </label>
             <div class="range range-assertive">
@@ -20,7 +20,7 @@
 
             <label class="item item-input range-item forrange">
                 <span class="input-label">Gross Monthly Income*</span>
-                <input type="text" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
+                <input type="tel" ng-model="personal.enq_currIncomeTo" ng-class="allvalidation[2].validation" required>
 
             </label>
             <div class="range range-assertive">
@@ -100,11 +100,11 @@
             </label>
             <label class="item item-input range-item forrange" ng-if="personal.enq_have_loan_ddl=='Yes'">
                 <span class="input-label"> Total EMI For Existing Loan</span>
-                <input type="text" ng-model="personal.enq_emi_existing_loan">
+                <input type="tel" ng-model="personal.enq_emi_existing_loan">
             </label>
             <label class="item item-input range-item forrange" ng-if="personal.enq_have_loan_ddl=='Yes'">
                 <span class="input-label"> Number of EMI paid</span>
-                <input type="text" ng-model="personal.enq_total_no_of_emi_paid">
+                <input type="tel" ng-model="personal.enq_total_no_of_emi_paid">
             </label>
             <ion-item class="item-checkbox ">
                 <label class="checkbox">
