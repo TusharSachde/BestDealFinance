@@ -70,9 +70,9 @@ angular.module('starter.controllers', ['myservices'])
     //        value = value.replace(" ", '');
     //        value = value.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
     //    }
-         var validatename = function (value) {
-            value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-        }
+    var validatename = function (value) {
+        value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+    }
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading) {
@@ -398,7 +398,7 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('HomeCtrl', function ($scope, $stateParams, $location) {
     $scope.clickcont = function () {
-        $location.url("/contactus");
+        $location.url("/app/contact");
     }
 })
 
@@ -2196,12 +2196,12 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
-    $scope.validatename = function (value) {
-        value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-    }
+        $scope.validatename = function (value) {
+            value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
         $scope.validatedesg = function (value) {
-        value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-    }
+            value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
         $scope.sme = {
             enq_loanType: "33",
             customersessionid: $.jStorage.get("user").customersessionid
@@ -2217,7 +2217,7 @@ angular.module('starter.controllers', ['myservices'])
         }).then(function (modal) {
             $scope.modal = modal;
         });
-        
+
         $scope.openedit = function () {
             $scope.modal.show();
         }
@@ -2328,12 +2328,12 @@ angular.module('starter.controllers', ['myservices'])
 //DHAVAL START
 .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
-    $scope.validatename = function (value) {
-        value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-    }
+        $scope.validatename = function (value) {
+            value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
         $scope.validatedesg = function (value) {
-        value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-    }
+            value.enq_designation = value.enq_designation.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
         $scope.sme = {
             enq_loanType: "32",
             customersessionid: $.jStorage.get("user").customersessionid
@@ -3649,9 +3649,13 @@ angular.module('starter.controllers', ['myservices'])
 
 
 })
-
+.controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
+        $scope.backcont = function () {
+            $location.url("/app/home");
+        }
+    })
 .controller('SMECtrl', function ($scope, $stateParams) {})
-    .directive('onlyDigits', function () {
+.directive('onlyDigits', function () {
         return {
             require: 'ngModel',
             restrict: 'A',
@@ -3673,29 +3677,29 @@ angular.module('starter.controllers', ['myservices'])
         };
     })
 .directive('onlyAlphabets', function () {
-    return {
-        restrict: 'A',
-        require: 'ngModel',
-        link: function (scope, element, attrs, ngModel) {
-            if (!ngModel) {
-                return;
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function (scope, element, attrs, ngModel) {
+                if (!ngModel) {
+                    return;
+                }
+                ngModel.$parsers.unshift(function (inputValue) {
+                    var alphabets = inputValue.split('').filter(function (s) {
+                        return (isALetter(s));
+                    }).join('');
+                    ngModel.$viewValue = alphabets;
+                    ngModel.$render();
+                    return alphabets;
+                });
             }
-            ngModel.$parsers.unshift(function (inputValue) {
-                var alphabets = inputValue.split('').filter(function (s) {
-                    return (isALetter(s));
-                }).join('');
-                ngModel.$viewValue = alphabets;
-                ngModel.$render();
-                return alphabets;
-            });
-        }
-    };
+        };
 
-    function isALetter(charVal) {
-        if (charVal.toUpperCase() != charVal.toLowerCase()) {
-            return true;
-        } else {
-            return false;
+        function isALetter(charVal) {
+            if (charVal.toUpperCase() != charVal.toLowerCase()) {
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-});
+    });
