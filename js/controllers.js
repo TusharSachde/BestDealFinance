@@ -1102,7 +1102,7 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-        $ionicLoading.hide();
+        
 
 
         var carsuccess = function (data, status) {
@@ -1121,6 +1121,7 @@ angular.module('starter.controllers', ['myservices'])
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log(data);
+                $ionicLoading.hide();
                 //                console.log(getjsononly($scope.checklist));
             }
         }
