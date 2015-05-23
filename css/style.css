@@ -1108,12 +1108,14 @@ button.button.button-icon.popup-btn:before {
 */
 
 .ng-invalid.ng-dirty {
-    border-bottom: 1px solid red !important;
-/*    border-left: 2px solid red !important;*/
+  /*   border-bottom: 1px solid red !important;*/
+   border-bottom: 2px solid red !important;
 }
+/*
 form.ng-invalid.ng-dirty.frm-bdr {
     border: none!important;
 }
+*/
 .buttons.closebtn-otp button {
     color: #E31D1A;
     float: right;
