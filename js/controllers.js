@@ -1946,7 +1946,8 @@ angular.module('starter.controllers', ['myservices'])
         //  DECLARATION
         $scope.returnsactive = "active";
         $scope.profile = "bold";
-        $scope.updateuser = [];
+        $scope.updateuser = {};
+        $scope.updateuser=$.jStorage.get("updateduser");
         $scope.allvalidation = [];
         $scope.valid_date = false;
         //  DESIGN CODE
@@ -1992,7 +1993,9 @@ angular.module('starter.controllers', ['myservices'])
         var updateusersuccess = function (data, status) {
             //$scope.updateuser = data.Data;
             console.log(data);
-            if (data.msg == "Sucess") {
+            if (data.msg == "success") {
+                console.log($scope.updateuser);
+                $.jStorage.set("updateduser",$scope.updateuser);
                 var myPopup1 = $ionicPopup.show({
                     title: "Your Profile Was Updated Successfully",
                     scope: $scope,
@@ -2002,8 +2005,8 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
         }
-        $scope.save = function (updateuser) {
-            console.log(updateuser);
+        $scope.save = function () {
+            console.log($scope.updateuser);
             $scope.allvalidation = [{
                 field: $scope.updateuser.customername,
                 validation: ""
@@ -2043,7 +2046,7 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             }
             if (check && $scope.valid_date == true) {
-                MyServices.updateuserprofile(updateuser).success(updateusersuccess);
+                MyServices.updateuserprofile($scope.updateuser).success(updateusersuccess);
             };
         }
 

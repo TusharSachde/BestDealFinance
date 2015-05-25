@@ -165,11 +165,11 @@
 
                     <label class="item item-input ">
                         <span>  Mobile no. : </span>
-                        <input type="tel" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required only-digits ng-trim='false'>
+                        <input type="tel" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required only-digits ng-trim='false' maxlength="10">
                     </label>
                     <label class="item item-input ">
                         <span>  Alternate no.:</span>
-                        <input type="tel" ng-model="updateuser.enq_alt_no" only-digits ng-trim='false'>
+                        <input type="tel" ng-model="updateuser.enq_alt_no" only-digits ng-trim='false' maxlength="10">
                     </label>
                     <label class="item item-input ">
                         <span>  Email Id :</span>
@@ -196,7 +196,7 @@
                 <a>
                     <div class="button-image " ng-click=" ">
                         <img src="img/button2.png " alt=" " class="full-image ">
-                        <div class="button-text assertive " ng-click="save(updateuser); ">Update</div>
+                        <div class="button-text assertive " ng-click="save(); ">Update</div>
                     </div>
                 </a>
             </form>
