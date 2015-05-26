@@ -397,6 +397,10 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('HomeCtrl', function ($scope, $stateParams, $location) {
+    if(!$.jStorage.get("user"))
+    {
+        $location.url("/login");
+    }
     $scope.clickcont = function () {
         $location.url("/app/contact");
     }
