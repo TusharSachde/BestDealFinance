@@ -1946,7 +1946,8 @@ angular.module('starter.controllers', ['myservices'])
         //  DECLARATION
         $scope.returnsactive = "active";
         $scope.profile = "bold";
-        $scope.updateuser = {};
+        $scope.updateuser = {
+        'enq_dob':new Date()};
         $scope.allvalidation = [];
         $scope.valid_date = false;
         //  DESIGN CODE
@@ -1958,6 +1959,7 @@ angular.module('starter.controllers', ['myservices'])
         var getprofilesuccess = function (data, status) {
             $scope.updateuser = data.Data[0];
             console.log($scope.updateuser);
+            $scope.updateuser.enq_dob=new Date($scope.updateuser.enq_dob);
         }
         MyServices.getuserprofile().success(getprofilesuccess);
 
