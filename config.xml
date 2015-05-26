@@ -104,8 +104,6 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
 
-
-
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true" />
     </feature>

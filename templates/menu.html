@@ -3,9 +3,12 @@
         <ion-nav-bar class="bar-dark">
             <ion-nav-back-button>
             </ion-nav-back-button>
-
             <ion-nav-buttons side="left">
                 <button class="button button-icon button-clear ion-android-menu" menu-toggle="left">
+                </button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right" ng-controller="HomeCtrl">
+                <button class="button button-icon ion-android-call ico-pad" ng-click="clickcont();">
                 </button>
             </ion-nav-buttons>
         </ion-nav-bar>
@@ -32,7 +35,7 @@
                         <i class="menu-spritely retail"></i>
                     </div>
                     <p>Retail
-                        <br> Finance</p>
+                        <br>Finance</p>
                 </ion-item>
             </ion-list>
             <ion-list>
@@ -40,8 +43,8 @@
                     <div class="menu-lists">
                         <i class="menu-spritely finance"></i>
                     </div>
-                    <p> SME
-                        <br> Finance</p>
+                    <p>SME
+                        <br>Finance</p>
                 </ion-item>
             </ion-list>
             <ion-list>
@@ -49,8 +52,8 @@
                     <div class="menu-lists">
                         <i class="menu-spritely genie"></i>
                     </div>
-                    <p> Deal
-                        <br> Genie</p>
+                    <p>Deal
+                        <br>Genie</p>
                 </ion-item>
             </ion-list>
             <ion-list>
@@ -58,7 +61,7 @@
                     <div class="menu-lists">
                         <i class="menu-spritely account"></i>
                     </div>
-                    <p>My Account </p>
+                    <p>My Account</p>
                 </ion-item>
             </ion-list>
             <!--
@@ -76,7 +79,7 @@
                     <div class="menu-lists">
                         <i class="menu-spritely contact"></i>
                     </div>
-                    <p> Contact </p>
+                    <p>Contact</p>
                 </ion-item>
             </ion-list>
             <ion-list>
@@ -85,7 +88,7 @@
                         <i class="menu-spritely share"></i>
                     </div>
                     <p>Share
-                        <br> this app</p>
+                        <br>this app</p>
                 </ion-item>
             </ion-list>
             <ion-list>

@@ -68,7 +68,8 @@
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3);
 }
 .brand img {
-    width: 60%;
+    width: 50%;
+    max-width: 100%;
 }
 .brand {
     text-align: center;
@@ -102,8 +103,8 @@
 .w85 {
     width: 85%!important;
 }
-.item-select select{
-    padding:14px 25px 16px 16px;
+.item-select select {
+    padding: 14px 25px 16px 16px;
 }
 .button-image {
     width: 98%;
@@ -1108,14 +1109,15 @@ button.button.button-icon.popup-btn:before {
 */
 
 .ng-invalid.ng-dirty {
-  /*   border-bottom: 1px solid red !important;*/
-   border-bottom: 2px solid red !important;
+    /*   border-bottom: 1px solid red !important;*/
+    border-bottom: 2px solid red !important;
 }
 /*
 form.ng-invalid.ng-dirty.frm-bdr {
     border: none!important;
 }
 */
+
 .buttons.closebtn-otp button {
     color: #E31D1A;
     float: right;
@@ -1214,4 +1216,3 @@ form.ng-invalid.ng-dirty.frm-bdr {
     stroke: #fff;
     fill: #fff;
 }
-
