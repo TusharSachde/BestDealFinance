@@ -133,7 +133,7 @@
 
                     <label class="item item-input">
                         <span class="input-label">Name</span>
-                        <input type="text" ng-model="updateuser.customername" ng-class="allvalidation[0].validation" required>
+                        <input type="text" ng-model="updateuser.enq_name" ng-class="allvalidation[0].validation" required>
                     </label>
                     <label class="item item-input">
                         <span class="input-label">Date of Birth</span>
@@ -165,7 +165,7 @@
 
                     <label class="item item-input ">
                         <span>  Mobile no. : </span>
-                        <input type="tel" ng-model="updateuser.customermobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required only-digits ng-trim='false' maxlength="10">
+                        <input type="tel" ng-model="updateuser.enq_mobile" ng-class="allvalidation[4].validation " ng-keypress="keypress($event) " required only-digits ng-trim='false' maxlength="10">
                     </label>
                     <label class="item item-input ">
                         <span>  Alternate no.:</span>
@@ -173,7 +173,7 @@
                     </label>
                     <label class="item item-input ">
                         <span>  Email Id :</span>
-                        <input type="email" ng-model="updateuser.customeremail" ng-class="allvalidation[5].validation" required>
+                        <input type="email" ng-model="updateuser.enq_email" ng-class="allvalidation[5].validation" required>
                     </label>
                     <label class="item item-input ">
                         <span>  Altenate Email Id :</span>

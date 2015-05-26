@@ -1067,6 +1067,18 @@ var myservices = angular.module('myservices', [])
                 }
             })
         },
+        getuserprofile: function () {
+            var session = $.jStorage.get("user");
+            return $http({
+                url: adminurl + "listprofileinfo",
+                method: "POST",
+                data: {
+                    "Data": {
+                        "sessionid": session.customersessionid
+                    }
+                }
+            })
+        },
         updateuserprofile: function (updateuser) {
             var session = $.jStorage.get("user");
             return $http({
@@ -1082,9 +1094,9 @@ var myservices = angular.module('myservices', [])
                         "enq_maritial_status": updateuser.enq_maritial_status,
                         "enq_alt_no": updateuser.enq_alt_no,
                         "enq_alt_email": updateuser.enq_alt_email,
-                        "enq_email_cl": updateuser.customeremail,
-                        "enq_name": updateuser.customername,
-                        "enq_mobile": updateuser.customermobile,
+                        "enq_email_cl": updateuser.enq_email,
+                        "enq_name": updateuser.enq_name,
+                        "enq_mobile": updateuser.enq_mobile,
                         "enq_old_password": updateuser.oldpassword,
                         "enq_new_password ": updateuser.newpassword,
                         "enq_confirm_password": updateuser.rnpassword

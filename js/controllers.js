@@ -1102,7 +1102,7 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-        
+
 
 
         var carsuccess = function (data, status) {
@@ -1947,7 +1947,6 @@ angular.module('starter.controllers', ['myservices'])
         $scope.returnsactive = "active";
         $scope.profile = "bold";
         $scope.updateuser = {};
-        $scope.updateuser=$.jStorage.get("updateduser");
         $scope.allvalidation = [];
         $scope.valid_date = false;
         //  DESIGN CODE
@@ -1956,6 +1955,12 @@ angular.module('starter.controllers', ['myservices'])
                 $scope.profile = "";
             }
             //
+        var getprofilesuccess = function (data, status) {
+            $scope.updateuser = data.Data[0];
+            console.log($scope.updateuser);
+        }
+        MyServices.getuserprofile().success(getprofilesuccess);
+
         $scope.chnageprofile = function () {
             $scope.myapp = "";
             $scope.profile = "bold";
@@ -1968,7 +1973,6 @@ angular.module('starter.controllers', ['myservices'])
                 }
             }
             //  GET USER DETAILS
-        $scope.updateuser = MyServices.getuser();
         $scope.datechange = function () {
             if (parseInt(age($scope.updateuser.enq_dob)) < 18) {
                 console.log("chintoo");
@@ -1994,8 +1998,8 @@ angular.module('starter.controllers', ['myservices'])
             //$scope.updateuser = data.Data;
             console.log(data);
             if (data.msg == "success") {
+                MyServices.getuserprofile().success(getprofilesuccess);
                 console.log($scope.updateuser);
-                $.jStorage.set("updateduser",$scope.updateuser);
                 var myPopup1 = $ionicPopup.show({
                     title: "Your Profile Was Updated Successfully",
                     scope: $scope,
@@ -2008,7 +2012,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.save = function () {
             console.log($scope.updateuser);
             $scope.allvalidation = [{
-                field: $scope.updateuser.customername,
+                field: $scope.updateuser.enq_name,
                 validation: ""
         }, {
                 field: $scope.updateuser.enq_dob,
@@ -2020,10 +2024,10 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.updateuser.enq_maritial_status,
                 validation: ""
         }, {
-                field: $scope.updateuser.customermobile,
+                field: $scope.updateuser.enq_mobile,
                 validation: ""
         }, {
-                field: $scope.updateuser.customeremail,
+                field: $scope.updateuser.enq_email,
                 validation: ""
         }, {
                 field: $scope.updateuser.oldpassword,
@@ -2914,15 +2918,15 @@ angular.module('starter.controllers', ['myservices'])
                     validation: ""
         }];
                 var check = formvalidation($scope.allvalidation);
-            if (!carloan.checkboxModel) {
-                var myPopup2 = $ionicPopup.show({
-                    title: "Please Agree To The Terms",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup2.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            }
+                if (!carloan.checkboxModel) {
+                    var myPopup2 = $ionicPopup.show({
+                        title: "Please Agree To The Terms",
+                        scope: $scope,
+                    });
+                    $timeout(function () {
+                        myPopup2.close(); //close the popup after 3 seconds for some reason
+                    }, 1500);
+                }
                 if ($scope.valid_date == false) {
                     var myPopup1 = $ionicPopup.show({
                         title: "Age should be Greater than 18",
@@ -3098,14 +3102,14 @@ angular.module('starter.controllers', ['myservices'])
         }];
         var check = formvalidation($scope.allvalidation);
         if (!twloan.checkboxModel) {
-                var myPopup2 = $ionicPopup.show({
-                    title: "Please Agree To The Terms",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup2.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            }
+            var myPopup2 = $ionicPopup.show({
+                title: "Please Agree To The Terms",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup2.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
         if ($scope.valid_date == false) {
             var myPopup1 = $ionicPopup.show({
                 title: "Age should be Greater than 18",
@@ -3255,14 +3259,14 @@ angular.module('starter.controllers', ['myservices'])
         }];
         var check = formvalidation($scope.allvalidation);
         if (!security.checkboxModel) {
-                var myPopup2 = $ionicPopup.show({
-                    title: "Please Agree To The Terms",
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup2.close(); //close the popup after 3 seconds for some reason
-                }, 1500);
-            }
+            var myPopup2 = $ionicPopup.show({
+                title: "Please Agree To The Terms",
+                scope: $scope,
+            });
+            $timeout(function () {
+                myPopup2.close(); //close the popup after 3 seconds for some reason
+            }, 1500);
+        }
         if ($scope.valid_date == false) {
             var myPopup1 = $ionicPopup.show({
                 title: "Age should be Greater than 18",
