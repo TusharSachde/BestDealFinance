@@ -1949,7 +1949,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.updateuser = {
         'enq_dob':new Date()};
         $scope.allvalidation = [];
-        $scope.valid_date = false;
+        $scope.valid_date = true;
         //  DESIGN CODE
         $scope.changemyapp = function () {
                 $scope.myapp = "bold";
@@ -1978,6 +1978,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.datechange = function () {
             if (parseInt(age($scope.updateuser.enq_dob)) < 18) {
                 console.log("chintoo");
+                $scope.valid_date=false;
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 18",
                     scope: $scope,
@@ -2032,13 +2033,13 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.updateuser.enq_email,
                 validation: ""
         }, {
-                field: $scope.updateuser.oldpassword,
+                field: $scope.updateuser.enq_old_password,
                 validation: ""
         }, {
-                field: $scope.updateuser.newpassword,
+                field: $scope.updateuser.enq_new_password,
                 validation: ""
         }, {
-                field: $scope.updateuser.rnpassword,
+                field: $scope.updateuser.enq_confirm_password,
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);

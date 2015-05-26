@@ -1097,9 +1097,9 @@ var myservices = angular.module('myservices', [])
                         "enq_email_cl": updateuser.enq_email,
                         "enq_name": updateuser.enq_name,
                         "enq_mobile": updateuser.enq_mobile,
-                        "enq_old_password": updateuser.oldpassword,
-                        "enq_new_password ": updateuser.newpassword,
-                        "enq_confirm_password": updateuser.rnpassword
+                        "enq_old_password": updateuser.enq_old_password,
+                        "enq_new_password ": updateuser.enq_new_password,
+                        "enq_confirm_password": updateuser.enq_confirm_password
                     }
                 }
             })
