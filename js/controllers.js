@@ -584,6 +584,9 @@ angular.module('starter.controllers', ['myservices'])
         console.log("genie clicked");
         MyServices.getgeniecategory().success(geniesuccess);
     }
+    $timeout(function () {
+        MyServices.getgeniecategory().success(geniesuccess);
+    }, 1500);
 })
 
 .controller('LoanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading) {
@@ -1947,7 +1950,8 @@ angular.module('starter.controllers', ['myservices'])
         $scope.returnsactive = "active";
         $scope.profile = "bold";
         $scope.updateuser = {
-        'enq_dob':new Date()};
+            'enq_dob': new Date()
+        };
         $scope.allvalidation = [];
         $scope.valid_date = true;
         //  DESIGN CODE
@@ -1959,7 +1963,7 @@ angular.module('starter.controllers', ['myservices'])
         var getprofilesuccess = function (data, status) {
             $scope.updateuser = data.Data[0];
             console.log($scope.updateuser);
-            $scope.updateuser.enq_dob=new Date($scope.updateuser.enq_dob);
+            $scope.updateuser.enq_dob = new Date($scope.updateuser.enq_dob);
         }
         MyServices.getuserprofile().success(getprofilesuccess);
 
@@ -1978,7 +1982,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.datechange = function () {
             if (parseInt(age($scope.updateuser.enq_dob)) < 18) {
                 console.log("chintoo");
-                $scope.valid_date=false;
+                $scope.valid_date = false;
                 var myPopup1 = $ionicPopup.show({
                     title: "Age should be Greater than 18",
                     scope: $scope,
