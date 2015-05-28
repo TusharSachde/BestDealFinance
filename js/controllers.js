@@ -397,8 +397,7 @@ angular.module('starter.controllers', ['myservices'])
 })
 
 .controller('HomeCtrl', function ($scope, $stateParams, $location) {
-    if(!$.jStorage.get("user"))
-    {
+    if (!$.jStorage.get("user")) {
         $location.url("/login");
     }
     $scope.clickcont = function () {
@@ -3758,7 +3757,16 @@ angular.module('starter.controllers', ['myservices'])
         }
     })
     .controller('SMECtrl', function ($scope, $stateParams) {})
-    .directive('onlyDigits', function () {
+    .controller('ThankyouCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+        $timeout(function () {
+            $location.url("/app/home");
+        }, 3000);
+        $scope.redirecttohome = function () {
+            $location.url("/app/home");
+        }
+    })
+
+.directive('onlyDigits', function () {
         return {
             require: 'ngModel',
             restrict: 'A',

@@ -525,7 +525,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         views: {
             'menuContent': {
                 templateUrl: "templates/thankyou.html",
-                controller: 'AppCtrl'
+                controller: 'ThankyouCtrl'
             }
         }
     });
