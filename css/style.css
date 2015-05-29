@@ -579,7 +579,7 @@ ion-item.item-dark.menu-dark a {
     background: url('../img/menusprite.png') no-repeat;
 }
 .menu-lists {
-    width: 140px;
+    width: auto;
     height: 40px;
 }
 .menu-spritely.plan {
@@ -684,9 +684,12 @@ ion-list.list-myprofile .item {
 .menu-dark {
     border: 0px;
 }
-ion-item.item-dark.menu-dark {
+item.menu-dark {
     background: #a9a9a9;
     border-color: #a9a9a9;
+}
+.custom-menu .item p {
+    color: white;
 }
 .amt-text {
     border-bottom: 1px solid #000;
@@ -1064,12 +1067,21 @@ ion-list.icon-on-left.contactus .list .item {
     background: #222323;
     padding: 10px 0;
     height: 68px;
-    float: left;
-    margin: 0 1px;
+    margin: 0 0px;
     border: 1px solid #222323;
     -webkit-border-radius: 10px 15px 0px 0;
     -moz-border-radius: 10px 15px 0px 0;
     border-radius: 10px 15px 0px 0;
+    display: inline-block;
+}
+.custom-menu .item {
+    background: -webkit-gradient(linear, left top, left bottom, from(#3B3B3B), to(#161616));
+    background: -webkit-linear-gradient(#3B3B3B, #161616);
+    background: -moz-linear-gradient(#3B3B3B, #161616);
+    background: -o-linear-gradient(#3B3B3B, #161616);
+    background: linear-gradient(#3B3B3B, #161616);
+    color: #fff;
+    text-align: center;
 }
 img.img-ginie {
     width: 48px!important;
@@ -1215,4 +1227,15 @@ form.ng-invalid.ng-dirty.frm-bdr {
 .spinner svg {
     stroke: #fff;
     fill: #fff;
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
 }

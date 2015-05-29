@@ -20,7 +20,7 @@
     <h1 class="title">Menu</h1>
 </ion-header-bar>
 -->
-        <ion-content>
+        <ion-content class="custom-menu">
             <ion-list>
                 <ion-item nav-clear menu-close href="#/app/listplan" class="item-dark menu-dark">
                     <div class="menu-lists">
@@ -83,12 +83,12 @@
                 </ion-item>
             </ion-list>
             <ion-list>
-                <ion-item nav-clear menu-close href="#/app/home" class="item-dark menu-dark">
+                <ion-item nav-clear menu-close ng-click="share();" class="item-dark menu-dark">
                     <div class="menu-lists">
                         <i class="menu-spritely share"></i>
                     </div>
                     <p>Share
-                        <br>this app</p>
+                            <br>this app</p>
                 </ion-item>
             </ion-list>
             <ion-list>

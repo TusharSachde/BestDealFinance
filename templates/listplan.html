@@ -1,19 +1,19 @@
 <ion-view view-title="Plans" class="scroll-bg">
-       <ion-nav-buttons side="right">
+    <ion-nav-buttons side="right">
         <a class="button button-icon button-clear ion-android-add" href="#/app/myplan">
         </a>
     </ion-nav-buttons>
-    <ion-content class="has-header padding">
 
+    <h4 ng-if="planlist==''" class="light centered">No plans to show, click on '<i class="icon ion-android-add"></i>' to add a plan.</h4>
+
+
+    <ion-content class="has-header padding">
         <ion-list class="opaque-bg item-gap">
-            <ion-item href="#/app/editmyplan/{{aplan.planid}}" ng-repeat = "aplan in planlist">
+            <ion-item href="#/app/editmyplan/{{aplan.planid}}" ng-repeat="aplan in planlist">
                 <ion-option-button class="button-assertive" ng-click="deleteplan(aplan.planid)">Delete</ion-option-button>
                 <h2>{{aplan.planname}}</h2>
                 <p>Rs.{{aplan.planamount}}</p>
             </ion-item>
         </ion-list>
-        
-        <h4 ng-if="planlist==''">No Plans Yet !.</h4>
-        
     </ion-content>
 </ion-view>

@@ -2,6 +2,12 @@ angular.module('starter.controllers', ['myservices'])
 
 .controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
 
+    //Share
+    $scope.share = function () {
+        window.plugins.socialsharing.share("Check out 'Best Deal Finance'");
+    };
+    
+    
     //  DECLARATION
 
     //  ON LOGOUT FUNCTION
