@@ -418,6 +418,10 @@ angular.module('starter.controllers', ['myservices'])
     $scope.clickcont = function () {
         $location.url("/app/contact");
     }
+    $scope.gotogenie = function () {
+        isnew = 0;
+        $location.url("/app/genie");
+    }
 })
 
 .controller('MyplanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
