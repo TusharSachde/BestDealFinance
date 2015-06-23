@@ -1,6 +1,7 @@
 var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
 var abcdf = "";
 var registeruser = [];
+var isnew = 0;
 var myservices = angular.module('myservices', [])
 
 
