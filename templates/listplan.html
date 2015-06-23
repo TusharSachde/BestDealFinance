@@ -1,13 +1,15 @@
-<ion-view view-title="Plans" class="scroll-bg">
-    <ion-nav-buttons side="right">
+<ion-view view-title="Plans" class="scroll-bg-white">
+    <ion-nav-buttons side="right" ng-controller="HomeCtrl">
+        <!--
         <a class="button button-icon button-clear ion-android-add" href="#/app/myplan">
         </a>
+-->
+        <button class="button button-icon button-clear ion-android-call" ng-click="clickcont()">
+        </button>
     </ion-nav-buttons>
 
-    <h4 ng-if="planlist==''" class="light centered">No plans to show, click on '<i class="icon ion-android-add"></i>' to add a plan.</h4>
-
-
     <ion-content class="has-header padding">
+        
         <ion-list class="opaque-bg item-gap">
             <ion-item href="#/app/editmyplan/{{aplan.planid}}" ng-repeat="aplan in planlist">
                 <ion-option-button class="button-assertive" ng-click="deleteplan(aplan.planid)">Delete</ion-option-button>
@@ -15,5 +17,34 @@
                 <p>Rs.{{aplan.planamount}}</p>
             </ion-item>
         </ion-list>
+
+
+        <div ng-if="planlist==''">
+            <div class="padding text-center assertive-bg extra-padding rounded">
+                <span class="light">Sorry. No Plans Yet.</span>
+            </div>
+
+            <div class="light-bg chat-bubble">
+                We work hard to achieve the goals which we have set for our self be a big home, latest SUV or a trip to Europe with family. Some would prefer to achieve their defined goal in the shortest period of time and some will cautiously and prudently plan for it. We at Bestdealfinance.com understand both type of customers and therefore with our Genie App brings you a feature of adding your Plan where you decide you loan type, tenure, ROI and timeframe for achieving your goal and we will hunt for the best deal on Loan which is customized for you. So add your plan now and command us to find the best suited plan that works for you!
+            </div>
+
+
+            <div class="row no-pad margin-top">
+                <div class="col">
+                    <a href="#/app/myplan" class="home-clicker one">
+                        <img src="img/home-add.png" alt="">
+                        <h6 class="dark">Add Plan</h6>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="#/app/genie" class="home-clicker one">
+                        <img src="img/home-genie.png" alt="">
+                        <h6 class="dark">Deal Genie</h6>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
     </ion-content>
 </ion-view>
