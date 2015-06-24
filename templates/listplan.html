@@ -1,15 +1,13 @@
 <ion-view view-title="Plans" class="scroll-bg-white">
     <ion-nav-buttons side="right" ng-controller="HomeCtrl">
-        <!--
-        <a class="button button-icon button-clear ion-android-add" href="#/app/myplan">
-        </a>
--->
-        <button class="button button-icon button-clear ion-android-call" ng-click="clickcont()">
-        </button>
+
+        <a class="button button-icon button-clear ion-android-add" href="#/app/myplan"></a>
+
+        <!--<button class="button button-icon button-clear ion-android-call" ng-click="clickcont()"></button>-->
     </ion-nav-buttons>
 
     <ion-content class="has-header padding">
-        
+
         <ion-list class="opaque-bg item-gap">
             <ion-item href="#/app/editmyplan/{{aplan.planid}}" ng-repeat="aplan in planlist">
                 <ion-option-button class="button-assertive" ng-click="deleteplan(aplan.planid)">Delete</ion-option-button>
