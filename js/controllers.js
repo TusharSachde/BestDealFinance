@@ -176,7 +176,6 @@ angular.module('starter.controllers', ['myservices'])
     $scope.validatemobile = function (value) {
         value.enq_mobile = value.enq_mobile.replace(" ", '');
         value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
-
     }
     $scope.validatename = function (value) {
         value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
@@ -446,11 +445,14 @@ angular.module('starter.controllers', ['myservices'])
         planfor.select = "selected";
         $scope.plan.planingfor = planfor.text;
     }
-
+    $scope.shownoplans = false;
     //  GET ALL USER PLANS
     var listplansuccess = function (data, status) {
         console.log(data);
         $scope.planlist = data.Data;
+        if ($scope.planlist.length == 0) {
+            $scope.shownoplans = true;
+        }
         $ionicLoading.hide();
     }
     MyServices.listallmyplans().success(listplansuccess);
@@ -703,7 +705,8 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.displaycount = 0;
+        $scope.shownoteligible = false;
         var plsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -719,6 +722,18 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
+                for (var i = 0; i < $scope.checklist.length; i++) {
+                    console.log($scope.checklist[i].display);
+                    if ($scope.checklist[i].display == false) {
+                        console.log("in if");
+                        $scope.displaycount++;
+                    }
+                }
+                console.log($scope.displaycount)
+                if ($scope.displaycount == $scope.checklist.length) {
+                    $scope.shownoteligible = true;
+                }
+                console.log($scope.shownoteligible);
                 console.log(data);
                 //                console.log(getjsononly($scope.checklist));
             }
@@ -801,9 +816,10 @@ angular.module('starter.controllers', ['myservices'])
             field: $scope.refine.enq_have_loan_ddl,
             validation: ""
         }, {
-            field: $scope.refine.enq_emi_existing_loan,
+            field: $scope.refine.enq_pincode,
             validation: ""
         }];
+
         var check = formvalidation($scope.allvalidation);
 
         if (check) {
@@ -1066,6 +1082,9 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.refine.enq_property_situated,
                 validation: ""
+        }, {
+                field: $scope.refine.enq_pincode,
+                validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
 
@@ -1174,7 +1193,8 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.shownoteligible = false;
+        $scope.displaycount = 0
         var carsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1190,6 +1210,19 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
+                for (var i = 0; i < $scope.checklist.length; i++) {
+                    console.log($scope.checklist[i].display);
+                    if ($scope.checklist[i].display == false) {
+                        console.log("in if");
+                        $scope.displaycount++;
+                    }
+                }
+                console.log($scope.displaycount)
+                if ($scope.displaycount == $scope.checklist.length) {
+                    $scope.shownoteligible = true;
+                }
+                console.log($scope.shownoteligible);
+                console.log(data);
                 console.log(data);
                 //                console.log(getjsononly($scope.checklist));
             }
@@ -1776,7 +1809,10 @@ angular.module('starter.controllers', ['myservices'])
                     field: $scope.refine.enq_present_use_property,
                     validation: ""
         }, {
-                    field: $scope.refine.enq_present_use_property,
+                    field: $scope.refine.step_enq_city,
+                    validation: ""
+        }, {
+                    field: $scope.refine.enq_pincode,
                     validation: ""
         }];
                 var check = formvalidation($scope.allvalidation);
@@ -2113,6 +2149,12 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL START  
     .controller('CommericialCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
+
+        $scope.validatemobile = function (value) {
+            value.enq_mobile = value.enq_mobile.replace(" ", '');
+            value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
+
         $scope.sme = {
             enq_loanType: "29",
             customersessionid: $.jStorage.get("user").customersessionid
@@ -2253,6 +2295,12 @@ angular.module('starter.controllers', ['myservices'])
     //DHAVAL START
     .controller('SmeBussniessCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
+
+        $scope.validatemobile = function (value) {
+            value.enq_mobile = value.enq_mobile.replace(" ", '');
+            value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
+
         $scope.validatename = function (value) {
             value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
         }
@@ -2393,6 +2441,12 @@ angular.module('starter.controllers', ['myservices'])
 //DHAVAL START
 .controller('SmeProjectCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicLoading, $ionicModal) {
         $ionicLoading.show();
+
+        $scope.validatemobile = function (value) {
+            value.enq_mobile = value.enq_mobile.replace(" ", '');
+            value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
+        }
+
         $scope.validatename = function (value) {
             value.enq_name = value.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
         }
@@ -3541,6 +3595,9 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                 field: $scope.refine.owner_expiry_date,
                 validation: ""
+        }, {
+                field: $scope.refine.enq_pincode,
+                validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
 
@@ -3756,6 +3813,9 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }, {
                 field: $scope.refine.enq_status,
+                validation: ""
+        }, {
+                field: $scope.enq_pincode,
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);

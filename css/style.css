@@ -1331,3 +1331,10 @@ form.ng-invalid.ng-dirty.frm-bdr {
 .margin-top {
     margin-top: 15%;
 }
+.noteligible{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+}
