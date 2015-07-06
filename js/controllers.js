@@ -2299,8 +2299,16 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup2.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else if ($scope.sme.enq_mobile.length != 10) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please enter valid mobile number",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
             }
-            if (check && sme.checkboxModel) {
+            if (check && sme.checkboxModel && $scope.sme.enq_mobile.length == 10) {
                 MyServices.smecommercialvehicle(sme).success(smecommercial);
             };
         }
@@ -2455,8 +2463,16 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup2.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
+            } else if ($scope.sme.enq_mobile.length != 10) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please enter valid mobile number",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
             }
-            if (check && sme.checkboxModel) {
+            if (check && sme.checkboxModel && $scope.sme.enq_mobile.length == 10) {
                 MyServices.smebusinesssolution(sme).success(smebusiness);;
             };
 
@@ -2611,7 +2627,16 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup2.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
             }
-            if (check && sme.checkboxModel) {
+            else if ($scope.sme.enq_mobile.length != 10) {
+                var myPopup2 = $ionicPopup.show({
+                    title: "Please enter valid mobile number",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup2.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
+            if (check && sme.checkboxModel && $scope.sme.enq_mobile.length == 10) {
                 console.log(sme);
                 MyServices.smeprojectfinance(sme).success(smefinance);;
             };
