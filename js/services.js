@@ -2,6 +2,7 @@ var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
 var abcdf = "";
 var registeruser = [];
 var isnew = 0;
+var isredirected = 0;
 var myservices = angular.module('myservices', [])
 
 
@@ -352,6 +353,19 @@ var myservices = angular.module('myservices', [])
                     "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
                     "Token": "1234",
                     "Data": {}
+                }
+            })
+        },
+        getcitywithstate: function (stateid) {
+            return $http({
+                url: adminurl + "getcitywithstate",
+                method: "POST",
+                data: {
+                    "AppId": "46b4e721-18bd-4fd6-8209-a805aea2da5b",
+                    "Token": "1234",
+                    "Data": {
+                        "stateid": stateid
+                    }
                 }
             })
         },

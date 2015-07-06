@@ -11,7 +11,7 @@
                     <span class="input-label">Email*</span>
                     <input type="email" ng-model="sme.enq_email" ng-class="allvalidation[1].validation" required>
                 </label>
-<!--
+                <!--
                 <label class="item item-input">
                     <span class="input-label">Date of Registration*</span>
                     <input type="date" ng-model="sme.enq_dob" ng-class="allvalidation[2].validation" required>
@@ -38,21 +38,32 @@
                     <div class="input-label">
                         State*
                     </div>
-                    <select ng-model="sme.enq_state" ng-class="allvalidation[4].validation" required>
+                    <select ng-model="sme.enq_state" ng-class="allvalidation[4].validation" required ng-change="getcitystatecombo(sme.enq_state);">
                         <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
                         <!--                        <option>Karnataka</option>-->
                     </select>
                 </label>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                        City*
+                    </div>
+                    <select ng-model="sme.enq_city" ng-class="allvalidation[5].validation" required>
+                        <option ng-repeat="city in citywithstate | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
+                        <!--                        <option>Karnataka</option>-->
+                    </select>
+                </label>
+                <!--
                 <label class="item item-input" ng-click="selectcity();" ng-model="sme.enq_city" ng-class="allvalidation[5].validation" required>
                     <div class="input-label">
                         City*<span class="citysearch">{{sme.enq_city}}</span>
                     </div>
-                    <!--
+                    
                     <select ng-model="sme.enq_city" ng-class="allvalidation[7].validation" required>
                         <option ng-repeat="city in cities | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                     </select>
--->
+
                 </label>
+-->
 
                 <label class="item item-input item-select">
                     <div class="input-label">
@@ -75,7 +86,7 @@
                         Country Code*
                     </div>
                     <select ng-model="sme.enq_countryCode" ng-class="allvalidation[8].validation" required>
-                       <option value="">Please select</option>
+                        <option value="">Please select</option>
                         <option value="91">India +91</option>
                     </select>
                 </label>

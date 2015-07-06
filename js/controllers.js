@@ -410,7 +410,11 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function ($scope, $stateParams, $location) {
+.controller('HomeCtrl', function ($scope, $stateParams, $location, $window) {
+    if (isredirected == 1) {
+        isredirected = 0
+        $window.location.reload(true);
+    }
     if (!$.jStorage.get("user")) {
         $location.url("/login");
     }
@@ -2226,6 +2230,18 @@ angular.module('starter.controllers', ['myservices'])
         MyServices.getdropdownstate().success(dropsuccess1);
 
 
+        var getcitywithstatesuccess = function (data, status) {
+            console.log(data);
+            $scope.citywithstate = data.Data;
+            $ionicLoading.hide();
+        }
+        $scope.getcitystatecombo = function (stateid) {
+            $ionicLoading.show();
+            console.log("State Id=" + stateid);
+            MyServices.getcitywithstate(stateid).success(getcitywithstatesuccess)
+        }
+
+
         var smecommercial = function (data, status) {
             console.log(data);
             if (data.Response != "Success") {
@@ -2377,6 +2393,16 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.getdropdownstate().success(dropsuccess1);
 
+        var getcitywithstatesuccess = function (data, status) {
+            console.log(data);
+            $scope.citywithstate = data.Data;
+            $ionicLoading.hide();
+        }
+        $scope.getcitystatecombo = function (stateid) {
+            $ionicLoading.show();
+            console.log("State Id=" + stateid);
+            MyServices.getcitywithstate(stateid).success(getcitywithstatesuccess)
+        }
 
         var smebusiness = function (data, status) {
             console.log(data);
@@ -2522,6 +2548,16 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.getdropdownstate().success(dropsuccess1);
 
+        var getcitywithstatesuccess = function (data, status) {
+            console.log(data);
+            $scope.citywithstate = data.Data;
+            $ionicLoading.hide();
+        }
+        $scope.getcitystatecombo = function (stateid) {
+            $ionicLoading.show();
+            console.log("State Id=" + stateid);
+            MyServices.getcitywithstate(stateid).success(getcitywithstatesuccess)
+        }
 
         var smefinance = function (data, status) {
             console.log(data);
@@ -3815,7 +3851,7 @@ angular.module('starter.controllers', ['myservices'])
                 field: $scope.refine.enq_status,
                 validation: ""
         }, {
-                field: $scope.enq_pincode,
+                field: $scope.refine.enq_pincode,
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
@@ -3841,9 +3877,11 @@ angular.module('starter.controllers', ['myservices'])
     .controller('SMECtrl', function ($scope, $stateParams) {})
     .controller('ThankyouCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
         $timeout(function () {
+            isredirected = 1;
             $location.url("/app/home");
         }, 3000);
         $scope.redirecttohome = function () {
+            isredirected = 1;
             $location.url("/app/home");
         }
     })
