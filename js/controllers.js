@@ -171,7 +171,7 @@ angular.module('starter.controllers', ['myservices'])
 
     //  DECARATION
     $scope.register = {
-        'enq_dob': new Date()
+        
     };
     $scope.validatemobile = function (value) {
         value.enq_mobile = value.enq_mobile.replace(" ", '');
