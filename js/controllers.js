@@ -7,8 +7,7 @@ angular.module('starter.controllers', ['myservices'])
         window.plugins.socialsharing.share("Check out 'Best Deal Finance'");
     };
 
-
-    //  DECLARATION
+        //  DECLARATION
 
     //  ON LOGOUT FUNCTION
     $scope.logoutuser = function () {
@@ -874,7 +873,7 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                     //$location.url("/app/personal");
-                    $location.url("/app/twowheeler-chk/"+$.jStorage.get("refine").appid);
+                    $location.url("/app/twowheeler-chk/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
                 //                $scope.appid = data.Applicationid;

@@ -1,4 +1,4 @@
-<ion-view view-title="Commercial Equiment" class="scroll-bg">
+<ion-view view-title="Commercial Vehicle" class="scroll-bg">
     <ion-content class="has-header font500">
         <form ng-submit="" class="deal-form">
             <div class="list signin">
@@ -71,7 +71,8 @@
 
                 <label class="item item-input">
                     <span class="input-label">Loan Amount*</span>
-                    <input type="tel" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[9].validation" required>
+                    <input type="tel" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[9].validation" only-digits ng-trim='false' required>
+<!--                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[10].validation" required>-->
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
