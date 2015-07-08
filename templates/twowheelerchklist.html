@@ -3,17 +3,17 @@
         <div class="padding"></div>
         <ion-list class="opaque-bg list-loan">
             <ion-item ng-repeat="data in checklist" ng-if="data.display==true">
-<!--
+                <!--
                 <div class="best-deal">
                     Best Deal
                 </div>
 -->
 
-<!--                <img src="img/ribbon.png" class="ribbon">-->
+                <!--                <img src="img/ribbon.png" class="ribbon">-->
 
                 <div class="thumb-left text-center">
                     <p class="simple-text padded"></p>
-<!--                    <img src="img/icici.png" alt="" class="full-image">-->
+                    <!--                    <img src="img/icici.png" alt="" class="full-image">-->
                     <img ng-src="{{data.logo_image | bankimagepath}}" alt="" class="full-image">
 
                 </div>
@@ -21,7 +21,7 @@
                 <div class="row no-pad bordered text-center">
                     <div class="col">
                         <p class="simple-text">Eligible Amount(Rs.)</p>
-                          <h3 ng-if="data.eligible_loan_amount>data.requested_loan_amount">{{data.requested_loan_amount}}</h3>
+                        <h3 ng-if="data.eligible_loan_amount>data.requested_loan_amount">{{data.requested_loan_amount}}</h3>
                         <h3 ng-if="data.eligible_loan_amount<data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
                         <h3 ng-if="data.eligible_loan_amount=data.requested_loan_amount">{{data.eligible_loan_amount}}</h3>
                     </div>
@@ -46,13 +46,19 @@
                     </div>
                     <div class="col">
                         <a href="" ng-click="checkeligibility(data);">
-                            <button class="button button-positive button-small button-apply eligibility">Check<br> Eligibility</button>
+                            <button class="button button-positive button-small button-apply eligibility">Check
+                                <br> Eligibility</button>
                         </a>
                     </div>
                 </div>
             </ion-item>
         </ion-list>
-       
+
     </ion-content>
-     <div class="noteligible" ng-show="shownoteligible">You are not Eligible</div>
+    <div class="noteligible" ng-show="shownoteligible">Based on your inputs, we have done an extensive search to get you a best deal. But, unfortunately we have not been able to find something suitable to share with you presently. The reasons for this could be any one of the following:
+        <br>
+        <br>1. Currently partnered Financial Institutions are not offering <span>the selected product</span>
+        <br>
+        <br>2. Other details provided may not be matching with the <span>product guidelines of the Financial Institutions</span>
+    </div>
 </ion-view>

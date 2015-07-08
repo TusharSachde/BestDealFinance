@@ -171,7 +171,7 @@ angular.module('starter.controllers', ['myservices'])
 
     //  DECARATION
     $scope.register = {
-        
+
     };
     $scope.validatemobile = function (value) {
         value.enq_mobile = value.enq_mobile.replace(" ", '');
@@ -640,7 +640,8 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/personal-chk");
+                    $location.url("/app/personal-chk/" + $.jStorage.get("refine").appid);
+
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
@@ -669,7 +670,8 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.displaycount = 0;
+        $scope.shownoteligible = false;
         var plsuccess = function (data, status) {
             console.log(data.Data.num);
             $ionicLoading.hide();
@@ -685,6 +687,18 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
+                for (var i = 0; i < $scope.checklist.length; i++) {
+                    console.log($scope.checklist[i].display);
+                    if ($scope.checklist[i].display == false) {
+                        console.log("in if");
+                        $scope.displaycount++;
+                    }
+                }
+                console.log($scope.displaycount)
+                if ($scope.displaycount == $scope.checklist.length) {
+                    $scope.shownoteligible = true;
+                }
+                console.log($scope.shownoteligible);
                 console.log(data);
                 //                console.log(getjsononly($scope.checklist));
             }
@@ -860,6 +874,7 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                     //$location.url("/app/personal");
+                    $location.url("/app/twowheeler-chk/"+$.jStorage.get("refine").appid);
                 }, 1500);
             } else {
                 //                $scope.appid = data.Applicationid;
@@ -1125,7 +1140,7 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/propertychk-form");
+                    $location.url("/app/propertychk-form/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
@@ -1166,7 +1181,7 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/checkcarloan");
+                    $location.url("/app/checkcarloan/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
@@ -1673,7 +1688,8 @@ angular.module('starter.controllers', ['myservices'])
 
 
 
-
+        $scope.displaycount = 0;
+        $scope.shownoteligible = false;
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1689,6 +1705,18 @@ angular.module('starter.controllers', ['myservices'])
             } else {
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
+                for (var i = 0; i < $scope.checklist.length; i++) {
+                    console.log($scope.checklist[i].display);
+                    if ($scope.checklist[i].display == false) {
+                        console.log("in if");
+                        $scope.displaycount++;
+                    }
+                }
+                console.log($scope.displaycount)
+                if ($scope.displaycount == $scope.checklist.length) {
+                    $scope.shownoteligible = true;
+                }
+                console.log($scope.shownoteligible);
                 console.log(data);
                 //                console.log(getjsononly($scope.checklist));
             }
@@ -1726,7 +1754,7 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/checkcarloan");
+                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
@@ -2626,8 +2654,7 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup2.close(); //close the popup after 3 seconds for some reason
                 }, 1500);
-            }
-            else if ($scope.sme.enq_mobile.length != 10) {
+            } else if ($scope.sme.enq_mobile.length != 10) {
                 var myPopup2 = $ionicPopup.show({
                     title: "Please enter valid mobile number",
                     scope: $scope,
@@ -2697,7 +2724,7 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/creditapply");
+                    $location.url("/app/credit");
                 }, 1500);
             } else {
                 $scope.appid = data.Applicationid;
