@@ -113,7 +113,7 @@
                 <div class="input-label">
                    Existing Bank Relationship
                 </div>
-                <select ng-model="refine.bankname">
+                <select multiple ng-model="refine.bankname">
                     <option value="">Please Select</option>
                     <option ng-repeat="bank in banks" value="{{bank.bankid}}">{{bank.bankname}}</option>
                 </select>
