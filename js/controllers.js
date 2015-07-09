@@ -668,8 +668,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaypl().success(plsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -678,10 +679,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/personal-chk/" + $.jStorage.get("refine").appid);
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
@@ -738,8 +739,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaypl().success(plsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -748,10 +750,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/personal");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
 
         //  CHECK checkeligibility
@@ -809,8 +811,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaytw().success(plsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -819,10 +822,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/twowheelerloan");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
         //  CHECK checkeligibility
         $scope.checkeligibility = function (data) {
             console.log(data);
@@ -951,8 +954,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaytw().success(twsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -961,10 +965,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/twowheeler-chk/" + $.jStorage.get("refine").appid);
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
@@ -1019,8 +1023,8 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaysecurity().success(securitysuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1029,10 +1033,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/securityloan");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibilitysecurity = function (check) {
@@ -1130,8 +1134,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaylas().success(lassuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1141,8 +1146,9 @@ angular.module('starter.controllers', ['myservices'])
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
 
         //  CHECK checkeligibility
@@ -1183,8 +1189,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawayproperty().success(propertysuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1193,10 +1200,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/propertyloan");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
 
         //  CHECK checkeligibility
@@ -1312,8 +1319,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawayproperty().success(propertysuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1322,10 +1330,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/propertychk-form/" + $.jStorage.get("refine").appid);
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
 
         //        //  CHECK checkeligibility
@@ -1370,8 +1378,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaycar().success(carsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1380,10 +1389,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/checkcarloan/" + $.jStorage.get("refine").appid);
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //        //  CHECK checkeligibility
         $scope.checkrefinecar = function (check) {
@@ -1441,8 +1450,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaycar().success(carsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1451,10 +1461,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/carloan");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibilitycar = function (check) {
@@ -1933,8 +1943,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawayhome().success(homesuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -1943,10 +1954,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/homeloan");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibilityhome = function (check) {
@@ -1991,8 +2002,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawayhome().success(homesuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -2001,10 +2013,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //        //  CHECK checkeligibility
         $scope.checkrefinehome = function (check) {
@@ -2977,8 +2989,9 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaycc().success(ccsuccess);
 
-        if ($scope.continuetimeout == true) {
-            $timeout(function () {
+
+        $timeout(function () {
+            if ($scope.continuetimeout == true) {
                 $ionicLoading.hide();
                 var myPopup1 = $ionicPopup.show({
                     title: "Error in processing your request!!",
@@ -2989,8 +3002,9 @@ angular.module('starter.controllers', ['myservices'])
                     myPopup1.close(); //close the popup after 3 seconds for some reason
                     $location.url("/app/credit");
                 }, 3000);
-            }, 7000);
-        }
+            }
+        }, 15000);
+
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
