@@ -632,6 +632,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var plsuccess = function (data, status) {
             console.log(data.Data.num);
             $ionicLoading.hide();
@@ -646,6 +647,7 @@ angular.module('starter.controllers', ['myservices'])
 
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -666,18 +668,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaypl().success(plsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/personal-chk/" + $.jStorage.get("refine").appid);
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/personal-chk/" + $.jStorage.get("refine").appid);
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
@@ -699,6 +703,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var plsuccess = function (data, status) {
             console.log(data.Data.num);
             $ionicLoading.hide();
@@ -712,6 +717,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/personal");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -732,18 +738,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaypl().success(plsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/personal");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/personal");
+                }, 3000);
+            }, 7000);
+        }
 
 
         //  CHECK checkeligibility
@@ -766,6 +774,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var plsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -779,6 +788,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/twowheelerloan");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -799,19 +809,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaytw().success(plsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/twowheelerloan");
-            }, 3000);
-        }, 7000);
-
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/twowheelerloan");
+                }, 3000);
+            }, 7000);
+        }
         //  CHECK checkeligibility
         $scope.checkeligibility = function (data) {
             console.log(data);
@@ -916,7 +927,7 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.continuetimeout = true;
         var twsuccess = function (data, status) {
             //console.log(data.Data.num);
             $ionicLoading.hide();
@@ -931,6 +942,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/twowheeler-chk/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 //                $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log($scope.checklist);
@@ -939,18 +951,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaytw().success(twsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/twowheeler-chk/" + $.jStorage.get("refine").appid);
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/twowheeler-chk/" + $.jStorage.get("refine").appid);
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
@@ -970,6 +984,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var securitysuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -983,6 +998,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/securityloan");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -1003,18 +1019,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaysecurity().success(securitysuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/securityloan");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/securityloan");
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibilitysecurity = function (check) {
@@ -1077,6 +1095,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var lassuccess = function (data, status) {
             console.log(data.Data);
             $ionicLoading.hide();
@@ -1091,6 +1110,7 @@ angular.module('starter.controllers', ['myservices'])
                 }, 1500);
             } else {
                 //                $scope.appid = data.Applicationid;
+                $scope.continuetimeout = false;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
                     console.log($scope.checklist[i].display);
@@ -1110,17 +1130,19 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaylas().success(lassuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 3000);
+            }, 7000);
+        }
 
 
         //  CHECK checkeligibility
@@ -1138,7 +1160,7 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.continuetimeout = true;
         var propertysuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1152,6 +1174,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/propertyloan");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log(data);
@@ -1160,18 +1183,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawayproperty().success(propertysuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/propertyloan");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/propertyloan");
+                }, 3000);
+            }, 7000);
+        }
 
 
         //  CHECK checkeligibility
@@ -1264,7 +1289,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $ionicLoading.hide();
 
-
+        $scope.continuetimeout = true;
         var propertysuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1278,6 +1303,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/propertychk-form/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log($scope.checklist);
@@ -1286,19 +1312,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawayproperty().success(propertysuccess);
 
-
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/propertychk-form/" + $.jStorage.get("refine").appid);
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/propertychk-form/" + $.jStorage.get("refine").appid);
+                }, 3000);
+            }, 7000);
+        }
 
 
         //        //  CHECK checkeligibility
@@ -1319,7 +1346,7 @@ angular.module('starter.controllers', ['myservices'])
 
 
 
-
+        $scope.continuetimeout = true;
         var carsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1333,6 +1360,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/checkcarloan/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log(data);
@@ -1342,18 +1370,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawaycar().success(carsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/checkcarloan/" + $.jStorage.get("refine").appid);
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/checkcarloan/" + $.jStorage.get("refine").appid);
+                }, 3000);
+            }, 7000);
+        }
 
         //        //  CHECK checkeligibility
         $scope.checkrefinecar = function (check) {
@@ -1374,7 +1404,8 @@ angular.module('starter.controllers', ['myservices'])
         });
 
         $scope.shownoteligible = false;
-        $scope.displaycount = 0
+        $scope.displaycount = 0;
+        $scope.continuetimeout = true;
         var carsuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1388,6 +1419,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/carloan");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -1409,18 +1441,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaycar().success(carsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/carloan");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/carloan");
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibilitycar = function (check) {
@@ -1864,6 +1898,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.displaycount = 0;
         $scope.shownoteligible = false;
+        $scope.continuetimeout = true;
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1877,6 +1912,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/homeloan");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 for (var i = 0; i < $scope.checklist.length; i++) {
@@ -1897,18 +1933,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawayhome().success(homesuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/homeloan");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/homeloan");
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibilityhome = function (check) {
@@ -1930,7 +1968,7 @@ angular.module('starter.controllers', ['myservices'])
 
         $ionicLoading.hide();
 
-
+        $scope.continuetimeout = true;
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
@@ -1944,6 +1982,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 $scope.checklist = data.Data;
                 console.log(data);
@@ -1952,18 +1991,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.refinestepawayhome().success(homesuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
+                }, 3000);
+            }, 7000);
+        }
 
         //        //  CHECK checkeligibility
         $scope.checkrefinehome = function (check) {
@@ -2910,7 +2951,7 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-
+        $scope.continuetimeout = true;
         var ccsuccess = function (data, status) {
             console.log("string strin");
             console.log(data);
@@ -2926,6 +2967,7 @@ angular.module('starter.controllers', ['myservices'])
                     $location.url("/app/credit");
                 }, 1500);
             } else {
+                $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
                 //                $scope.checklist = JSON.parse(data.Data);
                 $scope.checklist = data.Data;
@@ -2935,18 +2977,20 @@ angular.module('starter.controllers', ['myservices'])
         }
         MyServices.stepawaycc().success(ccsuccess);
 
-        $timeout(function () {
-            $ionicLoading.hide();
-            var myPopup1 = $ionicPopup.show({
-                title: "Error in processing your request!!",
-                subTitle: "There is some issue processing your request. Please try after some time",
-                scope: $scope,
-            });
+        if ($scope.continuetimeout == true) {
             $timeout(function () {
-                myPopup1.close(); //close the popup after 3 seconds for some reason
-                $location.url("/app/credit");
-            }, 3000);
-        }, 7000);
+                $ionicLoading.hide();
+                var myPopup1 = $ionicPopup.show({
+                    title: "Error in processing your request!!",
+                    subTitle: "There is some issue processing your request. Please try after some time",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/credit");
+                }, 3000);
+            }, 7000);
+        }
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (check) {
