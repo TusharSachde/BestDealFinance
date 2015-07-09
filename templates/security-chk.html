@@ -3,13 +3,13 @@
         <div class="padding"></div>
         <ion-list class="opaque-bg list-loan">
             <ion-item ng-repeat="check in checklist" ng-if="check.display == true">
-<!--
+                <!--
                 <div class="best-deal">
                     Best Deal
                 </div>
 -->
 
-<!--                <img src="img/ribbon.png" class="ribbon">-->
+                <!--                <img src="img/ribbon.png" class="ribbon">-->
 
                 <div class="thumb-left text-center">
                     <p class="simple-text padded"></p>
@@ -50,13 +50,20 @@
                         <h3>{{check.processing}}</h3>
                     </div>
                     <div class="col">
-<!--                        <a href="#/app/securitychkform">-->
+                        <!--                        <a href="#/app/securitychkform">-->
                         <a ng-click="checkeligibilitysecurity(check)">
-                            <button class="button button-positive button-small button-apply eligibility">Check<br> Eligibility</button>
+                            <button class="button button-positive button-small button-apply eligibility">Check
+                                <br> Eligibility</button>
                         </a>
                     </div>
                 </div>
             </ion-item>
         </ion-list>
     </ion-content>
+    <div class="noteligible" ng-show="shownoteligible">Based on your inputs, we have done an extensive search to get you a best deal. But, unfortunately we have not been able to find something suitable to share with you presently. The reasons for this could be any one of the following:
+        <br>
+        <br>1. Currently partnered Financial Institutions are not offering <span>the selected product</span>
+        <br>
+        <br>2. Other details provided may not be matching with the <span>product guidelines of the Financial Institutions</span>
+    </div>
 </ion-view>
