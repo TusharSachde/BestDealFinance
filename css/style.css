@@ -1574,15 +1574,7 @@ form.ng-invalid.ng-dirty.frm-bdr {
 }
 
 .noteligible {
-    position: relative;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     color: white;
-    padding: 0px 15px 0px 15px;
     text-align: justify;
 }
 
-.noteligible span {
-    padding-left: 20px;
-}

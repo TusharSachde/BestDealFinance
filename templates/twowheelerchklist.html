@@ -53,14 +53,14 @@
                 </div>
             </ion-item>
         </ion-list>
-
+        <div class="noteligible" ng-show="shownoteligible">
+            <p>
+                Based on your inputs, we have done an extensive search to get you a best deal. But, unfortunately we have not been able to find something suitable to share with you presently. The reasons for this could be any one of the following:
+                <br>
+                <br>1. Currently partnered Financial Institutions are not offering the selected product
+                <br>
+                <br>2. Other details provided may not be matching with the product guidelines of the Financial Institutions
+            </p>
+        </div>
     </ion-content>
-    <div class="noteligible" ng-show="shownoteligible">
-        <p>Based on your inputs, we have done an extensive search to get you a best deal. But, unfortunately we have not been able to find something suitable to share with you presently. The reasons for this could be any one of the following:
-            <br>
-            <br>1. Currently partnered Financial Institutions are not offering the selected product
-            <br>
-            <br>2. Other details provided may not be matching with the product guidelines of the Financial Institutions
-        </p>
-    </div>
 </ion-view>
