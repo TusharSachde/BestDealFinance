@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['myservices'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $state, $ionicPlatform) {
 
     //Share
     $scope.share = function () {
@@ -428,7 +428,16 @@ angular.module('starter.controllers', ['myservices'])
     }
 })
 
-.controller('MyplanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading) {
+.controller('MyplanCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $filter, $ionicLoading, $state, $ionicPlatform) {
+
+    console.log($state.current.name);
+    $ionicPlatform.registerBackButtonAction(function (event) {
+        if ($state.current.name == "app.home") {
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory();
+        }
+    }, 100);
 
     //  DECLARATION
     $scope.plan = [];
@@ -584,7 +593,16 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('FinanceCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+.controller('FinanceCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $state, $ionicPlatform) {
+
+    console.log($state.current.name);
+    $ionicPlatform.registerBackButtonAction(function (event) {
+        if ($state.current.name == "app.home") {
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory();
+        }
+    }, 100);
 
     //  DECLARATION
     $scope.categories = [];
@@ -600,7 +618,17 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
+.controller('GenieCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $state, $ionicPlatform) {
+
+    console.log($state.current.name);
+    $ionicPlatform.registerBackButtonAction(function (event) {
+        if ($state.current.name == "app.home") {
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory();
+        }
+    }, 100);
+
 
     var geniesuccess = function (data, status) {
         console.log(data);
@@ -2289,7 +2317,16 @@ angular.module('starter.controllers', ['myservices'])
     })
 
 /////code end ///////
-.controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout) {
+.controller('MyAccountCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $state, $ionicPlatform) {
+
+        console.log($state.current.name);
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if ($state.current.name == "app.home") {
+                navigator.app.exitApp();
+            } else {
+                navigator.app.backHistory();
+            }
+        }, 100);
 
         //  DECLARATION
         $scope.returnsactive = "active";
@@ -4191,12 +4228,33 @@ angular.module('starter.controllers', ['myservices'])
 
 
     })
-    .controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory) {
+    .controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory, $state, $ionicPlatform) {
+
+        console.log($state.current.name);
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if ($state.current.name == "app.home") {
+                navigator.app.exitApp();
+            } else {
+                navigator.app.backHistory();
+            }
+        }, 100);
+
         $scope.backcont = function () {
             $location.url("/app/home");
         }
     })
-    .controller('SMECtrl', function ($scope, $stateParams) {})
+    .controller('SMECtrl', function ($scope, $stateParams, $state, $ionicPlatform) {
+
+        console.log($state.current.name);
+        $ionicPlatform.registerBackButtonAction(function (event) {
+            if ($state.current.name == "app.home") {
+                navigator.app.exitApp();
+            } else {
+                navigator.app.backHistory();
+            }
+        }, 100);
+
+    })
     .controller('ThankyouCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location) {
         $timeout(function () {
             isredirected = 1;
