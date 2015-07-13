@@ -3,7 +3,7 @@
         <div class="padding"></div>
         <ion-list class="opaque-bg list-loan">
             <ion-item ng-repeat="check in checklist" ng-if="check.display == true">
-                   <div class="best-deal" ng-if="$index==0">
+                <div class="best-deal" ng-if="$index==0">
                     Best Deal
                 </div>
 
@@ -18,7 +18,7 @@
                 <div class="row no-pad bordered text-center">
                     <div class="col">
                         <p class="simple-text">Eligible Amount(Rs.)</p>
-                         <h3 ng-if="check.eligible_loan_amount<check.requested_loan_amount">{{check.eligible_loan_amount}}</h3>
+                        <h3 ng-if="check.eligible_loan_amount<check.requested_loan_amount">{{check.eligible_loan_amount}}</h3>
                         <h3 ng-if="check.eligible_loan_amount>check.requested_loan_amount">{{check.requested_loan_amount}}</h3>
                         <h3 ng-if="check.eligible_loan_amount=check.requested_loan_amount">{{check.eligible_loan_amount}}</h3>
                     </div>
@@ -50,7 +50,7 @@
                         <h3>{{check.bank_credit}}</h3>
                     </div>
                     <div class="col">
-<!--                        <a href="#/app/thankyou">-->
+                        <!--                        <a href="#/app/thankyou">-->
                         <a ng-click="checkrefinehome(check)">
                             <button class="button button-positive button-small button-apply">Apply</button>
                         </a>
@@ -58,5 +58,14 @@
                 </div>
             </ion-item>
         </ion-list>
+        <div class="noteligible" ng-show="shownoteligible">
+            <p>
+                Based on your inputs, we have done an extensive search to get you a best deal. But, unfortunately we have not been able to find something suitable to share with you presently. The reasons for this could be any one of the following:
+                <br>
+                <br>1. Currently partnered Financial Institutions are not offering the selected product
+                <br>
+                <br>2. Other details provided may not be matching with the product guidelines of the Financial Institutions
+            </p>
+        </div>
     </ion-content>
 </ion-view>

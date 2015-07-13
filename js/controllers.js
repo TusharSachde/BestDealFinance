@@ -2005,21 +2005,25 @@ angular.module('starter.controllers', ['myservices'])
             template: '<ion-spinner class="spinner-light"></ion-spinner>'
         });
 
-        $ionicLoading.hide();
-
         $scope.continuetimeout = true;
+        $scope.shownoteligible = false;
         var homesuccess = function (data, status) {
             console.log(data);
             $ionicLoading.hide();
-            if (data.Response != "Success") {
-                var myPopup1 = $ionicPopup.show({
-                    title: data.Response,
-                    scope: $scope,
-                });
-                $timeout(function () {
-                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
-                }, 1500);
+            if (data == "" || !data || data == null) {
+                $scope.shownoteligible = true;
+                $scope.continuetimeout = false;
+            } else if (data.Response != "Success") {
+                $scope.shownoteligible = true;
+                $scope.continuetimeout = false;
+                //                var myPopup1 = $ionicPopup.show({
+                //                    title: data.Response,
+                //                    scope: $scope,
+                //                });
+                //                $timeout(function () {
+                //                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                //                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
+                //                }, 1500);
             } else {
                 $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
@@ -2092,6 +2096,7 @@ angular.module('starter.controllers', ['myservices'])
             console.log(data);
         }
         $scope.applyhome = function (refine) {
+
                 console.log($scope.refine);
                 $scope.allvalidation = [{
                     field: $scope.refine.enq_gender,
@@ -2103,13 +2108,13 @@ angular.module('starter.controllers', ['myservices'])
                     field: $scope.refine.enq_nationality,
                     validation: ""
         }, {
-                    field: $scope.refine.property_classifications,
+                    field: $scope.refine.enq_pincode,
+                    validation: ""
+        }, {
+                    field: $scope.refine.property_classification,
                     validation: ""
         }, {
                     field: $scope.refine.salary_credited_since,
-                    validation: ""
-        }, {
-                    field: $scope.refine.enq_exclusive_rate_property,
                     validation: ""
         }, {
                     field: $scope.refine.enq_Purpose,
@@ -2120,20 +2125,14 @@ angular.module('starter.controllers', ['myservices'])
         }, {
                     field: $scope.refine.enq_present_use_property,
                     validation: ""
-        }, {
-                    field: $scope.refine.step_enq_city,
-                    validation: ""
-        }, {
-                    field: $scope.refine.enq_pincode,
-                    validation: ""
         }];
                 var check = formvalidation($scope.allvalidation);
 
-                //                if (check) {
-                $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
-                MyServices.refinestepawayset($scope.refine);
-                $location.url("/app/homeapply");
-                //                };
+                if (check) {
+                    $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
+                    MyServices.refinestepawayset($scope.refine);
+                    $location.url("/app/homeapply");
+                };
             }
             //  SELECT CITY
         $scope.selectcityid = function (cityid, cityname) {

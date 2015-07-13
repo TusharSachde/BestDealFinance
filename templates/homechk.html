@@ -65,15 +65,15 @@
                     </select>
                 </label>
                 <label class="item item-input">
-                    <span class="input-label">Pin Code</span>
-                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[10].validation" required>
+                    <span class="input-label">Pin Code*</span>
+                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[3].validation" required>
 
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Classification of Property*
                     </div>
-                    <select ng-model="refine.property_classification" ng-class="allvalidation[3].validation" required>
+                    <select ng-model="refine.property_classification" ng-class="allvalidation[4].validation" required>
                         <option value="">Please select</option>
                         <option>Flat</option>
                         <option>RowHouse</option>
@@ -83,13 +83,13 @@
                 </label>
 				  <label class="item item-input">
                     <span class="input-label">Employed Since*</span>
-                    <input type="date" ng-model="refine.salary_credited_since" ng-class="allvalidation[4].validation" required>
+                    <input type="date" ng-model="refine.salary_credited_since" ng-class="allvalidation[5].validation" required>
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">
-                        Property at Exclusive Rates*
+                        Property at Exclusive Rates
                     </div>
-                    <select ng-model="refine.enq_exclusive_rate_property" ng-class="allvalidation[5].validation" required>
+                    <select ng-model="refine.enq_exclusive_rate_property">
                         <option value="">Please Select</option>
                         <option>Vinayak Unique,Vinayak Unique Gardens</option>
                         <option>Balaji Darshan, Balaji Darshan Making</option>
