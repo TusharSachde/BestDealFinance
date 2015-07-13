@@ -1,4 +1,4 @@
-var adminurl = "http://demo.bestdealfinance.com/mobileverify/";
+var adminurl = "https://www.bestdealfinance.com/mobileverify/";
 var abcdf = "";
 var registeruser = [];
 var isnew = 0;
