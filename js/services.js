@@ -27,16 +27,6 @@ var myservices = angular.module('myservices', [])
         class: "travel"
     }, ];
 
-
-
-
-
-
-
-
-    // testing
-
-
     var testing = {
         "Message": "Success Message",
         "Response": "Success",
@@ -1153,9 +1143,8 @@ var myservices = angular.module('myservices', [])
             return $.jStorage.get("user");
         },
         flushuser: function () {
-            return $.jStorage.flush();
+            return $http.get("http://demo.bestdealfinance.com/mobileverify/logout");
         }
-
     };
 
 });

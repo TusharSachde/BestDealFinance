@@ -12,9 +12,13 @@ angular.module('starter.controllers', ['myservices'])
             $location.url("/app/contact");
         }
         //  ON LOGOUT FUNCTION
-    $scope.logoutuser = function () {
-        MyServices.flushuser();
+    var logoutsuccess = function (data, status) {
+        console.log(data);
+        $.jStorage.flush();
         $location.url("/login");
+    }
+    $scope.logoutuser = function () {
+        MyServices.flushuser().success(logoutsuccess);
     }
 
     if (!MyServices.getuser()) {
@@ -106,7 +110,11 @@ angular.module('starter.controllers', ['myservices'])
     $scope.allvalidation = [];
 
     //  AUTHENTICATE JSTORAGE
-    MyServices.flushuser();
+    var logoutsuccess = function (data, status) {
+        console.log(data);
+        $.jStorage.flush();
+    }
+    MyServices.flushuser().success(logoutsuccess);
     if (MyServices.getuser()) {
         $location.url("/app/home");
     }
