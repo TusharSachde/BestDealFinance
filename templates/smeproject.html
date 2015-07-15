@@ -38,6 +38,7 @@
                         State*
                     </div>
                     <select ng-model="sme.enq_state" ng-class="allvalidation[4].validation" required ng-change="getcitystatecombo(sme.enq_state);">
+                        <option value="">Please Select</option>
                         <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
                         <!--                        <option>Karnataka</option>-->
                     </select>
@@ -47,6 +48,7 @@
                         City*
                     </div>
                     <select ng-model="sme.enq_city" ng-class="allvalidation[5].validation" required>
+                        <option value="">Please Select</option>
                         <option ng-repeat="city in citywithstate | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                         <!--                        <option>Karnataka</option>-->
                     </select>

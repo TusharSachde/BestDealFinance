@@ -36,6 +36,7 @@
                         State*
                     </div>
                     <select ng-model="sme.enq_state" ng-class="allvalidation[6].validation" required ng-change="getcitystatecombo(sme.enq_state);">
+                        <option value="">Please Select</option>
                         <option ng-repeat="state in states | orderBy:'state_name'" value="{{state.state_id}}">{{state.state_name}}</option>
                         <!--                        <option>Karnataka</option>-->
                     </select>
@@ -45,6 +46,7 @@
                         City*
                     </div>
                     <select ng-model="sme.enq_city" ng-class="allvalidation[7].validation" required>
+                        <option value="">Please Select</option>
                         <option ng-repeat="city in citywithstate | orderBy:'city_name'" value="{{city.city_id}}">{{city.city_name}}</option>
                         <!--                        <option>Karnataka</option>-->
                     </select>
@@ -62,6 +64,7 @@
                         Product*
                     </div>
                     <select ng-model="sme.enq_loanType_string" ng-class="allvalidation[8].validation" required>
+                        <option value="">Please Select</option>
                         <option>Please Select</option>
                         <option>Commercial Vehicle Finance</option>
                         <option>SME Finance</option>
@@ -72,7 +75,7 @@
                 <label class="item item-input">
                     <span class="input-label">Loan Amount*</span>
                     <input type="tel" ng-model="sme.enq_loanAmtTo" ng-class="allvalidation[9].validation" only-digits ng-trim='false' required>
-<!--                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[10].validation" required>-->
+                    <!--                    <input type="text" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[10].validation" required>-->
                 </label>
                 <label class="item item-input item-select">
                     <div class="input-label">

@@ -171,9 +171,10 @@ angular.module('starter.controllers', ['myservices'])
 .controller('RegisterCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $location, $timeout, $ionicModal, $interval, $ionicLoading, $filter) {
 
     //  DECARATION
-    $scope.register = {
+    $scope.register = {};
+    $scope.register.enq_dob = new Date();
 
-    };
+
     $scope.validatemobile = function (value) {
         value.enq_mobile = value.enq_mobile.replace(" ", '');
         value.enq_mobile = value.enq_mobile.replace(/[a-zA-Z@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
