@@ -82,7 +82,16 @@ angular.module('starter.controllers', ['myservices'])
     }
 })
 
-.controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading, $ionicScrollDelegate) {
+.controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading, $ionicScrollDelegate, $ionicPlatform, $state) {
+
+    console.log($state.current.name);
+    $ionicPlatform.registerBackButtonAction(function (event) {
+        if ($state.current.name == "login") {
+            navigator.app.exitApp();
+        } else {
+            navigator.app.backHistory();
+        }
+    }, 100);
 
     $scope.scrollBottom = function () {
         $ionicScrollDelegate.scrollTo(0, 100);
