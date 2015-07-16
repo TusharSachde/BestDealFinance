@@ -35,7 +35,7 @@
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
-
+    <gap:splash src="screen/android/screen-port-xhdpi.jpg" />
 
     <!--Android-->
     <icon src="icon/android/drawable-ldpi/ic_launcher.png" gap:platform="android" gap:qualifier="ldpi" />
@@ -93,8 +93,7 @@
     
     <!--Default icon & splash-->
     <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" />
-    <gap:splash src="screen/android/screen-port-xxhdpi.png" />
-
+    
     <access origin="*" />
 
     <gap:plugin name="com.ionic.keyboard" />
