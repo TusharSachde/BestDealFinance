@@ -38,18 +38,18 @@
 
 
     <!--Android-->
-    <icon src="icon/android/drawable-ldpi/ic_launcher.png" gap:platform="android" density="ldpi" />
-    <icon src="icon/android/drawable-mdpi/ic_launcher.png" gap:platform="android" density="mdpi" />
-    <icon src="icon/android/drawable-hdpi/ic_launcher.png" gap:platform="android" density="hdpi" />
-    <icon src="icon/android/drawable-xhdpi/ic_launcher.png" gap:platform="android" density="xhdpi" />
-    <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" gap:platform="android" density="xxhdpi" />
-    <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" gap:platform="android" density="xxxhdpi" />
+    <icon src="icon/android/drawable-ldpi/ic_launcher.png" gap:platform="android" gap:qualifier="ldpi" />
+    <icon src="icon/android/drawable-mdpi/ic_launcher.png" gap:platform="android" gap:qualifier="mdpi" />
+    <icon src="icon/android/drawable-hdpi/ic_launcher.png" gap:platform="android" gap:qualifier="hdpi" />
+    <icon src="icon/android/drawable-xhdpi/ic_launcher.png" gap:platform="android" gap:qualifier="xhdpi" />
+    <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" gap:platform="android" gap:qualifier="xxhdpi" />
+    <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" gap:platform="android" gap:qualifier="xxxhdpi" />
 
-    <gap:splash src="screen/android/screen-port-hdpi.jpg" gap:platform="android" density="port-hdpi" />
-    <gap:splash src="screen/android/screen-port-ldpi.jpg" gap:platform="android" density="port-ldpi" />
-    <gap:splash src="screen/android/screen-port-mdpi.jpg" gap:platform="android" density="port-mdpi" />
-    <gap:splash src="screen/android/screen-port-xhdpi.jpg" gap:platform="android" density="port-xhdpi" />
-    <gap:splash src="screen/android/screen-port-xxhdpi.jpg" gap:platform="android" density="port-xxhdpi" />
+    <gap:splash src="screen/android/screen-port-hdpi.jpg" gap:platform="android" gap:qualifier="port-hdpi" />
+    <gap:splash src="screen/android/screen-port-ldpi.jpg" gap:platform="android" gap:qualifier="port-ldpi" />
+    <gap:splash src="screen/android/screen-port-mdpi.jpg" gap:platform="android" gap:qualifier="port-mdpi" />
+    <gap:splash src="screen/android/screen-port-xhdpi.jpg" gap:platform="android" gap:qualifier="port-xhdpi" />
+    <gap:splash src="screen/android/screen-port-xxhdpi.jpg" gap:platform="android" gap:qualifier="port-xxhdpi" />
 
     <!--iOS-->
     <!-- iOS 8.0+ -->
@@ -93,7 +93,7 @@
     
     <!--Default icon & splash-->
     <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" />
-    <gap:splash src="screen/ios/Default-750@2x~iphone6-portrait_750x1334.png" />
+    <gap:splash src="screen/android/screen-port-xxhdpi.png" />
 
     <access origin="*" />
 
