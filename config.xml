@@ -35,7 +35,11 @@
     <preference name="StatusBarBackgroundColor" value="#ffffff" />
     <preference name="StatusBarStyle" value="lightcontent" />
 
+    <gap:splash src="screen/android/screen-port-hdpi.jpg" />
+    <gap:splash src="screen/android/screen-port-ldpi.jpg" />
+    <gap:splash src="screen/android/screen-port-mdpi.jpg" />
     <gap:splash src="screen/android/screen-port-xhdpi.jpg" />
+    <gap:splash src="screen/android/screen-port-xxhdpi.jpg" />
 
     <!--Android-->
     <icon src="icon/android/drawable-ldpi/ic_launcher.png" gap:platform="android" gap:qualifier="ldpi" />
@@ -45,11 +49,13 @@
     <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" gap:platform="android" gap:qualifier="xxhdpi" />
     <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" gap:platform="android" gap:qualifier="xxxhdpi" />
 
+<!--
     <gap:splash src="screen/android/screen-port-hdpi.jpg" gap:platform="android" gap:qualifier="port-hdpi" />
     <gap:splash src="screen/android/screen-port-ldpi.jpg" gap:platform="android" gap:qualifier="port-ldpi" />
     <gap:splash src="screen/android/screen-port-mdpi.jpg" gap:platform="android" gap:qualifier="port-mdpi" />
     <gap:splash src="screen/android/screen-port-xhdpi.jpg" gap:platform="android" gap:qualifier="port-xhdpi" />
     <gap:splash src="screen/android/screen-port-xxhdpi.jpg" gap:platform="android" gap:qualifier="port-xxhdpi" />
+-->
 
     <!--iOS-->
     <!-- iOS 8.0+ -->
