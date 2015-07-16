@@ -45,11 +45,11 @@
     <icon src="icon/android/drawable-xxhdpi/ic_launcher.png" gap:platform="android" density="xxhdpi" />
     <icon src="icon/android/drawable-xxxhdpi/ic_launcher.png" gap:platform="android" density="xxxhdpi" />
 
-    <gap:splash src="screen/android/screen-port-hdpi.png" gap:platform="android" density="port-hdpi" />
-    <gap:splash src="screen/android/screen-port-ldpi.png" gap:platform="android" density="port-ldpi" />
-    <gap:splash src="screen/android/screen-port-mdpi.png" gap:platform="android" density="port-mdpi" />
-    <gap:splash src="screen/android/screen-port-xhdpi.png" gap:platform="android" density="port-xhdpi" />
-    <gap:splash src="screen/android/screen-port-xxhdpi.png" gap:platform="android" density="port-xxhdpi" />
+    <gap:splash src="screen/android/screen-port-hdpi.jpg" gap:platform="android" density="port-hdpi" />
+    <gap:splash src="screen/android/screen-port-ldpi.jpg" gap:platform="android" density="port-ldpi" />
+    <gap:splash src="screen/android/screen-port-mdpi.jpg" gap:platform="android" density="port-mdpi" />
+    <gap:splash src="screen/android/screen-port-xhdpi.jpg" gap:platform="android" density="port-xhdpi" />
+    <gap:splash src="screen/android/screen-port-xxhdpi.jpg" gap:platform="android" density="port-xxhdpi" />
 
     <!--iOS-->
     <!-- iOS 8.0+ -->
