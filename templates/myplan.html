@@ -51,7 +51,7 @@
                 </label>
                 <label class="item item-input">
                     <span class="input-label"><i class="icon ion-android-calendar"></i></span>
-                    <input type="text" onfocus="(this.type='date')" placeholder="Target Date *" ng-model="plan.plandate" ng-class="allvalidation[2].validation" required>
+                    <input type="text" onfocus="(this.type='date')" placeholder="Target Date *" ng-model="plan.plandate" ng-class="allvalidation[2].validation" required ng-change="isAfter(plan.plandate);">
                 </label>
             </div>
 

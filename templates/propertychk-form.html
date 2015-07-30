@@ -46,8 +46,8 @@
                         <input type="text" ng-init="refine.enq_nationality='Indian'" ng-model="refine.enq_nationality" ng-class="allvalidation[2].validation" required>
                     </div>
                 </label>
-                
-                 <label class="item item-input item-select">
+
+                <label class="item item-input item-select">
                     <div class="input-label">
                         Classification Of Property*
                     </div>
@@ -56,10 +56,10 @@
                         <option>Others</option>
                         <option>Personal</option>
                         <option>Malls with less than 60% foot fall</option>
-                        
+
                     </select>
                 </label>
-                
+
                 <label class="item item-input">
                     <span class="input-label">Pin Code</span>
 
@@ -67,29 +67,32 @@
                     <input type="tel" maxlength="6" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[8].validation" required>
 
                 </label>
-                
-                 <label class="item item-input">
+
+                <label class="item item-input">
                     <span class="input-label">Area of Property(In sq.ft.)*</span>
                     <input type="tel" ng-model="refine.property_area" ng-class="allvalidation[4].validation" required only-digits ng-trim='false'>
                 </label>
-                
-                 <label class="item item-input item-select">
+
+                <label class="item item-input item-select">
                     <div class="input-label">
                         Do you have an existing loan?*
                     </div>
                     <select ng-model="refine.enq_have_loan_ddl" ng-class="allvalidation[5].validation" required>
-                        <option value"">Please Select</option>
-                        <option>No</option>
-                        <option>Yes</option>
+                        <option value "">Please Select</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
                     </select>
                 </label>
-                
+                <label class="item item-input" ng-if="refine.enq_have_loan_ddl=='Yes'">
+                    <span class="input-label">Total EMI Paid For Existing Loan</span>
+                    <input type="tel" ng-model="refine.enq_emi_existing_loan" only-digits ng-trim='false'>
+                </label>
                 <label class="item item-input">
                     <span class="input-label">Property Since*</span>
                     <input type="date" ng-model="refine.owner_expiry_date" ng-class="allvalidation[6].validation" required>
                 </label>
-                
-                 <label class="item item-input item-select">
+
+                <label class="item item-input item-select">
                     <div class="input-label">
                         Property Situated*
                     </div>
@@ -100,8 +103,8 @@
                         <option>Gram Panchayat Property</option>
                     </select>
                 </label>
-                
-<!--
+
+                <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Audited Financial
@@ -129,7 +132,7 @@
 
             </div>
 
-<!--            <a href="#/app/propertyformapply">-->
+            <!--            <a href="#/app/propertyformapply">-->
             <a ng-click="refineproperty(refine)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">

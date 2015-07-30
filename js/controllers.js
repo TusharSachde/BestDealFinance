@@ -405,7 +405,7 @@ angular.module('starter.controllers', ['myservices'])
             }, 1500);
         } else {
             var myPopup1 = $ionicPopup.show({
-                title: data.msg,
+                title: "User not found in database",
                 scope: $scope,
             });
             $timeout(function () {
@@ -515,11 +515,34 @@ angular.module('starter.controllers', ['myservices'])
         var check = formvalidation($scope.allvalidation);
 
         if (check) {
-            $scope.plan.plandate = $filter('date')($scope.plan.plandate, "yyyy-MM-dd");
-            MyServices.Insertmyplans($scope.plan).success(plansuccess);
+            if (!moment($scope.plan.plandate).isAfter(new Date())) {
+                var myPopup1 = $ionicPopup.show({
+                    title: "Please enter the future date",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $scope.plan.plandate = $filter('date')(new Date(), "yyyy-MM-dd");
+                }, 1500);
+            } else if (moment($scope.plan.plandate).isAfter(new Date())) {
+                $scope.plan.plandate = $filter('date')($scope.plan.plandate, "yyyy-MM-dd");
+                MyServices.Insertmyplans($scope.plan).success(plansuccess);
+            }
         };
-
     }
+
+    //    $scope.isAfter = function (date) {
+    //        if (!moment(date).isAfter(new Date())) {
+    //            var myPopup1 = $ionicPopup.show({
+    //                title: "Please enter the future date",
+    //                scope: $scope,
+    //            });
+    //            $timeout(function () {
+    //                myPopup1.close(); //close the popup after 3 seconds for some reason
+    //                $location.url("/app/listplan");
+    //            }, 1500);
+    //        }
+    //    }
 
     //  DELETE PLAN
     var deleteplansuccess = function (data, status) {

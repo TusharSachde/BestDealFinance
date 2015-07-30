@@ -21,7 +21,7 @@
                         <option>Married</option>
                         <option>Single</option>
                         <option>Divorced</option>
-<!--                        <option>Un-married</option>-->
+                        <!--                        <option>Un-married</option>-->
                         <option>Widowed</option>
                         <option>Seperated</option>
                     </select>
@@ -47,12 +47,12 @@
                         <input type="text" ng-model="refine.enq_nationality" ng-init="refine.enq_nationality='Indian'" ng-class="allvalidation[2].validation" required>
                     </div>
                 </label>
-				  <label class="item item-input" >
+                <label class="item item-input">
                     <span class="input-label">Pin Code</span>
-                    <input type="tel" ng-model="refine.enq_pincode" only-digits ng-trim='false' ng-class="allvalidation[8].validation" required>
+                    <input type="tel" ng-model="refine.enq_pincode" maxlength="6" only-digits ng-trim='false' ng-class="allvalidation[8].validation" required>
 
                 </label>
-<!--
+                <!--
                 <label class="item item-input item-select">
                     <div class="input-label">
                         Year of Manufacture
@@ -95,8 +95,8 @@
                     <input type="text">
                 </label>
 -->
-                
-<!--
+
+                <!--
                 <label class="item item-input" ng-if="refine.enq_have_loan_ddl == 'Yes'">
                     <span class="input-label">Total EMI Paid For Existing Loan</span>
                     <input type="text" ng-model="refine.enq_emi_existing_loan">
@@ -122,16 +122,16 @@
                         <option>Yes</option>
                     </select>
                 </label>
-                  <label class="item item-input" ng-if="refine.enq_have_loan_ddl=='Yes'">
+                <label class="item item-input" ng-if="refine.enq_have_loan_ddl=='Yes'">
                     <span class="input-label">Total EMI Paid For Existing Loan</span>
-                        <input type="tel" ng-model="refine.enq_emi_existing_loan" only-digits ng-trim='false'>
+                    <input type="tel" ng-model="refine.enq_emi_existing_loan" only-digits ng-trim='false'>
                 </label>
 
-              
+
 
             </div>
 
-<!--            <a href="#/app/carapply">-->
+            <!--            <a href="#/app/carapply">-->
             <a ng-click="refinecar(refine)">
                 <div class="button-image" ng-click="">
                     <img src="img/button2.png" alt="" class="full-image">
