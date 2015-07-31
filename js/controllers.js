@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['myservices'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $state, $ionicPlatform,$ionicNavBarDelegate,$rootScope) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $state, $ionicPlatform, $ionicNavBarDelegate, $rootScope) {
 
     //Share
     $scope.share = function () {
@@ -84,20 +84,6 @@ angular.module('starter.controllers', ['myservices'])
     var validatename = function (value) {
         value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
     }
-    
-    
-    $rootScope.$on('$stateChangeStart', 
-function(event, toState, toParams, fromState, fromParams){ 
-        console.log($state.current);
-    if($state.current.name == "app.home"){
-        $ionicNavBarDelegate.showBackButton(false);
-    }
-    else {
-        $ionicNavBarDelegate.showBackButton(true);
-    }
-});
-    
-    
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading, $ionicScrollDelegate, $ionicPlatform, $state) {
@@ -438,12 +424,10 @@ function(event, toState, toParams, fromState, fromParams){
         if (check) {
             MyServices.forgotpassword(forgot).success(forgotsuccess);
         };
-
     }
-
 })
 
-.controller('HomeCtrl', function ($scope, $stateParams, $location, $window,$ionicNavBarDelegate) {
+.controller('HomeCtrl', function ($scope, $stateParams, $location, $window, $ionicNavBarDelegate) {
     if (isredirected == 1) {
         isredirected = 0;
         $window.location.reload(true);
@@ -478,7 +462,7 @@ function(event, toState, toParams, fromState, fromParams){
     $scope.plan.plandate = $filter('date')($scope.plan.plandate, "dd-MM-yyyy");;
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
-    $scope.plan.planame="Home";
+    $scope.plan.planame = "Home";
     $ionicLoading.show({
         template: '<ion-spinner class="spinner-light"></ion-spinner>'
     });
@@ -486,7 +470,7 @@ function(event, toState, toParams, fromState, fromParams){
     //  CHANGE TAB
     $scope.changetab = function (planfor) {
         console.log(planfor);
-        $scope.plan.planame=planfor.text;
+        $scope.plan.planame = planfor.text;
         for (var i = 0; i < $scope.planingfor.length; i++) {
             $scope.planingfor[i].select = "";
         }
@@ -746,6 +730,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -818,6 +805,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -891,6 +881,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -997,7 +990,7 @@ function(event, toState, toParams, fromState, fromParams){
 
         var check = formvalidation($scope.allvalidation);
 
-        if (check && $scope.refine.enq_pincode.length==6) {
+        if (check && $scope.refine.enq_pincode.length == 6) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
             $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
@@ -1005,14 +998,14 @@ function(event, toState, toParams, fromState, fromParams){
             console.log($scope.refine);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/twowheelerapply");
-        }else{
+        } else {
             var myPopup1 = $ionicPopup.show({
-                    title: "Please Enter Valid Pincode",
-                    scope: $scope,
-                });
+                title: "Please Enter Valid Pincode",
+                scope: $scope,
+            });
             $timeout(function () {
                 myPopup1.close(); //close the popup after 3 seconds for some reason
-                    //$location.url("/app/personal");
+                //$location.url("/app/personal");
             }, 1500);
         }
     }
@@ -1113,6 +1106,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -1225,6 +1221,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log($scope.checklist);
@@ -1544,6 +1543,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -2039,6 +2041,9 @@ function(event, toState, toParams, fromState, fromParams){
                 console.log($scope.displaycount)
                 if ($scope.displaycount == $scope.checklist.length) {
                     $scope.shownoteligible = true;
+                    $timeout(function () {
+                        $location.url("/app/finance");
+                    }, 3000);
                 }
                 console.log($scope.shownoteligible);
                 console.log(data);
@@ -2058,7 +2063,6 @@ function(event, toState, toParams, fromState, fromParams){
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -2093,14 +2097,9 @@ function(event, toState, toParams, fromState, fromParams){
             } else if (data.Response != "Success") {
                 $scope.shownoteligible = true;
                 $scope.continuetimeout = false;
-                //                var myPopup1 = $ionicPopup.show({
-                //                    title: data.Response,
-                //                    scope: $scope,
-                //                });
-                //                $timeout(function () {
-                //                    myPopup1.close(); //close the popup after 3 seconds for some reason
-                //                    $location.url("/app/homechk/" + $.jStorage.get("refine").appid);
-                //                }, 1500);
+                $timeout(function () {
+                    $location.url("/app/finance");
+                }, 3000);
             } else {
                 $scope.continuetimeout = false;
                 $scope.appid = data.Applicationid;
@@ -2122,7 +2121,6 @@ function(event, toState, toParams, fromState, fromParams){
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -2206,11 +2204,11 @@ function(event, toState, toParams, fromState, fromParams){
         }];
                 var check = formvalidation($scope.allvalidation);
 
-                if (check && $scope.refine.enq_pincode.length==6) {
+                if (check && $scope.refine.enq_pincode.length == 6) {
                     $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                     MyServices.refinestepawayset($scope.refine);
                     $location.url("/app/homeapply");
-                }else{
+                } else {
                     var myPopup1 = $ionicPopup.show({
                         title: "Please Enter Valid Pincode",
                         scope: $scope,
@@ -2564,7 +2562,7 @@ function(event, toState, toParams, fromState, fromParams){
         $scope.sme = {
             enq_loanType: "29",
             customersessionid: $.jStorage.get("user").customersessionid,
-            enq_state:""
+            enq_state: ""
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -2901,7 +2899,7 @@ function(event, toState, toParams, fromState, fromParams){
         $scope.sme = {
             enq_loanType: "32",
             customersessionid: $.jStorage.get("user").customersessionid,
-            enq_state:""
+            enq_state: ""
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -3124,7 +3122,6 @@ function(event, toState, toParams, fromState, fromParams){
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -4083,12 +4080,12 @@ function(event, toState, toParams, fromState, fromParams){
         }];
             var check = formvalidation($scope.allvalidation);
 
-            if (check && $scope.refine.enq_pincode.length==6) {
+            if (check && $scope.refine.enq_pincode.length == 6) {
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/carapply");
 
-            }else{
+            } else {
                 var myPopup1 = $ionicPopup.show({
                     title: "Please Enter Valid Pincode",
                     scope: $scope,
@@ -4310,14 +4307,14 @@ function(event, toState, toParams, fromState, fromParams){
         }];
             var check = formvalidation($scope.allvalidation);
 
-            if (check && $scope.refine.enq_pincode.length==6) {
+            if (check && $scope.refine.enq_pincode.length == 6) {
                 $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                 //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/listloan");
                 //            sapana akshay
-            }else{
+            } else {
                 var myPopup1 = $ionicPopup.show({
                     title: "Please Enter Valid Pincode",
                     scope: $scope,
