@@ -987,7 +987,7 @@ angular.module('starter.controllers', ['myservices'])
 
         var check = formvalidation($scope.allvalidation);
 
-        if (check && $scope.refine.enq_pincode.length == 6) {
+        if (check && $scope.refine.enq_pincode.toString().length == 6) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
             $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
@@ -2194,7 +2194,7 @@ angular.module('starter.controllers', ['myservices'])
         }];
                 var check = formvalidation($scope.allvalidation);
 
-                if (check && $scope.refine.enq_pincode.length == 6) {
+                if (check && $scope.refine.enq_pincode.toString().length == 6) {
                     $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                     MyServices.refinestepawayset($scope.refine);
                     $location.url("/app/homeapply");
@@ -2552,7 +2552,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.sme = {
             enq_loanType: "29",
             customersessionid: $.jStorage.get("user").customersessionid,
-            enq_state: ""
+            enq_state: undefined
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -2889,7 +2889,7 @@ angular.module('starter.controllers', ['myservices'])
         $scope.sme = {
             enq_loanType: "32",
             customersessionid: $.jStorage.get("user").customersessionid,
-            enq_state: ""
+            enq_state: undefined
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -4070,7 +4070,7 @@ angular.module('starter.controllers', ['myservices'])
         }];
             var check = formvalidation($scope.allvalidation);
 
-            if (check && $scope.refine.enq_pincode.length == 6) {
+            if (check && $scope.refine.enq_pincode.toString().length == 6) {
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/carapply");
@@ -4296,8 +4296,8 @@ angular.module('starter.controllers', ['myservices'])
                 validation: ""
         }];
             var check = formvalidation($scope.allvalidation);
-
-            if (check && $scope.refine.enq_pincode.length == 6) {
+            console.log($scope.refine.enq_pincode.toString().length);
+            if (check && $scope.refine.enq_pincode.toString().length == 6) {
                 $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                 //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
