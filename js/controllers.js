@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['myservices'])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $state, $ionicPlatform) {
+.controller('AppCtrl', function ($scope, $ionicModal, $timeout, MyServices, $location, $state, $ionicPlatform,$ionicNavBarDelegate,$rootScope) {
 
     //Share
     $scope.share = function () {
@@ -84,6 +84,20 @@ angular.module('starter.controllers', ['myservices'])
     var validatename = function (value) {
         value.register.enq_name = value.register.enq_name.replace(/[0-9@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\?]+/g, '');
     }
+    
+    
+    $rootScope.$on('$stateChangeStart', 
+function(event, toState, toParams, fromState, fromParams){ 
+        console.log($state.current);
+    if($state.current.name == "app.home"){
+        $ionicNavBarDelegate.showBackButton(false);
+    }
+    else {
+        $ionicNavBarDelegate.showBackButton(true);
+    }
+});
+    
+    
 })
 
 .controller('LoginCtrl', function ($scope, $stateParams, MyServices, $location, $ionicPopup, $timeout, $ionicLoading, $ionicScrollDelegate, $ionicPlatform, $state) {
@@ -429,9 +443,9 @@ angular.module('starter.controllers', ['myservices'])
 
 })
 
-.controller('HomeCtrl', function ($scope, $stateParams, $location, $window) {
+.controller('HomeCtrl', function ($scope, $stateParams, $location, $window,$ionicNavBarDelegate) {
     if (isredirected == 1) {
-        isredirected = 0
+        isredirected = 0;
         $window.location.reload(true);
     }
     if (!$.jStorage.get("user")) {
@@ -464,12 +478,15 @@ angular.module('starter.controllers', ['myservices'])
     $scope.plan.plandate = $filter('date')($scope.plan.plandate, "dd-MM-yyyy");;
     $scope.planingfor = MyServices.getplaningfor();
     $scope.plan.planingfor = $scope.planingfor[0].text;
+    $scope.plan.planame="Home";
     $ionicLoading.show({
         template: '<ion-spinner class="spinner-light"></ion-spinner>'
     });
 
     //  CHANGE TAB
     $scope.changetab = function (planfor) {
+        console.log(planfor);
+        $scope.plan.planame=planfor.text;
         for (var i = 0; i < $scope.planingfor.length; i++) {
             $scope.planingfor[i].select = "";
         }
@@ -748,9 +765,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -819,9 +837,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
 
@@ -891,9 +910,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
         //  CHECK checkeligibility
         $scope.checkeligibility = function (data) {
@@ -977,7 +997,7 @@ angular.module('starter.controllers', ['myservices'])
 
         var check = formvalidation($scope.allvalidation);
 
-        if (check) {
+        if (check && $scope.refine.enq_pincode.length==6) {
             $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");
             $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
             $scope.refine.enq_bank_ac_tw_since = $filter('date')($scope.refine.enq_bank_ac_tw_since, "yyyy-MM-dd");
@@ -985,8 +1005,16 @@ angular.module('starter.controllers', ['myservices'])
             console.log($scope.refine);
             MyServices.refinestepawayset($scope.refine);
             $location.url("/app/twowheelerapply");
-
-        };
+        }else{
+            var myPopup1 = $ionicPopup.show({
+                    title: "Please Enter Valid Pincode",
+                    scope: $scope,
+                });
+            $timeout(function () {
+                myPopup1.close(); //close the popup after 3 seconds for some reason
+                    //$location.url("/app/personal");
+            }, 1500);
+        }
     }
 
 })
@@ -1034,9 +1062,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -1102,9 +1131,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -1214,9 +1244,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
 
@@ -1269,9 +1300,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
 
@@ -1399,9 +1431,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
 
@@ -1458,9 +1491,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //        //  CHECK checkeligibility
@@ -1530,9 +1564,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -2023,9 +2058,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -2086,9 +2122,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //        //  CHECK checkeligibility
@@ -2169,11 +2206,19 @@ angular.module('starter.controllers', ['myservices'])
         }];
                 var check = formvalidation($scope.allvalidation);
 
-                if (check) {
+                if (check && $scope.refine.enq_pincode.length==6) {
                     $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                     MyServices.refinestepawayset($scope.refine);
                     $location.url("/app/homeapply");
-                };
+                }else{
+                    var myPopup1 = $ionicPopup.show({
+                        title: "Please Enter Valid Pincode",
+                        scope: $scope,
+                    });
+                    $timeout(function () {
+                        myPopup1.close(); //close the popup after 3 seconds for some reason
+                    }, 1500);
+                }
             }
             //  SELECT CITY
         $scope.selectcityid = function (cityid, cityname) {
@@ -2518,7 +2563,8 @@ angular.module('starter.controllers', ['myservices'])
 
         $scope.sme = {
             enq_loanType: "29",
-            customersessionid: $.jStorage.get("user").customersessionid
+            customersessionid: $.jStorage.get("user").customersessionid,
+            enq_state:""
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -2854,7 +2900,8 @@ angular.module('starter.controllers', ['myservices'])
         }
         $scope.sme = {
             enq_loanType: "32",
-            customersessionid: $.jStorage.get("user").customersessionid
+            customersessionid: $.jStorage.get("user").customersessionid,
+            enq_state:""
         }
         $scope.selectcomp = function (comp) {
             console.log(comp);
@@ -3077,10 +3124,10 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/credit");
+                    $location.url("/app/finance");
                 }, 3000);
             }
-        }, 15000);
+        }, 25000);
 
 
         //  CHECK checkeligibility
@@ -4036,12 +4083,20 @@ angular.module('starter.controllers', ['myservices'])
         }];
             var check = formvalidation($scope.allvalidation);
 
-            if (check) {
+            if (check && $scope.refine.enq_pincode.length==6) {
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/carapply");
 
-            };
+            }else{
+                var myPopup1 = $ionicPopup.show({
+                    title: "Please Enter Valid Pincode",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
         }
     })
     //SAPANA ENDS
@@ -4255,18 +4310,23 @@ angular.module('starter.controllers', ['myservices'])
         }];
             var check = formvalidation($scope.allvalidation);
 
-            if (check) {
+            if (check && $scope.refine.enq_pincode.length==6) {
                 $scope.refine.enq_staying_since = $filter('date')($scope.refine.enq_staying_since, "yyyy-MM-dd");;
                 $scope.refine.salary_credited_since = $filter('date')($scope.refine.salary_credited_since, "yyyy-MM-dd");;
                 //            MyServices.refinestepawaypl($scope.refine).success(refinesuccess);
                 MyServices.refinestepawayset($scope.refine);
                 $location.url("/app/listloan");
                 //            sapana akshay
-            };
-
+            }else{
+                var myPopup1 = $ionicPopup.show({
+                    title: "Please Enter Valid Pincode",
+                    scope: $scope,
+                });
+                $timeout(function () {
+                    myPopup1.close(); //close the popup after 3 seconds for some reason
+                }, 1500);
+            }
         }
-
-
     })
     .controller('ContactCtrl', function ($scope, $stateParams, MyServices, $ionicPopup, $timeout, $location, $ionicHistory, $state, $ionicPlatform) {
 
