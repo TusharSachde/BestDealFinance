@@ -752,7 +752,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -827,7 +826,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -903,7 +901,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1055,7 +1052,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1127,7 +1123,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1243,7 +1238,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1299,7 +1293,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1430,7 +1423,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1490,7 +1482,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
@@ -1566,7 +1557,6 @@ angular.module('starter.controllers', ['myservices'])
                 });
                 $timeout(function () {
                     myPopup1.close(); //close the popup after 3 seconds for some reason
-                    $location.url("/app/finance");
                 }, 3000);
             }
         }, 25000);
